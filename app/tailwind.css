@@ -1,0 +1,16 @@
+/* Tailwind CSS utility classes */
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+/* Add more utility classes as needed */

@@ -1,0 +1,417 @@
+{
+  "site": {
+    "title": "MilloColor - Zgjidhje Premium të Bojërave për Automjete",
+    "description": "Zgjidhje të bojërave për automjete të cilësisë së lartë për profesionistët. Shpërndarës i bojërave premium evropiane me mbi 30 vjet përvojë."
+  },
+  "nav": {
+    "home": "Kryefaqja",
+    "about": "Rreth Nesh",
+    "products": "Produktet",
+    "brands": "Markat",
+    "services": "Shërbimet",
+    "training": "Trajnimi",
+    "contact": "Kontakti"
+  },
+  "hero": {
+    "title": "Duke Ngjyrosur të Ardhmen",
+    "subtitle": "Zgjidhje premium të bojërave për automjete për profesionistët",
+    "cta": "Zbuloni Produktet Tona",
+    "scrollHint": "Lëviz poshtë për të eksploruar"
+  },
+  "about": {
+    "title": "Rreth MilloColor",
+    "subtitle": "Mbi 30 Vjet Ekselencë në Zgjidhjet e Bojërave për Automjete",
+    "history": {
+      "title": "Historia Jonë",
+      "paragraph1": "Themeluar në 1990, MilloColor filloi si një shpërndarës i vogël i bojërave evropiane për automjete. Sot, jemi një ofruesi kryesor i zgjidhjeve premium të bojërave, me prezencë në më shumë se 20 vende në mbarë botën.",
+      "paragraph2": "Nëpërmjet përkushtimit ndaj cilësisë dhe inovacionit, kemi ndërtuar partneritete të forta me prodhueset më të respektuara të bojërave në botë, duke na lejuar të sjellim produkte të teknologjisë së fundit për klientët tanë.",
+      "imageAlt": "Vijat kohore të historisë së MilloColor"
+    },
+    "mission": {
+      "title": "Misioni dhe Vlerat Tona",
+      "paragraph": "Në MilloColor, ne besojmë në ofrim ekselence përmes produkteve cilësore, njohurive të ekspertëve dhe shërbimit të jashtëzakonshëm. Misioni ynë është të ngremë standardin e bojatisjes së automjeteve në të gjithë botën.",
+      "values": {
+        "value1": {
+          "title": "Ekselencë",
+          "description": "Jemi të përkushtuar ndaj ekselencës në çdo gjë që bëjmë, nga cilësia e produktit deri te shërbimi ndaj klientit."
+        },
+        "value2": {
+          "title": "Inovacion",
+          "description": "Ne vazhdimisht kërkojmë teknologji dhe metoda të reja për të përmirësuar performancën dhe rezultatet."
+        },
+        "value3": {
+          "title": "Qëndrueshmeri",
+          "description": "Jemi të përkushtuar ndaj praktikave dhe produkteve që respektojnë mjedisin."
+        }
+      }
+    },
+    "team": {
+      "title": "Ekipi Ynë",
+      "paragraph1": "Ekipi ynë përbeket nga ekspertë të industrisë me dhjetra vjet përvojë të kombinuar në ngjyrosjen dhe rifinimin e automjeteve. Shumë prej tyre janë ish-bojatisja, teknikë dhe specialistë të ngjyrave që i kuptojnë sfidat tuaja drejtfërdrejtë.",
+      "paragraph2": "Kjo ekspertizë praktike na lejon të ofrojmë jo vetëm produkte, por zgjidhje të përshtatura për nevojat specifike të bojatisjes profesionale dhe dyqaneve të karrocerisë.",
+      "imageAlt": "Ekipi i ekspertëve MilloColor"
+    },
+    "future": {
+      "title": "Duke Parë Drejt së Ardhmes",
+      "paragraph": "Ndërsa vazhdojmë të rritemi, fokusi ynë mbetet në sjelljen e inovacioneve më të fundit dhe produkteve të cilësisë më të lartë për klientët tanë. Jemi të entëziazmuar për të ardhmen e bojatisjes së automjeteve dhe rolin tonë në formimin e saj.",
+      "cta": "Na Kontaktoni Sot"
+    }
+  },
+  "products": {
+    "title": "Produktet Tona",
+    "subtitle": "Zgjidhje premium të bojërave për rezultate profesionale",
+    "categories": {
+      "all": "Të Gjitha Produktet",
+      "basecoats": "Bazët",
+      "clearcoats": "Llaqet e Tejdukshme",
+      "topcoats": "Shtresat e Siptërme",
+      "additives": "Aditivtë",
+      "accessories": "Aksesorë"
+    },
+    "product1": {
+      "name": "UltraBase Pro",
+      "description": "Bazë premium me bazë uji me mbulim të jashtëzakonshëm dhe saktësi të ngjyrave."
+    },
+    "product2": {
+      "name": "CrystalClear HS",
+      "description": "Llak i tejdukshëm me përbërje të lartë që siguron shkieltje dhe qëndrueshmeri superiore."
+    },
+    "product3": {
+      "name": "DirectGloss Elite",
+      "description": "Shtresë e siptërme me një hap me fortësues të integruar për efikasitet."
+    },
+    "product4": {
+      "name": "FlexAdd 2000",
+      "description": "Aditiv elastikues për siporfaqe fleksibil."
+    },
+    "product5": {
+      "name": "PrecisionMix System",
+      "description": "Sistemi i plotë i përzierjes dhe përputhjes së ngjyrave për profesionistët."
+    },
+    "product6": {
+      "name": "EcoBase Waterborne",
+      "description": "Bazë ekologjike me bazë uji me emetim të reduktuar VOC."
+    },
+    "learnMore": "Mëso Më Shumë",
+    "ctaTitle": "Ju Nevojiten Zgjidhje të Personalizuara?",
+    "ctaText": "Ekipi ynë i ekspertëve mund t'ju ndihmojë të gjeni produktet e perkryera për nevojat dhe aplikimet tuaja specifike.",
+    "ctaButton": "Kontaktoni Specialistët Tanë"
+  },
+  "brands": {
+    "title": "Markat Tona Partnere",
+    "subtitle": "Ne bashkëpunojmë me prodhueset më të njohura të bojërave në botë për t'ju sjellë produkte të cilësisë premium",
+    "brand1": {
+      "name": "ColorTech Pro",
+      "description": "Sisteme bojërash me performancë të lartë për automjete nga Gjermania",
+      "fullDescription": "ColorTech Pro është një prodhuesi premium gjerman i bojërave me më shumë se 75 vjet përvojë në zhvillimin e veshjeve të automjeteve me performancë të lartë. Produktet e tyre janë të njohura për qëndrueshmeri të jashtëzakonshme, finish të shkëlqyer dhe teknologji të avancuar të përputhjes së ngjyrave.",
+      "features": {
+        "feature1": "Sisteme me bazë uji në përputhje me mjedisin",
+        "feature2": "Teknologji e përputhjes së ngjyrave me pronesi",
+        "feature3": "Rezistencë e jashtëzakonshme ndaj motit dhe kimikateve"
+      }
+    },
+    "brand2": {
+      "name": "ItalFinish",
+      "description": "Finish luksoze italiane për automjete premium",
+      "fullDescription": "ItalFinish sjell mjeshteri italiane në rifinimin e automjeteve me produkte të projektuara specifikisht për automjete luksoze dhe të nivelit të lartë. Veshjet e tyre ofrojnë thellësi të jashtëzakonshme, qartësi dhe një finish që përmirëson dizajnet më prestigjioze të automjeteve.",
+      "features": {
+        "feature1": "Formulime të specializuara për marka të automjeteve luksoze",
+        "feature2": "Ruajtje e jashtëzakonshme e thellësisë dhe shkëlqimit",
+        "feature3": "Aditivë efekti të personalizuar për finish unik"
+      }
+    },
+    "brand3": {
+      "name": "EcoPaint Systems",
+      "description": "Zgjidhje të qëndrueshme veshjes me ndikim të reduktuar mjedisor",
+      "fullDescription": "EcoPaint Systems fokusohet në zhvillimin e veshjeve që respektojnë mjedisin, të cilat ruajnë cilësinë profesionale duke reduktuar emetimet VOC dhe ndikimin mjedisor. Produktet e tyre inovative plotësojnë ose tejkalojnë rregulloret më të rrepta mjedisore.",
+      "features": {
+        "feature1": "Formulime me VOC ultra të ulët",
+        "feature2": "Konsum i reduktuar i energjisë gjatë aplikimit",
+        "feature3": "Zgjidhje paketimi të riciklueshme"
+      }
+    },
+    "brand4": {
+      "name": "TechCoat Industrial",
+      "description": "Veshje të rënda për automjete komerciale",
+      "fullDescription": "TechCoat Industrial specializohet në sisteme veshjes të rënda për automjete komerciale, aplikime flote dhe pajisje industriale. Produktet e tyre ofrojnë mbrojtje superiore kundër kushteve ekstreme, kimikateve dhe konsumit fizik.",
+      "features": {
+        "feature1": "Teknologji e avancuar e rezistencës ndaj korrozionit",
+        "feature2": "Sisteme aplikimi direkt në metal",
+        "feature3": "Jetëgjatësi e zgjeruar e shërbimit edhe në mjedise të rënda"
+      }
+    },
+    "learnMore": "Mëso Më Shumë",
+    "keyFeatures": "Karakteristikat Kryesore",
+    "viewProducts": "Shiko Produktet",
+    "close": "Mbyll",
+    "partnerships": {
+      "title": "Partneritetet Tona Globale",
+      "partner1": "EuroFinish",
+      "partner2": "AmeriCoat",
+      "partner3": "AsiaGloss",
+      "partner4": "PacificPaint",
+      "partner5": "NordicCoat",
+      "partner6": "GlobalTint"
+    },
+    "global": {
+      "title": "Rrjeti Global i Shpërndarjes",
+      "description": "Produktet tona janë të disponueshme në më shumë se 50 vende nëpërmjet një rrjeti shpërndarësish dhe partnerësh të certifikuar",
+      "mapPlaceholder": "Hartë interaktive në arrdhje së shpejti",
+      "regions": {
+        "europe": {
+          "name": "Evropa",
+          "description": "Prezenca jonë më e fortë me shpërndarje në 25 vende",
+          "countries": "Gjermani, Itali, Francë, Mbretëri e Bashkuar, Spanjë dhe më shumë"
+        },
+        "americas": {
+          "name": "Amerika",
+          "description": "Rrjet në rritje në të gjithë Amerikën e Veriut dhe të Jugut",
+          "countries": "SHBA, Kanada, Brazil, Meksikë dhe më shumë"
+        },
+        "asia": {
+          "name": "Azia-Pacifik",
+          "description": "Prezencë në zgjerim në tregjet kyçe aziatike",
+          "countries": "Japoni, Kore e Jugut, Australi, Zelandë e Re dhe më shumë"
+        }
+      }
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Shërbime Profesionale",
+      "subtitle": "Mbështetje gjithëpërfshirëse për profesionistët e rifinimit të automjeteve"
+    },
+    "overview": {
+      "title": "Si Ju Mbështesim",
+      "description": "Përveç ofrimit të produkteve premium, ne ofrojmë një gamë të shërbimeve profesionale për t'ju ndihmuar të arrini rezultate perfekte dhe të rritni biznesin tuaj."
+    },
+    "learnMore": "Mëso Më Shumë",
+    "keyBenefits": "Përfitimet Kryesore",
+    "inquire": "Informohuni Tani",
+    "close": "Mbyll",
+    "colorConsulting": {
+      "title": "Konsulencë për Ngjyrat",
+      "shortDescription": "Shërbime eksperte të përputhjes dhe formulimit të ngjyrave për aplikimet më sfiduese.",
+      "description": "Shërbimi ynë i konsulencës së ngjyrave ofron asistencë profesionale për sfidat komplekse të përputhjes së ngjyrave. Ekspertët tanë përdorin teknologji të avancuar spektrofotometri dhe biblioteka të gjera të ngjyrave për të zhvilluar formulime të sakta për çdo projekt, nga restaurimet klasike deri te finishet e personalizuara.",
+      "benefits": {
+        "benefit1": "Përputhje e saktë e ngjyrave për ngjyrat e fabrikës dhe të personalizuara",
+        "benefit2": "Ekspertizë e specializuar për ngjyra të rralla, vintage dhe të vështira për t'u përputhur",
+        "benefit3": "Zhvillim i formulës së personalizuar për projekte unike"
+      }
+    },
+    "training": {
+      "title": "Trajnim Teknik",
+      "shortDescription": "Programe trajnimi gjithëpërfshirëse për bojatisja dhe teknikë të të gjitha niveleve të aftësive.",
+      "description": "Programet tona të trajnimit teknik janë të projektuara për të përmirësuar aftësitë dhe njohuritë e profesionistëve të rifinimit të automjeteve. Nga fillëstarët te bojatisja me përvojë, ofrojmë workshope praktike, seminare teknike dhe kurse certifikimi për t'ju ndihmuar të zëterësoni produktet tona dhe metodat më të fundit të aplikimit.",
+      "benefits": {
+        "benefit1": "Udhezim praktik nga ekspertë të industrisë",
+        "benefit2": "Teknika aplikimi specifike për produktin",
+        "benefit3": "Aftësi të avancuara të teorisë dhe përputhjes së ngjyrave"
+      }
+    },
+    "equipment": {
+      "title": "Zgjidhje Pajisjesh",
+      "shortDescription": "Pajisje sprajimi me performancë të lartë dhe sisteme përzierje ngjyrash të optimizuara për produktet tona.",
+      "description": "Ne ofrojmë një gamë të plotë të pajisjeve profesionale të sprajimit, sistemeve të përzierjes dhe aksesortë të përzgjedhur dhe optimizuar posaçërisht për përdorim me produktet tona të bojës. Zgjidhjet tona të pajisjeve fokusohen në saktësi, efikasitet dhe rezultate të qëndrueshme për të përmirësuar rrjedhën e punës tuaj.",
+      "benefits": {
+        "benefit1": "Pajisje të nivelit profesional nga prodhuest kryesorë",
+        "benefit2": "Konfigurim dhe optimizim i personalizuar i pistoletes së sprajimit",
+        "benefit3": "Sisteme përzierje të kompjuterizuara me menaxhim të avancuar të ngjyrave"
+      }
+    },
+    "support": {
+      "title": "Mbështetje Teknike",
+      "shortDescription": "Asistencë e shpejtë nga ekipi ynë i ekspertëve të rifinimit kurdo që të keni nevojë.",
+      "description": "Ekipi ynë i dedikuar i mbështetjes teknike është gjithmonë i disponueshëm për t'ju ndihmuar me pyetje për produktet, sfida të aplikimit ose zgjidhje të problemeve. Me dhjetra vjet përvojë të kombinuar në rifinimin e automjeteve, specialistët tanë të mbështetjes mund t'ju ndihmojnë të zgjidhni problemet shpejt dhe me efikasitet.",
+      "benefits": {
+        "benefit1": "Akses i drejtpërdrejtë te ekspertët e rifinimit",
+        "benefit2": "Zgjidhje problemesh për sfida specifike të aplikimit",
+        "benefit3": "Rekomandime produktesh për projekte speciale"
+      }
+    },
+    "process": {
+      "title": "Procesi Ynë i Shërbimit",
+      "description": "Ne ndjekim një qëndrim të strukturuar për të siguruar që ofrojmë ekzaktisht atë që ju nevojitet",
+      "steps": {
+        "step1": {
+          "title": "Konsultë Fillestare",
+          "description": "Fillojmë me një diskutim të detajuar të nevojave, sfidave dhe objektivave tuaja për të kuptuar se si mund t'ju mbështesim më mirë."
+        },
+        "step2": {
+          "title": "Zgjidhje e Personalizuar",
+          "description": "Ekipi ynë zhvillon një plan të përshtatëm që adresojnë kërkesat tuaja specifike, qoftë trajnim, konsulencë ngjyrash ose konfigurim pajisjesh."
+        },
+        "step3": {
+          "title": "Implementim",
+          "description": "Ne ofrojmë shërbimet e rëna dakord me vëmendje të hollësishme ndaj detajeve, duke siguruar që të merrni vlerë maksimale dhe përfitime praktike."
+        },
+        "step4": {
+          "title": "Mbështetje Përmbyllese",
+          "description": "Marrëdhënia jonë vazhdon me mbështetje të vazhdueshme për të adresuar çdo pyetje ose nevoja shtesë që dalin pas shërbimit fillestar."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Çfarë Thonë Klientët Tanë",
+      "description": "Dëgjoni nga profesionistët që kanë përfituar nga shërbimet tona",
+      "testimonial1": {
+        "name": "Michael Johnson",
+        "company": "Premier Auto Body",
+        "text": "Shërbimi i konsulencës së ngjyrave nga MilloColor ka qënë një ndërrim loje për projektet tona të restaurimit të personalizuara. Aftësia e tyre për të përputhur ngjyrat e fabrikës të dekadave më parë është thjesht e mahnitshme."
+      },
+      "testimonial2": {
+        "name": "Sarah Rodriguez",
+        "company": "Elite Refinishing",
+        "text": "Trajnimi teknik që morrëm ka përmirësuar në mënyrë të konsiderueshme efikasitetin dhe cilësinë e finishit tonë. Bojatisja jonë janë tani më të sigurt dhe të aftë edhe me punët më sfiduese."
+      },
+      "testimonial3": {
+        "name": "David Chen",
+        "company": "Precision Automotive",
+        "text": "Zgjidhjet e pajisjeve dhe ndihma e konfigurimit nga MilloColor kanë reduktuar konsumin tonë të materialeve duke përmirësuar cilësinë e finishit. Kthimi i investimit ishte pothuajse i menjhereshëm."
+      }
+    },
+    "cta": {
+      "title": "Gati për të Ngritur Aftësitë Tuaja të Rifinimit?",
+      "description": "Na kontaktoni sot për të diskutuar se si shërbimet tona profesionale mund t'ju ndihmojnë të arrini rezultate superiore dhe të rritni biznesin tuaj.",
+      "button": "Planifikoni një Konsultë"
+    }
+  },
+  "contact": {
+    "title": "Na Kontaktoni",
+    "subtitle": "Jemi këtu për t'ju mbështetur në çdo hap të procesit të rifinimit tuaj",
+    "info": {
+      "title": "Informacioni i Kontaktit",
+      "address": "Rr. Skenderbeu 55, Tiranë, Shqipëri",
+      "phone": "+355 69 123 4567",
+      "email": "info@millocolor.com",
+      "hours": {
+        "title": "Oret e Punës",
+        "weekdays": "E Hënë - E Premte: 8:00 - 17:00",
+        "saturday": "E Shtunë: 9:00 - 14:00",
+        "sunday": "E Diel: Mbyllur"
+      }
+    },
+    "form": {
+      "title": "Na Dërgoni një Mesazh",
+      "description": "Plotesoni formularin më poshtë dhe një anëtar i ekipit tonë do t'ju kontaktojë brenda 24 orësh",
+      "name": {
+        "label": "Emri i Plotë",
+        "placeholder": "Shkruani emrin tuaj të plotë"
+      },
+      "email": {
+        "label": "Adresa e Email",
+        "placeholder": "Shkruani adresën tuaj të email"
+      },
+      "phone": {
+        "label": "Numri i Telefonit",
+        "placeholder": "Shkruani numrin tuaj të telefonit"
+      },
+      "company": {
+        "label": "Kompania/Organizata",
+        "placeholder": "Shkruani emrin e kompaniës suaj (opsionale)"
+      },
+      "subject": {
+        "label": "Subjekti",
+        "placeholder": "Përse po na kontaktoni?"
+      },
+      "message": {
+        "label": "Mesazhi Juaj",
+        "placeholder": "Shkruani mesazhin tuaj të detajuar këtu..."
+      },
+      "submit": "Dërgoni Mesazhin",
+      "success": "Faleminderit! Mesazhi juaj është dërguar.",
+      "error": "Pati një problem me dërgimin e mesazhit tuaj. Ju lutemi provoni përsëri."
+    },
+    "locations": {
+      "title": "Vendndodhjet Tona",
+      "description": "Na vizitoni në një nga vendndodhjet tona të përshtatshme",
+      "headquarters": {
+        "title": "Zyra Kryesore",
+        "address": "Rr. Skenderbeu 55, Tiranë, Shqipëri",
+        "phone": "+355 69 123 4567",
+        "directions": "Merrni Drejtimet"
+      },
+      "distribution": {
+        "title": "Qendra e Shpërndarjes",
+        "address": "Rr. Industrisë 22, Durrës, Shqipëri",
+        "phone": "+355 69 765 4321",
+        "directions": "Merrni Drejtimet"
+      }
+    },
+    "faq": {
+      "title": "Pyetje të Shpeshta",
+      "questions": {
+        "q1": "Si mund të bëj një porosi?",
+        "a1": "Ju mund të bëni porosi nëpërmjet shpërndarësve tanë lokalë ose duke na kontaktuar direkt nëpërmjet formularit të kontaktit. Për porosi të mëdha, na telefononi drejtojpërdrejt për një ofertë të personalizuar.",
+        "q2": "A ofroni dërgim nderkombëtar?",
+        "a2": "Po, ne dërgojmë në më shumë se 50 vende. Tarifat dhe afatet kohëre të dërgimit ndryshojnë sipas vendndodhjes. Ju lutemi kontaktoni ekipin tonë për të marrje detaje specifike për rajonin tuaj.",
+        "q3": "Si mund të planifikoj një seance trajnimi teknik?",
+        "a3": "Trajnimet teknike mund të planifikohen duke kontaktuar departamentin tonë të sherbimeve. Ne ofrojmë trajnime në vendet tona ose mund të organizojmë seanca në vendin tuaj për grupe.",
+        "q4": "A keni një ekip teknik që mund të ndihmojë me përputhjen e ngjyrave?",
+        "a4": "Po, ekipi ynë i konsulences së ngjyrave ofron mbështetje të specializuar për çdo sfidë të përputhjes së ngjyrave. Ata mund të ndihmojnë me formula të personalizuara për ngjyra sfiduese ose ngjyra të personalizuara."
+      }
+    },
+    "support": {
+      "title": "Mbështetje & Asistencë",
+      "description": "Për kërkesa të mbështetjes teknike, përfshirë zgjidhjen e problemeve dhe këshillat për aplikimin e produktit, ju lutemi kontaktoni ekipin tonë të mbështetjes teknike.",
+      "email": "support@millocolor.com",
+      "phone": "+355 69 987 6543",
+      "hours": "E disponueshme E Hënë - E Premte, 8:00 - 17:00 CET"
+    }
+  },
+  "footer": {
+    "company": "MilloColor",
+    "tagline": "Zgjidhje Premium Bojërash për Automjete",
+    "rights": "© 2025 MilloColor. Të gjitha të drejtat e rezervuara.",
+    "nav": {
+      "company": "Kompania",
+      "about": "Rreth Nesh",
+      "careers": "Karriera",
+      "news": "Lajme & Ngjarje",
+      "distributors": "Bëhuni Shpërndarës"
+    },
+    "products": {
+      "title": "Produktet",
+      "all": "Të Gjitha Produktet",
+      "automotive": "Bojëra Automjetesh",
+      "industrial": "Zgjidhje Industriale",
+      "accessories": "Aksesorë & Pajisje"
+    },
+    "resources": {
+      "title": "Burime",
+      "colorFinder": "Gjetësi i Ngjyrave",
+      "datasheets": "Fletët e të Dhënave Teknike",
+      "application": "Udhëzime Aplikimi",
+      "videos": "Video Tutoriale"
+    },
+    "legal": {
+      "title": "Ligjore",
+      "privacy": "Politika e Privatësisë",
+      "terms": "Kushtet e Shërbimit",
+      "cookies": "Politika e Cookies",
+      "accessibility": "Deklarata e Aksesueshmërisë"
+    },
+    "social": {
+      "title": "Na Ndiqni",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "linkedin": "LinkedIn"
+    },
+    "newsletter": {
+      "title": "Abonohu në Buletinin Tonë",
+      "description": "Merrni lajmet më të fundit të industrisë, përditësimet e produkteve dhe këshilla teknike direkt në kutinë tuaj të postës elektronike",
+      "placeholder": "Shkruani adresën tuaj të emailit",
+      "subscribe": "Abonohu",
+      "success": "Faleminderit për abonimin tuaj!",
+      "error": "Ndodhi një gabim. Ju lutemi provoni përsëri."
+    },
+    "contact": {
+      "title": "Kontakt i Shpejtë",
+      "address": "Rr. Skenderbeu 55, Tiranë, Shqipëri",
+      "phone": "+355 69 123 4567",
+      "email": "info@millocolor.com"
+    }
+  }
+}
