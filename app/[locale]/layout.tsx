@@ -83,8 +83,8 @@ export default async function RootLayout({
     .then((module) => module.default);
 
   return (
-    <html lang={locale} className={inter.variable}>
-      <body className="min-h-screen antialiased">
+    <html lang={locale} className={`${inter.variable}`}>
+      <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>
             <Header />
