@@ -31,9 +31,14 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deployment
 
-This project is configured for continuous deployment with Vercel. Each push to the main branch will automatically trigger a new deployment.
+This project is deployed using Vercel with continuous integration:
+
+- **Live Site**: [MilloColor on Vercel](https://millocolor.vercel.app) (replace with your actual Vercel URL)
+- **Repository**: [GitHub - enxo7899/millocolor](https://github.com/enxo7899/millocolor)
+- **CI/CD**: Automatic deployments on every push to the `main` branch
+- **Preview Deployments**: Each pull request gets its own preview deployment
 
 ## Features
 
