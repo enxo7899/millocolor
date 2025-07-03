@@ -1,0 +1,367 @@
+{
+  "site": {
+    "title": "MilloColor - Premium Automotive Paint Solutions",
+    "description": "High-quality automotive paint solutions for professionals. Distributor of premium European paints with 30+ years of experience."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "brands": "Brands",
+    "services": "Services",
+    "training": "Training",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Coloring the Future",
+    "subtitle": "Premium automotive paint solutions for professionals",
+    "cta": "Discover Our Products",
+    "scrollHint": "Scroll to explore"
+  },
+  "about": {
+    "title": "About MilloColor",
+    "subtitle": "30+ Years of Excellence in Automotive Paint Solutions",
+    "history": {
+      "title": "Our History",
+      "paragraph1": "Founded in 1990, MilloColor began as a small distributor of European automotive paints. Today, we're a leading provider of premium paint solutions, with a presence in over 20 countries worldwide.",
+      "paragraph2": "Through dedication to quality and innovation, we've built strong partnerships with the world's most respected paint manufacturers, allowing us to bring cutting-edge products to our customers.",
+      "imageAlt": "MilloColor history timeline"
+    },
+    "mission": {
+      "title": "Our Mission & Values",
+      "paragraph": "At MilloColor, we believe in delivering excellence through quality products, expert knowledge, and exceptional service. Our mission is to elevate the standard of automotive finishing worldwide.",
+      "values": {
+        "value1": {
+          "title": "Excellence",
+          "description": "We are committed to excellence in everything we do, from product quality to customer service."
+        },
+        "value2": {
+          "title": "Innovation",
+          "description": "We continuously seek new technologies and methods to improve performance and results."
+        },
+        "value3": {
+          "title": "Sustainability",
+          "description": "We are dedicated to environmentally responsible practices and products."
+        }
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "paragraph1": "Our team consists of industry experts with decades of combined experience in automotive painting and refinishing. Many are former painters, technicians, and color specialists who understand your challenges firsthand.",
+      "paragraph2": "This practical expertise allows us to provide not just products, but solutions tailored to the specific needs of professional painters and body shops.",
+      "imageAlt": "MilloColor expert team"
+    },
+    "future": {
+      "title": "Looking Forward",
+      "paragraph": "As we continue to grow, our focus remains on bringing the latest innovations and highest quality products to our customers. We're excited about the future of automotive finishing and our role in shaping it.",
+      "cta": "Contact Us Today"
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Premium paint solutions for professional results",
+    "categories": {
+      "all": "All Products",
+      "basecoats": "Basecoats",
+      "clearcoats": "Clearcoats",
+      "topcoats": "Topcoats",
+      "additives": "Additives",
+      "accessories": "Accessories"
+    },
+    "product1": {
+      "name": "UltraBase Pro",
+      "description": "Premium water-based basecoat with exceptional coverage and color accuracy."
+    },
+    "product2": {
+      "name": "CrystalClear HS",
+      "description": "High-solid clearcoat providing superior gloss and durability."
+    },
+    "product3": {
+      "name": "DirectGloss Elite",
+      "description": "One-step topcoat with integrated hardener for efficiency."
+    },
+    "product4": {
+      "name": "FlexAdd 2000",
+      "description": "Elasticizing additive for flexible substrates."
+    },
+    "product5": {
+      "name": "PrecisionMix System",
+      "description": "Complete color mixing and matching system for professionals."
+    },
+    "product6": {
+      "name": "EcoBase Waterborne",
+      "description": "Eco-friendly basecoat with reduced VOC emissions."
+    },
+    "learnMore": "Learn More",
+    "ctaTitle": "Need Custom Solutions?",
+    "ctaText": "Our team of experts can help you find the perfect products for your specific needs and applications.",
+    "ctaButton": "Contact Our Specialists"
+  },
+  "brands": {
+    "title": "Our Partner Brands",
+    "subtitle": "We partner with the world's leading paint manufacturers to bring you premium quality products",
+    "brand1": {
+      "name": "ColorTech Pro",
+      "description": "High-performance automotive paint systems from Germany",
+      "fullDescription": "ColorTech Pro is a premium German paint manufacturer with over 75 years of experience in developing high-performance automotive coatings. Their products are known for exceptional durability, brilliant finish, and advanced color-matching technology.",
+      "features": {
+        "feature1": "Environmentally compliant water-based systems",
+        "feature2": "Proprietary color-matching technology",
+        "feature3": "Outstanding resistance to weathering and chemicals"
+      }
+    },
+    "brand2": {
+      "name": "ItalFinish",
+      "description": "Italian luxury finishes for premium vehicles",
+      "fullDescription": "ItalFinish brings Italian craftsmanship to automotive refinishing with products specifically designed for luxury and high-end vehicles. Their coatings deliver extraordinary depth, clarity, and a finish that enhances the most prestigious automotive designs.",
+      "features": {
+        "feature1": "Specialized formulations for luxury vehicle brands",
+        "feature2": "Exceptional depth and gloss retention",
+        "feature3": "Custom effect additives for unique finishes"
+      }
+    },
+    "brand3": {
+      "name": "EcoPaint Systems",
+      "description": "Sustainable coating solutions with reduced environmental impact",
+      "fullDescription": "EcoPaint Systems focuses on developing environmentally responsible coatings that maintain professional quality while reducing VOC emissions and environmental impact. Their innovative products meet or exceed the strictest environmental regulations.",
+      "features": {
+        "feature1": "Ultra-low VOC formulations",
+        "feature2": "Reduced energy consumption during application",
+        "feature3": "Recyclable packaging solutions"
+      }
+    },
+    "brand4": {
+      "name": "TechCoat Industrial",
+      "description": "Heavy-duty coatings for commercial vehicles",
+      "fullDescription": "TechCoat Industrial specializes in heavy-duty coating systems for commercial vehicles, fleet applications, and industrial equipment. Their products offer superior protection against extreme conditions, chemicals, and physical wear.",
+      "features": {
+        "feature1": "Advanced corrosion resistance technology",
+        "feature2": "Direct-to-metal application systems",
+        "feature3": "Extended service life even in harsh environments"
+      }
+    },
+    "learnMore": "Learn More",
+    "keyFeatures": "Key Features",
+    "viewProducts": "View Products",
+    "close": "Close",
+    "partnerships": {
+      "title": "Our Global Partnerships",
+      "partner1": "EuroFinish",
+      "partner2": "AmeriCoat",
+      "partner3": "AsiaGloss",
+      "partner4": "PacificPaint",
+      "partner5": "NordicCoat",
+      "partner6": "GlobalTint"
+    },
+    "global": {
+      "title": "Global Distribution Network",
+      "description": "Our products are available in over 50 countries through a network of certified distributors and partners",
+      "mapPlaceholder": "Interactive map coming soon",
+      "regions": {
+        "europe": {
+          "name": "Europe",
+          "description": "Our strongest presence with distribution in 25 countries",
+          "countries": "Germany, Italy, France, UK, Spain and more"
+        },
+        "americas": {
+          "name": "The Americas",
+          "description": "Growing network throughout North and South America",
+          "countries": "USA, Canada, Brazil, Mexico and more"
+        },
+        "asia": {
+          "name": "Asia Pacific",
+          "description": "Expanding presence in key Asian markets",
+          "countries": "Japan, South Korea, Australia, New Zealand and more"
+        }
+      }
+    }
+  },
+
+  "services": {
+    "hero": {
+      "title": "Professional Services",
+      "subtitle": "Comprehensive support for automotive refinishing professionals"
+    },
+    "overview": {
+      "title": "How We Support You",
+      "description": "Beyond providing premium products, we offer a range of professional services to help you achieve perfect results and grow your business."
+    },
+    "learnMore": "Learn More",
+    "keyBenefits": "Key Benefits",
+    "inquire": "Inquire Now",
+    "close": "Close",
+    "colorConsulting": {
+      "title": "Color Consulting",
+      "shortDescription": "Expert color matching and formulation services for even the most challenging applications.",
+      "description": "Our color consulting service provides professional assistance with complex color matching challenges. Our experts use advanced spectrophotometer technology and extensive color libraries to develop precise formulations for any project, from classic restorations to custom finishes.",
+      "benefits": {
+        "benefit1": "Precise color matching for factory and custom colors",
+        "benefit2": "Specialized expertise for rare, vintage, and difficult-to-match colors",
+        "benefit3": "Custom formula development for unique projects"
+      }
+    },
+    "training": {
+      "title": "Technical Training",
+      "shortDescription": "Comprehensive training programs for painters and technicians at all skill levels.",
+      "description": "Our technical training programs are designed to enhance the skills and knowledge of automotive refinishing professionals. From beginners to experienced painters, we offer hands-on workshops, technique seminars, and certification courses to help you master our products and the latest application methods.",
+      "benefits": {
+        "benefit1": "Hands-on instruction from industry experts",
+        "benefit2": "Product-specific application techniques",
+        "benefit3": "Advanced color theory and matching skills"
+      }
+    },
+    "equipment": {
+      "title": "Equipment Solutions",
+      "shortDescription": "High-performance spray equipment and color mixing systems optimized for our products.",
+      "description": "We offer a complete range of professional spray equipment, mixing systems, and accessories specifically selected and optimized for use with our paint products. Our equipment solutions focus on precision, efficiency, and consistent results to enhance your workflow.",
+      "benefits": {
+        "benefit1": "Professional-grade equipment from leading manufacturers",
+        "benefit2": "Customized spray gun setup and optimization",
+        "benefit3": "Computerized mixing systems with advanced color management"
+      }
+    },
+    "support": {
+      "title": "Technical Support",
+      "shortDescription": "Responsive assistance from our team of refinishing experts whenever you need it.",
+      "description": "Our dedicated technical support team is always available to assist with product questions, application challenges, or troubleshooting. With decades of combined experience in automotive refinishing, our support specialists can help you resolve issues quickly and efficiently.",
+      "benefits": {
+        "benefit1": "Direct access to refinishing experts",
+        "benefit2": "Problem-solving for specific application challenges",
+        "benefit3": "Product recommendations for special projects"
+      }
+    },
+    "process": {
+      "title": "Our Service Process",
+      "description": "We follow a structured approach to ensure we deliver exactly what you need",
+      "steps": {
+        "step1": {
+          "title": "Initial Consultation",
+          "description": "We begin with a detailed discussion of your needs, challenges, and objectives to understand how we can best support you."
+        },
+        "step2": {
+          "title": "Customized Solution",
+          "description": "Our team develops a tailored plan that addresses your specific requirements, whether it's training, color consulting, or equipment setup."
+        },
+        "step3": {
+          "title": "Implementation",
+          "description": "We deliver the agreed services with meticulous attention to detail, ensuring you receive maximum value and practical benefits."
+        },
+        "step4": {
+          "title": "Follow-up Support",
+          "description": "Our relationship continues with ongoing support to address any questions or additional needs that arise after the initial service."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "description": "Hear from professionals who have benefited from our services",
+      "testimonial1": {
+        "name": "Michael Johnson",
+        "company": "Premier Auto Body",
+        "text": "The color consulting service from MilloColor has been a game-changer for our custom restoration projects. Their ability to match decades-old factory colors is nothing short of amazing."
+      },
+      "testimonial2": {
+        "name": "Sarah Rodriguez",
+        "company": "Elite Refinishing",
+        "text": "The technical training we received has significantly improved our efficiency and finish quality. Our painters are now more confident and capable with even the most challenging jobs."
+      },
+      "testimonial3": {
+        "name": "David Chen",
+        "company": "Precision Automotive",
+        "text": "The equipment solutions and setup assistance from MilloColor have reduced our material consumption while improving our finish quality. The return on investment was almost immediate."
+      }
+    },
+    "cta": {
+      "title": "Ready to Elevate Your Refinishing Capabilities?",
+      "description": "Contact us today to discuss how our professional services can help you achieve superior results and grow your business.",
+      "button": "Schedule a Consultation"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here to answer your questions and provide expert support",
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "selectSubject": "Please select a subject",
+      "subjects": {
+        "product": "Product Information",
+        "support": "Technical Support",
+        "partnership": "Partnership Opportunities",
+        "other": "Other Inquiry"
+      },
+      "message": "Your Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "successMessage": "Thank you! Your message has been sent successfully. We'll respond as soon as possible.",
+      "errorMessage": "Sorry, there was an error sending your message. Please try again or contact us directly by phone."
+    },
+    "map": {
+      "placeholder": "Interactive map coming soon"
+    },
+    "info": {
+      "address": {
+        "title": "Our Location",
+        "line1": "MilloColor Headquarters",
+        "line2": "123 Innovation Drive, Tech City, TC 12345"
+      },
+      "phone": {
+        "title": "Phone",
+        "sales": "Sales",
+        "support": "Technical Support"
+      },
+      "email": {
+        "title": "Email",
+        "sales": "Sales",
+        "support": "Support"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekdays": "Monday - Friday: 8:00 AM - 6:00 PM",
+        "weekend": "Saturday: 9:00 AM - 1:00 PM, Sunday: Closed"
+      }
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "About MilloColor",
+      "description": "Leading provider of premium automotive paint solutions with over 30 years of experience serving professionals worldwide."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "products": "Products",
+      "brands": "Brands",
+      "services": "Services",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "copyright": "© 2025 MilloColor. All rights reserved.",
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter for the latest product news and technical tips.",
+      "placeholder": "Your email address",
+      "submit": "Subscribe",
+      "success": "Thank you for subscribing!",
+      "error": "Subscription failed. Please try again."
+    },
+    "social": {
+      "title": "Connect With Us",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "youtube": "YouTube"
+    },
+    "copyright": "© 2025 MilloColor. All rights reserved.",
+    "language": "Language"
+  }
+}

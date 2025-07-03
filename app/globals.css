@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --millo-red: #d7282f;
+  --millo-blue: #004a99;
+  --millo-gold: #FFD700;
+  
+  /* Base Variables */
+  --bg: #FFFFFF;
+  --text: #1A1A1A;
+  --neutral: #F5F5F5;
+}
+
+/* Base styling */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv03" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling for the whole page but respect user preference */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Remove default focus outline and add custom one */
+:focus-visible {
+  outline: 2px solid var(--millo-red);
+  outline-offset: 2px;
+}
+
+/* Custom utility classes */
+@layer components {
+  .container {
+    @apply mx-auto px-4 max-w-7xl;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-millo-red text-white rounded-md font-medium transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-red-700 transform scale-105;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-millo-blue text-white rounded-md font-medium transition-all duration-300;
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-blue-700 transform scale-105;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-gray-600 max-w-3xl mx-auto;
+  }
+}
