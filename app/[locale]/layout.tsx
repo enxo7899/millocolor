@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { ThemeProvider } from './components/ThemeProvider';
 import Script from 'next/script';
 import { locales } from '@/i18n';
 import '../globals.css';
@@ -80,11 +81,13 @@ export default async function RootLayout({
   return (
     <>
       <NextIntlClientProvider locale={locale} messages={messages}>
+        <ThemeProvider>
           <Header />
           <main>
             {children}
           </main>
           <Footer />
+        </ThemeProvider>
       </NextIntlClientProvider>
       
       {/* Analytics Script - Load only after user consent */}
