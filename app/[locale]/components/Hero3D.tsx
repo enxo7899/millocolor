@@ -31,10 +31,11 @@ function SprayParticles({ isActive, gunRef, targetPosition, color }: {
 
   const material = useMemo(() => new THREE.PointsMaterial({
     color: color,
-    size: 0.045,
-      transparent: true,
-    opacity: 0.85,
-      depthWrite: false,
+    size: 0.08,
+    transparent: true,
+    opacity: 0.95,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
   }), [color]);
 
   useFrame((_, delta) => {
@@ -42,11 +43,11 @@ function SprayParticles({ isActive, gunRef, targetPosition, color }: {
 
     // Emit new particles when spraying
     if (isActive) {
-      for (let i = 0; i < 8; i++) { // denser spray
+      for (let i = 0; i < 15; i++) { // Increased from 8 for denser, more visible spray
         const deadIndex = lifes.findIndex(life => life <= 0);
         if (deadIndex === -1) break;
 
-        lifes[deadIndex] = 0.3 + Math.random() * 0.2;
+        lifes[deadIndex] = 0.4 + Math.random() * 0.3; // Increased lifetime for better visibility
 
         // --- Nozzle emission logic ---
         // Get gun and text world positions
@@ -407,7 +408,7 @@ function Scene() {
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
+      <PerspectiveCamera makeDefault position={[0, 0, 6]} fov={45} />
       <ambientLight intensity={0.8} />
       <directionalLight position={[5, 5, 5]} intensity={1.5} />
       <Environment preset="city" />
@@ -416,7 +417,7 @@ function Scene() {
         <Text
           ref={milloTextRef}
           position={[-1.5, 0, 0]}
-          fontSize={1.2}
+          fontSize={1.0}
           color="#CCCCCC"
           anchorX="center"
           anchorY="middle"
@@ -427,7 +428,7 @@ function Scene() {
         <Text
           ref={colorTextRef}
           position={[1.5, 0, 0]}
-          fontSize={1.2}
+          fontSize={1.0}
           color="#CCCCCC"
           anchorX="center"
           anchorY="middle"
@@ -437,8 +438,8 @@ function Scene() {
         
         {/* Slogan */}
         <Text
-          position={[0, -1.0, 0]}
-          fontSize={0.4}
+          position={[0, -1.2, 0]}
+          fontSize={0.35}
           color="#666666"
           anchorX="center"
           anchorY="middle"
@@ -475,27 +476,27 @@ export default function Hero3D() {
 
   if (!mounted) {
     return (
-      <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] bg-white flex items-center justify-center">
+      <section className="relative h-[80vh] sm:h-[85vh] md:h-[90vh] bg-white flex items-center justify-center">
         <div className="text-center px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             <span className="text-millo-blue">Millo</span>
             <span className="text-millo-red">Color</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600">Loading 3D Scene...</p>
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600">Loading 3D Scene...</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] bg-white overflow-hidden">
+    <section className="relative h-[80vh] sm:h-[85vh] md:h-[90vh] bg-white overflow-hidden">
       <Canvas 
         gl={{ 
           antialias: true,
           alpha: true,
           powerPreference: 'high-performance'
         }}
-        camera={{ position: [0, 0, 5], fov: 50 }}
+        camera={{ position: [0, 0, 6], fov: 45 }}
         onCreated={({ gl }) => {
           gl.setClearColor('#FFFFFF', 0);
         }}
@@ -505,10 +506,10 @@ export default function Hero3D() {
       </Canvas>
       
       {/* CTA Button */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10">
         <Link 
           href="/products" 
-          className="inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium tracking-wider text-white rounded-md bg-millo-red hover:bg-red-700 transition-colors duration-300 ease-out shadow-lg"
+          className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 text-base sm:text-lg font-medium tracking-wider text-white rounded-md bg-millo-red hover:bg-red-700 transition-colors duration-300 ease-out shadow-lg"
         >
           {t('cta')}
         </Link>
