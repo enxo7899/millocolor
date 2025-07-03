@@ -415,9 +415,9 @@ function Scene() {
       {/* Text elements */}
         <Text
           ref={milloTextRef}
-        position={[-1.5, 0, 0]}
-        fontSize={1.2}
-        color="#CCCCCC"
+          position={[-1.5, 0, 0]}
+          fontSize={1.2}
+          color="#CCCCCC"
           anchorX="center"
           anchorY="middle"
         >
@@ -426,9 +426,9 @@ function Scene() {
         
         <Text
           ref={colorTextRef}
-        position={[1.5, 0, 0]}
-        fontSize={1.2}
-        color="#CCCCCC"
+          position={[1.5, 0, 0]}
+          fontSize={1.2}
+          color="#CCCCCC"
           anchorX="center"
           anchorY="middle"
         >
@@ -437,9 +437,9 @@ function Scene() {
         
         {/* Slogan */}
         <Text
-        position={[0, -1.0, 0]}
-        fontSize={0.4}
-        color="#666666"
+          position={[0, -1.0, 0]}
+          fontSize={0.4}
+          color="#666666"
           anchorX="center"
           anchorY="middle"
         >
@@ -475,39 +475,40 @@ export default function Hero3D() {
 
   if (!mounted) {
     return (
-      <section className="relative h-[80vh] bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">
+      <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] bg-white flex items-center justify-center">
+        <div className="text-center px-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             <span className="text-millo-blue">Millo</span>
             <span className="text-millo-red">Color</span>
           </h1>
-          <p className="text-xl text-gray-600">Loading 3D Scene...</p>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600">Loading 3D Scene...</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="relative h-[80vh] bg-white">
-            <Canvas 
-              gl={{ 
-                antialias: true,
-                alpha: true,
+    <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] bg-white overflow-hidden">
+      <Canvas 
+        gl={{ 
+          antialias: true,
+          alpha: true,
           powerPreference: 'high-performance'
-              }}
+        }}
         camera={{ position: [0, 0, 5], fov: 50 }}
-              onCreated={({ gl }) => {
-                gl.setClearColor('#FFFFFF', 0);
-              }}
-            >
-              <Scene />
-            </Canvas>
+        onCreated={({ gl }) => {
+          gl.setClearColor('#FFFFFF', 0);
+        }}
+        className="w-full h-full"
+      >
+        <Scene />
+      </Canvas>
       
       {/* CTA Button */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10">
         <Link 
           href="/products" 
-          className="inline-flex items-center justify-center px-8 py-3 font-medium tracking-wider text-white rounded-md bg-millo-red hover:bg-red-700 transition-colors duration-300 ease-out"
+          className="inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium tracking-wider text-white rounded-md bg-millo-red hover:bg-red-700 transition-colors duration-300 ease-out shadow-lg"
         >
           {t('cta')}
         </Link>

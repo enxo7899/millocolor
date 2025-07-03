@@ -310,17 +310,50 @@
         "label": "Kompania/Organizata",
         "placeholder": "Shkruani emrin e kompaniës suaj (opsionale)"
       },
+      "selectSubject": "Zgjidhni një subjekt",
       "subject": {
         "label": "Subjekti",
         "placeholder": "Përse po na kontaktoni?"
+      },
+      "subjects": {
+        "product": "Informacione për Produkte",
+        "support": "Mbështetje Teknike",
+        "partnership": "Partneritet",
+        "other": "Tjetër"
       },
       "message": {
         "label": "Mesazhi Juaj",
         "placeholder": "Shkruani mesazhin tuaj të detajuar këtu..."
       },
+      "send": "Dërgoni Mesazhin",
       "submit": "Dërgoni Mesazhin",
       "success": "Faleminderit! Mesazhi juaj është dërguar.",
       "error": "Pati një problem me dërgimin e mesazhit tuaj. Ju lutemi provoni përsëri."
+    },
+    "map": {
+      "placeholder": "Hartë interaktive në arrdhje së shpejti"
+    },
+    "info": {
+      "address": {
+        "title": "Adresa",
+        "line1": "Rr. Skenderbeu 55",
+        "line2": "Tiranë, Shqipëri"
+      },
+      "phone": {
+        "title": "Telefoni",
+        "sales": "+355 69 123 4567",
+        "support": "+355 69 987 6543"
+      },
+      "email": {
+        "title": "Email",
+        "sales": "sales@millocolor.com",
+        "support": "support@millocolor.com"
+      },
+      "hours": {
+        "title": "Oret e Punës",
+        "weekdays": "E Hënë - E Premte: 8:00 - 17:00",
+        "weekend": "E Shtunë: 9:00 - 14:00, E Diel: Mbyllur"
+      }
     },
     "locations": {
       "title": "Vendndodhjet Tona",
