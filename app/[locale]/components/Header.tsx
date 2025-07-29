@@ -6,6 +6,88 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 
+// Animated Hamburger Menu Component
+const AnimatedHamburger = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => {
+  return (
+    <button
+      onClick={onClick}
+      className="relative w-8 h-8 flex flex-col justify-center items-center space-y-1 group focus:outline-none focus:ring-2 focus:ring-millo-blue focus:ring-opacity-20 rounded-lg p-1"
+      aria-label={isOpen ? "Close Menu" : "Open Menu"}
+    >
+      <span
+        className={`block h-0.5 w-6 bg-gray-800 group-hover:bg-millo-red transition-all duration-300 transform origin-center ${
+          isOpen ? 'rotate-45 translate-y-1' : ''
+        }`}
+      />
+      <span
+        className={`block h-0.5 w-6 bg-gray-800 group-hover:bg-millo-red transition-all duration-300 ${
+          isOpen ? 'opacity-0' : 'opacity-100'
+        }`}
+      />
+      <span
+        className={`block h-0.5 w-6 bg-gray-800 group-hover:bg-millo-red transition-all duration-300 transform origin-center ${
+          isOpen ? '-rotate-45 -translate-y-1' : ''
+        }`}
+      />
+    </button>
+  );
+};
+
+// Premium Logo Component
+const PremiumLogo = ({ isScrolled }: { isScrolled: boolean }) => {
+  return (
+    <Link 
+      href="/" 
+      className="flex items-center group"
+    >
+      <div className={`font-montserrat font-bold transition-all duration-300 group-hover:scale-105 ${
+        isScrolled ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'
+      }`}>
+        <span className="text-millo-blue group-hover:animate-pulse-gentle transition-colors duration-300">
+          Millo
+        </span>
+        <span className="text-millo-red group-hover:animate-pulse-gentle transition-colors duration-300">
+          Color
+        </span>
+      </div>
+      {/* Subtle underline accent */}
+      <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-millo-blue to-millo-red group-hover:w-full transition-all duration-500 ease-out" />
+    </Link>
+  );
+};
+
+// Navigation Link Component
+const NavLink = ({ href, children, pathname, onClick }: {
+  href: string;
+  children: React.ReactNode;
+  pathname: string;
+  onClick?: () => void;
+}) => {
+  const isActive = pathname === href;
+  
+  return (
+    <Link 
+      href={href}
+      onClick={onClick}
+      className={`relative font-poppins font-medium text-sm lg:text-base whitespace-nowrap transition-all duration-300 group ${
+        isActive 
+          ? 'text-millo-red' 
+          : 'text-gray-700 hover:text-millo-red'
+      }`}
+    >
+      {children}
+      {/* Active indicator dot */}
+      {isActive && (
+        <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-millo-red rounded-full animate-bounce-gentle" />
+      )}
+      {/* Hover underline */}
+      <div className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-millo-blue to-millo-red transition-all duration-300 ${
+        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+      }`} />
+    </Link>
+  );
+};
+
 export default function Header() {
   const t = useTranslations('nav');
   const pathname = usePathname();
@@ -17,7 +99,7 @@ export default function Header() {
   // Handle scroll events to update header appearance
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -33,179 +115,187 @@ export default function Header() {
     };
   }, []);
 
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      return () => {
+        document.removeEventListener('keydown', handleEscape);
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [isMenuOpen]);
+
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/90 backdrop-blur-sm shadow-sm h-14' 
-          : 'bg-white h-header'
-      }`}
-    >
-      <div className="container mx-auto px-4 h-full flex items-center justify-between">
-        {/* Logo */}
-        <Link 
-          href="/" 
-          className="flex items-center"
-        >
-          {/* Replace with actual logo */}
-          <div className="text-2xl font-bold text-millo-red">
-            Millo<span className="text-millo-blue">Color</span>
-          </div>
-        </Link>
+    <>
+      <header 
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
+          isScrolled 
+            ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100/50 h-16' 
+            : 'bg-white/90 backdrop-blur-sm h-20'
+        }`}
+      >
+        {/* Gradient accent line */}
+        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-millo-blue via-millo-red to-millo-blue opacity-60" />
+        
+        <div className="w-full h-full">
+          {/* Desktop Layout - True Absolute Edge Positioning */}
+          <div className="hidden lg:flex lg:items-center h-full w-full">
+            {/* Left: Logo at absolute left edge with zero padding */}
+            <div className="pl-1">
+              <PremiumLogo isScrolled={isScrolled} />
+            </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link 
-            href="/" 
-            className={`font-medium transition-colors hover:text-millo-red ${
-              pathname === '/' ? 'text-millo-red' : ''
-            }`}
-          >
-            {t('home')}
-          </Link>
-          <Link 
-            href="/about" 
-            className={`font-medium transition-colors hover:text-millo-red ${
-              pathname === '/about' ? 'text-millo-red' : ''
-            }`}
-          >
-            {t('about')}
-          </Link>
-          <Link 
-            href="/products" 
-            className={`font-medium transition-colors hover:text-millo-red ${
-              pathname === '/products' ? 'text-millo-red' : ''
-            }`}
-          >
-            {t('products')}
-          </Link>
-          <Link 
-            href="/brands" 
-            className={`font-medium transition-colors hover:text-millo-red ${
-              pathname === '/brands' ? 'text-millo-red' : ''
-            }`}
-          >
-            {t('brands')}
-          </Link>
-          <Link 
-            href="/services" 
-            className={`font-medium transition-colors hover:text-millo-red ${
-              pathname === '/services' ? 'text-millo-red' : ''
-            }`}
-          >
-            {t('services')}
-          </Link>
-          <Link 
-            href="/contact" 
-            className={`font-medium transition-colors hover:text-millo-red ${
-              pathname === '/contact' ? 'text-millo-red' : ''
-            }`}
-          >
-            {t('contact')}
-          </Link>
-          
-          <div className="flex items-center space-x-4">
-            {/* Language Switcher */}
-            <LanguageSwitcher />
+            {/* Right: All navigation content - tight grouping with auto margin */}
+            <div className="ml-auto flex items-center pr-1">
+              <div className="flex items-center gap-x-4 lg:gap-x-5 xl:gap-x-6 2xl:gap-x-8">
+                {/* Navigation Links */}
+                <NavLink href="/" pathname={pathname}>{t('home')}</NavLink>
+                <NavLink href="/about" pathname={pathname}>{t('about')}</NavLink>
+                <NavLink href="/products" pathname={pathname}>{t('products')}</NavLink>
+                <NavLink href="/brands" pathname={pathname}>{t('brands')}</NavLink>
+                <NavLink href="/services" pathname={pathname}>{t('services')}</NavLink>
+                <NavLink href="/contact" pathname={pathname}>{t('contact')}</NavLink>
+                
+                {/* Separator */}
+                <div className="h-6 w-px bg-gray-300"></div>
+                
+                {/* Contact Button */}
+                <a 
+                  href="tel:+1234567890" 
+                  className="hidden xl:flex items-center space-x-2 px-4 py-2 text-sm font-medium text-millo-blue hover:text-white bg-transparent hover:bg-millo-blue border border-millo-blue rounded-lg transition-all duration-300 group"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>Call Us</span>
+                </a>
+                
+                {/* Language Switcher */}
+                <LanguageSwitcher />
+              </div>
+            </div>
           </div>
-        </nav>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-2">
-          <LanguageSwitcher />
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="ml-2 text-gray-800 hover:text-millo-red focus:outline-none"
-            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+          {/* Mobile Layout - Absolute Edge Positioning */}
+          <div className="lg:hidden flex items-center justify-between h-full">
+            {/* Logo */}
+            <div className="flex-shrink-0 pl-2">
+              <PremiumLogo isScrolled={isScrolled} />
+            </div>
+
+            {/* Mobile Actions */}
+            <div className="flex items-center space-x-3 pr-2">
+              <LanguageSwitcher />
+              <AnimatedHamburger isOpen={isMenuOpen} onClick={toggleMobileMenu} />
+            </div>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-white pt-16">
-          <nav className="flex flex-col items-center justify-center h-full space-y-8 text-xl">
-            <Link 
-              href="/" 
-              onClick={() => setIsMenuOpen(false)}
-              className={`font-medium transition-colors hover:text-millo-red ${
-                pathname === '/' ? 'text-millo-red' : ''
-              }`}
-            >
-              {t('home')}
-            </Link>
-            <Link 
-              href="/about" 
-              onClick={() => setIsMenuOpen(false)}
-              className={`font-medium transition-colors hover:text-millo-red ${
-                pathname === '/about' ? 'text-millo-red' : ''
-              }`}
-            >
-              {t('about')}
-            </Link>
-            <Link 
-              href="/products" 
-              onClick={() => setIsMenuOpen(false)}
-              className={`font-medium transition-colors hover:text-millo-red ${
-                pathname === '/products' ? 'text-millo-red' : ''
-              }`}
-            >
-              {t('products')}
-            </Link>
-            <Link 
-              href="/brands" 
-              onClick={() => setIsMenuOpen(false)}
-              className={`font-medium transition-colors hover:text-millo-red ${
-                pathname === '/brands' ? 'text-millo-red' : ''
-              }`}
-            >
-              {t('brands')}
-            </Link>
-            <Link 
-              href="/services" 
-              onClick={() => setIsMenuOpen(false)}
-              className={`font-medium transition-colors hover:text-millo-red ${
-                pathname === '/services' ? 'text-millo-red' : ''
-              }`}
-            >
-              {t('services')}
-            </Link>
-            <Link 
-              href="/contact" 
-              onClick={() => setIsMenuOpen(false)}
-              className={`font-medium transition-colors hover:text-millo-red ${
-                pathname === '/contact' ? 'text-millo-red' : ''
-              }`}
-            >
-              {t('contact')}
-            </Link>
-          </nav>
+        <div className="lg:hidden fixed inset-0 z-40 animate-fade-in">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm" 
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Mobile Menu */}
+          <div className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl animate-slide-in-right">
+            {/* Mobile Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-100">
+              <PremiumLogo isScrolled={false} />
+              <AnimatedHamburger isOpen={isMenuOpen} onClick={toggleMobileMenu} />
+            </div>
+            
+            {/* Mobile Navigation */}
+            <nav className="flex flex-col p-6 space-y-6">
+              <NavLink href="/" pathname={pathname} onClick={() => setIsMenuOpen(false)}>
+                <div className="flex items-center space-x-3 text-lg">
+                  <span>🏠</span>
+                  <span>{t('home')}</span>
+                </div>
+              </NavLink>
+              <NavLink href="/about" pathname={pathname} onClick={() => setIsMenuOpen(false)}>
+                <div className="flex items-center space-x-3 text-lg">
+                  <span>ℹ️</span>
+                  <span>{t('about')}</span>
+                </div>
+              </NavLink>
+              <NavLink href="/products" pathname={pathname} onClick={() => setIsMenuOpen(false)}>
+                <div className="flex items-center space-x-3 text-lg">
+                  <span>🎨</span>
+                  <span>{t('products')}</span>
+                </div>
+              </NavLink>
+              <NavLink href="/brands" pathname={pathname} onClick={() => setIsMenuOpen(false)}>
+                <div className="flex items-center space-x-3 text-lg">
+                  <span>🏷️</span>
+                  <span>{t('brands')}</span>
+                </div>
+              </NavLink>
+              <NavLink href="/services" pathname={pathname} onClick={() => setIsMenuOpen(false)}>
+                <div className="flex items-center space-x-3 text-lg">
+                  <span>🔧</span>
+                  <span>{t('services')}</span>
+                </div>
+              </NavLink>
+              <NavLink href="/contact" pathname={pathname} onClick={() => setIsMenuOpen(false)}>
+                <div className="flex items-center space-x-3 text-lg">
+                  <span>📞</span>
+                  <span>{t('contact')}</span>
+                </div>
+              </NavLink>
+            </nav>
+            
+            {/* Mobile Actions */}
+            <div className="absolute bottom-6 left-6 right-6 space-y-4">
+              <a 
+                href="tel:+1234567890" 
+                className="flex items-center justify-center space-x-2 w-full px-4 py-3 text-white bg-gradient-to-r from-millo-blue to-millo-red rounded-xl font-medium transition-all duration-300 hover:shadow-lg"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>Call Us Now</span>
+              </a>
+              
+              {/* Social Links */}
+              <div className="flex justify-center space-x-4">
+                <a href="#" className="p-2 text-gray-600 hover:text-millo-blue transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                  </svg>
+                </a>
+                <a href="#" className="p-2 text-gray-600 hover:text-millo-blue transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                  </svg>
+                </a>
+                <a href="#" className="p-2 text-gray-600 hover:text-millo-blue transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
