@@ -11,6 +11,9 @@
   "dependencies": {
     "@react-three/drei": "^10.4.2",
     "@react-three/fiber": "^9.2.0",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
     "@types/three": "^0.178.0",
     "critters": "^0.0.25",
     "framer-motion": "^12.15.0",

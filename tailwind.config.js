@@ -47,6 +47,12 @@ module.exports = {
         'slide-out-right': 'slideOutRight 0.3s ease-in',
         'bounce-gentle': 'bounceGentle 0.6s ease-out',
         'pulse-gentle': 'pulseGentle 2s infinite',
+        // Award-winning website animations
+        'infinite-scroll': 'infiniteScroll 25s linear infinite',
+        'float-gentle': 'floatGentle 6s ease-in-out infinite',
+        'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
+        'slide-up-fade': 'slideUpFade 0.8s ease-out',
+        'scale-in': 'scaleIn 0.5s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -70,6 +76,28 @@ module.exports = {
         pulseGentle: {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.7' },
+        },
+        // Award-winning website keyframes
+        infiniteScroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        floatGentle: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '33%': { transform: 'translateY(-10px) rotate(1deg)' },
+          '66%': { transform: 'translateY(5px) rotate(-1deg)' },
+        },
+        glowPulse: {
+          '0%': { boxShadow: '0 0 5px rgba(255, 215, 0, 0.5)' },
+          '100%': { boxShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4)' },
+        },
+        slideUpFade: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
         },
       },
       fontSize: {
@@ -109,6 +137,12 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'luxury-gradient': 'linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 50%, #0D0D0D 100%)',
+        'glass-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+      },
+      backdropBlur: {
+        'xs': '2px',
+        'luxury': '12px',
       },
     },
   },

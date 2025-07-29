@@ -10,12 +10,16 @@
     "brands": "Brands",
     "services": "Services",
     "training": "Training",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cta": "Get Quote"
   },
   "hero": {
     "title": "Coloring the Future",
+    "headline": "The Future of Automotive Paint",
+    "tagline": "Experience unmatched quality and brilliance with MilloColor's premium finishes",
     "subtitle": "Premium automotive paint solutions for professionals",
     "cta": "Discover Our Products",
+    "ctaSecondary": "Contact Us",
     "scrollHint": "Scroll to explore"
   },
   "about": {
@@ -361,7 +365,55 @@
       "linkedin": "LinkedIn",
       "youtube": "YouTube"
     },
-    "copyright": "© 2025 MilloColor. All rights reserved.",
     "language": "Language"
+  },
+  "stats": {
+    "years": "Years of Excellence",
+    "colors": "Custom Colors Developed",
+    "partners": "Global Partners",
+    "awards": "Industry Awards",
+    "countries": "Countries Served",
+    "title": "Our Track Record",
+    "subtitle": "Delivering excellence across the automotive industry"
+  },
+  "showcase": {
+    "title": "Premium Paint Solutions",
+    "subtitle": "Discover our comprehensive range of professional-grade automotive finishes",
+    "products": {
+      "premium": {
+        "title": "Premium Coating Solutions",
+        "description": "Our flagship line of high-performance coatings engineered for luxury vehicles and demanding applications.",
+        "features": [
+          "Superior durability and longevity",
+          "Exceptional color accuracy",
+          "Advanced UV protection",
+          "Easy application and coverage"
+        ]
+      },
+      "professional": {
+        "title": "Professional Refinishing Systems",
+        "description": "Complete painting systems designed for professional body shops and collision repair centers.",
+        "features": [
+          "Fast cure times for efficiency",
+          "Consistent color matching",
+          "Excellent adhesion properties",
+          "Comprehensive technical support"
+        ]
+      },
+      "specialty": {
+        "title": "Specialty Effect Finishes",
+        "description": "Unique and custom effect finishes for distinctive automotive aesthetics and restoration projects.",
+        "features": [
+          "Metallic and pearl effects",
+          "Custom color formulations",
+          "Vintage restoration compatibility",
+          "Expert color consulting"
+        ]
+      }
+    }
+  },
+  "partners": {
+    "title": "Trusted by Industry Leaders",
+    "subtitle": "We partner with the world's most respected automotive paint manufacturers"
   }
 }

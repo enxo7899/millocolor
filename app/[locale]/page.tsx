@@ -1,9 +1,15 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import Hero3D from './components/Hero3D';
+import BackgroundCanvas from './components/BackgroundCanvas';
+import ProductCard from './components/ProductCard';
+import StatCounter from './components/StatCounter';
+import PartnerCarousel from './components/PartnerCarousel';
+import ContactForm from './components/ContactForm';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 // Animations for sections
@@ -20,268 +26,263 @@ const sectionVariants = {
 };
 
 export default function Home() {
+  const t = useTranslations();
+  
   return (
-    <main className="min-h-screen">
-      <Hero3D />
+    <main className="min-h-screen relative overflow-hidden">
+      {/* Luxury Animated Background */}
+      <BackgroundCanvas />
       
-      {/* About Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={sectionVariants}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Innovation in Color</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              MilloColor is a leading distributor of premium automotive paint solutions with over three decades of experience.
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <motion.div 
-              className="bg-gray-50 p-8 rounded-lg shadow-sm"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={sectionVariants}
-              custom={0}
-            >
-              <div className="w-16 h-16 bg-millo-red rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-center">Premium Quality</h3>
-              <p className="text-gray-600 text-center">
-                We deliver exceptional color accuracy and finish quality through innovative products and technical expertise.
-              </p>
-            </motion.div>
-            
-            {/* Feature 2 */}
-            <motion.div 
-              className="bg-gray-50 p-8 rounded-lg shadow-sm"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={sectionVariants}
-              custom={1}
-            >
-              <div className="w-16 h-16 bg-millo-blue rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-center">Technical Expertise</h3>
-              <p className="text-gray-600 text-center">
-                Our team provides expert training and consulting services to help you achieve perfect results.
-              </p>
-            </motion.div>
-            
-            {/* Feature 3 */}
-            <motion.div 
-              className="bg-gray-50 p-8 rounded-lg shadow-sm"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={sectionVariants}
-              custom={2}
-            >
-              <div className="w-16 h-16 bg-millo-gold rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-center">Industry Partners</h3>
-              <p className="text-gray-600 text-center">
-                We represent leading European paint manufacturers known for their quality and innovation.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section with 3D Animation */}
+      <HeroSection />
       
-      {/* Products/Brands Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={sectionVariants}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Premium Brands</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We represent leading European paint manufacturers known for their quality, innovation, and performance.
-            </p>
-          </motion.div>
-          
-          {/* Brands logo carousel */}
-          <div className="overflow-hidden relative">
-            <div className="flex space-x-16 animate-logo-scroll">
-              {/* Replace with actual brand logos */}
-              {[1, 2, 3, 4, 5, 6].map((index) => (
-                <div 
-                  key={index}
-                  className="min-w-[150px] h-20 bg-white rounded-lg shadow-sm flex items-center justify-center"
-                >
-                  <div className="text-gray-400 font-bold">Brand {index}</div>
-                </div>
-              ))}
-              
-              {/* Duplicate logos for continuous scrolling */}
-              {[1, 2, 3, 4, 5, 6].map((index) => (
-                <div 
-                  key={`duplicate-${index}`}
-                  className="min-w-[150px] h-20 bg-white rounded-lg shadow-sm flex items-center justify-center"
-                >
-                  <div className="text-gray-400 font-bold">Brand {index}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="mt-16 text-center">
-            <motion.button
-              className="px-8 py-3 bg-millo-blue text-white rounded-md font-medium hover:bg-blue-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View All Products
-            </motion.button>
-          </div>
-        </div>
-      </section>
+      {/* Premium Product Showcase */}
+      <ProductShowcaseSection />
       
-      {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={sectionVariants}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive support to help you achieve perfect results with our products.
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Service 1 */}
-            <motion.div 
-              className="bg-gray-50 rounded-lg overflow-hidden shadow-sm"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={sectionVariants}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="h-48 bg-gray-200 relative">
-                <Image
-                  src="/images/placeholder.svg"
-                  alt="Technical Training"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Technical Training</h3>
-                <p className="text-gray-600 mb-4">
-                  Expert-led workshops and hands-on training sessions for automotive professionals.
-                </p>
-                <a href="#" className="text-millo-red font-medium hover:underline">Learn more →</a>
-              </div>
-            </motion.div>
-            
-            {/* Service 2 */}
-            <motion.div 
-              className="bg-gray-50 rounded-lg overflow-hidden shadow-sm"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={sectionVariants}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="h-48 bg-gray-200 relative">
-                <Image
-                  src="/images/placeholder.svg"
-                  alt="Color Consulting"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Color Consulting</h3>
-                <p className="text-gray-600 mb-4">
-                  Personalized solutions for complex color matching challenges in automotive refinishing.
-                </p>
-                <a href="#" className="text-millo-red font-medium hover:underline">Learn more →</a>
-              </div>
-            </motion.div>
-            
-            {/* Service 3 */}
-            <motion.div 
-              className="bg-gray-50 rounded-lg overflow-hidden shadow-sm"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={sectionVariants}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="h-48 bg-gray-200 relative">
-                <Image
-                  src="/images/placeholder.svg"
-                  alt="Equipment Maintenance"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Equipment Maintenance</h3>
-                <p className="text-gray-600 mb-4">
-                  Professional servicing for paint application equipment to ensure optimal performance.
-                </p>
-                <a href="#" className="text-millo-red font-medium hover:underline">Learn more →</a>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Animated Statistics */}
+      <StatsSection />
       
-      {/* CTA Section */}
-      <section className="py-20 bg-millo-blue text-white">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="max-w-3xl mx-auto text-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={sectionVariants}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to enhance your painting process?</h2>
-            <p className="text-xl mb-8">
-              Contact our team of experts today to discuss your specific needs and discover how our premium products can elevate your results.
-            </p>
-            <motion.button
-              className="px-8 py-3 bg-white text-millo-blue rounded-md font-medium hover:bg-gray-100 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Us Today
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
+      {/* Partner Logo Carousel */}
+      <PartnersSection />
+      
+      {/* Premium Contact Section */}
+      <ContactSection />
     </main>
+  );
+}
+
+// Hero Section with Overlay Content
+function HeroSection() {
+  return (
+    <section className="relative h-screen w-full flex items-center justify-center">
+      {/* Aston Martin F1 Background */}
+      <div className="absolute inset-0 opacity-[0.11]">
+        <Image
+          src="/images/aston-martin-f1-hero-bg.jpg"
+          alt="Aston Martin F1 Car Background"
+          fill
+          className="object-cover object-center grayscale"
+          priority
+        />
+      </div>
+      
+      {/* Hero3D Component */}
+      <div className="absolute inset-0 z-10">
+        <Hero3D />
+      </div>
+    </section>
+  );
+}
+
+// Premium Product Showcase Section
+function ProductShowcaseSection() {
+  const t = useTranslations('showcase');
+  
+  return (
+    <section className="py-20 relative z-10">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Premium Product Lines</h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            Professional automotive paint solutions crafted for exceptional results
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ProductCard
+            title="Premium Series"
+            description="High-end automotive paints for luxury vehicle refinishing"
+            features={["Superior color match", "Long-lasting durability", "Easy application"]}
+            image="/images/products/premium.jpg"
+          />
+          
+          <ProductCard
+            title="Professional Series"
+            description="Reliable solutions for everyday automotive painting needs"
+            features={["Consistent quality", "Fast drying", "Cost-effective"]}
+            image="/images/products/professional.jpg"
+          />
+          
+          <ProductCard
+            title="Specialty Series"
+            description="Specialized coatings for unique automotive applications"
+            features={["Custom colors", "Special effects", "Technical support"]}
+            image="/images/products/specialty.jpg"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Animated Statistics Section
+function StatsSection() {
+  const t = useTranslations('stats');
+  
+  return (
+    <section className="py-20 relative z-10">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Impact</h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            Trusted by automotive professionals across Europe
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <StatCounter
+            value={2500}
+            label="Professional Customers"
+            icon="👥"
+            suffix="+"
+          />
+          
+          <StatCounter
+            value={15}
+            label="Years Experience"
+            icon="📅"
+            suffix="+"
+          />
+          
+          <StatCounter
+            value={50000}
+            label="Projects Completed"
+            icon="🚗"
+            suffix="+"
+          />
+          
+          <StatCounter
+            value={98}
+            label="Customer Satisfaction"
+            icon="⭐"
+            suffix="%"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Partner Logo Carousel Section
+function PartnersSection() {
+  const t = useTranslations('partners');
+  
+  return (
+    <section className="py-20 relative z-10">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Trusted Partners</h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            We represent leading European paint manufacturers known for quality and innovation
+          </p>
+        </motion.div>
+        
+        <PartnerCarousel />
+      </div>
+    </section>
+  );
+}
+
+// Premium Contact Section
+function ContactSection() {
+  const t = useTranslations('contact');
+  
+  return (
+    <section className="py-20 relative z-10">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            Ready to enhance your painting process? Contact our experts today
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={sectionVariants}
+          >
+            <ContactForm />
+          </motion.div>
+          
+          <motion.div 
+            className="space-y-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={sectionVariants}
+          >
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-millo-red rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">Phone</h3>
+                  <p className="text-white/70">+355 69 123 4567</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-millo-blue rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">Email</h3>
+                  <p className="text-white/70">info@millocolor.com</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-millo-gold rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">Location</h3>
+                  <p className="text-white/70">Tirana, Albania</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }

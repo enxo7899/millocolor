@@ -388,7 +388,7 @@ export default function Hero3D() {
 
   if (!mounted) {
     return (
-      <section className="relative h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] bg-white flex items-center justify-center">
+      <section className="relative h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] bg-transparent flex items-center justify-center">
         <div className="text-center px-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-[#314485]">Millo</span>
@@ -401,7 +401,7 @@ export default function Hero3D() {
   }
 
   return (
-    <section className="relative h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] bg-white overflow-hidden">
+    <section className="relative h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] bg-transparent overflow-hidden">
       <Canvas 
         gl={{ 
           antialias: true,
@@ -413,7 +413,7 @@ export default function Hero3D() {
           fov: isMobile ? 65 : 50 
         }}
         onCreated={({ gl }) => {
-          gl.setClearColor('#FFFFFF', 0);
+          gl.setClearColor('#000000', 0);
         }}
         className="w-full h-full"
         dpr={[1, 2]} // Optimize for different pixel densities
