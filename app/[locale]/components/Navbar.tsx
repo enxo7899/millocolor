@@ -74,8 +74,8 @@ const Navbar: React.FC = () => {
       <motion.header 
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           scrolled 
-            ? 'bg-white/10 backdrop-blur-luxury shadow-lg border-b border-white/20' 
-            : 'bg-transparent'
+            ? 'bg-black/80 backdrop-blur-xl shadow-2xl border-b border-white/20' 
+            : 'bg-black/60 backdrop-blur-lg'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
               >
                 <Link 
                   href={link.href}
-                  className="relative text-white/90 hover:text-white font-medium transition-colors duration-300 group py-2"
+                  className="flex items-center space-x-2 px-4 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 font-medium text-sm"
                 >
                   <span className="relative z-10">{link.label}</span>
                   <motion.div
@@ -156,7 +156,7 @@ const Navbar: React.FC = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full mt-2 right-0 bg-white/95 backdrop-blur-md rounded-lg border border-white/20 shadow-xl overflow-hidden min-w-[140px]"
+                    className="absolute top-full mt-2 right-0 bg-black/90 backdrop-blur-md rounded-lg border border-white/20 shadow-xl overflow-hidden min-w-[140px]"
                   >
                     {languages.map((lang) => (
                       <button
@@ -164,8 +164,8 @@ const Navbar: React.FC = () => {
                         onClick={() => switchLocale(lang.code)}
                         className={`w-full px-4 py-3 text-left flex items-center space-x-3 transition-colors ${
                           locale === lang.code
-                            ? 'bg-millo-blue/20 text-millo-blue'
-                            : 'hover:bg-gray-100/50 text-gray-700'
+                            ? 'bg-millo-blue/30 text-white'
+                            : 'hover:bg-white/10 text-white/90 hover:text-white'
                         }`}
                       >
                         <span className="text-lg">{lang.flag}</span>

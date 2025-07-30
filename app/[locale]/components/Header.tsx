@@ -15,17 +15,17 @@ const AnimatedHamburger = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
       aria-label={isOpen ? "Close Menu" : "Open Menu"}
     >
       <span
-        className={`block h-0.5 w-6 bg-gray-800 group-hover:bg-millo-red transition-all duration-300 transform origin-center ${
+        className={`block h-0.5 w-6 bg-white group-hover:bg-millo-red transition-all duration-300 transform origin-center ${
           isOpen ? 'rotate-45 translate-y-1' : ''
         }`}
       />
       <span
-        className={`block h-0.5 w-6 bg-gray-800 group-hover:bg-millo-red transition-all duration-300 ${
+        className={`block h-0.5 w-6 bg-white group-hover:bg-millo-red transition-all duration-300 ${
           isOpen ? 'opacity-0' : 'opacity-100'
         }`}
       />
       <span
-        className={`block h-0.5 w-6 bg-gray-800 group-hover:bg-millo-red transition-all duration-300 transform origin-center ${
+        className={`block h-0.5 w-6 bg-white group-hover:bg-millo-red transition-all duration-300 transform origin-center ${
           isOpen ? '-rotate-45 -translate-y-1' : ''
         }`}
       />
@@ -38,15 +38,15 @@ const PremiumLogo = ({ isScrolled }: { isScrolled: boolean }) => {
   return (
     <Link 
       href="/" 
-      className="flex items-center group"
+      className="flex items-center group h-full py-1"
     >
-      <div className={`font-montserrat font-bold transition-all duration-300 group-hover:scale-105 ${
+      <div className={`font-bold tracking-tight transition-all duration-300 group-hover:scale-105 ${
         isScrolled ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'
-      }`}>
-        <span className="text-millo-blue group-hover:animate-pulse-gentle transition-colors duration-300">
+      }`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', lineHeight: '1' }}>
+        <span className="text-[#314485] group-hover:text-[#4a5ca5] transition-colors duration-300 font-extrabold">
           Millo
         </span>
-        <span className="text-millo-red group-hover:animate-pulse-gentle transition-colors duration-300">
+        <span className="text-[#C73834] group-hover:text-[#e04550] transition-colors duration-300 font-extrabold">
           Color
         </span>
       </div>
@@ -69,11 +69,12 @@ const NavLink = ({ href, children, pathname, onClick }: {
     <Link 
       href={href}
       onClick={onClick}
-      className={`relative font-poppins font-medium text-sm lg:text-base whitespace-nowrap transition-all duration-300 group ${
+      className={`relative font-medium text-sm whitespace-nowrap transition-all duration-200 group tracking-wide ${
         isActive 
-          ? 'text-millo-red' 
-          : 'text-gray-700 hover:text-millo-red'
+          ? 'text-millo-red font-semibold' 
+          : 'text-white/90 hover:text-white'
       }`}
+      style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif' }}
     >
       {children}
       {/* Active indicator dot */}
@@ -142,12 +143,12 @@ export default function Header() {
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100/50 h-16' 
-            : 'bg-white/90 backdrop-blur-sm h-20'
+            ? 'bg-white/5 backdrop-blur-[2px] shadow-lg border-b border-white/10 h-12' 
+            : 'bg-white/5 backdrop-blur-[2px] h-14'
         }`}
       >
-        {/* Gradient accent line */}
-        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-millo-blue via-millo-red to-millo-blue opacity-60" />
+        {/* Modern gradient accent line */}
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         
         <div className="w-full h-full">
           {/* Desktop Layout - True Absolute Edge Positioning */}
@@ -172,16 +173,6 @@ export default function Header() {
                 <div className="h-6 w-px bg-gray-300"></div>
                 
                 {/* Contact Button */}
-                <a 
-                  href="tel:+1234567890" 
-                  className="hidden xl:flex items-center space-x-2 px-4 py-2 text-sm font-medium text-millo-blue hover:text-white bg-transparent hover:bg-millo-blue border border-millo-blue rounded-lg transition-all duration-300 group"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span>Call Us</span>
-                </a>
-                
                 {/* Language Switcher */}
                 <LanguageSwitcher />
               </div>
@@ -214,7 +205,7 @@ export default function Header() {
           />
           
           {/* Mobile Menu */}
-          <div className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl animate-slide-in-right">
+          <div className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-black/90 backdrop-blur-xl shadow-2xl animate-slide-in-right">
             {/* Mobile Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <PremiumLogo isScrolled={false} />
@@ -262,18 +253,7 @@ export default function Header() {
             </nav>
             
             {/* Mobile Actions */}
-            <div className="absolute bottom-6 left-6 right-6 space-y-4">
-              <a 
-                href="tel:+1234567890" 
-                className="flex items-center justify-center space-x-2 w-full px-4 py-3 text-white bg-gradient-to-r from-millo-blue to-millo-red rounded-xl font-medium transition-all duration-300 hover:shadow-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span>Call Us Now</span>
-              </a>
-              
+            <div className="absolute bottom-6 left-6 right-6">
               {/* Social Links */}
               <div className="flex justify-center space-x-4">
                 <a href="#" className="p-2 text-gray-600 hover:text-millo-blue transition-colors">

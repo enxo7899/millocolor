@@ -79,7 +79,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className="flex items-center space-x-2 px-3 py-2 rounded-lg font-medium text-gray-800 hover:text-millo-red hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-millo-blue focus:ring-opacity-20 transition-all duration-200 group"
+        className="flex items-center space-x-2 px-3 py-2 rounded-lg font-medium text-white/90 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-millo-blue/50 transition-all duration-200 group"
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label={`Current language: ${currentLanguage.name}. Click to change language.`}
