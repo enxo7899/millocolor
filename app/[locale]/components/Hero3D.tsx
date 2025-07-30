@@ -1,16 +1,18 @@
 "use client";
 
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, useGLTF, Environment, PerspectiveCamera } from '@react-three/drei';
+import { Text, useGLTF, Environment, PerspectiveCamera, useFont } from '@react-three/drei';
 import { useRef, useState, useEffect, useMemo, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import * as THREE from 'three';
 import gsap from 'gsap';
 import SprayParticles from './SprayParticles';
+import { useResponsiveScaling } from '../hooks/useResponsiveScaling';
 
 // Only preload on client-side
 if (typeof window !== 'undefined') {
   useGLTF.preload('/models/spray_gun.glb');
+  useFont.preload('/fonts/Baloo2-Bold.ttf');
 }
 
 // Loading fallback component
@@ -30,6 +32,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const milloTextRef = useRef<any>(null);
   const colorTextRef = useRef<any>(null);
 
+  const scale = useResponsiveScaling();
   const [milloColor, setMilloColor] = useState(new THREE.Color('#CCCCCC'));
   const [colorTextColor, setColorTextColor] = useState(new THREE.Color('#CCCCCC'));
   const [milloPosX, setMilloPosX] = useState(-1.0);
@@ -37,8 +40,10 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const [centerOffset, setCenterOffset] = useState(0);
   const [sprayActive, setSprayActive] = useState(false);
   const [sprayColor, setSprayColor] = useState<THREE.Color>(new THREE.Color('#314485'));
-  const fontSize = isMobile ? 0.55 : 1.2;
-  const charGap = isMobile ? 0.04 : 0.08;
+
+  const fontSize = 1.2 * scale;
+  const letterSpacing = 0.01;
+  const charGap = letterSpacing; // Make word spacing same as letter spacing
 
   // Measure and center the text group after mount with null checks
   useEffect(() => {
@@ -98,8 +103,8 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     });
     const gun = gunRef.current;
     const transitionX = colorPosX - charGap / 2;
-    const verticalCenter = -0.7; // Move gun lower to align nozzle with text center
-    gun.position.set(isMobile ? milloPosX - 1.2 : milloPosX - 1.7, verticalCenter, 1.5);
+    const verticalCenter = -0.8; // Recalibrated for new font
+    gun.position.set(isMobile ? milloPosX - 0.8 : milloPosX - 1.2, verticalCenter, 1.5);
     gun.rotation.set(0, 0, -Math.PI/14);
 
     // --- 2.5 passes over 'Millo' ---
@@ -382,44 +387,54 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     }
   }, [sprayGun, onModelLoaded]);
 
-  return (
+    return (
     <>
       <PerspectiveCamera makeDefault position={[0, 0, isMobile ? 3.5 : 5]} fov={isMobile ? 65 : 50} />
       <ambientLight intensity={0.8} />
       <directionalLight position={[5, 5, 5]} intensity={1.5} />
       <Environment preset="city" />
-      <Text
-        ref={milloTextRef}
-        position={[milloPosX, 0, 0]}
-        fontSize={fontSize}
-        color={milloColor.getStyle()}
-        anchorX="left"
-        anchorY="middle"
-        letterSpacing={charGap}
-      >Millo</Text>
-      <Text
-        ref={colorTextRef}
-        position={[colorPosX, 0, 0]}
-        fontSize={fontSize}
-        color={colorTextColor.getStyle()}
-        anchorX="left"
-        anchorY="middle"
-        letterSpacing={charGap}
-      >Color</Text>
+      <Suspense fallback={<LoadingFallback />}>
+        <Text
+          ref={milloTextRef}
+          font="/fonts/Baloo2-Bold.ttf"
+          position={[milloPosX, 0, 0]}
+          fontSize={fontSize}
+          color={milloColor}
+          anchorX="left"
+          anchorY="middle"
+          letterSpacing={letterSpacing}
+        >
+          Millo
+        </Text>
+        <Text
+          ref={colorTextRef}
+          font="/fonts/Baloo2-Bold.ttf"
+          position={[colorPosX, 0, 0]}
+          fontSize={fontSize}
+          color={colorTextColor}
+          anchorX="left"
+          anchorY="middle"
+          letterSpacing={letterSpacing}
+        >
+          Color
+        </Text>
+      </Suspense>
       <Text
         position={[0, -1.1, 0]}
-        fontSize={isMobile ? 0.20 : 0.28}
+        fontSize={0.28 * scale}
         color="#666666"
         anchorX="center"
         anchorY="middle"
-      >Spray Like a Champion</Text>
-      <primitive ref={gunRef} object={sprayGun} scale={isMobile ? [0.32, 0.32, 0.32] : [0.38, 0.38, 0.38]} position={[0, -0.8, 0]} />
+      >
+        Spray Like a Champion
+      </Text>
+      <primitive ref={gunRef} object={sprayGun} scale={0.35 * scale} position={[0, -0.8, 0]} />
       
-      <SprayParticles 
-        gunRef={gunRef} 
-        sprayActive={sprayActive} 
-        sprayColor={sprayColor} 
-        isMobile={isMobile}
+      <SprayParticles
+        gunRef={gunRef}
+        sprayActive={sprayActive}
+        sprayColor={sprayColor}
+        scaleFactor={scale}
         milloTextRef={milloTextRef}
         colorTextRef={colorTextRef}
       />

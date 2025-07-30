@@ -6,7 +6,7 @@ interface SprayParticlesProps {
   gunRef: React.RefObject<THREE.Object3D | null>;
   sprayActive: boolean;
   sprayColor: THREE.Color | string;
-  isMobile: boolean;
+  scaleFactor: number;
   count?: number;
   spreadAngle?: number;   // cone angle in degrees
   speed?: number;         // base particle speed
@@ -19,8 +19,8 @@ function SprayParticles({
   gunRef,
   sprayActive,
   sprayColor,
-  isMobile,
-  count = isMobile ? 400 : 700, // Balanced particle count
+  scaleFactor,
+  count = Math.floor(300 + 500 * scaleFactor), // Dynamically scale particle count
   spreadAngle = 20, // Controlled spread for triangular effect
   speed = 5,
   lifeTime = 0.9 // Moderate lifetime
@@ -205,7 +205,7 @@ function SprayParticles({
       const fadeScale = progress < 0.95 ? 1 : (1 - (progress - 0.95) / 0.05); // Very minimal fading
       const finalScale = particleVisible ? baseScale * fadeScale : 0;
       
-      dummy.scale.setScalar(finalScale * (isMobile ? 0.5 : 0.7)); // Consistent, no spitting
+      dummy.scale.setScalar(finalScale * 0.6 * scaleFactor); // Scale particles dynamically
       
       // Rotate particles to be vertical as requested
       dummy.rotation.z = Math.PI / 2; // Rotate 90 degrees to make vertical
