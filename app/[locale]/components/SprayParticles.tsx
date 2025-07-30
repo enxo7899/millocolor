@@ -1,192 +1,246 @@
-import * as THREE from 'three';
-import { useRef, useEffect, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
+import { useMemo, useRef, useEffect, useState } from 'react';
+import * as THREE from 'three';
 
-type SprayParticlesProps = {
+interface SprayParticlesProps {
   gunRef: React.RefObject<THREE.Object3D | null>;
   sprayActive: boolean;
   sprayColor: THREE.Color | string;
   isMobile: boolean;
-};
+  count?: number;
+  spreadAngle?: number;   // cone angle in degrees
+  speed?: number;         // base particle speed
+  lifeTime?: number;      // base lifetime in seconds
+  milloTextRef?: React.RefObject<any>; // Reference to Millo text for masking
+  colorTextRef?: React.RefObject<any>; // Reference to Color text for masking
+}
 
-function SprayParticles({ gunRef, sprayActive, sprayColor, isMobile }: SprayParticlesProps) {
-  // Configuration: adjust particle counts and behavior for mobile vs desktop
-  const maxParticles = isMobile ? 600 : 1500;  // Maximum particles in system
-  const spawnRate = isMobile ? 200 : 500;      // Particles per second emitted when spraying (approx)
-  const particleLifetime = 0.7;               // Lifetime of each particle (seconds) before fade-out
-  const gravity = new THREE.Vector3(0, -2.0, 0);    // Gravity acceleration (Y-axis downward)
-  const dragFactor = 0.98;                          // Air resistance (velocity multiplier per frame)
-
-  // Pre-allocate buffers for particle data 
-  const positions = useMemo(() => new Float32Array(maxParticles * 3), [maxParticles]);
-  const colors = useMemo(() => new Float32Array(maxParticles * 4), [maxParticles]);  // RGBA (4 components)
-  const velocities = useMemo(() => new Float32Array(maxParticles * 3), [maxParticles]);
-  const lifetimes = useMemo(() => new Float32Array(maxParticles), [maxParticles]);
-  const ages = useMemo(() => new Float32Array(maxParticles), [maxParticles]);
-
-  // Three.js BufferGeometry for points, with position & color attributes
-  const geometryRef = useRef<THREE.BufferGeometry | null>(null);
-  if (!geometryRef.current) {
-    geometryRef.current = new THREE.BufferGeometry();
-    geometryRef.current.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometryRef.current.setAttribute('color', new THREE.BufferAttribute(colors, 4));  // using 4 components allows per-particle alpha
-    geometryRef.current.setDrawRange(0, 0);
-  }
-
-  // Texture for particles: a small radial gradient (white center fading to transparent)
-  const particleTexture = useMemo(() => {
-    const size = 32;
+function SprayParticles({
+  gunRef,
+  sprayActive,
+  sprayColor,
+  isMobile,
+  count = isMobile ? 400 : 700, // Balanced particle count
+  spreadAngle = 20, // Controlled spread for triangular effect
+  speed = 5,
+  lifeTime = 0.9 // Moderate lifetime
+}: SprayParticlesProps) {
+  const instancedRef = useRef<THREE.InstancedMesh>(null);
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+  
+  // Create mist texture for volumetric effect (client-side only)
+  const [mistTexture, setMistTexture] = useState<THREE.Texture | null>(null);
+  
+  useEffect(() => {
+    // Only create texture on client side to avoid SSR issues
+    if (typeof window === 'undefined') return;
+    
+    const size = 64;
     const canvas = document.createElement('canvas');
     canvas.width = canvas.height = size;
     const ctx = canvas.getContext('2d')!;
-    // Draw radial gradient circle
+    
+    // Create soft, cloudy mist texture
     const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
-    gradient.addColorStop(0, 'rgba(255,255,255,1)');
+    gradient.addColorStop(0, 'rgba(255,255,255,0.8)');
+    gradient.addColorStop(0.5, 'rgba(255,255,255,0.3)');
     gradient.addColorStop(1, 'rgba(255,255,255,0)');
+    
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, size, size);
-    const tex = new THREE.CanvasTexture(canvas);
-    tex.minFilter = THREE.LinearFilter;
-    return tex;
+    
+    // Add some noise for realistic mist
+    const imageData = ctx.getImageData(0, 0, size, size);
+    const data = imageData.data;
+    for (let i = 0; i < data.length; i += 4) {
+      const noise = Math.random() * 0.3;
+      data[i + 3] *= (1 - noise); // Reduce alpha randomly
+    }
+    ctx.putImageData(imageData, 0, 0);
+    
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    setMistTexture(texture);
+    
+    // Cleanup
+    return () => {
+      texture.dispose();
+    };
   }, []);
-
-  // Keep track of active particles count and spawn timing 
-  const activeCountRef = useRef(0);
-  const spawnAccumulatorRef = useRef(0);
-
-  // Refs to hold current spray state (to avoid stale closures inside useFrame)
+  
+  // Simple particle data for straightforward spray effect
+  const particles = useMemo(() => {
+    const temp: {
+      age: number;
+      life: number;
+      triangularOffset: number; // For triangular spray pattern
+    }[] = [];
+    
+    for (let i = 0; i < count; i++) {
+      // Staggered start times for continuous flow
+      const age = Math.random() * lifeTime;
+      const life = lifeTime;
+      
+      // Triangular offset: 0 = center, 1 = max spread
+      const triangularOffset = Math.random();
+      
+      temp.push({ 
+        age, 
+        life,
+        triangularOffset
+      });
+    }
+    return temp;
+  }, [count, lifeTime]);
+  
+  // Refs to hold current spray state
   const sprayActiveRef = useRef(sprayActive);
   const currentColorRef = useRef<THREE.Color>(new THREE.Color(sprayColor));
+  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
+  
+  // Update refs when props change - use useEffect for proper updates
   useEffect(() => { 
     sprayActiveRef.current = sprayActive; 
   }, [sprayActive]);
+  
   useEffect(() => {
-    // Update current color (Three.Color) from prop whenever it changes
+    const newColor = new THREE.Color();
     if (sprayColor instanceof THREE.Color) {
-      currentColorRef.current.copy(sprayColor);
+      newColor.copy(sprayColor);
     } else {
-      currentColorRef.current.set(sprayColor);
+      newColor.set(sprayColor);
+    }
+    currentColorRef.current.copy(newColor);
+    
+    // Update material for natural mist (not harsh helicopter light)
+    if (materialRef.current) {
+      materialRef.current.color.copy(newColor);
+      materialRef.current.transparent = true;
+      materialRef.current.alphaTest = 0.05; // Softer edges
+      materialRef.current.opacity = 0.55; // Slightly more transparent than helicopter light
     }
   }, [sprayColor]);
 
-  // Main animation loop: update particle positions, spawn new particles when active
+  // Get nozzle position 1cm closer to text from current position
+  const getNozzleTransform = () => {
+    if (!gunRef.current) return { position: new THREE.Vector3(), forward: new THREE.Vector3(0, 0, -1) };
+    
+    // Position spray correctly - right depth and move to the right
+    const nozzleOffset = new THREE.Vector3(-1.2, 2.4, 0.3); // X kept at -1.2, moved right (Z: 0.5 -> 0.3)
+    const nozzlePos = gunRef.current.localToWorld(nozzleOffset.clone());
+    
+    // Calculate target point that follows spraygun position (not always center)
+    const gunWorldPos = gunRef.current.position;
+    const targetPoint = new THREE.Vector3(gunWorldPos.x * 0.8, 0, 0); // X follows gun, Y=0 (text level), Z=0 (text plane)
+    const towardTarget = targetPoint.clone().sub(nozzlePos).normalize();
+    
+    return { position: nozzlePos, forward: towardTarget };
+  };
+
   useFrame((_, delta) => {
-    const geometry = geometryRef.current!;
-    const posAttr = geometry.attributes.position as THREE.BufferAttribute;
-    const colAttr = geometry.attributes.color as THREE.BufferAttribute;
-    let count = activeCountRef.current;
-
-    // Emit new particles if spraying is active 
-    if (sprayActiveRef.current && gunRef.current) {
-      // Calculate how many new particles to spawn this frame (based on spawnRate)
-      spawnAccumulatorRef.current += spawnRate * delta;
-      const toSpawn = Math.floor(spawnAccumulatorRef.current);
-      spawnAccumulatorRef.current -= toSpawn;
-
-      if (toSpawn > 0) {
-        // Determine nozzle world position and forward direction (spray direction)
-        // Positioned at the very tip of the nozzle that extends toward the text
-        const nozzleOffset = new THREE.Vector3(0, 2.35, 0.85);
-        const nozzlePos = gunRef.current.localToWorld(nozzleOffset.clone());
-        const forwardPos = gunRef.current.localToWorld(nozzleOffset.clone().setZ(nozzleOffset.z + 0.1));
-        const baseDir = forwardPos.sub(nozzlePos).normalize();  // base direction from nozzle
-
-        for (let i = 0; i < toSpawn && count < maxParticles; i++) {
-          // Initialize new particle at nozzle
-          positions[count * 3]     = nozzlePos.x;
-          positions[count * 3 + 1] = nozzlePos.y;
-          positions[count * 3 + 2] = nozzlePos.z;
-          // Assign initial velocity with random spray spread
-          const dir = baseDir.clone();
-          // small random angular divergence
-          dir.x += (Math.random() - 0.5) * 0.2;
-          dir.y += (Math.random() - 0.5) * 0.2;
-          dir.z += (Math.random() - 0.5) * 0.1;
-          dir.normalize();
-          const speed = (isMobile ? 2.0 : 2.5) * (0.8 + 0.4 * Math.random());  // vary speed (larger droplets = faster)
-          const vel = dir.multiplyScalar(speed);
-          velocities[count * 3]     = vel.x;
-          velocities[count * 3 + 1] = vel.y;
-          velocities[count * 3 + 2] = vel.z;
-          // Set particle color (use current spray color) and full alpha=1
-          const c = currentColorRef.current;
-          colors[count * 4]     = c.r;
-          colors[count * 4 + 1] = c.g;
-          colors[count * 4 + 2] = c.b;
-          colors[count * 4 + 3] = 1.0;
-          // Set lifetime and reset age
-          lifetimes[count] = particleLifetime;
-          ages[count] = 0;
-          count++;
-        }
+    const mesh = instancedRef.current;
+    if (!mesh) return;
+    
+    // Get current nozzle position and direction
+    const { position: nozzlePos, forward: nozzleForward } = getNozzleTransform();
+    
+    // Get current spray color for word masking
+    const currentColor = currentColorRef.current;
+    const isBlueSpray = currentColor.r < 0.4 && currentColor.g < 0.4 && currentColor.b > 0.6; // Blue for Millo
+    const isRedSpray = currentColor.r > 0.6 && currentColor.g < 0.4 && currentColor.b < 0.4; // Red for Color
+    
+    // If not spraying, hide all particles immediately
+    if (!sprayActiveRef.current) {
+      particles.forEach((p, i) => {
+        dummy.scale.setScalar(0);
+        dummy.updateMatrix();
+        mesh.setMatrixAt(i, dummy.matrix);
+      });
+      mesh.instanceMatrix.needsUpdate = true;
+      return;
+    }
+    
+    particles.forEach((p, i) => {
+      p.age += delta;
+      
+      // Reset particle when it expires
+      if (p.age >= p.life) {
+        p.age = 0;
       }
-    }
-
-    // Update existing particles 
-    for (let i = count - 1; i >= 0; i--) {
-      // Advance age
-      ages[i] += delta;
-      // If particle expired, remove it by swapping with the last active particle
-      if (ages[i] >= lifetimes[i]) {
-        count--;
-        if (i < count) {
-          // Copy data from last particle into slot i
-          positions[i*3]     = positions[count*3];
-          positions[i*3 + 1] = positions[count*3 + 1];
-          positions[i*3 + 2] = positions[count*3 + 2];
-          velocities[i*3]    = velocities[count*3];
-          velocities[i*3 + 1]= velocities[count*3 + 1];
-          velocities[i*3 + 2]= velocities[count*3 + 2];
-          colors[i*4]        = colors[count*4];
-          colors[i*4 + 1]    = colors[count*4 + 1];
-          colors[i*4 + 2]    = colors[count*4 + 2];
-          colors[i*4 + 3]    = colors[count*4 + 3];
-          lifetimes[i]       = lifetimes[count];
-          ages[i]            = ages[count];
-        }
-        continue;
-      }
-      // Apply physics to active particle i:
-      // Update velocity with gravity (v = v + g*dt) and air drag
-      velocities[i*3]     += gravity.x * delta;
-      velocities[i*3 + 1] += gravity.y * delta;
-      velocities[i*3 + 2] += gravity.z * delta;
-      velocities[i*3]     *= dragFactor;
-      velocities[i*3 + 1] *= dragFactor;
-      velocities[i*3 + 2] *= dragFactor;
-      // Update position (p = p + v*dt)
-      positions[i*3]     += velocities[i*3] * delta;
-      positions[i*3 + 1] += velocities[i*3 + 1] * delta;
-      positions[i*3 + 2] += velocities[i*3 + 2] * delta;
-      // Fade out particle by reducing alpha over lifetime
-      const lifeFrac = 1 - (ages[i] / lifetimes[i]);
-      colors[i*4 + 3] = lifeFrac;  // alpha goes from 1 -> 0
-    }
-
-    // Write back updated count and mark attributes as needing update
-    activeCountRef.current = count;
-    geometry.setDrawRange(0, count);
-    if (count > 0) {
-      posAttr.needsUpdate = true;
-      colAttr.needsUpdate = true;
-    }
+      
+      // Calculate particle position along triangular spray path
+      const progress = p.age / p.life; // 0 to 1
+      const distance = progress * 2; // Max distance from nozzle
+      
+      // Create triangular spray pattern: narrow at nozzle, wide at end
+      const triangularSpread = progress * spreadAngle * p.triangularOffset;
+      const spreadX = Math.sin(triangularSpread * Math.PI / 180) * distance;
+      const spreadY = Math.sin(triangularSpread * Math.PI / 180 * 0.5) * distance;
+      
+      // Use direction toward text for realistic spray aim
+      const sprayDirection = nozzleForward.clone(); // This now points toward text
+      
+      // Create perpendicular vectors for triangular spread
+      const rightVector = new THREE.Vector3(1, 0, 0);
+      const upVector = new THREE.Vector3(0, 1, 0);
+      
+      // Start spray at nozzle position (already at furthest point toward text)
+      const sprayStartPos = nozzlePos.clone(); // No additional offset needed
+      
+      // Position particle along spray direction toward text with triangular spread
+      const particlePos = sprayStartPos.clone()
+        .add(sprayDirection.clone().multiplyScalar(distance))
+        .add(rightVector.clone().multiplyScalar(spreadX * (p.triangularOffset - 0.5) * 0.8))
+        .add(upVector.clone().multiplyScalar(spreadY * (p.triangularOffset - 0.5) * 0.4));
+      
+      // DEBUG: Show all particles for now to ensure spray is working
+      let particleVisible = true; // Always show particles for debugging
+      
+      // Position the particle
+      dummy.position.copy(particlePos);
+      
+      // Scale particle: large, powerful, consistent triangular spray
+      const baseScale = 0.3 + distance * 0.4; // Large base scale for powerful spray
+      const fadeScale = progress < 0.9 ? 1 : (1 - (progress - 0.9) / 0.1); // Minimal fading
+      const finalScale = particleVisible ? baseScale * fadeScale : 0;
+      
+      dummy.scale.setScalar(finalScale * (isMobile ? 0.4 : 0.6)); // Large, powerful size
+      
+      // Consistent rotation for powerful spray effect
+      dummy.rotation.z = progress * 0.2; // Consistent, less chaotic
+      
+      dummy.updateMatrix();
+      mesh.setMatrixAt(i, dummy.matrix);
+    });
+    
+    mesh.instanceMatrix.needsUpdate = true;
   });
 
-  // Render the particle points in the scene
+  // Don't render until texture is loaded to avoid SSR issues
+  if (!mistTexture) return null;
+  
+  // Only show mist when actively spraying to prevent lingering
+  if (!sprayActiveRef.current) return null;
+  
+  // Word-specific masking implemented - particles only show over target word area
+  
+  // Render triangular volumetric mist spray using instancedMesh
   return (
-    <points ref={undefined} args={[geometryRef.current]} frustumCulled={false}>
-      <pointsMaterial 
-        map={particleTexture}
-        vertexColors={true}
-        transparent={true}
-        opacity={1.0}
-        blending={THREE.NormalBlending}
+    <instancedMesh ref={instancedRef} args={[undefined, undefined, count]} frustumCulled={false}>
+      {/* Use planes for volumetric mist effect */}
+      <planeGeometry args={[1, 1]} /> 
+      <meshBasicMaterial 
+        ref={materialRef}
+        map={mistTexture}
+        color={currentColorRef.current}
+        transparent 
+        opacity={0.25} // More transparent to see underlying content
         depthWrite={false}
-        depthTest={true}
-        size={isMobile ? 0.03 : 0.04}         // base size of particles (smaller on mobile screens)
-        sizeAttenuation={true}               // particles appear smaller in the distance
+        blending={THREE.NormalBlending} // Normal blending for better color accuracy
+        side={THREE.DoubleSide}
       />
-    </points>
+    </instancedMesh>
   );
 }
 

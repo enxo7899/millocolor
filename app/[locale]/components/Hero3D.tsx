@@ -2,15 +2,29 @@
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, useGLTF, Environment, PerspectiveCamera } from '@react-three/drei';
-import { useRef, useState, useEffect, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { useRef, useState, useEffect, useMemo, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import * as THREE from 'three';
 import gsap from 'gsap';
 import SprayParticles from './SprayParticles';
 
-// Main scene component with simplified animations
-function Scene({ isMobile }: { isMobile: boolean }) {
+// Only preload on client-side
+if (typeof window !== 'undefined') {
+  useGLTF.preload('/models/spray_gun.glb');
+}
+
+// Loading fallback component
+function LoadingFallback() {
+  return (
+    <mesh position={[0, 0, 0]}>
+      <boxGeometry args={[0.1, 0.1, 0.1]} />
+      <meshStandardMaterial color="#314485" />
+    </mesh>
+  );
+}
+
+// Main scene component with optimized animations
+function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: () => void }) {
   const { scene: sprayGun } = useGLTF('/models/spray_gun.glb');
   const gunRef = useRef<THREE.Object3D>(null);
   const milloTextRef = useRef<any>(null);
@@ -22,25 +36,48 @@ function Scene({ isMobile }: { isMobile: boolean }) {
   const [centerOffset, setCenterOffset] = useState(0);
   const [sprayActive, setSprayActive] = useState(false);
   const [sprayColor, setSprayColor] = useState<THREE.Color>(new THREE.Color('#314485'));
-  const fontSize = isMobile ? 0.6 : 0.8;
-  const charGap = 0.05;
+  const fontSize = isMobile ? 0.55 : 1.2;
+  const charGap = isMobile ? 0.04 : 0.08;
 
-  // Measure and center the text group after mount
+  // Measure and center the text group after mount with null checks
   useEffect(() => {
     if (milloTextRef.current && colorTextRef.current) {
-      setTimeout(() => {
-        const bboxMillo = milloTextRef.current.geometry.boundingBox;
-        const bboxColor = colorTextRef.current.geometry.boundingBox;
-        if (bboxMillo && bboxColor) {
-          const widthMillo = bboxMillo.max.x - bboxMillo.min.x;
-          const widthColor = bboxColor.max.x - bboxColor.min.x;
-          const totalWidth = widthMillo + charGap + widthColor;
-          // Center the group
-          setMilloPosX(-totalWidth / 2);
-          setColorPosX(-totalWidth / 2 + widthMillo + charGap);
-          setCenterOffset(totalWidth / 2);
+      const measureText = () => {
+        try {
+          // Add null checks and ensure geometry exists
+          if (!milloTextRef.current?.geometry || !colorTextRef.current?.geometry) {
+            return;
+          }
+          
+          const bboxMillo = milloTextRef.current.geometry.boundingBox;
+          const bboxColor = colorTextRef.current.geometry.boundingBox;
+          
+          if (bboxMillo && bboxColor) {
+            const widthMillo = bboxMillo.max.x - bboxMillo.min.x;
+            const widthColor = bboxColor.max.x - bboxColor.min.x;
+            const totalWidth = widthMillo + charGap + widthColor;
+            // Center the group
+            setMilloPosX(-totalWidth / 2);
+            setColorPosX(-totalWidth / 2 + widthMillo + charGap);
+            setCenterOffset(totalWidth / 2);
+          }
+        } catch (error) {
+          console.warn('Text measurement failed, using default positions:', error);
+          // Use fallback positions
+          setMilloPosX(-1.0);
+          setColorPosX(1.0);
         }
-      }, 100);
+      };
+      
+      // Try immediately, then with delays for geometry to be ready
+      measureText();
+      const timeout1 = setTimeout(measureText, 100);
+      const timeout2 = setTimeout(measureText, 300);
+      
+      return () => {
+        clearTimeout(timeout1);
+        clearTimeout(timeout2);
+      };
     }
   }, [milloTextRef.current, colorTextRef.current, fontSize, isMobile]);
 
@@ -313,15 +350,36 @@ function Scene({ isMobile }: { isMobile: boolean }) {
 
   useEffect(() => {
     if (sprayGun) {
+      // Notify that model is loaded
+      onModelLoaded();
+      
+      // Optimize the 3D model for better performance
       sprayGun.traverse((child: any) => {
         if (child.isMesh) {
-          child.material = child.material.clone();
-          child.material.metalness = 0.8;
-          child.material.roughness = 0.2;
+          // Clone material only if necessary
+          if (!child.material.userData?.optimized) {
+            child.material = child.material.clone();
+            child.material.metalness = 0.8;
+            child.material.roughness = 0.2;
+            child.material.userData = { optimized: true };
+          }
+          
+          // Optimize geometry
+          if (child.geometry) {
+            child.geometry.computeBoundingBox();
+            child.geometry.computeBoundingSphere();
+            
+            // Enable frustum culling
+            child.frustumCulled = true;
+            
+            // Optimize for static meshes
+            child.matrixAutoUpdate = false;
+            child.updateMatrix();
+          }
         }
       });
     }
-  }, [sprayGun]);
+  }, [sprayGun, onModelLoaded]);
 
   return (
     <>
@@ -348,34 +406,35 @@ function Scene({ isMobile }: { isMobile: boolean }) {
         letterSpacing={charGap}
       >Color</Text>
       <Text
-        position={[0, -1.0, 0]}
-        fontSize={isMobile ? 0.18 : 0.25}
+        position={[0, -1.1, 0]}
+        fontSize={isMobile ? 0.20 : 0.28}
         color="#666666"
         anchorX="center"
         anchorY="middle"
       >Spray Like a Champion</Text>
-      <primitive ref={gunRef} object={sprayGun} scale={[0.3, 0.3, 0.3]} position={[0, -0.6, 0]} />
+      <primitive ref={gunRef} object={sprayGun} scale={isMobile ? [0.32, 0.32, 0.32] : [0.38, 0.38, 0.38]} position={[0, -0.8, 0]} />
       
       <SprayParticles 
         gunRef={gunRef} 
         sprayActive={sprayActive} 
         sprayColor={sprayColor} 
-        isMobile={isMobile} 
+        isMobile={isMobile}
+        milloTextRef={milloTextRef}
+        colorTextRef={colorTextRef}
       />
     </>
   );
 }
 
-// Main Hero3D component with better mobile responsiveness
-export default function Hero3D() {
-  const t = useTranslations('hero');
+// Simplified Hero3D component
+function Hero3DClient() {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [modelLoaded, setModelLoaded] = useState(false);
   
   useEffect(() => {
     setMounted(true);
     
-    // Check if mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -386,22 +445,41 @@ export default function Hero3D() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Show loading until mounted
   if (!mounted) {
     return (
-      <section className="relative h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] bg-transparent flex items-center justify-center">
-        <div className="text-center px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+      <section className="relative h-[80vh] w-full bg-transparent flex items-center justify-center overflow-hidden">
+        <div className="text-center px-4 z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-pulse">
             <span className="text-[#314485]">Millo</span>
             <span className="text-[#C73834]">Color</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600">Loading 3D Scene...</p>
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-400">Loading...</p>
         </div>
       </section>
     );
   }
-
+  
+  // Render the 3D scene once mounted
   return (
-    <section className="relative h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] bg-transparent overflow-hidden">
+    <section className="relative h-[80vh] w-full bg-transparent overflow-hidden">
+      {!modelLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="text-center px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span className="text-[#314485]">Millo</span>
+              <span className="text-[#C73834]">Color</span>
+            </h1>
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="w-3 h-3 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-3 h-3 bg-[#C73834] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+              <div className="w-3 h-3 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+            </div>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-400">Loading 3D Model...</p>
+          </div>
+        </div>
+      )}
+      
       <Canvas 
         gl={{ 
           antialias: true,
@@ -409,27 +487,33 @@ export default function Hero3D() {
           powerPreference: 'high-performance'
         }}
         camera={{ 
-          position: [0, 0, isMobile ? 3.5 : 5], 
-          fov: isMobile ? 65 : 50 
+          position: [0, 0, isMobile ? 4 : 6], 
+          fov: isMobile ? 70 : 55
         }}
         onCreated={({ gl }) => {
           gl.setClearColor('#000000', 0);
         }}
         className="w-full h-full"
-        dpr={[1, 2]} // Optimize for different pixel densities
       >
-        <Scene isMobile={isMobile} />
+        <Suspense fallback={<LoadingFallback />}>
+          <Scene isMobile={isMobile} onModelLoaded={() => setModelLoaded(true)} />
+        </Suspense>
       </Canvas>
-      
-      {/* CTA Button */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-12 left-1/2 transform -translate-x-1/2 z-10">
-        <Link 
-          href="/products" 
-          className="inline-flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-medium tracking-wider text-white rounded-md bg-[#C73834] hover:bg-red-700 transition-colors duration-300 ease-out shadow-lg"
-        >
-          {t('cta')}
-        </Link>
-      </div>
     </section>
   );
 }
+// Main export with dynamic import to prevent SSR
+export default dynamic(() => Promise.resolve(Hero3DClient), { 
+  ssr: false,
+  loading: () => (
+    <section className="relative h-[80vh] w-full bg-transparent flex items-center justify-center overflow-hidden">
+      <div className="text-center px-4 z-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-pulse">
+          <span className="text-[#314485]">Millo</span>
+          <span className="text-[#C73834]">Color</span>
+        </h1>
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-400">Loading Hero Section...</p>
+      </div>
+    </section>
+  )
+});
