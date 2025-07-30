@@ -29,6 +29,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const gunRef = useRef<THREE.Object3D>(null);
   const milloTextRef = useRef<any>(null);
   const colorTextRef = useRef<any>(null);
+
   const [milloColor, setMilloColor] = useState(new THREE.Color('#CCCCCC'));
   const [colorTextColor, setColorTextColor] = useState(new THREE.Color('#CCCCCC'));
   const [milloPosX, setMilloPosX] = useState(-1.0);

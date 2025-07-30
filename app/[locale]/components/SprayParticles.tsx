@@ -118,7 +118,7 @@ function SprayParticles({
       materialRef.current.color.copy(newColor);
       materialRef.current.transparent = true;
       materialRef.current.alphaTest = 0.05; // Softer edges
-      materialRef.current.opacity = 0.55; // Slightly more transparent than helicopter light
+      materialRef.current.opacity = 0.25; // Much more transparent for realistic mist
     }
   }, [sprayColor]);
 
@@ -173,17 +173,17 @@ function SprayParticles({
       const progress = p.age / p.life; // 0 to 1
       const distance = progress * 2; // Max distance from nozzle
       
-      // Create triangular spray pattern: narrow at nozzle, wide at end
-      const triangularSpread = progress * spreadAngle * p.triangularOffset;
+      // Calculate wider triangular spread for realistic spray pattern
+      const triangularSpread = 40; // Much wider degrees for realistic spray
       const spreadX = Math.sin(triangularSpread * Math.PI / 180) * distance;
-      const spreadY = Math.sin(triangularSpread * Math.PI / 180 * 0.5) * distance;
+      const spreadY = Math.sin(triangularSpread * Math.PI / 180 * 0.6) * distance;
       
-      // Use direction toward text for realistic spray aim
-      const sprayDirection = nozzleForward.clone(); // This now points toward text
+      // Spray direction toward title, but particles oriented vertically
+      const sprayDirection = new THREE.Vector3(0, 0, -1); // Spray toward title
       
-      // Create perpendicular vectors for triangular spread
-      const rightVector = new THREE.Vector3(1, 0, 0);
-      const upVector = new THREE.Vector3(0, 1, 0);
+      // Create perpendicular vectors for triangular spread - rotated for vertical particles
+      const rightVector = new THREE.Vector3(0, 1, 0); // Up direction becomes right
+      const upVector = new THREE.Vector3(1, 0, 0); // Right direction becomes up
       
       // Start spray at nozzle position (already at furthest point toward text)
       const sprayStartPos = nozzlePos.clone(); // No additional offset needed
@@ -191,8 +191,8 @@ function SprayParticles({
       // Position particle along spray direction toward text with triangular spread
       const particlePos = sprayStartPos.clone()
         .add(sprayDirection.clone().multiplyScalar(distance))
-        .add(rightVector.clone().multiplyScalar(spreadX * (p.triangularOffset - 0.5) * 0.8))
-        .add(upVector.clone().multiplyScalar(spreadY * (p.triangularOffset - 0.5) * 0.4));
+        .add(rightVector.clone().multiplyScalar(spreadX * (p.triangularOffset - 0.5) * 2.0))
+        .add(upVector.clone().multiplyScalar(spreadY * (p.triangularOffset - 0.5) * 1.0));
       
       // DEBUG: Show all particles for now to ensure spray is working
       let particleVisible = true; // Always show particles for debugging
@@ -200,15 +200,15 @@ function SprayParticles({
       // Position the particle
       dummy.position.copy(particlePos);
       
-      // Scale particle: large, powerful, consistent triangular spray
-      const baseScale = 0.3 + distance * 0.4; // Large base scale for powerful spray
-      const fadeScale = progress < 0.9 ? 1 : (1 - (progress - 0.9) / 0.1); // Minimal fading
+      // Scale particle: consistent spray with no balls/spitting effect
+      const baseScale = 0.25 + distance * 0.5; // Consistent scaling
+      const fadeScale = progress < 0.95 ? 1 : (1 - (progress - 0.95) / 0.05); // Very minimal fading
       const finalScale = particleVisible ? baseScale * fadeScale : 0;
       
-      dummy.scale.setScalar(finalScale * (isMobile ? 0.4 : 0.6)); // Large, powerful size
+      dummy.scale.setScalar(finalScale * (isMobile ? 0.5 : 0.7)); // Consistent, no spitting
       
-      // Consistent rotation for powerful spray effect
-      dummy.rotation.z = progress * 0.2; // Consistent, less chaotic
+      // Rotate particles to be vertical as requested
+      dummy.rotation.z = Math.PI / 2; // Rotate 90 degrees to make vertical
       
       dummy.updateMatrix();
       mesh.setMatrixAt(i, dummy.matrix);
