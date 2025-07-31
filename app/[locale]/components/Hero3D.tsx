@@ -41,9 +41,11 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const [sprayActive, setSprayActive] = useState(false);
   const [sprayColor, setSprayColor] = useState<THREE.Color>(new THREE.Color('#314485'));
 
+
   const fontSize = 1.2 * scale;
-  const letterSpacing = 0.01;
-  const charGap = letterSpacing; // Make word spacing same as letter spacing
+  // Dynamic letter spacing: reduce spacing on smaller screens first, then scale text
+  const letterSpacing = 0.008 * scale; // Slightly tighter letter spacing for narrower text
+  const charGap = letterSpacing * 1.8; // Slightly reduced word gap for more compact text
 
   // Measure and center the text group after mount with null checks
   useEffect(() => {
@@ -89,12 +91,55 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
 
   useEffect(() => {
     if (!gunRef.current || !milloTextRef.current || !colorTextRef.current) return;
+    
+    // Comprehensive initialization with mandatory delay to ensure all Three.js objects are ready
+    const initializeAnimation = () => {
+      const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
+      const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
+      const gunObject = gunRef.current;
+      
+      // Strict readiness check
+      if (!milloMat || !colorMat || !gunObject || 
+          !milloTextRef.current?.geometry || !colorTextRef.current?.geometry) {
+        console.log('Components not ready, will retry...');
+        return false;
+      }
+      
+      console.log('All components ready, starting animation...');
+      return true;
+    };
+    
+    // Always wait at least 500ms before attempting to start animation
+    const initTimeout = setTimeout(() => {
+      if (!initializeAnimation()) {
+        // Retry after another 500ms if not ready
+        const retryTimeout = setTimeout(() => {
+          if (initializeAnimation()) {
+            console.log('Animation started on retry');
+            // Force re-render to trigger animation start
+            setMilloColor(new THREE.Color('#CCCCCC'));
+            setColorTextColor(new THREE.Color('#CCCCCC'));
+          }
+        }, 500);
+        return;
+      }
+    }, 500);  // Mandatory 500ms delay
+    
+    return () => {
+      clearTimeout(initTimeout);
+    };
+  }, [gunRef.current, milloTextRef.current, colorTextRef.current, isMobile]); // Add isMobile to deps
+  
+  useEffect(() => {
+    if (!gunRef.current || !milloTextRef.current || !colorTextRef.current) return;
     const milloMat = milloTextRef.current.material as THREE.MeshStandardMaterial;
     const colorMat = colorTextRef.current.material as THREE.MeshStandardMaterial;
+    if (!milloMat || !colorMat) return;
     const tl = gsap.timeline({ 
       repeat: -1, 
       repeatDelay: 2,
       onRepeat: () => {
+        // Only reset Color text, keep Millo's color progression smooth
         setMilloColor(new THREE.Color('#CCCCCC'));
         setColorTextColor(new THREE.Color('#CCCCCC'));
         if (milloMat) milloMat.color.set('#CCCCCC');
@@ -143,8 +188,9 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
         setSprayColor(new THREE.Color('#314485'));
       },
       onUpdate: () => {
+        // Use global timeline progress like Color word for smooth transition
         const progress = tl.progress();
-        const c = new THREE.Color('#CCCCCC').lerp(new THREE.Color('#314485'), Math.min(1, (progress - 0.1) * 2));
+        const c = new THREE.Color('#CCCCCC').lerp(new THREE.Color('#314485'), Math.min(1, progress * 3)); // Faster transition
         setMilloColor(c);
         if (milloMat) milloMat.color.copy(c);
       },
@@ -174,8 +220,9 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
         setSprayColor(new THREE.Color('#314485'));
       },
       onUpdate: () => {
+        // Use global timeline progress like Color word for smooth transition
         const progress = tl.progress();
-        const c = new THREE.Color('#CCCCCC').lerp(new THREE.Color('#314485'), Math.min(1, (progress - 0.1) * 2));
+        const c = new THREE.Color('#CCCCCC').lerp(new THREE.Color('#314485'), Math.min(1, progress * 3)); // Faster transition
         setMilloColor(c);
         if (milloMat) milloMat.color.copy(c);
       },
@@ -205,8 +252,9 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
         setSprayColor(new THREE.Color('#314485'));
       },
       onUpdate: () => {
+        // Use global timeline progress like Color word for smooth transition
         const progress = tl.progress();
-        const c = new THREE.Color('#CCCCCC').lerp(new THREE.Color('#314485'), Math.min(1, (progress - 0.1) * 2));
+        const c = new THREE.Color('#CCCCCC').lerp(new THREE.Color('#314485'), Math.min(1, progress * 3)); // Faster transition
         setMilloColor(c);
         if (milloMat) milloMat.color.copy(c);
       },
@@ -428,7 +476,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
       >
         Spray Like a Champion
       </Text>
-      <primitive ref={gunRef} object={sprayGun} scale={0.35 * scale} position={[0, -0.8, 0]} />
+      <primitive ref={gunRef} object={sprayGun} scale={0.12 + (scale * 0.15)} position={[0, -0.8, 0]} />
       
       <SprayParticles
         gunRef={gunRef}
@@ -466,11 +514,11 @@ function Hero3DClient() {
     return (
       <section className="relative h-[80vh] w-full bg-transparent flex items-center justify-center overflow-hidden">
         <div className="text-center px-4 z-10">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-pulse">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6 animate-pulse">
             <span className="text-[#314485]">Millo</span>
             <span className="text-[#C73834]">Color</span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-400">Loading...</p>
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400">Loading...</p>
         </div>
       </section>
     );
@@ -482,16 +530,16 @@ function Hero3DClient() {
       {!modelLoaded && (
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center px-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6">
               <span className="text-[#314485]">Millo</span>
               <span className="text-[#C73834]">Color</span>
             </h1>
             <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-3 h-3 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-              <div className="w-3 h-3 bg-[#C73834] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-              <div className="w-3 h-3 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+              <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#C73834] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+              <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
             </div>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-400">Loading 3D Model...</p>
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400">Loading 3D Model...</p>
           </div>
         </div>
       )}
@@ -524,11 +572,11 @@ export default dynamic(() => Promise.resolve(Hero3DClient), {
   loading: () => (
     <section className="relative h-[80vh] w-full bg-transparent flex items-center justify-center overflow-hidden">
       <div className="text-center px-4 z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-pulse">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6 animate-pulse">
           <span className="text-[#314485]">Millo</span>
           <span className="text-[#C73834]">Color</span>
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-400">Loading Hero Section...</p>
+        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400">Loading Hero Section...</p>
       </div>
     </section>
   )

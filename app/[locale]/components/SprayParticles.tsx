@@ -20,10 +20,10 @@ function SprayParticles({
   sprayActive,
   sprayColor,
   scaleFactor,
-  count = Math.floor(300 + 500 * scaleFactor), // Dynamically scale particle count
-  spreadAngle = 20, // Controlled spread for triangular effect
+  count = Math.floor(200 + 300 * scaleFactor), // Optimized particle count
+  spreadAngle = 15 + (scaleFactor * 8), // Dynamic spread: 15-23° based on scale
   speed = 5,
-  lifeTime = 0.9 // Moderate lifetime
+  lifeTime = 0.8 // Slightly shorter lifetime for tighter spray
 }: SprayParticlesProps) {
   const instancedRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
@@ -205,7 +205,11 @@ function SprayParticles({
       const fadeScale = progress < 0.95 ? 1 : (1 - (progress - 0.95) / 0.05); // Very minimal fading
       const finalScale = particleVisible ? baseScale * fadeScale : 0;
       
-      dummy.scale.setScalar(finalScale * 0.6 * scaleFactor); // Scale particles dynamically
+      // Enhanced particle scaling to maintain proportional relationship with text across all devices
+      // On mobile, scaleFactor is smaller (0.4-0.65) vs desktop (1.3-2.5)
+      // Boost mobile particle scaling to maintain visual proportion with text
+      const particleScalingBoost = scaleFactor < 0.8 ? 1.5 : 1.0; // 50% boost for mobile
+      dummy.scale.setScalar(finalScale * 0.6 * scaleFactor * particleScalingBoost);
       
       // Rotate particles to be vertical as requested
       dummy.rotation.z = Math.PI / 2; // Rotate 90 degrees to make vertical

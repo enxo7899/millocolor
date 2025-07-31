@@ -68,7 +68,7 @@ function HeroSection() {
       
       {/* Hero3D Component */}
       <div className="absolute inset-0 z-10 w-full">
-        <Hero3D key={Date.now()} />
+        <Hero3D />
       </div>
     </section>
   );
