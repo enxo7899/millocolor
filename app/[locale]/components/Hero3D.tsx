@@ -40,6 +40,8 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const [centerOffset, setCenterOffset] = useState(0);
   const [sprayActive, setSprayActive] = useState(false);
   const [sprayColor, setSprayColor] = useState<THREE.Color>(new THREE.Color('#314485'));
+  const [animationReady, setAnimationReady] = useState(false);
+  const [forceRender, setForceRender] = useState(0);
 
 
   const fontSize = 1.2 * scale;
@@ -89,52 +91,71 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     }
   }, [milloTextRef.current, colorTextRef.current, fontSize, isMobile]);
 
+  // Comprehensive animation initialization with multiple retry attempts
   useEffect(() => {
     if (!gunRef.current || !milloTextRef.current || !colorTextRef.current) return;
     
-    // Comprehensive initialization with mandatory delay to ensure all Three.js objects are ready
-    const initializeAnimation = () => {
+    let retryCount = 0;
+    const MAX_RETRIES = 10;
+    
+    const checkComponentsReady = () => {
       const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
       const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
       const gunObject = gunRef.current;
       
-      // Strict readiness check
-      if (!milloMat || !colorMat || !gunObject || 
-          !milloTextRef.current?.geometry || !colorTextRef.current?.geometry) {
-        console.log('Components not ready, will retry...');
-        return false;
+      const isReady = milloMat && colorMat && gunObject && 
+                     milloTextRef.current?.geometry && 
+                     colorTextRef.current?.geometry &&
+                     milloMat.color && colorMat.color; // Ensure materials have color property
+      
+      console.log(`Animation check attempt ${retryCount + 1}:`, {
+        milloMat: !!milloMat,
+        colorMat: !!colorMat, 
+        gunObject: !!gunObject,
+        milloGeometry: !!milloTextRef.current?.geometry,
+        colorGeometry: !!colorTextRef.current?.geometry,
+        ready: isReady
+      });
+      
+      return isReady;
+    };
+    
+    const attemptInitialization = () => {
+      if (checkComponentsReady()) {
+        console.log('🎉 Animation components ready - starting animation!');
+        setAnimationReady(true);
+        return true;
       }
       
-      console.log('All components ready, starting animation...');
-      return true;
-    };
-    
-    // Always wait at least 500ms before attempting to start animation
-    const initTimeout = setTimeout(() => {
-      if (!initializeAnimation()) {
-        // Retry after another 500ms if not ready
-        const retryTimeout = setTimeout(() => {
-          if (initializeAnimation()) {
-            console.log('Animation started on retry');
-            // Force re-render to trigger animation start
-            setMilloColor(new THREE.Color('#CCCCCC'));
-            setColorTextColor(new THREE.Color('#CCCCCC'));
-          }
-        }, 500);
-        return;
+      retryCount++;
+      if (retryCount < MAX_RETRIES) {
+        console.log(`⏳ Components not ready, retry ${retryCount}/${MAX_RETRIES} in 200ms...`);
+        setTimeout(attemptInitialization, 200);
+      } else {
+        console.error('❌ Animation initialization failed after maximum retries');
+        // Force animation start anyway as fallback
+        console.log('🔧 Forcing animation start as fallback...');
+        setAnimationReady(true);
+        setForceRender(prev => prev + 1); // Force re-render
       }
-    }, 500);  // Mandatory 500ms delay
-    
-    return () => {
-      clearTimeout(initTimeout);
+      return false;
     };
-  }, [gunRef.current, milloTextRef.current, colorTextRef.current, isMobile]); // Add isMobile to deps
+    
+    // Start with immediate check, then 500ms delay if not ready
+    if (!attemptInitialization()) {
+      setTimeout(attemptInitialization, 500);
+    }
+    
+  }, [gunRef.current, milloTextRef.current, colorTextRef.current, isMobile]);
   
   useEffect(() => {
-    if (!gunRef.current || !milloTextRef.current || !colorTextRef.current) return;
+    // Only create timeline when animation is ready
+    if (!animationReady || !gunRef.current || !milloTextRef.current || !colorTextRef.current) return;
     const milloMat = milloTextRef.current.material as THREE.MeshStandardMaterial;
     const colorMat = colorTextRef.current.material as THREE.MeshStandardMaterial;
     if (!milloMat || !colorMat) return;
+    
+    console.log('Creating GSAP timeline...');
     const tl = gsap.timeline({ 
       repeat: -1, 
       repeatDelay: 2,
@@ -148,7 +169,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     });
     const gun = gunRef.current;
     const transitionX = colorPosX - charGap / 2;
-    const verticalCenter = -0.8; // Recalibrated for new font
+    const verticalCenter = isMobile ? -0.5 : -0.8; // Higher position on mobile
     gun.position.set(isMobile ? milloPosX - 0.8 : milloPosX - 1.2, verticalCenter, 1.5);
     gun.rotation.set(0, 0, -Math.PI/14);
 
@@ -392,7 +413,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     }, t);
     
     return () => { tl.kill(); };
-  }, [isMobile, milloPosX, colorPosX, fontSize]);
+  }, [animationReady, isMobile, milloPosX, colorPosX, fontSize]);
 
   useFrame(() => {
     if (gunRef.current) {
@@ -490,23 +511,60 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   );
 }
 
+// WebGL context cleanup utility
+const cleanupWebGLContexts = () => {
+  const canvases = document.querySelectorAll('canvas');
+  canvases.forEach((canvas) => {
+    try {
+      const gl = canvas.getContext('webgl') || canvas.getContext('webgl2') || canvas.getContext('experimental-webgl');
+      if (gl && ('getExtension' in gl)) {
+        const webglContext = gl as WebGLRenderingContext;
+        const loseContext = webglContext.getExtension('WEBGL_lose_context');
+        if (loseContext) {
+          loseContext.loseContext();
+        }
+      }
+    } catch (error: unknown) {
+      console.log('Context cleanup:', error instanceof Error ? error.message : 'Unknown error');
+    }
+  });
+};
+
 // Simplified Hero3D component
 function Hero3DClient() {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [modelLoaded, setModelLoaded] = useState(false);
+  const [canvasKey, setCanvasKey] = useState(0);
   
   useEffect(() => {
+    // Cleanup any existing WebGL contexts first
+    cleanupWebGLContexts();
+    
     setMounted(true);
     
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
     
+    // Handle WebGL context errors
+    const handleWebGLError = () => {
+      console.log('🔧 WebGL context error detected, forcing canvas recreation...');
+      cleanupWebGLContexts();
+      setCanvasKey(prev => prev + 1);
+    };
+    
     checkMobile();
     window.addEventListener('resize', checkMobile);
+    window.addEventListener('webglcontextlost', handleWebGLError);
+    window.addEventListener('webglcontextcreationerror', handleWebGLError);
     
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('webglcontextlost', handleWebGLError);
+      window.removeEventListener('webglcontextcreationerror', handleWebGLError);
+      cleanupWebGLContexts();
+    };
   }, []);
 
   // Show loading until mounted
@@ -545,10 +603,13 @@ function Hero3DClient() {
       )}
       
       <Canvas 
+        key={`hero3d-canvas-${canvasKey}`}
         gl={{ 
           antialias: true,
           alpha: true,
-          powerPreference: 'high-performance'
+          powerPreference: 'high-performance',
+          preserveDrawingBuffer: false,
+          failIfMajorPerformanceCaveat: false
         }}
         camera={{ 
           position: [0, 0, isMobile ? 4 : 6], 
@@ -556,6 +617,12 @@ function Hero3DClient() {
         }}
         onCreated={({ gl }) => {
           gl.setClearColor('#000000', 0);
+          console.log('✅ New WebGL context created successfully');
+        }}
+        onError={(error) => {
+          console.error('❌ Canvas error:', error);
+          cleanupWebGLContexts();
+          setCanvasKey(prev => prev + 1);
         }}
         className="w-full h-full"
       >

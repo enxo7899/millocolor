@@ -21,7 +21,7 @@ function SprayParticles({
   sprayColor,
   scaleFactor,
   count = Math.floor(200 + 300 * scaleFactor), // Optimized particle count
-  spreadAngle = 15 + (scaleFactor * 8), // Dynamic spread: 15-23° based on scale
+  spreadAngle = scaleFactor > 0.8 ? 20 + (scaleFactor * 5) : 8 + (scaleFactor * 6), // Desktop: 20-25°, Mobile: 8-12.8°
   speed = 5,
   lifeTime = 0.8 // Slightly shorter lifetime for tighter spray
 }: SprayParticlesProps) {
@@ -173,8 +173,8 @@ function SprayParticles({
       const progress = p.age / p.life; // 0 to 1
       const distance = progress * 2; // Max distance from nozzle
       
-      // Calculate wider triangular spread for realistic spray pattern
-      const triangularSpread = 40; // Much wider degrees for realistic spray
+      // Calculate triangular spread proportional to text size
+      const triangularSpread = spreadAngle; // Responsive spread: scales with text size
       const spreadX = Math.sin(triangularSpread * Math.PI / 180) * distance;
       const spreadY = Math.sin(triangularSpread * Math.PI / 180 * 0.6) * distance;
       
