@@ -8,6 +8,7 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import SprayParticles from './SprayParticles';
 import { useResponsiveScaling } from '../hooks/useResponsiveScaling';
+import TypewriterText from './TypewriterText';
 
 // Only preload on client-side
 if (typeof window !== 'undefined') {
@@ -488,15 +489,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
           Color
         </Text>
       </Suspense>
-      <Text
-        position={[0, -1.1, 0]}
-        fontSize={0.28 * scale}
-        color="#666666"
-        anchorX="center"
-        anchorY="middle"
-      >
-        Spray Like a Champion
-      </Text>
+
       <primitive ref={gunRef} object={sprayGun} scale={0.12 + (scale * 0.15)} position={[0, -0.8, 0]} />
       
       <SprayParticles
@@ -598,6 +591,28 @@ function Hero3DClient() {
               <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
             </div>
             <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400">Loading 3D Model...</p>
+          </div>
+        </div>
+      )}
+      
+      {/* Typewriter Subtitle Overlay - Only show when model is loaded */}
+      {modelLoaded && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
+          <div className="text-center px-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold opacity-0">
+              <span className="text-[#314485]">Millo</span>
+              <span className="text-[#C73834]">Color</span>
+            </h1>
+            <h2 className="font-montserrat font-bold text-white mt-24 sm:mt-28 md:mt-32 lg:mt-36 xl:mt-40 2xl:mt-44">
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+                Spray Like a{' '}
+                <TypewriterText 
+                  strings={['Champion', 'Pro']}
+                  colors={['#314485', '#C73834']}
+                  className="inline-block font-montserrat"
+                />
+              </span>
+            </h2>
           </div>
         </div>
       )}
