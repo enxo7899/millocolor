@@ -579,25 +579,69 @@ function Hero3DClient() {
   return (
     <section className="relative h-[80vh] w-full bg-transparent overflow-hidden">
       {!modelLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="text-center px-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6">
-              <span className="text-[#314485]">Millo</span>
-              <span className="text-[#C73834]">Color</span>
-            </h1>
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-              <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#C73834] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-              <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#314485] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+        <div className="absolute inset-0 flex items-center justify-center z-20 bg-gradient-to-br from-gray-900 to-black">
+          <div className="text-center px-4 w-full max-w-2xl">
+            <div className="mb-8 flex justify-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">
+                <span className="text-[#314485]">Millo</span>
+                <span className="text-[#C73834]">Color</span>
+              </h1>
             </div>
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400">Loading 3D Model...</p>
+            
+            {/* Progress bar container */}
+            <div className="mb-8 mx-auto max-w-md">
+              <div className="relative pt-1">
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-[#314485] bg-[#314485]/20">
+                      Loading 3D Model
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-xs font-semibold inline-block text-[#C73834]">
+                      Initializing...
+                    </span>
+                  </div>
+                </div>
+                <div className="overflow-hidden h-4 mb-4 text-xs flex rounded-full bg-gray-800">
+                  <div 
+                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#314485] to-[#C73834] transition-all duration-500 ease-in-out"
+                    style={{ width: '45%' }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Animated spray effect */}
+            <div className="relative h-24 mb-8 flex items-center justify-center">
+              <div className="absolute w-3 h-3 rounded-full bg-[#314485] animate-ping opacity-75"></div>
+              <div className="absolute w-3 h-3 rounded-full bg-[#314485] animate-pulse"></div>
+              
+              {/* Spray particles animation */}
+              <div className="absolute flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className="w-2 h-2 rounded-full bg-[#C73834] opacity-80"
+                    style={{
+                      animation: `spray 1.5s infinite ${i * 0.2}s`,
+                      transform: `translateX(${i * 10}px) translateY(${Math.sin(i) * 5}px)`
+                    }}
+                  ></div>
+                ))}
+              </div>
+            </div>
+            
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-400 font-light">
+              Preparing your immersive experience...
+            </p>
           </div>
         </div>
       )}
       
       {/* Typewriter Subtitle Overlay - Only show when model is loaded */}
       {modelLoaded && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none">
           <div className="text-center px-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold opacity-0">
               <span className="text-[#314485]">Millo</span>

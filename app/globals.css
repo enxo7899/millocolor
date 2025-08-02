@@ -124,6 +124,21 @@ body {
   animation: shimmer 2s infinite;
 }
 
+/* Spray animation for loading screen */
+@keyframes spray {
+  0% {
+    transform: translateX(0) translateY(0) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(20px) translateY(-10px) scale(0.4);
+    opacity: 0;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
