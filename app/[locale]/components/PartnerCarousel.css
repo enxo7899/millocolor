@@ -78,17 +78,29 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  padding: 10px;
+  background: transparent;
 }
 
-/* Specific sizing adjustments for Sata and JBM logos */
-.partner-carousel-item img[src*='sata'] {
-  object-fit: cover;
+/* Ensure all logos are properly contained without cropping */
+.partner-carousel-item img[src*='sata'],
+.partner-carousel-item img[src*='jbm'],
+.partner-carousel-item img[src*='cromax'],
+.partner-carousel-item img[src*='duxone'],
+.partner-carousel-item img[src*='epvernici'],
+.partner-carousel-item img[src*='fiac'],
+.partner-carousel-item img[src*='hempel'],
+.partner-carousel-item img[src*='masterdichem'],
+.partner-carousel-item img[src*='mirka'],
+.partner-carousel-item img[src*='roberlo'],
+.partner-carousel-item img[src*='RUPES'],
+.partner-carousel-item img[src*='SHW'],
+.partner-carousel-item img[src*='standox'],
+.partner-carousel-item img[src*='Telwin'],
+.partner-carousel-item img[src*='troton'] {
+  object-fit: contain;
   object-position: center;
-}
-
-.partner-carousel-item img[src*='jbm'] {
-  object-fit: cover;
-  object-position: center;
+  padding: 8px;
 }
 
 .partner-logo {
@@ -104,6 +116,10 @@
     --item-height: 120px;
     --spacing: 40px;
   }
+  
+  .partner-carousel-item img {
+    padding: 8px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -111,6 +127,10 @@
     --item-width: 100px;
     --item-height: 100px;
     --spacing: 30px;
+  }
+  
+  .partner-carousel-item img {
+    padding: 6px;
   }
   
   .partner-carousel-wrapper {
@@ -129,6 +149,10 @@
     --item-width: 80px;
     --item-height: 80px;
     --spacing: 20px;
+  }
+  
+  .partner-carousel-item img {
+    padding: 4px;
   }
   
   .partner-carousel-wrapper {

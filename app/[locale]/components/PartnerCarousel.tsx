@@ -100,6 +100,9 @@ const PartnerCarousel: React.FC = () => {
 
   const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  
+  // Add cache-busting timestamp
+  const cacheBuster = Date.now();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -124,7 +127,7 @@ const PartnerCarousel: React.FC = () => {
             style={{ '--n': partner.id } as React.CSSProperties}
           >
             <a href={partner.url} target="_blank" rel="noopener noreferrer">
-              <img src={partner.logo} alt={partner.name} className="partner-logo" />
+              <img src={`${partner.logo}?v=${cacheBuster}`} alt={partner.name} className="partner-logo" />
             </a>
           </div>
         ))}
@@ -135,7 +138,7 @@ const PartnerCarousel: React.FC = () => {
             style={{ '--n': partners.length + index + 1 } as React.CSSProperties}
           >
             <a href={partner.url} target="_blank" rel="noopener noreferrer">
-              <img src={partner.logo} alt={partner.name} className="partner-logo" />
+              <img src={`${partner.logo}?v=${cacheBuster}`} alt={partner.name} className="partner-logo" />
             </a>
           </div>
         ))}
