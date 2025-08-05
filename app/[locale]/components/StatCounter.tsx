@@ -89,12 +89,7 @@ const StatCounter: React.FC<StatCounterProps> = ({
     visible: { 
       opacity: 1, 
       y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        delay: delay / 1000,
-        ease: [0.215, 0.61, 0.355, 1]
-      }
+      scale: 1
     }
   };
 
