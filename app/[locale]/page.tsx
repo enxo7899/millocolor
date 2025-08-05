@@ -15,14 +15,7 @@ import { motion } from 'framer-motion';
 // Animations for sections
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { 
-      duration: 0.8,
-      ease: [0.215, 0.61, 0.355, 1]
-    }
-  }
+  visible: { opacity: 1, y: 0 }
 };
 
 export default function Home() {
@@ -36,8 +29,8 @@ export default function Home() {
       {/* Hero Section with 3D Animation */}
       <HeroSection />
       
-      {/* Partner Logo Carousel */}
-      <PartnersSection />
+      {/* Trusted By Section with Logo Carousel */}
+      <TrustedBySection />
       
       {/* Premium Product Showcase */}
       <ProductShowcaseSection />
@@ -54,10 +47,42 @@ export default function Home() {
 // Hero Section with Overlay Content
 function HeroSection() {
   return (
-    <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-[70vh] md:h-[75vh] lg:h-[80vh] w-full flex items-center justify-center overflow-hidden">
       {/* Hero3D Component */}
       <div className="absolute inset-0 z-10 w-full">
         <Hero3D />
+      </div>
+    </section>
+  );
+}
+
+// Trusted By Section with Logo Carousel
+function TrustedBySection() {
+  const t = useTranslations('trusted');
+  
+  return (
+    <section className="py-2 md:py-4 relative z-10">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          className="text-center mb-4 md:mb-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <div className="inline-block relative">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-wide relative z-10 font-montserrat">
+              <span className="text-white/80">{t('trustedBy')} </span>
+              <span className="bg-gradient-to-r from-white via-blue-300 to-millo-blue bg-clip-text text-transparent">
+                {t('worldIndustryLeaders')}
+              </span>
+            </h2>
+            {/* Subtle decorative line */}
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-millo-blue/60 to-transparent"></div>
+          </div>
+        </motion.div>
+        
+        <PartnerCarousel />
       </div>
     </section>
   );
@@ -159,19 +184,6 @@ function StatsSection() {
             suffix="%"
           />
         </div>
-      </div>
-    </section>
-  );
-}
-
-// Partner Logo Carousel Section
-function PartnersSection() {
-  const t = useTranslations('partners');
-  
-  return (
-    <section className="py-2 relative z-10 -mt-8">
-      <div className="container mx-auto px-4">
-        <PartnerCarousel />
       </div>
     </section>
   );

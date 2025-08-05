@@ -2,7 +2,7 @@
   --item-width: 150px;
   --item-height: 150px;
   --total-items: 30; /* Number of items (15 original + 15 duplicates) */
-  --animation-duration: 45s; /* Slowed down from 30s to 45s */
+  --animation-duration: 75s; /* Slowed down significantly for smoother movement */
   --spacing: 50px; /* Spacing between items */
 }
 
@@ -115,6 +115,7 @@
     --item-width: 120px;
     --item-height: 120px;
     --spacing: 40px;
+    --animation-duration: 85s; /* Even slower on tablets */
   }
   
   .partner-carousel-item img {
@@ -127,6 +128,7 @@
     --item-width: 100px;
     --item-height: 100px;
     --spacing: 30px;
+    --animation-duration: 95s; /* Slowest on mobile for better control */
   }
   
   .partner-carousel-item img {
@@ -149,6 +151,7 @@
     --item-width: 80px;
     --item-height: 80px;
     --spacing: 20px;
+    --animation-duration: 105s; /* Very slow on small mobile for easy interaction */
   }
   
   .partner-carousel-item img {

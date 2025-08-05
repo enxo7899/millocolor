@@ -482,5 +482,9 @@
       "phone": "+355 69 123 4567",
       "email": "info@millocolor.com"
     }
+  },
+  "trusted": {
+    "trustedBy": "E besuar nga",
+    "worldIndustryLeaders": "liderët botërorë të industrisë"
   }
 }

@@ -415,5 +415,9 @@
   "partners": {
     "title": "Trusted by Industry Leaders",
     "subtitle": "We partner with the world's most respected automotive paint manufacturers"
+  },
+  "trusted": {
+    "trustedBy": "Trusted by",
+    "worldIndustryLeaders": "World Industry Leaders"
   }
 }
