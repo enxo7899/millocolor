@@ -124,14 +124,21 @@ body {
 /* Mobile video optimizations */
 @media (max-width: 768px) {
   .video-background {
-    object-position: center 30%;
+    object-position: center 60%;
   }
 }
 
 /* Tablet video optimizations */
 @media (min-width: 769px) and (max-width: 1024px) {
   .video-background {
-    object-position: center 25%;
+    object-position: center 55%;
+  }
+}
+
+/* Desktop video optimizations */
+@media (min-width: 1025px) {
+  .video-background {
+    object-position: center 50%;
   }
 }
 

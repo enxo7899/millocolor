@@ -52,7 +52,13 @@ export default function VideoBackground({ videoSrc, className = "" }: VideoBackg
         video.loop = true;
         video.playsInline = true;
         video.autoplay = true;
-        await video.play();
+        // Slow down the video playback rate to match animation timing
+        video.playbackRate = 0.5; // 50% slower
+        
+        // Add a small delay to better sync with the 3D animation
+        setTimeout(async () => {
+          await video.play();
+        }, 1000); // 1 second delay
       } catch (error) {
         console.warn('Video autoplay failed:', error);
         // Fallback: try to play on user interaction

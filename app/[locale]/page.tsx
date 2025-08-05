@@ -55,17 +55,6 @@ export default function Home() {
 function HeroSection() {
   return (
     <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
-      {/* Aston Martin F1 Background */}
-      <div className="absolute inset-0 opacity-40">
-        <Image
-          src="/images/aston-martin-f1-hero-bg.jpg"
-          alt="Aston Martin F1 Car Background"
-          fill
-          className="object-cover object-left md:object-bottom grayscale"
-          priority
-        />
-      </div>
-      
       {/* Hero3D Component */}
       <div className="absolute inset-0 z-10 w-full">
         <Hero3D />
