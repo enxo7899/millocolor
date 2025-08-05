@@ -9,6 +9,7 @@ import gsap from 'gsap';
 import SprayParticles from './SprayParticles';
 import { useResponsiveScaling } from '../hooks/useResponsiveScaling';
 import TypewriterText from './TypewriterText';
+import VideoBackground from './VideoBackground';
 
 // Only preload on client-side
 if (typeof window !== 'undefined') {
@@ -564,6 +565,10 @@ function Hero3DClient() {
   if (!mounted) {
     return (
       <section className="relative h-[80vh] w-full bg-transparent flex items-center justify-center overflow-hidden">
+        <VideoBackground 
+          videoSrc="/videos/hero.mp4" 
+          className="z-0"
+        />
         <div className="text-center px-4 z-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6 animate-pulse">
             <span className="text-[#314485]">Millo</span>
@@ -578,8 +583,13 @@ function Hero3DClient() {
   // Render the 3D scene once mounted
   return (
     <section className="relative h-[80vh] w-full bg-transparent overflow-hidden">
+      {/* Video Background */}
+      <VideoBackground 
+        videoSrc="/videos/hero.mp4" 
+        className="z-0"
+      />
       {!modelLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center z-20 bg-gradient-to-br from-gray-900 to-black">
+        <div className="absolute inset-0 flex items-center justify-center z-30 bg-gradient-to-br from-gray-900/80 to-black/80">
           <div className="text-center px-4 w-full max-w-2xl">
             <div className="mb-8 flex justify-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">
@@ -641,7 +651,7 @@ function Hero3DClient() {
       
       {/* Typewriter Subtitle Overlay - Only show when model is loaded */}
       {modelLoaded && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
           <div className="text-center px-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold opacity-0">
               <span className="text-[#314485]">Millo</span>
@@ -670,6 +680,7 @@ function Hero3DClient() {
           preserveDrawingBuffer: false,
           failIfMajorPerformanceCaveat: false
         }}
+        className="w-full h-full relative z-20"
         camera={{ 
           position: [0, 0, isMobile ? 4 : 6], 
           fov: isMobile ? 70 : 55
@@ -683,7 +694,6 @@ function Hero3DClient() {
           cleanupWebGLContexts();
           setCanvasKey(prev => prev + 1);
         }}
-        className="w-full h-full"
       >
         <Suspense fallback={<LoadingFallback />}>
           <Scene isMobile={isMobile} onModelLoaded={() => setModelLoaded(true)} />
@@ -697,6 +707,10 @@ export default dynamic(() => Promise.resolve(Hero3DClient), {
   ssr: false,
   loading: () => (
     <section className="relative h-[80vh] w-full bg-transparent flex items-center justify-center overflow-hidden">
+      <VideoBackground 
+        videoSrc="/videos/hero.mp4" 
+        className="z-0"
+      />
       <div className="text-center px-4 z-10">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6 animate-pulse">
           <span className="text-[#314485]">Millo</span>

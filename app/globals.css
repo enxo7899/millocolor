@@ -103,6 +103,38 @@ body {
   background-clip: text;
 }
 
+/* Video background optimizations */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+/* Ensure video doesn't interfere with 3D canvas */
+.video-background-container {
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Mobile video optimizations */
+@media (max-width: 768px) {
+  .video-background {
+    object-position: center 30%;
+  }
+}
+
+/* Tablet video optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .video-background {
+    object-position: center 25%;
+  }
+}
+
 /* Enhanced shadow for elevated elements */
 .premium-shadow {
   box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
