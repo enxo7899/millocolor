@@ -36,14 +36,14 @@ export default function Home() {
       {/* Hero Section with 3D Animation */}
       <HeroSection />
       
+      {/* Partner Logo Carousel */}
+      <PartnersSection />
+      
       {/* Premium Product Showcase */}
       <ProductShowcaseSection />
       
       {/* Animated Statistics */}
       <StatsSection />
-      
-      {/* Partner Logo Carousel */}
-      <PartnersSection />
       
       {/* Premium Contact Section */}
       <ContactSection />
@@ -180,21 +180,8 @@ function PartnersSection() {
   const t = useTranslations('partners');
   
   return (
-    <section className="py-20 relative z-10">
+    <section className="py-2 relative z-10 -mt-8">
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={sectionVariants}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Trusted Partners</h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            We represent leading European paint manufacturers known for quality and innovation
-          </p>
-        </motion.div>
-        
         <PartnerCarousel />
       </div>
     </section>
