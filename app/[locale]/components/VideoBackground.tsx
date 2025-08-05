@@ -87,7 +87,7 @@ export default function VideoBackground({ videoSrc, className = "" }: VideoBackg
     <div className={`absolute inset-0 overflow-hidden pointer-events-none video-background-container ${className}`}>
       <video
         ref={videoRef}
-        className="video-background opacity-50"
+        className="video-background opacity-70"
         playsInline
         muted
         loop
