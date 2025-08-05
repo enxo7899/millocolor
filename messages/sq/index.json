@@ -483,6 +483,51 @@
       "email": "info@millocolor.com"
     }
   },
+  "stats": {
+    "years": "Vjet Ekselencë",
+    "colors": "Ngjyra të Personalizuara të Zhvilluara",
+    "partners": "Partnerë Globalë",
+    "awards": "Çmime të Industrisë",
+    "countries": "Vende të Shërbyera",
+    "title": "Rekordi Ynë",
+    "subtitle": "Ofrim ekselencë në të gjithë industrinë automobilistike"
+  },
+  "showcase": {
+    "title": "Zgjidhje Premium Bojërash",
+    "subtitle": "Zbuloni gamën tonë të plotë të finishimeve profesionale për automjete",
+    "products": {
+      "premium": {
+        "title": "Zgjidhje Mbulesash Premium",
+        "description": "Linja jonë kryesore e mbulesave me performancë të lartë të inxhinjeruara për automjete luksoze dhe aplikime të kërkueshme.",
+        "features": [
+          "Qëndrueshmëri dhe jetëgjatësi superiore",
+          "Saktësi e jashtëzakonshme e ngjyrës",
+          "Mbrojtje e avancuar UV",
+          "Aplikim dhe mbulim i lehtë"
+        ]
+      },
+      "professional": {
+        "title": "Sisteme Ripërfundimi Profesional",
+        "description": "Sisteme të plota bojatisje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
+        "features": [
+          "Kohër të shpejta tharjeje për efikasitet",
+          "Përputhje konsistente ngjyrash",
+          "Veti të shkëlqyera ngjitjeje",
+          "Mbështetje teknike gjithëpërfshirëse"
+        ]
+      },
+      "specialty": {
+        "title": "Finishime me Efekte Speciale",
+        "description": "Finishime unike dhe të personalizuara për estetikë dalluese automobilistike dhe projekte restaurimi.",
+        "features": [
+          "Efekte metalike dhe perlash",
+          "Formulime ngjyrash të personalizuara",
+          "Përputhshmëri me restaurimin vintage",
+          "Konsulencë eksperte ngjyrash"
+        ]
+      }
+    }
+  },
   "trusted": {
     "trustedBy": "E besuar nga",
     "worldIndustryLeaders": "liderët botërorë të industrisë"
