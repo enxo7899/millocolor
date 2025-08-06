@@ -475,7 +475,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
           anchorY="middle"
           letterSpacing={letterSpacing}
         >
-          Millo
+          MILLO
         </Text>
         <Text
           ref={colorTextRef}
@@ -487,7 +487,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
           anchorY="middle"
           letterSpacing={letterSpacing}
         >
-          Color
+          COLOR
         </Text>
       </Suspense>
 
@@ -593,8 +593,8 @@ function Hero3DClient() {
           <div className="text-center px-4 w-full max-w-2xl">
             <div className="mb-8 flex justify-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">
-                <span className="text-[#314485]">Millo</span>
-                <span className="text-[#C73834]">Color</span>
+                <span className="text-[#314485]">MILLO</span>
+                <span className="text-[#C73834]">COLOR</span>
               </h1>
             </div>
             
@@ -654,8 +654,8 @@ function Hero3DClient() {
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
           <div className="text-center px-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold opacity-0">
-              <span className="text-[#314485]">Millo</span>
-              <span className="text-[#C73834]">Color</span>
+              <span className="text-[#314485]">MILLO</span>
+              <span className="text-[#C73834]">COLOR</span>
             </h1>
             <h2 className="font-montserrat font-bold text-white mt-24 sm:mt-28 md:mt-32 lg:mt-36 xl:mt-40 2xl:mt-44">
               <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
@@ -713,8 +713,8 @@ export default dynamic(() => Promise.resolve(Hero3DClient), {
       />
       <div className="text-center px-4 z-10">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6 animate-pulse">
-          <span className="text-[#314485]">Millo</span>
-          <span className="text-[#C73834]">Color</span>
+          <span className="text-[#314485]">MILLO</span>
+          <span className="text-[#C73834]">COLOR</span>
         </h1>
         <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400">Loading Hero Section...</p>
       </div>
