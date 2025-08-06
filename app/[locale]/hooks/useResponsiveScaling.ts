@@ -12,12 +12,20 @@ export function useResponsiveScaling() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Debounced resize handler to prevent excessive updates
+    let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
-      setWidth(window.innerWidth);
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        setWidth(window.innerWidth);
+      }, 50); // Small delay to prevent excessive updates
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
+    };
   }, []);
 
   const scale = useMemo(() => {

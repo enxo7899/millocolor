@@ -41,7 +41,7 @@ const PremiumLogo = ({ isScrolled }: { isScrolled: boolean }) => {
       className="flex items-center group h-full py-1"
     >
       <div className={`font-bold tracking-tight transition-all duration-300 group-hover:scale-105 ${
-        isScrolled ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'
+        isScrolled ? 'text-xl lg:text-2xl' : 'text-2xl lg:text-3xl'
       }`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', lineHeight: '1' }}>
         <span className="text-[#314485] group-hover:text-[#4a5ca5] transition-colors duration-300 font-extrabold">
           Millo
@@ -143,8 +143,8 @@ export default function Header() {
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
           isScrolled 
-            ? 'bg-white/5 backdrop-blur-[2px] shadow-lg border-b border-white/10 h-12' 
-            : 'bg-white/5 backdrop-blur-[2px] h-14'
+            ? 'bg-slate-900/70 backdrop-blur-md shadow-lg border-b border-white/10 h-16' 
+            : 'bg-slate-900/70 backdrop-blur-md h-18'
         }`}
       >
         {/* Modern gradient accent line */}
@@ -173,6 +173,13 @@ export default function Header() {
                 <div className="h-6 w-px bg-gray-300"></div>
                 
                 {/* Contact Button */}
+                <Link
+                  href="/contact"
+                  className="px-6 py-2.5 bg-millo-dark-blue text-white font-semibold rounded-full hover:bg-blue-800 hover:shadow-lg transition-all duration-300 text-sm"
+                >
+                  {t('contact')}
+                </Link>
+                
                 {/* Language Switcher */}
                 <LanguageSwitcher />
               </div>

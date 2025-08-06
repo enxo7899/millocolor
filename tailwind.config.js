@@ -11,6 +11,7 @@ module.exports = {
         // Primary brand colors
         'millo-red': '#d7282f',
         'millo-blue': '#004a99',
+        'millo-dark-blue': '#002D72',
         'millo-gold': '#FFD700',
         
         // Light theme (Option A)
