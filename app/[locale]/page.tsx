@@ -64,15 +64,15 @@ function TrustedBySection() {
     <section className="py-2 md:py-4 relative z-10">
       <div className="container mx-auto px-4">
         <motion.div 
-          className="text-center mb-4 md:mb-6"
+          className="text-center mb-2 md:mb-3"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={sectionVariants}
         >
           <div className="inline-block relative">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-wide relative z-10 font-montserrat">
-              <span className="text-white/80">{t('trustedBy')} </span>
+            <h2 className="text-lg md:text-xl lg:text-2xl font-medium tracking-wide relative z-10 font-montserrat">
+              <span className="text-white/70">{t('trustedBy')} </span>
               <span className="bg-gradient-to-r from-white via-blue-300 to-millo-blue bg-clip-text text-transparent">
                 {t('worldIndustryLeaders')}
               </span>
