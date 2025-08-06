@@ -102,17 +102,14 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
     }
   ];
 
-  const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
     onHoverChange?.(true);
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(true); // Keep this true to maintain grayscale until individual logo hover
-    onHoverChange?.(false); // But tell the title to go back to grayscale
+    onHoverChange?.(false);
   };
 
   return (
@@ -126,7 +123,7 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
         {partners.map((partner) => (
           <div 
             key={partner.id} 
-            className={`partner-carousel-item ${isHovered ? 'grayscale-hover' : ''}`}
+            className="partner-carousel-item"
             style={{ '--n': partner.id } as React.CSSProperties}
           >
             <a href={partner.url} target="_blank" rel="noopener noreferrer">
@@ -137,7 +134,7 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
         {partners.map((partner, index) => (
           <div 
             key={`duplicate-${index}`} 
-            className={`partner-carousel-item ${isHovered ? 'grayscale-hover' : ''}`}
+            className="partner-carousel-item"
             style={{ '--n': partners.length + index + 1 } as React.CSSProperties}
           >
             <a href={partner.url} target="_blank" rel="noopener noreferrer">

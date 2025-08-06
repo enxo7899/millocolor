@@ -1,9 +1,9 @@
 :root {
-  --item-width: 160px;
-  --item-height: 100px;
+  --item-width: 150px;
+  --item-height: 150px;
   --total-items: 30; /* Number of items (15 original + 15 duplicates) */
-  --animation-duration: 75s; /* Slowed down significantly for smoother movement */
-  --spacing: 40px; /* Increased spacing between items */
+  --animation-duration: 45s; /* Slowed down from 30s to 45s */
+  --spacing: 50px; /* Spacing between items */
 }
 
 .partner-carousel-wrapper {
@@ -11,7 +11,7 @@
   max-width: 100%;
   margin-inline: auto;
   position: relative;
-  height: calc(var(--item-height) + 20px);
+  height: var(--item-height);
   margin-top: 0;
   overflow: hidden;
   mask-image: linear-gradient(
@@ -55,17 +55,17 @@
   transition: filter 0.3s ease;
 }
 
+/* When carousel is hovered, all items become colored */
+.partner-carousel-wrapper:hover .partner-carousel-item {
+  filter: grayscale(0%);
+  transition: filter 0.4s ease;
+}
+
+/* Individual item hover effect when carousel is not hovered */
 .partner-carousel-item:hover {
   filter: grayscale(0%);
   z-index: 10;
-}
-
-.partner-carousel-item.grayscale-hover {
-  filter: grayscale(100%);
-}
-
-.partner-carousel-item.grayscale-hover:hover {
-  filter: grayscale(0%);
+  transition: filter 0.2s ease;
 }
 
 .partner-carousel-item a {
@@ -78,7 +78,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 0;
+  padding: 10px;
   background: transparent;
 }
 
@@ -112,27 +112,25 @@
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   :root {
-    --item-width: 140px;
-    --item-height: 90px;
-    --spacing: 35px;
-    --animation-duration: 85s; /* Even slower on tablets */
+    --item-width: 120px;
+    --item-height: 120px;
+    --spacing: 40px;
   }
   
   .partner-carousel-item img {
-    padding: 0;
+    padding: 8px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --item-width: 120px;
-    --item-height: 80px;
+    --item-width: 100px;
+    --item-height: 100px;
     --spacing: 30px;
-    --animation-duration: 95s; /* Slowest on mobile for better control */
   }
   
   .partner-carousel-item img {
-    padding: 0;
+    padding: 6px;
   }
   
   .partner-carousel-wrapper {
@@ -148,14 +146,13 @@
 
 @media (max-width: 480px) {
   :root {
-    --item-width: 100px;
-    --item-height: 70px;
-    --spacing: 25px;
-    --animation-duration: 105s; /* Very slow on small mobile for easy interaction */
+    --item-width: 80px;
+    --item-height: 80px;
+    --spacing: 20px;
   }
   
   .partner-carousel-item img {
-    padding: 0;
+    padding: 4px;
   }
   
   .partner-carousel-wrapper {
