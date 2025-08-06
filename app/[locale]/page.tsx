@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import Hero3D from './components/Hero3D';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import ProductCard from './components/ProductCard';
@@ -59,6 +59,7 @@ function HeroSection() {
 // Trusted By Section with Logo Carousel
 function TrustedBySection() {
   const t = useTranslations('trusted');
+  const [isCarouselHovered, setIsCarouselHovered] = useState(false);
   
   return (
     <section className="py-2 md:py-4 relative z-10">
@@ -71,9 +72,13 @@ function TrustedBySection() {
           variants={sectionVariants}
         >
           <div className="inline-block relative">
-            <h2 className="text-lg md:text-xl lg:text-2xl font-medium tracking-wide relative z-10 font-montserrat">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-medium tracking-wide relative z-10 font-montserrat transition-all duration-300">
               <span className="text-white/70">{t('trustedBy')} </span>
-              <span className="bg-gradient-to-r from-white via-blue-300 to-millo-blue bg-clip-text text-transparent">
+              <span 
+                className={`transition-all duration-300 cursor-pointer ${isCarouselHovered ? 'bg-gradient-to-r from-white via-blue-300 to-millo-blue bg-clip-text text-transparent' : 'text-white/70 hover:bg-gradient-to-r hover:from-white hover:via-blue-300 hover:to-millo-blue hover:bg-clip-text hover:text-transparent'}`}
+                onMouseEnter={() => setIsCarouselHovered(true)}
+                onMouseLeave={() => setIsCarouselHovered(false)}
+              >
                 {t('worldIndustryLeaders')}
               </span>
             </h2>
@@ -82,7 +87,7 @@ function TrustedBySection() {
           </div>
         </motion.div>
         
-        <PartnerCarousel />
+        <PartnerCarousel onHoverChange={setIsCarouselHovered} />
       </div>
     </section>
   );

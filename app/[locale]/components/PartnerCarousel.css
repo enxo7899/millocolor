@@ -1,9 +1,9 @@
 :root {
-  --item-width: 120px;
-  --item-height: 80px;
+  --item-width: 160px;
+  --item-height: 100px;
   --total-items: 30; /* Number of items (15 original + 15 duplicates) */
   --animation-duration: 75s; /* Slowed down significantly for smoother movement */
-  --spacing: 30px; /* Reduced spacing between items */
+  --spacing: 40px; /* Increased spacing between items */
 }
 
 .partner-carousel-wrapper {
@@ -112,9 +112,9 @@
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   :root {
-    --item-width: 100px;
-    --item-height: 70px;
-    --spacing: 25px;
+    --item-width: 140px;
+    --item-height: 90px;
+    --spacing: 35px;
     --animation-duration: 85s; /* Even slower on tablets */
   }
   
@@ -125,9 +125,9 @@
 
 @media (max-width: 768px) {
   :root {
-    --item-width: 80px;
-    --item-height: 60px;
-    --spacing: 20px;
+    --item-width: 120px;
+    --item-height: 80px;
+    --spacing: 30px;
     --animation-duration: 95s; /* Slowest on mobile for better control */
   }
   
@@ -148,9 +148,9 @@
 
 @media (max-width: 480px) {
   :root {
-    --item-width: 70px;
-    --item-height: 50px;
-    --spacing: 15px;
+    --item-width: 100px;
+    --item-height: 70px;
+    --spacing: 25px;
     --animation-duration: 105s; /* Very slow on small mobile for easy interaction */
   }
   

@@ -3,7 +3,11 @@
 import './PartnerCarousel.css';
 import { useState, useRef } from 'react';
 
-const PartnerCarousel: React.FC = () => {
+interface PartnerCarouselProps {
+  onHoverChange?: (isHovered: boolean) => void;
+}
+
+const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
   // Partner logos data with new companies
   const partners = [
     {
@@ -103,10 +107,12 @@ const PartnerCarousel: React.FC = () => {
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    onHoverChange?.(true);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(true); // Keep this true to maintain grayscale until individual logo hover
+    onHoverChange?.(false); // But tell the title to go back to grayscale
   };
 
   return (
