@@ -29,23 +29,22 @@ export function useResponsiveScaling() {
   }, []);
 
   const scale = useMemo(() => {
-    // Robust scaling system to ensure text always fits on screen
-    // Desktop and large screens: Enhanced scaling for bigger titles
+    // Adjusted scaling system for all-caps text to prevent overflow
+    // Desktop and large screens: Reduced scaling for all-caps text
     if (width >= 2560) {
-      return THREE.MathUtils.mapLinear(width, 2560, 3840, 1.8, 2.5);
+      return THREE.MathUtils.mapLinear(width, 2560, 3840, 1.4, 1.8);
     } else if (width >= 1920) {
-      return THREE.MathUtils.mapLinear(width, 1920, 2560, 1.6, 1.8);
+      return THREE.MathUtils.mapLinear(width, 1920, 2560, 1.2, 1.4);
     } else if (width >= 1440) {
-      return THREE.MathUtils.mapLinear(width, 1440, 1920, 1.3, 1.6);
+      return THREE.MathUtils.mapLinear(width, 1440, 1920, 1.0, 1.2);
     } else if (width >= 1024) {
-      return THREE.MathUtils.mapLinear(width, 1024, 1440, 1.0, 1.3);
+      return THREE.MathUtils.mapLinear(width, 1024, 1440, 0.8, 1.0);
     } else if (width >= 768) {
-      // Tablets: moderate scaling
-      return THREE.MathUtils.mapLinear(width, 768, 1024, 0.6, 1.0);
+      // Tablets: reduced scaling for all-caps
+      return THREE.MathUtils.mapLinear(width, 768, 1024, 0.5, 0.8);
     } else {
-      // ALL mobile devices (<768px): Scale to stretch text side-to-side
-      // Increase scaling to make text wider while still fitting
-      return THREE.MathUtils.mapLinear(width, 280, 768, 0.4, 0.65);
+      // ALL mobile devices (<768px): Further reduced scaling for all-caps
+      return THREE.MathUtils.mapLinear(width, 280, 768, 0.3, 0.5);
     }
   }, [width]);
 

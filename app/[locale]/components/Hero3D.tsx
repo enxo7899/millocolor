@@ -46,10 +46,11 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const [forceRender, setForceRender] = useState(0);
 
 
-  const fontSize = 1.2 * scale;
-  // Dynamic letter spacing: reduce spacing on smaller screens first, then scale text
-  const letterSpacing = 0.008 * scale; // Slightly tighter letter spacing for narrower text
-  const charGap = letterSpacing * 1.8; // Slightly reduced word gap for more compact text
+  // Reduced font size for all-caps text to prevent overflow
+  const fontSize = 0.9 * scale;
+  // Tighter letter spacing for all-caps text
+  const letterSpacing = 0.006 * scale; // Tighter letter spacing for all-caps
+  const charGap = letterSpacing * 1.5; // Reduced word gap for more compact text
 
   // Measure and center the text group after mount with null checks
   useEffect(() => {
@@ -460,7 +461,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
 
     return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 0, isMobile ? 3.5 : 5]} fov={isMobile ? 65 : 50} />
+      <PerspectiveCamera makeDefault position={[0, 0, isMobile ? 4.2 : 6]} fov={isMobile ? 70 : 55} />
       <ambientLight intensity={0.8} />
       <directionalLight position={[5, 5, 5]} intensity={1.5} />
       <Environment preset="city" />
@@ -682,8 +683,8 @@ function Hero3DClient() {
         }}
         className="w-full h-full relative z-20"
         camera={{ 
-          position: [0, 0, isMobile ? 4 : 6], 
-          fov: isMobile ? 70 : 55
+          position: [0, 0, isMobile ? 4.5 : 6.5], 
+          fov: isMobile ? 75 : 60
         }}
         onCreated={({ gl }) => {
           gl.setClearColor('#000000', 0);
