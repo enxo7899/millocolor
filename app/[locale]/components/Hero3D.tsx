@@ -85,15 +85,13 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
       measureText();
       const timeout1 = setTimeout(measureText, 100);
       const timeout2 = setTimeout(measureText, 300);
-      const timeout3 = setTimeout(measureText, 500); // Additional delay for responsive changes
       
       return () => {
         clearTimeout(timeout1);
         clearTimeout(timeout2);
-        clearTimeout(timeout3);
       };
     }
-  }, [milloTextRef.current, colorTextRef.current, fontSize, isMobile, scale]);
+  }, [milloTextRef.current, colorTextRef.current, fontSize, isMobile]);
 
   // Comprehensive animation initialization with multiple retry attempts
   useEffect(() => {
@@ -532,7 +530,6 @@ function Hero3DClient() {
   const [isMobile, setIsMobile] = useState(false);
   const [modelLoaded, setModelLoaded] = useState(false);
   const [canvasKey, setCanvasKey] = useState(0);
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   
   useEffect(() => {
     // Cleanup any existing WebGL contexts first
@@ -541,10 +538,7 @@ function Hero3DClient() {
     setMounted(true);
     
     const checkMobile = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      setWindowSize({ width, height });
-      setIsMobile(width < 768);
+      setIsMobile(window.innerWidth < 768);
     };
     
     // Handle WebGL context errors
@@ -554,23 +548,15 @@ function Hero3DClient() {
       setCanvasKey(prev => prev + 1);
     };
     
-    // Debounced resize handler to prevent excessive re-renders
-    let resizeTimeout: NodeJS.Timeout;
-    const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(checkMobile, 100);
-    };
-    
     checkMobile();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', checkMobile);
     window.addEventListener('webglcontextlost', handleWebGLError);
     window.addEventListener('webglcontextcreationerror', handleWebGLError);
     
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', checkMobile);
       window.removeEventListener('webglcontextlost', handleWebGLError);
       window.removeEventListener('webglcontextcreationerror', handleWebGLError);
-      clearTimeout(resizeTimeout);
       cleanupWebGLContexts();
     };
   }, []);
@@ -663,24 +649,6 @@ function Hero3DClient() {
         </div>
       )}
       
-      {/* Add CSS for spray animation */}
-      <style jsx>{`
-        @keyframes spray {
-          0% {
-            opacity: 0;
-            transform: translateX(0) translateY(0) scale(0.5);
-          }
-          50% {
-            opacity: 1;
-            transform: translateX(20px) translateY(-10px) scale(1);
-          }
-          100% {
-            opacity: 0;
-            transform: translateX(40px) translateY(-20px) scale(0.5);
-          }
-        }
-      `}</style>
-      
       {/* Typewriter Subtitle Overlay - Only show when model is loaded */}
       {modelLoaded && (
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
@@ -704,15 +672,13 @@ function Hero3DClient() {
       )}
       
       <Canvas 
-        key={`hero3d-canvas-${canvasKey}-${windowSize.width}-${windowSize.height}`}
+        key={`hero3d-canvas-${canvasKey}`}
         gl={{ 
           antialias: true,
           alpha: true,
           powerPreference: 'high-performance',
           preserveDrawingBuffer: false,
-          failIfMajorPerformanceCaveat: false,
-          stencil: false,
-          depth: true
+          failIfMajorPerformanceCaveat: false
         }}
         className="w-full h-full relative z-20"
         camera={{ 
@@ -721,7 +687,6 @@ function Hero3DClient() {
         }}
         onCreated={({ gl }) => {
           gl.setClearColor('#000000', 0);
-          gl.setSize(windowSize.width, windowSize.height);
           console.log('✅ New WebGL context created successfully');
         }}
         onError={(error) => {
