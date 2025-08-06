@@ -25,7 +25,7 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
     {
       id: 3,
       name: 'EP Vernici',
-      logo: '/images/partners/epvernici.jpg',
+      logo: '/images/partners/epvernici.jpg?v=3',
       url: 'https://www.epvernici.it'
     },
     {
