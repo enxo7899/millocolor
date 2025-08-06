@@ -46,9 +46,10 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const [forceRender, setForceRender] = useState(0);
 
 
-  const fontSize = 1.2 * scale;
+  // Reduced fontSize to compensate for capital letters being larger
+  const fontSize = 0.85 * scale; // Reduced from 1.2 to 0.85 to maintain visual size with capitals
   // Dynamic letter spacing: reduce spacing on smaller screens first, then scale text
-  const letterSpacing = 0.008 * scale; // Slightly tighter letter spacing for narrower text
+  const letterSpacing = 0.006 * scale; // Slightly tighter letter spacing for capital letters
   const charGap = letterSpacing * 1.8; // Slightly reduced word gap for more compact text
 
   // Measure and center the text group after mount with null checks
@@ -475,7 +476,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
           anchorY="middle"
           letterSpacing={letterSpacing}
         >
-          Millo
+          MILLO
         </Text>
         <Text
           ref={colorTextRef}
@@ -487,7 +488,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
           anchorY="middle"
           letterSpacing={letterSpacing}
         >
-          Color
+          COLOR
         </Text>
       </Suspense>
 
