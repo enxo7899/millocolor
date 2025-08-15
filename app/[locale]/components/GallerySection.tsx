@@ -1,27 +1,41 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { useParams } from 'next/navigation';
 
 const GallerySection = () => {
   const [activeLocation, setActiveLocation] = useState<number | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const params = useParams();
+  const locale = params?.locale as string;
   
   // Fix hydration mismatch
   useEffect(() => {
     setIsClient(true);
   }, []);
 
+  // Helper function to get localized text
+  const getLocalizedText = (en: string, sq: string) => {
+    return locale === 'sq' ? sq : en;
+  };
+
   const locations = [
     {
       id: 1,
       name: 'Tirana Headquarters',
+      nameSq: 'Selia Kryesore e Tiranës',
       country: 'Albania',
+      countrySq: 'Shqipëri',
       subtitle: 'The Heart of Our Operations',
+      subtitleSq: 'Zemra e Operacioneve Tona',
       features: ['Main Distribution Center', 'Training Facility', 'Technical Support', 'Color Consulting'],
+      featuresSq: ['Qendra Kryesore e Shpërndarjes', 'Furnizimi i Trajnimit', 'Mbështetja Teknike', 'Këshillimi i Ngjyrave'],
       address: 'Headquarters: Autostrada Tirane - Durres km8, Tirana, Albania',
+      addressSq: 'Selia Kryesore: Autostrada Tiranë - Durrës km8, Tiranë, Shqipëri',
       phone: '+355682095588, +355686017350',
       email: 'info@millocolor.com',
       hours: 'Mon-Fri: 8:00-17:30, Sat: 9:00-13:00',
+      hoursSq: 'Hënë-Premte: 8:00-17:30, Shtunë: 9:00-13:00',
       color: 'from-blue-600 via-blue-700 to-blue-800',
       icon: '🏢',
       images: ['/images/buildings/tirana_hq.jpg']
@@ -29,13 +43,19 @@ const GallerySection = () => {
     {
       id: 2,
       name: 'Tirana Branch',
+      nameSq: 'Degë e Tiranës',
       country: 'Albania',
+      countrySq: 'Shqipëri',
       subtitle: 'Capital City Retail & Pro Support',
+      subtitleSq: 'Mbështetja e Shitjes dhe Pro në Kryeqytet',
       features: ['Retail Counter', 'Color Matching Booth', 'Rapid Pickup', 'On-site Assistance'],
+      featuresSq: ['Banak i Shitjes', 'Kabineta e Përputhjes së Ngjyrave', 'Marrja e Shpejtë', 'Asistenca në Vend'],
       address: 'Njesia Tirane: Rruga Teodor Keko, Unaza e Re, Tirana, Albania',
+      addressSq: 'Njësia Tiranë: Rruga Teodor Keko, Unaza e Re, Tiranë, Shqipëri',
       phone: '+355684032585, +355686010084',
       email: 'info@millocolor.com',
       hours: 'Mon-Fri: 8:00-17:30, Sat: 9:00-13:00',
+      hoursSq: 'Hënë-Premte: 8:00-17:30, Shtunë: 9:00-13:00',
       color: 'from-indigo-600 via-indigo-700 to-indigo-800',
       icon: '🏬',
       images: ['/images/buildings/tirana.jpg']
@@ -43,13 +63,19 @@ const GallerySection = () => {
     {
       id: 3,
       name: 'Pristina Branch',
+      nameSq: 'Degë e Prishtinës',
       country: 'Kosovo',
+      countrySq: 'Kosovë',
       subtitle: 'Expanding Our Regional Reach',
+      subtitleSq: 'Zgjerimi i Arritjes Sonë Rajonale',
       features: ['Regional Service Center', 'Technical Support', 'Product Distribution', 'Customer Training'],
+      featuresSq: ['Qendra Rajonale e Shërbimeve', 'Mbështetja Teknike', 'Shpërndarja e Produkteve', 'Trajnimi i Klientëve'],
       address: 'Njesia Prishtine: Magjistrale Prishtine - Ferizaj km5, Pristina, Kosovo',
+      addressSq: 'Njësia Prishtinë: Magjistralja Prishtinë - Ferizaj km5, Prishtinë, Kosovë',
       phone: '+383 49506444, +38349506222',
       email: 'info@millocolor.com',
       hours: 'Mon-Fri: 8:00-17:00, Sat: 9:00-13:00',
+      hoursSq: 'Hënë-Premte: 8:00-17:00, Shtunë: 9:00-13:00',
       color: 'from-red-600 via-red-700 to-red-800',
       icon: '🏭',
       images: ['/images/buildings/pristina.jpg']
@@ -57,13 +83,19 @@ const GallerySection = () => {
     {
       id: 4,
       name: 'Elbasan Branch',
+      nameSq: 'Degë e Elbasanit',
       country: 'Albania',
+      countrySq: 'Shqipëri',
       subtitle: 'Service & Logistics for Elbasan',
+      subtitleSq: 'Shërbimi dhe Logjistika për Elbasanin',
       features: ['Fast Local Delivery', 'Technical Advice', 'Product Showroom', 'Color Consulting'],
+      featuresSq: ['Dorëzimi i Shpejtë Lokal', 'Këshillimi Teknik', 'Vizore e Produkteve', 'Këshillimi i Ngjyrave'],
       address: 'Njesia Elbasan: Rr. Nacionale Elbasan - Korce, 800 metra nga kryqezimi I Cerrikut, Elbasan, Albania',
+      addressSq: 'Njësia Elbasan: Rr. Kombëtare Elbasan - Korçë, 800 metra nga kryqëzimi i Çerrikut, Elbasan, Shqipëri',
       phone: '+355686071146, +355686024223',
       email: 'info@millocolor.com',
       hours: 'Mon-Fri: 8:00-17:00, Sat: 9:00-13:00',
+      hoursSq: 'Hënë-Premte: 8:00-17:00, Shtunë: 9:00-13:00',
       color: 'from-emerald-600 via-emerald-700 to-emerald-800',
       icon: '🏪',
       images: ['/images/buildings/elbasan.jpg']
@@ -77,13 +109,16 @@ const GallerySection = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Our
+              {getLocalizedText('Our', 'Vendet')}
               <span className="block bg-gradient-to-r from-millo-blue via-millo-red to-millo-blue bg-clip-text text-transparent">
-                Locations
+                {getLocalizedText('Locations', 'Tona')}
               </span>
             </h2>
             <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed">
-              Strategic locations serving professionals across the region with state-of-the-art facilities
+              {getLocalizedText(
+                'Strategic locations serving professionals across the region with state-of-the-art facilities',
+                'Vende strategjike që shërbejnë profesionistët në të gjithë rajonin me objekte moderne'
+              )}
             </p>
           </div>
         </div>
@@ -97,13 +132,16 @@ const GallerySection = () => {
         {/* Title Section */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Our
+            {getLocalizedText('Our', 'Vendet')}
             <span className="block bg-gradient-to-r from-millo-blue via-millo-red to-millo-blue bg-clip-text text-transparent">
-              Locations
+              {getLocalizedText('Locations', 'Tona')}
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed">
-            Strategic locations serving professionals across the region with state-of-the-art facilities
+            {getLocalizedText(
+              'Strategic locations serving professionals across the region with state-of-the-art facilities',
+              'Vende strategjike që shërbejnë profesionistët në të gjithë rajonin me objekte moderne'
+            )}
           </p>
         </div>
 
@@ -126,14 +164,18 @@ const GallerySection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {/* Contact Info */}
                       <div className="space-y-4">
-                        <h4 className="text-xl font-semibold text-white mb-4">Contact Information</h4>
+                        <h4 className="text-xl font-semibold text-white mb-4">
+                          {getLocalizedText('Contact Information', 'Informacioni i Kontaktit')}
+                        </h4>
                         
                         <div className="space-y-3">
                           <div className="flex items-center space-x-3">
                             <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                               📍
                             </div>
-                            <span className="text-white/80 text-sm">{location.address}</span>
+                            <span className="text-white/80 text-sm">
+                              {getLocalizedText(location.address, location.addressSq)}
+                            </span>
                           </div>
                           
                           <div className="flex items-center space-x-3">
@@ -154,9 +196,13 @@ const GallerySection = () => {
 
                       {/* Business Hours */}
                       <div>
-                        <h4 className="text-xl font-semibold text-white mb-4">Business Hours</h4>
+                        <h4 className="text-xl font-semibold text-white mb-4">
+                          {getLocalizedText('Business Hours', 'Orari i Punës')}
+                        </h4>
                         <div className="bg-white/10 rounded-lg p-4">
-                          <p className="text-white/80 text-sm">{location.hours}</p>
+                          <p className="text-white/80 text-sm">
+                            {getLocalizedText(location.hours, location.hoursSq)}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -171,18 +217,20 @@ const GallerySection = () => {
         <div className="mt-20 text-center">
           <div className="relative z-0 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Visit Our Facilities
+              {getLocalizedText('Visit Our Facilities', 'Vizitoni Objektet Tona')}
             </h3>
             <p className="text-white/70 leading-relaxed mb-6">
-              Experience our state-of-the-art facilities firsthand. Schedule a visit to see our 
-              equipment, meet our team, and discuss your specific needs with our experts.
+              {getLocalizedText(
+                'Experience our state-of-the-art facilities firsthand. Schedule a visit to see our equipment, meet our team, and discuss your specific needs with our experts.',
+                'Eksperienconi objektet tona moderne personalisht. Planifikoni një vizitë për të parë pajisjet tona, takoni ekipin tonë dhe diskutoni nevojat tuaja specifike me ekspertët tanë.'
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-millo-dark-blue text-white font-semibold rounded-full hover:bg-blue-800 transition-all duration-300">
-                Schedule a Visit
+                {getLocalizedText('Schedule a Visit', 'Planifikoni një Vizitë')}
               </button>
               <button className="px-8 py-4 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300">
-                Contact Sales Team
+                {getLocalizedText('Contact Sales Team', 'Kontaktoni Ekipin e Shitjes')}
               </button>
             </div>
           </div>
@@ -200,6 +248,13 @@ const LocationCard = ({ location, isActive, onToggle }: {
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const params = useParams();
+  const locale = params?.locale as string;
+
+  // Helper function to get localized text
+  const getLocalizedText = (en: string, sq: string) => {
+    return locale === 'sq' ? sq : en;
+  };
 
   // Auto-scroll through images
   useEffect(() => {
@@ -261,11 +316,11 @@ const LocationCard = ({ location, isActive, onToggle }: {
             </div>
             
             <h3 className="text-3xl font-bold text-white mb-2">
-              {location.name}
+              {getLocalizedText(location.name, location.nameSq)}
             </h3>
             
             <p className="text-white/80 text-lg mb-4">
-              {location.subtitle}
+              {getLocalizedText(location.subtitle, location.subtitleSq)}
             </p>
           </div>
 
@@ -277,7 +332,9 @@ const LocationCard = ({ location, isActive, onToggle }: {
                 className="flex items-center space-x-3"
               >
                 <div className="w-2 h-2 rounded-full bg-white" />
-                <span className="text-white/90 text-sm">{feature}</span>
+                <span className="text-white/90 text-sm">
+                  {getLocalizedText(feature, location.featuresSq[idx])}
+                </span>
               </div>
             ))}
           </div>
