@@ -295,15 +295,18 @@
     "form": {
       "title": "Na Dërgoni një Mesazh",
       "description": "Plotesoni formularin më poshtë dhe një anëtar i ekipit tonë do t'ju kontaktojë brenda 24 orësh",
-      "name": {
+      "name": "Emri i Plotë",
+      "email": "Adresa e Email",
+      "phone": "Numri i Telefonit",
+      "nameFields": {
         "label": "Emri i Plotë",
         "placeholder": "Shkruani emrin tuaj të plotë"
       },
-      "email": {
+      "emailFields": {
         "label": "Adresa e Email",
         "placeholder": "Shkruani adresën tuaj të email"
       },
-      "phone": {
+      "phoneFields": {
         "label": "Numri i Telefonit",
         "placeholder": "Shkruani numrin tuaj të telefonit"
       },
@@ -311,8 +314,9 @@
         "label": "Kompania/Organizata",
         "placeholder": "Shkruani emrin e kompaniës suaj (opsionale)"
       },
+      "subject": "Subjekti",
       "selectSubject": "Zgjidhni një subjekt",
-      "subject": {
+      "subjectFields": {
         "label": "Subjekti",
         "placeholder": "Përse po na kontaktoni?"
       },
@@ -322,14 +326,15 @@
         "partnership": "Partneritet",
         "other": "Tjetër"
       },
-      "message": {
+      "message": "Mesazhi Juaj",
+      "messageFields": {
         "label": "Mesazhi Juaj",
         "placeholder": "Shkruani mesazhin tuaj të detajuar këtu..."
       },
       "send": "Dërgoni Mesazhin",
-      "submit": "Dërgoni Mesazhin",
-      "success": "Faleminderit! Mesazhi juaj është dërguar.",
-      "error": "Pati një problem me dërgimin e mesazhit tuaj. Ju lutemi provoni përsëri."
+      "sending": "Duke dërguar...",
+      "successMessage": "Faleminderit! Mesazhi juaj u dërgua me sukses. Do t'ju përgjigjemi sa më shpejt.",
+      "errorMessage": "Na vjen keq, ndodhi një gabim gjatë dërgimit të mesazhit. Ju lutemi provoni përsëri ose na kontaktoni me telefon."
     },
     "map": {
       "placeholder": "Hartë interaktive në arrdhje së shpejti"
