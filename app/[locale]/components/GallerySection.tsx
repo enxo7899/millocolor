@@ -109,15 +109,15 @@ const GallerySection = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              {getLocalizedText('Our', 'Vendet')}
+              {getLocalizedText('Our', 'Lokacionet')}
               <span className="block bg-gradient-to-r from-millo-blue via-millo-red to-millo-blue bg-clip-text text-transparent">
-                {getLocalizedText('Locations', 'Tona')}
+                {getLocalizedText('Locations', 'tona')}
               </span>
             </h2>
             <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed">
               {getLocalizedText(
                 'Strategic locations serving professionals across the region with state-of-the-art facilities',
-                'Vende strategjike që shërbejnë profesionistët në të gjithë rajonin me objekte moderne'
+                'Lokacione strategjike që shërbejnë profesionistët në të gjithë rajonin me objekte moderne'
               )}
             </p>
           </div>
@@ -132,15 +132,15 @@ const GallerySection = () => {
         {/* Title Section */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            {getLocalizedText('Our', 'Vendet')}
+            {getLocalizedText('Our', 'Lokacionet')}
             <span className="block bg-gradient-to-r from-millo-blue via-millo-red to-millo-blue bg-clip-text text-transparent">
-              {getLocalizedText('Locations', 'Tona')}
+              {getLocalizedText('Locations', 'tona')}
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed">
             {getLocalizedText(
               'Strategic locations serving professionals across the region with state-of-the-art facilities',
-              'Vende strategjike që shërbejnë profesionistët në të gjithë rajonin me objekte moderne'
+              'Lokacione strategjike që shërbejnë profesionistët në të gjithë rajonin me objekte moderne'
             )}
           </p>
         </div>
