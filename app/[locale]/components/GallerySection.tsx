@@ -18,13 +18,13 @@ const GallerySection = () => {
       country: 'Albania',
       subtitle: 'The Heart of Our Operations',
       features: ['Main Distribution Center', 'Training Facility', 'Technical Support', 'Color Consulting'],
-      address: 'Tirana–Durrës Highway, Km 6, Tirana, Albania',
-      phone: '+355 4 222 222',
-      email: 'hq@millocolor.com',
-      hours: 'Mon-Fri: 8:00-18:00, Sat: 9:00-14:00',
+      address: 'Headquarters: Autostrada Tirane - Durres km8, Tirana, Albania',
+      phone: '+355682095588, +355686017350',
+      email: 'info@millocolor.com',
+      hours: 'Mon-Fri: 8:00-17:30, Sat: 9:00-13:00',
       color: 'from-blue-600 via-blue-700 to-blue-800',
       icon: '🏢',
-      images: ['/images/1sata.jpg','/images/epvernici.jpg','/images/jbm.jpg','/images/placeholder.svg']
+      images: ['/images/buildings/tirana_hq.jpg']
     },
     {
       id: 2,
@@ -32,13 +32,13 @@ const GallerySection = () => {
       country: 'Albania',
       subtitle: 'Capital City Retail & Pro Support',
       features: ['Retail Counter', 'Color Matching Booth', 'Rapid Pickup', 'On-site Assistance'],
-      address: 'Rr. e Dibrës 123, Tirana, Albania',
-      phone: '+355 4 333 333',
-      email: 'tirana@millocolor.com',
+      address: 'Njesia Tirane: Rruga Teodor Keko, Unaza e Re, Tirana, Albania',
+      phone: '+355684032585, +355686010084',
+      email: 'info@millocolor.com',
       hours: 'Mon-Fri: 8:00-17:30, Sat: 9:00-13:00',
       color: 'from-indigo-600 via-indigo-700 to-indigo-800',
       icon: '🏬',
-      images: ['/images/1sata.jpg','/images/epvernici.jpg','/images/jbm.jpg','/images/placeholder.svg']
+      images: ['/images/buildings/tirana.jpg']
     },
     {
       id: 3,
@@ -46,13 +46,13 @@ const GallerySection = () => {
       country: 'Kosovo',
       subtitle: 'Expanding Our Regional Reach',
       features: ['Regional Service Center', 'Technical Support', 'Product Distribution', 'Customer Training'],
-      address: 'Rr. Nëna Terezë 23, Pristina, Kosovo',
-      phone: '+383 38 123 456',
-      email: 'pristina@millocolor.com',
+      address: 'Njesia Prishtine: Magjistrale Prishtine - Ferizaj km5, Pristina, Kosovo',
+      phone: '+383 49506444, +38349506222',
+      email: 'info@millocolor.com',
       hours: 'Mon-Fri: 8:00-17:00, Sat: 9:00-13:00',
       color: 'from-red-600 via-red-700 to-red-800',
       icon: '🏭',
-      images: ['/images/1sata.jpg','/images/epvernici.jpg','/images/jbm.jpg','/images/placeholder.svg']
+      images: ['/images/buildings/pristina.jpg']
     },
     {
       id: 4,
@@ -60,13 +60,13 @@ const GallerySection = () => {
       country: 'Albania',
       subtitle: 'Service & Logistics for Elbasan',
       features: ['Fast Local Delivery', 'Technical Advice', 'Product Showroom', 'Color Consulting'],
-      address: 'Bulevardi Qemal Stafa 77, Elbasan, Albania',
-      phone: '+355 54 555 555',
-      email: 'elbasan@millocolor.com',
+      address: 'Njesia Elbasan: Rr. Nacionale Elbasan - Korce, 800 metra nga kryqezimi I Cerrikut, Elbasan, Albania',
+      phone: '+355686071146, +355686024223',
+      email: 'info@millocolor.com',
       hours: 'Mon-Fri: 8:00-17:00, Sat: 9:00-13:00',
       color: 'from-emerald-600 via-emerald-700 to-emerald-800',
       icon: '🏪',
-      images: ['/images/1sata.jpg','/images/epvernici.jpg','/images/jbm.jpg','/images/placeholder.svg']
+      images: ['/images/buildings/elbasan.jpg']
     }
   ];
 
@@ -114,12 +114,54 @@ const GallerySection = () => {
           {locations.map((location, index) => {
             const isActive = activeLocation === index;
             return (
-              <div key={location.id} className={`${isActive ? 'lg:col-span-2' : ''}`}>
+              <div key={location.id} className="relative w-full">
                 <LocationCard 
                   location={location} 
                   isActive={isActive}
                   onToggle={() => setActiveLocation(isActive ? null : index)}
                 />
+                {/* Expanded Details Panel - full width to match card */}
+                {isActive && (
+                  <div className="relative z-20 mt-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 w-full max-w-none">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* Contact Info */}
+                      <div className="space-y-4">
+                        <h4 className="text-xl font-semibold text-white mb-4">Contact Information</h4>
+                        
+                        <div className="space-y-3">
+                          <div className="flex items-center space-x-3">
+                            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                              📍
+                            </div>
+                            <span className="text-white/80 text-sm">{location.address}</span>
+                          </div>
+                          
+                          <div className="flex items-center space-x-3">
+                            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                              📞
+                            </div>
+                            <span className="text-white/80 text-sm">{location.phone}</span>
+                          </div>
+                          
+                          <div className="flex items-center space-x-3">
+                            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                              ✉️
+                            </div>
+                            <span className="text-white/80 text-sm">{location.email}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Business Hours */}
+                      <div>
+                        <h4 className="text-xl font-semibold text-white mb-4">Business Hours</h4>
+                        <div className="bg-white/10 rounded-lg p-4">
+                          <p className="text-white/80 text-sm">{location.hours}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -180,18 +222,16 @@ const LocationCard = ({ location, isActive, onToggle }: {
   }, [isActive, location.images.length]);
 
   return (
-    <div className="relative group">
+    <div className="relative group w-full">
       {/* Main Card */}
       <div 
-        className={`relative h-96 rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ${
-          isActive ? 'scale-105 ring-2 ring-white/30' : 'scale-100'
-        }`}
+        className="relative h-96 rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 w-full"
         onClick={onToggle}
         style={{
           background: `linear-gradient(135deg, ${location.color.includes('blue') ? '#004a99' : '#C73834'}, ${location.color.includes('blue') ? '#0066cc' : '#e04550'})`
         }}
       >
-        {/* Image Carousel Background */}
+        {/* Image Background */}
         <div className="absolute inset-0">
           <div className="relative w-full h-full">
             {location.images.map((image: string, index: number) => (
@@ -206,7 +246,7 @@ const LocationCard = ({ location, isActive, onToggle }: {
                   alt={`${location.name} - Image ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 bg-black/45" />
               </div>
             ))}
           </div>
@@ -262,57 +302,8 @@ const LocationCard = ({ location, isActive, onToggle }: {
           ))}
         </div>
       </div>
-
-      {/* Expanded Details Panel */}
-      {isActive && (
-        <div className="relative z-20 mt-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Contact Info */}
-            <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-white mb-4">Contact Information</h4>
-              
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    📍
-                  </div>
-                  <span className="text-white/80 text-sm">{location.address}</span>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    📞
-                  </div>
-                  <span className="text-white/80 text-sm">{location.phone}</span>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    ✉️
-                  </div>
-                  <span className="text-white/80 text-sm">{location.email}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Business Hours */}
-            <div>
-              <h4 className="text-xl font-semibold text-white mb-4">Business Hours</h4>
-              <div className="bg-white/10 rounded-lg p-4">
-                <p className="text-white/80 text-sm">{location.hours}</p>
-              </div>
-              
-              <div className="mt-4">
-                <button className="px-6 py-3 bg-millo-dark-blue text-white font-semibold rounded-full hover:bg-blue-800 transition-all duration-300 text-sm">
-                  Get Directions
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
 
-export default GallerySection; 
+export default GallerySection;
