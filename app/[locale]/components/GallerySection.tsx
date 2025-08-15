@@ -92,17 +92,17 @@ const GallerySection = () => {
   }
 
   return (
-    <section className="pt-12 pb-28 relative z-10 min-h-screen font-montserrat">
+    <section className="pt-10 pb-24 relative z-10 overflow-hidden min-h-screen font-montserrat">
       <div className="container mx-auto px-4 relative z-10">
         {/* Title Section */}
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Our
             <span className="block bg-gradient-to-r from-millo-blue via-millo-red to-millo-blue bg-clip-text text-transparent">
               Locations
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed">
             Strategic locations serving professionals across the region with state-of-the-art facilities
           </p>
         </div>

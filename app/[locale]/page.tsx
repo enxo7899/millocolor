@@ -26,7 +26,7 @@ export default function Home() {
   const t = useTranslations();
   
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative overflow-hidden">
       {/* Luxury Animated Background */}
       <BackgroundCanvas />
       
@@ -78,17 +78,17 @@ function TrustedBySection() {
   const [isCarouselHovered, setIsCarouselHovered] = useState(false);
   
   return (
-    <section className="py-6 md:py-8 relative z-10">
+    <section className="py-2 md:py-4 relative z-10">
       <div className="container mx-auto px-4">
         <motion.div 
-          className="text-center mb-6 md:mb-8"
+          className="text-center mb-2 md:mb-3"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={sectionVariants}
         >
           <div className="inline-block relative">
-            <h2 suppressHydrationWarning className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide relative z-10 font-montserrat transition-all duration-300">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-medium tracking-wide relative z-10 font-montserrat transition-all duration-300">
               <span className="text-white/70">{t('trustedBy')} </span>
               <span 
                 className={`transition-all duration-300 cursor-pointer ${isCarouselHovered ? 'bg-gradient-to-r from-white via-blue-300 to-millo-blue bg-clip-text text-transparent' : 'text-white/70 hover:bg-gradient-to-r hover:from-white hover:via-blue-300 hover:to-millo-blue hover:bg-clip-text hover:text-transparent'}`}
