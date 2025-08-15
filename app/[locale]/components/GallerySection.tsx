@@ -18,37 +18,55 @@ const GallerySection = () => {
       country: 'Albania',
       subtitle: 'The Heart of Our Operations',
       features: ['Main Distribution Center', 'Training Facility', 'Technical Support', 'Color Consulting'],
-      address: 'Rr. Skenderbeu 55, Tirana, Albania',
-      phone: '+355 69 123 4567',
-      email: 'tirana@millocolor.com',
+      address: 'Tirana–Durrës Highway, Km 6, Tirana, Albania',
+      phone: '+355 4 222 222',
+      email: 'hq@millocolor.com',
       hours: 'Mon-Fri: 8:00-18:00, Sat: 9:00-14:00',
       color: 'from-blue-600 via-blue-700 to-blue-800',
       icon: '🏢',
-      images: [
-        '/images/1sata.jpg',
-        '/images/epvernici.jpg',
-        '/images/jbm.jpg',
-        '/images/placeholder.svg'
-      ]
+      images: ['/images/1sata.jpg','/images/epvernici.jpg','/images/jbm.jpg','/images/placeholder.svg']
     },
     {
       id: 2,
-      name: 'Kosovo Branch',
+      name: 'Tirana Branch',
+      country: 'Albania',
+      subtitle: 'Capital City Retail & Pro Support',
+      features: ['Retail Counter', 'Color Matching Booth', 'Rapid Pickup', 'On-site Assistance'],
+      address: 'Rr. e Dibrës 123, Tirana, Albania',
+      phone: '+355 4 333 333',
+      email: 'tirana@millocolor.com',
+      hours: 'Mon-Fri: 8:00-17:30, Sat: 9:00-13:00',
+      color: 'from-indigo-600 via-indigo-700 to-indigo-800',
+      icon: '🏬',
+      images: ['/images/1sata.jpg','/images/epvernici.jpg','/images/jbm.jpg','/images/placeholder.svg']
+    },
+    {
+      id: 3,
+      name: 'Pristina Branch',
       country: 'Kosovo',
       subtitle: 'Expanding Our Regional Reach',
       features: ['Regional Service Center', 'Technical Support', 'Product Distribution', 'Customer Training'],
       address: 'Rr. Nëna Terezë 23, Pristina, Kosovo',
       phone: '+383 38 123 456',
-      email: 'kosovo@millocolor.com',
+      email: 'pristina@millocolor.com',
       hours: 'Mon-Fri: 8:00-17:00, Sat: 9:00-13:00',
       color: 'from-red-600 via-red-700 to-red-800',
       icon: '🏭',
-      images: [
-        '/images/1sata.jpg',
-        '/images/epvernici.jpg',
-        '/images/jbm.jpg',
-        '/images/placeholder.svg'
-      ]
+      images: ['/images/1sata.jpg','/images/epvernici.jpg','/images/jbm.jpg','/images/placeholder.svg']
+    },
+    {
+      id: 4,
+      name: 'Elbasan Branch',
+      country: 'Albania',
+      subtitle: 'Service & Logistics for Elbasan',
+      features: ['Fast Local Delivery', 'Technical Advice', 'Product Showroom', 'Color Consulting'],
+      address: 'Bulevardi Qemal Stafa 77, Elbasan, Albania',
+      phone: '+355 54 555 555',
+      email: 'elbasan@millocolor.com',
+      hours: 'Mon-Fri: 8:00-17:00, Sat: 9:00-13:00',
+      color: 'from-emerald-600 via-emerald-700 to-emerald-800',
+      icon: '🏪',
+      images: ['/images/1sata.jpg','/images/epvernici.jpg','/images/jbm.jpg','/images/placeholder.svg']
     }
   ];
 
@@ -74,17 +92,17 @@ const GallerySection = () => {
   }
 
   return (
-    <section className="py-24 relative z-10 overflow-hidden min-h-screen">
+    <section className="pt-12 pb-28 relative z-10 min-h-screen font-montserrat">
       <div className="container mx-auto px-4 relative z-10">
         {/* Title Section */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Our
             <span className="block bg-gradient-to-r from-millo-blue via-millo-red to-millo-blue bg-clip-text text-transparent">
               Locations
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
             Strategic locations serving professionals across the region with state-of-the-art facilities
           </p>
         </div>
@@ -92,20 +110,24 @@ const GallerySection = () => {
 
 
         {/* Location Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {locations.map((location, index) => (
-            <LocationCard 
-              key={location.id} 
-              location={location} 
-              isActive={activeLocation === index}
-              onToggle={() => setActiveLocation(activeLocation === index ? null : index)}
-            />
-          ))}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {locations.map((location, index) => {
+            const isActive = activeLocation === index;
+            return (
+              <div key={location.id} className={`${isActive ? 'lg:col-span-2' : ''}`}>
+                <LocationCard 
+                  location={location} 
+                  isActive={isActive}
+                  onToggle={() => setActiveLocation(isActive ? null : index)}
+                />
+              </div>
+            );
+          })}
         </div>
 
         {/* Bottom CTA */}
         <div className="mt-20 text-center">
-          <div className="bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8 max-w-4xl mx-auto">
+          <div className="relative z-0 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
               Visit Our Facilities
             </h3>
@@ -243,7 +265,7 @@ const LocationCard = ({ location, isActive, onToggle }: {
 
       {/* Expanded Details Panel */}
       {isActive && (
-        <div className="absolute top-full left-0 right-0 mt-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6">
+        <div className="relative z-20 mt-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Contact Info */}
             <div className="space-y-4">
