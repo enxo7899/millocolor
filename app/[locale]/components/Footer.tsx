@@ -33,24 +33,10 @@ export default function Footer() {
   
   return (
     <footer ref={footerRef} className="bg-gradient-to-b from-[#0D0D0D] to-black text-white py-16 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-millo-red/10 blur-[100px]"
-          initial={{ opacity: 0, x: 100 }}
-          animate={inView ? { opacity: 0.4, x: 0 } : { opacity: 0, x: 100 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-blue-500/10 blur-[80px]"
-          initial={{ opacity: 0, x: -50 }}
-          animate={inView ? { opacity: 0.3, x: 0 } : { opacity: 0, x: -50 }}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
-        />
+      {/* Background elements removed */}
         
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-10 bg-[url('/grid-pattern.svg')] bg-repeat"></div>
-      </div>
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-10 bg-[url('/grid-pattern.svg')] bg-repeat"></div>
       
       <motion.div 
         className="container mx-auto px-4 relative z-10"

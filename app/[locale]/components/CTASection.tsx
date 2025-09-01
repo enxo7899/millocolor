@@ -9,34 +9,7 @@ const CTASection = () => {
   
   return (
     <section className="py-20 relative z-10">
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-millo-blue/20 via-transparent to-millo-red/20" />
-        
-        {/* Animated background particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-white/10 rounded-full"
-              style={{
-                left: `${20 + i * 15}%`,
-                top: `${30 + (i % 3) * 20}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.3, 0.8, 0.3],
-              }}
-              transition={{
-                duration: 3 + i * 0.5,
-                repeat: Infinity,
-                delay: i * 0.8,
-              }}
-            />
-          ))}
-        </div>
-      </div>
+      {/* Background elements and gradient overlay removed */}
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div

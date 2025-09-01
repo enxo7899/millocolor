@@ -42,20 +42,41 @@ const PremiumLogo = ({ isScrolled }: { isScrolled: boolean }) => {
       href="/" 
       className="flex flex-col items-start group h-full py-1"
     >
-      <div className={`font-bold tracking-tight transition-all duration-300 group-hover:scale-105 ${
-        isScrolled ? 'text-xl lg:text-2xl' : 'text-2xl lg:text-3xl'
-      }`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', lineHeight: '1' }}>
-        <span className="text-[#314485] font-extrabold">
-          MILLO
-        </span>
-        <span className="text-[#C73834] font-extrabold">
-          COLOR
-        </span>
+      <div 
+        className={`font-bold tracking-tight transition-all duration-300 group-hover:scale-105 ${
+          isScrolled ? 'text-xl lg:text-2xl' : 'text-2xl lg:text-3xl'
+        }`} 
+        style={{ 
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', 
+          lineHeight: '1'
+        }}
+      >
+        <span className="text-[#314485] font-extrabold">MILLO</span>
+        <span className="text-[#C73834] font-extrabold">COLOR</span>
       </div>
-      <div className={`transition-all duration-300 ${
-        isScrolled ? 'text-sm mt-1' : 'text-base mt-1'
-      }`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', lineHeight: '1', maxWidth: '100%', overflow: 'hidden' }}>
-        <span className="text-white font-medium tracking-wide whitespace-nowrap">
+      <div 
+        className={`transition-all duration-300 ${
+          isScrolled ? 'mt-1' : 'mt-1'
+        } w-full`} 
+        style={{ 
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', 
+          lineHeight: '1',
+          fontSize: isScrolled ? '0.75rem' : '0.875rem',
+          maxWidth: '100%', // Ensure it never exceeds parent width
+          display: 'block',
+          overflow: 'hidden'
+        }}
+      >
+        <span 
+          className="text-white font-medium tracking-wide block !text-white !text-opacity-100" 
+          style={{
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            maxWidth: '100%', // Ensure text is truncated if it exceeds container width
+            fontSize: isScrolled ? '0.75rem' : '0.875rem' // Explicitly set font size here too
+          }}
+        >
           {t('tagline')}
         </span>
       </div>

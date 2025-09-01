@@ -51,8 +51,7 @@ export default function Home() {
       {/* Enhanced Statistics */}
       <StatsSection />
       
-      {/* Call to Action */}
-      <CTASection />
+      {/* Call to Action section removed */}
       
       {/* Premium Contact Section */}
       <ContactSection />
