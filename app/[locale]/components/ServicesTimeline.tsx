@@ -2,54 +2,56 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const ServicesTimeline = () => {
+  const t = useTranslations('training');
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   const timelineSteps = [
     {
       id: 1,
-      title: 'Theoretical Training',
-      description: 'Comprehensive classroom sessions covering paint theory, color matching, and application techniques.',
+      title: t('theoretical.title'),
+      description: t('theoretical.description'),
       icon: '📚',
-      duration: '2-3 days',
-      features: ['Paint Chemistry', 'Color Theory', 'Surface Preparation', 'Safety Protocols']
+      duration: t('theoretical.duration'),
+      features: t.raw('theoretical.features') as string[]
     },
     {
       id: 2,
-      title: 'Hands-on Practice',
-      description: 'Practical workshops using professional equipment and real-world automotive painting scenarios.',
+      title: t('handsOn.title'),
+      description: t('handsOn.description'),
       icon: '🎯',
-      duration: '3-5 days',
-      features: ['Live Demonstrations', 'Practice Sessions', 'Equipment Handling', 'Quality Control']
+      duration: t('handsOn.duration'),
+      features: t.raw('handsOn.features') as string[]
     },
     {
       id: 3,
-      title: 'Certification',
-      description: 'Assessment and certification process to validate skills and provide recognized credentials.',
+      title: t('certification.title'),
+      description: t('certification.description'),
       icon: '🏆',
-      duration: '1 day',
-      features: ['Skills Assessment', 'Final Project', 'Certificate Issuance', 'Ongoing Support']
+      duration: t('certification.duration'),
+      features: t.raw('certification.features') as string[]
     }
   ];
 
   const testimonials = [
     {
-      name: 'Arben Krasniqi',
-      position: 'Auto Paint Specialist',
-      content: 'The training program completely transformed my approach to automotive painting. Professional and comprehensive.',
+      name: t('testimonials.student1.name'),
+      position: t('testimonials.student1.role'),
+      content: t('testimonials.student1.text'),
       rating: 5
     },
     {
-      name: 'Lena Shabani',
-      position: 'Workshop Owner',
-      content: 'Excellent training with hands-on experience. My team improved dramatically after the certification.',
+      name: t('testimonials.student2.name'),
+      position: t('testimonials.student2.role'),
+      content: t('testimonials.student2.text'),
       rating: 5
     },
     {
-      name: 'Driton Berisha',
-      position: 'Paint Technician',
-      content: 'Best investment for my career. The instructors are experts and the equipment is top-notch.',
+      name: t('testimonials.student3.name'),
+      position: t('testimonials.student3.role'),
+      content: t('testimonials.student3.text'),
       rating: 5
     }
   ];
@@ -65,10 +67,10 @@ const ServicesTimeline = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Professional Training Program
+            {t('title')}
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Your journey to mastering automotive painting excellence
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -162,7 +164,7 @@ const ServicesTimeline = () => {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-2xl font-bold text-white mb-8 text-center">
-                What Our Students Say
+                {t('testimonials.title')}
               </h3>
 
               {testimonials.map((testimonial, index) => (
@@ -212,7 +214,7 @@ const ServicesTimeline = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <button className="px-8 py-4 bg-millo-dark-blue text-white font-semibold rounded-full hover:bg-blue-800 hover:shadow-lg transition-all duration-300">
-                  Join Our Next Training
+                  {t('cta')}
                 </button>
               </motion.div>
             </motion.div>

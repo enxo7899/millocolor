@@ -285,6 +285,25 @@
   "contact": {
     "title": "Contact Us",
     "subtitle": "We're here to answer your questions and provide expert support",
+    "getInTouch": {
+      "title": "Get In Touch",
+      "subtitle": "Ready to enhance your painting process? Contact our experts today",
+      "contactInfo": {
+        "title": "Contact Information",
+        "address": {
+          "label": "Address",
+          "value": "123 Paint Street, Tirana, Albania"
+        },
+        "phone": {
+          "label": "Phone",
+          "value": "+355 42 123 456"
+        },
+        "email": {
+          "label": "Email",
+          "value": "info@millocolor.com"
+        }
+      }
+    },
     "form": {
       "title": "Send Us a Message",
       "name": "Your Name",
@@ -416,6 +435,127 @@
   "partners": {
     "title": "Trusted by Industry Leaders",
     "subtitle": "We partner with the world's most respected automotive paint manufacturers"
+  },
+  "foundation": {
+    "title": "Our Foundation",
+    "subtitle": "Built on three pillars that drive everything we do",
+    "values": {
+      "excellence": {
+        "title": "Excellence",
+        "description": "Delivering premium automotive solutions with uncompromising quality standards since 1993."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Pioneering cutting-edge paint technologies and training methods to keep professionals ahead."
+      },
+      "sustainability": {
+        "title": "Sustainability",
+        "description": "Committed to eco-friendly practices and sustainable solutions for a better tomorrow."
+      }
+    }
+  },
+  "productCategories": {
+    "title": "Product Categories",
+    "subtitle": "Comprehensive solutions for all your automotive painting needs",
+    "categories": {
+      "premium": {
+        "title": "Premium Paints & Coatings",
+        "shortDescription": "High-end automotive refinishing solutions",
+        "fullDescription": "Our premium paint lines from Cromax, Standox, and Sherwin-Williams deliver exceptional color matching, durability, and finish quality for luxury vehicle refinishing.",
+        "features": ["Superior Color Match", "Long-lasting Durability", "Easy Application", "Professional Grade"]
+      },
+      "auxiliary": {
+        "title": "Auxiliary Materials",
+        "shortDescription": "Supporting products for perfect results",
+        "fullDescription": "Complete range of primers, clearcoats, thinners, and hardeners from trusted brands like Roberlo and Hempel to ensure optimal paint performance.",
+        "features": ["Compatible Systems", "Quality Assured", "Technical Support", "Various Formulations"]
+      },
+      "equipment": {
+        "title": "Equipment & Tools",
+        "shortDescription": "Professional-grade painting equipment",
+        "fullDescription": "State-of-the-art spray guns from SATA, compressors from FIAC, and sanders from RUPES for professional automotive painting applications.",
+        "features": ["Latest Technology", "Precision Tools", "Reliable Performance", "Expert Training"]
+      }
+    },
+    "keyFeatures": "Key Features:",
+    "exploreProducts": "Explore Products"
+  },
+  "training": {
+    "title": "Professional Training Program",
+    "subtitle": "Your journey to mastering automotive painting excellence",
+    "theoretical": {
+      "title": "Theoretical Training",
+      "duration": "2-3 days",
+      "description": "Comprehensive classroom sessions covering paint theory, color matching, and application techniques.",
+      "features": ["Paint Chemistry", "Color Theory", "Surface Preparation", "Safety Protocols"]
+    },
+    "handsOn": {
+      "title": "Hands-on Practice",
+      "duration": "3-5 days",
+      "description": "Practical workshops using professional equipment and real-world automotive painting scenarios.",
+      "features": ["Live Demonstrations", "Practice Sessions", "Equipment Handling", "Quality Control"]
+    },
+    "certification": {
+      "title": "Certification",
+      "duration": "1 day",
+      "description": "Assessment and certification process to validate skills and provide recognized credentials.",
+      "features": ["Skills Assessment", "Final Project", "Certificate Issuance", "Ongoing Support"]
+    },
+    "testimonials": {
+      "title": "What Our Students Say",
+      "student1": {
+        "name": "Arben Krasniqi",
+        "role": "Auto Paint Specialist",
+        "text": "The training program completely transformed my approach to automotive painting. Professional and comprehensive."
+      },
+      "student2": {
+        "name": "Lena Shabani",
+        "role": "Workshop Owner",
+        "text": "Excellent training with hands-on experience. My team improved dramatically after the certification."
+      },
+      "student3": {
+        "name": "Driton Berisha",
+        "role": "Paint Technician",
+        "text": "Best investment for my career. The instructors are experts and the equipment is top-notch."
+      }
+    },
+    "cta": "Join Our Next Training"
+  },
+  "stats": {
+    "title": "Our Impact in Numbers",
+    "subtitle": "Three decades of excellence in automotive painting solutions",
+    "years": {
+      "title": "Years of Experience",
+      "description": "Serving the automotive industry since 1993"
+    },
+    "brands": {
+      "title": "Global Brands",
+      "description": "Partnerships with industry leaders"
+    },
+    "clients": {
+      "title": "Happy Clients",
+      "description": "Satisfied customers across Albania"
+    },
+    "sessions": {
+      "title": "Training Sessions",
+      "description": "Professional development programs"
+    },
+    "trusted": {
+      "title": "Trusted by Professionals Across Albania",
+      "description": "From Tirana to Durrës, Vlorë to Shkodër, MilloColor has been the go-to source for automotive painting professionals. Our commitment to quality, innovation, and customer success has made us the leading distributor in the region."
+    }
+  },
+  "cta": {
+    "title": "Ready to Transform Your",
+    "titleHighlight": "Painting Experience?",
+    "subtitle": "Join thousands of professionals who trust MilloColor for premium automotive painting solutions, expert training, and unmatched support.",
+    "getInTouch": "Get in Touch",
+    "exploreProducts": "Explore Products",
+    "contactInfo": {
+      "phone": "+355 69 123 4567",
+      "email": "info@millocolor.com",
+      "location": "Tirana, Albania"
+    }
   },
   "trusted": {
     "trustedBy": "Trusted by",

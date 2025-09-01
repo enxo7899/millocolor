@@ -13,11 +13,11 @@ import '../globals.css';
 export async function generateMetadata({
   params
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   // Validate the locale to prevent access to non-supported locales
   // Use Promise.resolve to properly await the params object
-  const locale = (await Promise.resolve(params)).locale;
+  const locale = (await params).locale;
   
   // Verify that locale is supported first
   if (!locales.includes(locale as any)) {
@@ -64,10 +64,10 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   // Use Promise.resolve to properly await the params object
-  const locale = (await Promise.resolve(params)).locale;
+  const locale = (await params).locale;
 
   // Validate that the incoming locale is supported
   if (!locales.includes(locale as any)) {

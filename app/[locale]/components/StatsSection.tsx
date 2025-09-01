@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface AnimatedCounterProps {
   value: number;
@@ -40,37 +41,39 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
 };
 
 const StatsSection = () => {
+  const t = useTranslations('stats');
+  
   const stats = [
     {
       value: 30,
       suffix: '+',
-      label: 'Years of Experience',
+      label: t('years.title'),
       icon: '📅',
-      description: 'Serving the automotive industry since 1993',
+      description: t('years.description'),
       color: 'from-blue-600 to-blue-800'
     },
     {
       value: 10,
       suffix: '+',
-      label: 'Global Brands',
+      label: t('brands.title'),
       icon: '🌍',
-      description: 'Partnerships with industry leaders',
+      description: t('brands.description'),
       color: 'from-red-600 to-red-800'
     },
     {
       value: 5000,
       suffix: '+',
-      label: 'Happy Clients',
+      label: t('clients.title'),
       icon: '😊',
-      description: 'Satisfied customers across Albania',
+      description: t('clients.description'),
       color: 'from-green-600 to-green-800'
     },
     {
       value: 100,
       suffix: '+',
-      label: 'Training Sessions',
+      label: t('sessions.title'),
       icon: '🎓',
-      description: 'Professional development programs',
+      description: t('sessions.description'),
       color: 'from-purple-600 to-purple-800'
     }
   ];
@@ -89,10 +92,10 @@ const StatsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Our Impact in Numbers
+            {t('title')}
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Three decades of excellence in automotive painting solutions
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -214,12 +217,10 @@ const StatsSection = () => {
         >
           <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Trusted by Professionals Across Albania
+              {t('trusted.title')}
             </h3>
             <p className="text-white/70 leading-relaxed">
-              From Tirana to Durrës, Vlorë to Shkodër, MilloColor has been the go-to source for 
-              automotive painting professionals. Our commitment to quality, innovation, and 
-              customer success has made us the leading distributor in the region.
+              {t('trusted.description')}
             </p>
           </div>
         </motion.div>

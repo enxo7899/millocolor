@@ -111,7 +111,7 @@ function TrustedBySection() {
 
 // Premium Contact Section
 function ContactSection() {
-  const t = useTranslations('contact');
+  const t = useTranslations('contact.getInTouch');
   
   return (
     <section className="py-20 relative z-10">
@@ -123,9 +123,9 @@ function ContactSection() {
           viewport={{ once: true, amount: 0.3 }}
           variants={sectionVariants}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('title')}</h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Ready to enhance your painting process? Contact our experts today
+            {t('subtitle')}
           </p>
         </motion.div>
         
@@ -138,7 +138,7 @@ function ContactSection() {
             className="space-y-8"
           >
             <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('contactInfo.title')}</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-millo-blue/20 rounded-full flex items-center justify-center">
@@ -148,8 +148,8 @@ function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm">Address</p>
-                    <p className="text-white font-medium">123 Paint Street, Tirana, Albania</p>
+                    <p className="text-white/70 text-sm">{t('contactInfo.address.label')}</p>
+                    <p className="text-white font-medium">{t('contactInfo.address.value')}</p>
                   </div>
                 </div>
                 
@@ -160,8 +160,8 @@ function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm">Phone</p>
-                    <p className="text-white font-medium">+355 42 123 456</p>
+                    <p className="text-white/70 text-sm">{t('contactInfo.phone.label')}</p>
+                    <p className="text-white font-medium">{t('contactInfo.phone.value')}</p>
                   </div>
                 </div>
                 
@@ -172,8 +172,8 @@ function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm">Email</p>
-                    <p className="text-white font-medium">info@millocolor.com</p>
+                    <p className="text-white/70 text-sm">{t('contactInfo.email.label')}</p>
+                    <p className="text-white font-medium">{t('contactInfo.email.value')}</p>
                   </div>
                 </div>
               </div>

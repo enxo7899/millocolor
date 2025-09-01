@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const CTASection = () => {
+  const t = useTranslations('cta');
+  
   return (
     <section className="py-20 relative z-10">
       {/* Background elements */}
@@ -86,9 +89,9 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                Ready to Transform Your
+                {t('title')}
                 <span className="block bg-gradient-to-r from-millo-blue to-millo-red bg-clip-text text-transparent">
-                  Painting Experience?
+                  {t('titleHighlight')}
                 </span>
               </motion.h2>
 
@@ -100,8 +103,7 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Join thousands of professionals who trust MilloColor for premium automotive painting solutions, 
-                expert training, and unmatched support.
+                {t('subtitle')}
               </motion.p>
 
               {/* CTA Buttons */}
@@ -118,7 +120,7 @@ const CTASection = () => {
                     href="/contact"
                     className="inline-flex items-center space-x-3 px-8 py-4 bg-millo-dark-blue text-white font-semibold rounded-full shadow-lg hover:bg-blue-800 hover:shadow-xl transition-all duration-300 text-lg"
                   >
-                    <span>Get in Touch</span>
+                    <span>{t('getInTouch')}</span>
                     <motion.svg
                       className="w-5 h-5"
                       fill="none"
@@ -138,7 +140,7 @@ const CTASection = () => {
                     href="/products"
                     className="inline-flex items-center space-x-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 text-lg"
                   >
-                    <span>Explore Products</span>
+                    <span>{t('exploreProducts')}</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -160,20 +162,20 @@ const CTASection = () => {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <span>+355 69 123 4567</span>
+                    <span>{t('contactInfo.phone')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span>info@millocolor.com</span>
+                    <span>{t('contactInfo.email')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    <span>Tirana, Albania</span>
+                    <span>{t('contactInfo.location')}</span>
                   </div>
                 </div>
               </motion.div>

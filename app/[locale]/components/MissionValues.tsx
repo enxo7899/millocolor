@@ -2,32 +2,34 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const MissionValues = () => {
+  const t = useTranslations('foundation');
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const values = [
     {
       id: 'excellence',
-      title: 'Excellence',
+      title: t('values.excellence.title'),
       icon: '⭐',
-      description: 'Delivering premium automotive solutions with uncompromising quality standards since 1993.',
+      description: t('values.excellence.description'),
       color: 'from-blue-600 to-blue-800',
       hoverColor: 'from-blue-500 to-blue-700'
     },
     {
       id: 'innovation',
-      title: 'Innovation',
+      title: t('values.innovation.title'),
       icon: '🚀',
-      description: 'Pioneering cutting-edge paint technologies and training methods to keep professionals ahead.',
+      description: t('values.innovation.description'),
       color: 'from-red-600 to-red-800',
       hoverColor: 'from-red-500 to-red-700'
     },
     {
       id: 'sustainability',
-      title: 'Sustainability',
+      title: t('values.sustainability.title'),
       icon: '🌱',
-      description: 'Committed to eco-friendly practices and sustainable solutions for a better tomorrow.',
+      description: t('values.sustainability.description'),
       color: 'from-green-600 to-green-800',
       hoverColor: 'from-green-500 to-green-700'
     }
@@ -44,10 +46,10 @@ const MissionValues = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Our Foundation
+            {t('title')}
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Built on three pillars that drive everything we do
+            {t('subtitle')}
           </p>
         </motion.div>
 

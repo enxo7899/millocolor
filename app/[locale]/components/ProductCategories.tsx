@@ -3,38 +3,40 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const ProductCategories = () => {
+  const t = useTranslations('productCategories');
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const categories = [
     {
       id: 'premium-paints',
-      title: 'Premium Paints & Coatings',
+      title: t('categories.premium.title'),
       icon: '🎨',
-      shortDescription: 'High-end automotive refinishing solutions',
-      fullDescription: 'Our premium paint lines from Cromax, Standox, and Sherwin-Williams deliver exceptional color matching, durability, and finish quality for luxury vehicle refinishing.',
-      features: ['Superior Color Match', 'Long-lasting Durability', 'Easy Application', 'Professional Grade'],
+      shortDescription: t('categories.premium.shortDescription'),
+      fullDescription: t('categories.premium.fullDescription'),
+      features: t.raw('categories.premium.features') as string[],
       image: '/images/products/premium.jpg',
       color: 'from-millo-blue to-blue-700'
     },
     {
       id: 'auxiliary',
-      title: 'Auxiliary Materials',
+      title: t('categories.auxiliary.title'),
       icon: '🧪',
-      shortDescription: 'Supporting products for perfect results',
-      fullDescription: 'Complete range of primers, clearcoats, thinners, and hardeners from trusted brands like Roberlo and Hempel to ensure optimal paint performance.',
-      features: ['Compatible Systems', 'Quality Assured', 'Technical Support', 'Various Formulations'],
+      shortDescription: t('categories.auxiliary.shortDescription'),
+      fullDescription: t('categories.auxiliary.fullDescription'),
+      features: t.raw('categories.auxiliary.features') as string[],
       image: '/images/products/professional.jpg',
       color: 'from-millo-red to-red-700'
     },
     {
       id: 'equipment',
-      title: 'Equipment & Tools',
+      title: t('categories.equipment.title'),
       icon: '🔧',
-      shortDescription: 'Professional-grade painting equipment',
-      fullDescription: 'State-of-the-art spray guns from SATA, compressors from FIAC, and sanders from RUPES for professional automotive painting applications.',
-      features: ['Latest Technology', 'Precision Tools', 'Reliable Performance', 'Expert Training'],
+      shortDescription: t('categories.equipment.shortDescription'),
+      fullDescription: t('categories.equipment.fullDescription'),
+      features: t.raw('categories.equipment.features') as string[],
       image: '/images/products/specialty.jpg',
       color: 'from-green-600 to-green-700'
     }
@@ -51,10 +53,10 @@ const ProductCategories = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Product Categories
+            {t('title')}
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Comprehensive solutions for all your automotive painting needs
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -120,7 +122,7 @@ const ProductCategories = () => {
 
                         {/* Features */}
                         <div className="mb-6">
-                          <h4 className="text-white font-semibold mb-3">Key Features:</h4>
+                          <h4 className="text-white font-semibold mb-3">{t('keyFeatures')}</h4>
                           <div className="grid grid-cols-2 gap-2">
                             {category.features.map((feature, idx) => (
                               <div key={idx} className="flex items-center space-x-2">
@@ -136,7 +138,7 @@ const ProductCategories = () => {
                           href="/products"
                           className="inline-flex items-center space-x-2 px-6 py-3 bg-millo-dark-blue text-white font-semibold rounded-full hover:bg-blue-800 hover:shadow-lg transition-all duration-300"
                         >
-                          <span>Explore Products</span>
+                          <span>{t('exploreProducts')}</span>
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>

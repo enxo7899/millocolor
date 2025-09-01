@@ -281,6 +281,25 @@
   "contact": {
     "title": "Na Kontaktoni",
     "subtitle": "Jemi këtu për t'ju mbështetur në çdo hap të procesit të rifinimit tuaj",
+    "getInTouch": {
+      "title": "Na Kontaktoni",
+      "subtitle": "Gati për të përmirësuar procesin tuaj të bojatisjes? Kontaktoni ekspertët tanë sot",
+      "contactInfo": {
+        "title": "Informacioni i Kontaktit",
+        "address": {
+          "label": "Adresa",
+          "value": "Rr. Bojës 123, Tiranë, Shqipëri"
+        },
+        "phone": {
+          "label": "Telefoni",
+          "value": "+355 42 123 456"
+        },
+        "email": {
+          "label": "Email",
+          "value": "info@millocolor.com"
+        }
+      }
+    },
     "info": {
       "title": "Informacioni i Kontaktit",
       "address": "Rr. Skenderbeu 55, Tiranë, Shqipëri",
@@ -533,6 +552,127 @@
           "Konsulencë eksperte ngjyrash"
         ]
       }
+    }
+  },
+  "foundation": {
+    "title": "Themelimi Ynë",
+    "subtitle": "E ndërtuar mbi tre shtylla që drejtojnë çdo gjë që bëjmë",
+    "values": {
+      "excellence": {
+        "title": "Ekselencë",
+        "description": "Ofrim zgjidhje premium automobilistike me standarde cilësie të patundur që nga viti 1993."
+      },
+      "innovation": {
+        "title": "Inovacion",
+        "description": "Pionier teknologji të avancuara bojërash dhe metoda trajnimi për të mbajtur profesionistët përpara."
+      },
+      "sustainability": {
+        "title": "Qëndrueshmëri",
+        "description": "Të përkushtuar ndaj praktikave miqësore mjedisore dhe zgjidhjeve të qëndrueshme për një të ardhme më të mirë."
+      }
+    }
+  },
+  "productCategories": {
+    "title": "Kategoritë e Produkteve",
+    "subtitle": "Zgjidhje gjithëpërfshirëse për të gjitha nevojat tuaja të bojatisjes automobilistike",
+    "categories": {
+      "premium": {
+        "title": "Bojëra dhe Mbulesa Premium",
+        "shortDescription": "Zgjidhje të avancuara të rifinimit automobilistik",
+        "fullDescription": "Linjat tona premium të bojërave nga Cromax, Standox dhe Sherwin-Williams ofrojnë përputhje të jashtëzakonshme të ngjyrave, qëndrueshmëri dhe cilësi finishimi për rifinimin e automjeteve luksoze.",
+        "features": ["Përputhje Superiore e Ngjyrave", "Qëndrueshmëri e Gjatë", "Aplikim i Lehtë", "Niveli Profesional"]
+      },
+      "auxiliary": {
+        "title": "Materiale Ndihmëse",
+        "shortDescription": "Produkte mbështetëse për rezultate perfekte",
+        "fullDescription": "Gamë e plotë e bazave, llakëve të tejdukshëm, holluesve dhe fortësuesve nga marka të besuara si Roberlo dhe Hempel për të siguruar performancë optimale të bojës.",
+        "features": ["Sisteme të Përputhshme", "Cilësi e Siguruar", "Mbështetje Teknike", "Formulime të Ndryshme"]
+      },
+      "equipment": {
+        "title": "Pajisje dhe Vegla",
+        "shortDescription": "Pajisje profesionale bojatisje",
+        "fullDescription": "Pistoleta sprajimi të teknologjisë më të fundit nga SATA, kompresorë nga FIAC dhe lëmues nga RUPES për aplikime profesionale të bojatisjes automobilistike.",
+        "features": ["Teknologjia Më e Fundit", "Vegla të Sakta", "Performancë e Besueshme", "Trajnim Ekspert"]
+      }
+    },
+    "keyFeatures": "Karakteristikat Kryesore:",
+    "exploreProducts": "Eksploroni Produktet"
+  },
+  "training": {
+    "title": "Programi i Trajnimit Profesional",
+    "subtitle": "Udhëtimi juaj për të zotëruar ekselencën e bojatisjes automobilistike",
+    "theoretical": {
+      "title": "Trajnimi Teorik",
+      "duration": "2-3 ditë",
+      "description": "Seanca gjithëpërfshirëse në klasë që mbulojnë teorinë e bojës, përputhjen e ngjyrave dhe teknikat e aplikimit.",
+      "features": ["Kimi e Bojës", "Teoria e Ngjyrave", "Përgatitja e Sipërfaqes", "Protokollet e Sigurisë"]
+    },
+    "handsOn": {
+      "title": "Praktika e Drejtpërdrejtë",
+      "duration": "3-5 ditë",
+      "description": "Workshop praktik duke përdorur pajisje profesionale dhe skenare reale të bojatisjes automobilistike.",
+      "features": ["Demonstrime të Gjalla", "Seanca të Praktikës", "Trajtimi i Pajisjeve", "Kontrolli i Cilësisë"]
+    },
+    "certification": {
+      "title": "Certifikimi",
+      "duration": "1 ditë",
+      "description": "Procesi i vlerësimit dhe certifikimit për të vlerësuar aftësitë dhe për të ofruar kredenciale të njohura.",
+      "features": ["Vlerësimi i Aftësive", "Projekti Përfundimtar", "Lëshimi i Certifikatës", "Mbështetja e Vazhdueshme"]
+    },
+    "testimonials": {
+      "title": "Çfarë Thonë Studentët Tanë",
+      "student1": {
+        "name": "Arben Krasniqi",
+        "role": "Specialist i Bojatisjes Automobilistike",
+        "text": "Programi i trajnimit transformoi plotësisht qasjen time ndaj bojatisjes automobilistike. Profesional dhe gjithëpërfshirës."
+      },
+      "student2": {
+        "name": "Lena Shabani",
+        "role": "Pronare e Punëtorisë",
+        "text": "Trajnim i shkëlqyeshëm me eksperiencë praktike. Ekipi im përmirësoi në mënyrë dramatike pas certifikimit."
+      },
+      "student3": {
+        "name": "Driton Berisha",
+        "role": "Teknik i Bojatisjes",
+        "text": "Investimi më i mirë për karrierën time. Instruktorët janë ekspertë dhe pajisjet janë të klasës më të lartë."
+      }
+    },
+    "cta": "Bashkohuni me Trajnimin Tonë të Radhës"
+  },
+  "stats": {
+    "title": "Ndikimi Ynë në Numra",
+    "subtitle": "Tre dekada ekselencë në zgjidhjet e bojatisjes automobilistike",
+    "years": {
+      "title": "Vjet Eksperience",
+      "description": "Shërbyer industrinë automobilistike që nga 1993"
+    },
+    "brands": {
+      "title": "Marka Globale",
+      "description": "Partneritete me liderët e industrisë"
+    },
+    "clients": {
+      "title": "Klientë të Kënaqur",
+      "description": "Klientë të kënaqur në të gjithë Shqipërinë"
+    },
+    "sessions": {
+      "title": "Seanca Trajnimi",
+      "description": "Programe zhvillimi profesional"
+    },
+    "trusted": {
+      "title": "E Besuar nga Profesionistët në të Gjithë Shqipërinë",
+      "description": "Nga Tirana në Durrës, Vlorë në Shkodër, MilloColor ka qenë burimi kryesor për profesionistët e bojatisjes automobilistike. Përkushtimi ynë ndaj cilësisë, inovacionit dhe suksesit të klientit na ka bërë shpërndarësin kryesor në rajon."
+    }
+  },
+  "cta": {
+    "title": "Gati për të Transformuar",
+    "titleHighlight": "Eksperiencën Tuaj të Bojatisjes?",
+    "subtitle": "Bashkohuni me mijëra profesionistë që besojnë MilloColor për zgjidhje premium të bojatisjes automobilistike, trajnim ekspert dhe mbështetje të paçmuar.",
+    "getInTouch": "Na Kontaktoni",
+    "exploreProducts": "Eksploroni Produktet",
+    "contactInfo": {
+      "phone": "+355 69 123 4567",
+      "email": "info@millocolor.com",
+      "location": "Tiranë, Shqipëri"
     }
   },
   "trusted": {
