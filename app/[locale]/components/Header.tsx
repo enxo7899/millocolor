@@ -54,8 +54,8 @@ const PremiumLogo = ({ isScrolled }: { isScrolled: boolean }) => {
       </div>
       <div className={`transition-all duration-300 ${
         isScrolled ? 'text-sm mt-1' : 'text-base mt-1'
-      }`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', lineHeight: '1' }}>
-        <span className="text-white/80">
+      }`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', lineHeight: '1', maxWidth: 'fit-content' }}>
+        <span className="text-white font-medium tracking-wide whitespace-nowrap">
           {t('tagline')}
         </span>
       </div>
