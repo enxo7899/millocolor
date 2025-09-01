@@ -555,16 +555,16 @@
     }
   },
   "foundation": {
-    "title": "Themelimi Ynë",
+    "title": "Themelet Tona",
     "subtitle": "E ndërtuar mbi tre shtylla që drejtojnë çdo gjë që bëjmë",
     "values": {
       "excellence": {
         "title": "Ekselencë",
-        "description": "Ofrim zgjidhje premium automobilistike me standarde cilësie të patundur që nga viti 1993."
+        "description": "Ofrojmë shërbime në fushën automobilistike me standarde cilësie të maksimale që nga viti 1993."
       },
       "innovation": {
         "title": "Inovacion",
-        "description": "Pionier teknologji të avancuara bojërash dhe metoda trajnimi për të mbajtur profesionistët përpara."
+        "description": "Pionier teknologji të avancuara bojërash dhe metoda trajnimi për t'i ardhur në ndihmë profesionistëve."
       },
       "sustainability": {
         "title": "Qëndrueshmëri",
@@ -577,9 +577,9 @@
     "subtitle": "Zgjidhje gjithëpërfshirëse për të gjitha nevojat tuaja të bojatisjes automobilistike",
     "categories": {
       "premium": {
-        "title": "Bojëra dhe Mbulesa Premium",
+        "title": "Bojëra dhe Primer Premium",
         "shortDescription": "Zgjidhje të avancuara të rifinimit automobilistik",
-        "fullDescription": "Linjat tona premium të bojërave nga Cromax, Standox dhe Sherwin-Williams ofrojnë përputhje të jashtëzakonshme të ngjyrave, qëndrueshmëri dhe cilësi finishimi për rifinimin e automjeteve luksoze.",
+        "fullDescription": "Linjat tona premium të bojërave nga Cromax, Standox dhe Sherwin-Williams ofrojnë përputhje të jashtëzakonshme të ngjyrave, qëndrueshmëri dhe cilësi për lyerjen e automjeteve.",
         "features": ["Përputhje Superiore e Ngjyrave", "Qëndrueshmëri e Gjatë", "Aplikim i Lehtë", "Niveli Profesional"]
       },
       "auxiliary": {
@@ -590,7 +590,7 @@
       },
       "equipment": {
         "title": "Pajisje dhe Vegla",
-        "shortDescription": "Pajisje profesionale bojatisje",
+        "shortDescription": "Pajisje profesionale lyerje",
         "fullDescription": "Pistoleta sprajimi të teknologjisë më të fundit nga SATA, kompresorë nga FIAC dhe lëmues nga RUPES për aplikime profesionale të bojatisjes automobilistike.",
         "features": ["Teknologjia Më e Fundit", "Vegla të Sakta", "Performancë e Besueshme", "Trajnim Ekspert"]
       }
