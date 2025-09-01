@@ -35,23 +35,30 @@ const AnimatedHamburger = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
 
 // Premium Logo Component
 const PremiumLogo = ({ isScrolled }: { isScrolled: boolean }) => {
+  const t = useTranslations('nav');
+  
   return (
     <Link 
       href="/" 
-      className="flex items-center group h-full py-1"
+      className="flex flex-col items-start group h-full py-1"
     >
       <div className={`font-bold tracking-tight transition-all duration-300 group-hover:scale-105 ${
         isScrolled ? 'text-xl lg:text-2xl' : 'text-2xl lg:text-3xl'
       }`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', lineHeight: '1' }}>
-        <span className="text-[#314485] group-hover:text-[#4a5ca5] transition-colors duration-300 font-extrabold">
-          Millo
+        <span className="text-[#314485] font-extrabold">
+          MILLO
         </span>
-        <span className="text-[#C73834] group-hover:text-[#e04550] transition-colors duration-300 font-extrabold">
-          Color
+        <span className="text-[#C73834] font-extrabold">
+          COLOR
         </span>
       </div>
-      {/* Subtle underline accent */}
-      <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-millo-blue to-millo-red group-hover:w-full transition-all duration-500 ease-out" />
+      <div className={`transition-all duration-300 ${
+        isScrolled ? 'text-sm mt-1' : 'text-base mt-1'
+      }`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', lineHeight: '1' }}>
+        <span className="text-white/80">
+          {t('tagline')}
+        </span>
+      </div>
     </Link>
   );
 };
