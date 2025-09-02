@@ -231,4 +231,30 @@ body {
   .section-subtitle {
     @apply text-xl text-gray-600 max-w-3xl mx-auto;
   }
+
+  /* Product showcase utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Background size utilities for animated gradients */
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+
+  .bg-pos-0 {
+    background-position: 0% 50%;
+  }
+
+  .bg-pos-100 {
+    background-position: 100% 50%;
+  }
+
+  /* Enhanced shadow utilities */
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
 }

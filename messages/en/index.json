@@ -100,7 +100,38 @@
     "learnMore": "Learn More",
     "ctaTitle": "Need Custom Solutions?",
     "ctaText": "Our team of experts can help you find the perfect products for your specific needs and applications.",
-    "ctaButton": "Contact Our Specialists"
+    "ctaButton": "Contact Our Specialists",
+    "searchPlaceholder": "Search products...",
+    "filters": "Filters",
+    "whyChooseUs": "Why Choose MilloColor?",
+    "whyChooseUsSubtitle": "Discover what sets our products apart in the automotive refinishing industry.",
+    "viewBrands": "View Our Brands",
+    "benefits": {
+      "quality": {
+        "title": "Premium Quality",
+        "description": "European-grade formulations with rigorous quality control standards."
+      },
+      "performance": {
+        "title": "Superior Performance",
+        "description": "Exceptional durability, color accuracy, and finish consistency."
+      },
+      "precision": {
+        "title": "Color Precision",
+        "description": "Advanced color matching technology for perfect results every time."
+      },
+      "global": {
+        "title": "Global Standards",
+        "description": "Meeting international automotive industry standards and regulations."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Cutting-edge formulations with the latest automotive coating technologies."
+      },
+      "support": {
+        "title": "Expert Support",
+        "description": "Comprehensive technical support and training from industry experts."
+      }
+    }
   },
   "brands": {
     "title": "Our Partner Brands",
@@ -560,5 +591,53 @@
   "trusted": {
     "trustedBy": "Trusted by",
     "worldIndustryLeaders": "World Industry Leaders"
+  },
+  "productShowcase": {
+    "title": "Featured Products",
+    "subtitle": "Discover our premium automotive paint solutions engineered for professional excellence and superior results",
+    "keyFeatures": "Key Features",
+    "learnMore": "Learn More",
+    "viewAllProducts": "View All Products",
+    "categories": {
+      "all": "All Products",
+      "premium": "Premium",
+      "professional": "Professional",
+      "specialty": "Specialty",
+      "eco": "Eco-Friendly",
+      "industrial": "Industrial",
+      "custom": "Custom"
+    },
+    "products": {
+      "premiumCoating": {
+        "name": "RUPES Skorpio III RH356",
+        "description": "Professional random orbital pneumatic sander with 150mm pad and 6mm orbit. Features engineered motor for maximum torque, extremely low vibration, and quiet operation.",
+        "features": "6mm orbit for perfect balance|0-11,000 RPM|Anti-slip rubber coating|Double row bearings"
+      },
+      "professionalSystem": {
+        "name": "Roberlo Professional Spray Gun",
+        "description": "High-precision automotive spray gun with advanced atomization technology. Designed for professional refinishing with superior finish quality and material efficiency.",
+        "features": "Advanced atomization|High transfer efficiency|Precision control|Professional finish"
+      },
+      "specialtyEffects": {
+        "name": "SATAjet X 5500",
+        "description": "Revolutionary paint spray gun with X nozzle system. Features whispering nozzle technology, optimized material distribution, and exceptional atomization for all paint systems.",
+        "features": "Revolutionary X nozzle system|Whispering nozzle technology|Material savings|360° perfect finish"
+      },
+      "ecoSolutions": {
+        "name": "RUPES BigFoot LHR21 Mark V",
+        "description": "Premium random orbital polisher with large diameter movement. Features brushless motor technology, exceptional balance, and professional-grade performance.",
+        "features": "Brushless motor technology|Large orbit movement|Exceptional balance|Professional performance"
+      },
+      "industrialGrade": {
+        "name": "SATAjet 5000 B",
+        "description": "Versatile HVLP/RP spray gun with adjustable inlet pressure and painting distance. Perfect for automotive refinishing with consistent fan size across nozzle spectrum.",
+        "features": "HVLP/RP technology|Adjustable pressure|Consistent fan size|Professional results"
+      },
+      "customFinishes": {
+        "name": "Roberlo Custom Application System",
+        "description": "Tailored spray application solutions for unique requirements. Features modular design, precision control, and expert consultation for custom applications.",
+        "features": "Modular design|Precision control|Custom solutions|Expert consultation"
+      }
+    }
   }
 }

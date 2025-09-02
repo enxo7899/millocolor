@@ -97,7 +97,38 @@
     "learnMore": "Mëso Më Shumë",
     "ctaTitle": "Ju Nevojiten Zgjidhje të Personalizuara?",
     "ctaText": "Ekipi ynë i ekspertëve mund t'ju ndihmojë të gjeni produktet e perkryera për nevojat dhe aplikimet tuaja specifike.",
-    "ctaButton": "Kontaktoni Specialistët Tanë"
+    "ctaButton": "Kontaktoni Specialistët Tanë",
+    "searchPlaceholder": "Kërko produkte...",
+    "filters": "Filtrat",
+    "whyChooseUs": "Pse të Zgjidhni MilloColor?",
+    "whyChooseUsSubtitle": "Zbuloni çfarë i dallon produktet tona në industrinë e rifinimit të automjeteve.",
+    "viewBrands": "Shiko Markat Tona",
+    "benefits": {
+      "quality": {
+        "title": "Cilësi Premium",
+        "description": "Formulime të gradës evropiane me standarde të rreptë kontrolli cilësie."
+      },
+      "performance": {
+        "title": "Performancë Superiore",
+        "description": "Qëndrueshmëri e jashtëzakonshme, saktësi ngjyrash dhe konsistencë finish."
+      },
+      "precision": {
+        "title": "Përpikëri Ngjyrash",
+        "description": "Teknologji e avancuar përputhje ngjyrash për rezultate të përsosura çdo herë."
+      },
+      "global": {
+        "title": "Standarde Globale",
+        "description": "Plotësim i standardeve dhe rregulloreve ndërkombëtare të industrisë së automjeteve."
+      },
+      "innovation": {
+        "title": "Inovacion",
+        "description": "Formulime të avancuara me teknologjitë më të fundit të veshjeve për automjete."
+      },
+      "support": {
+        "title": "Mbështetje Eksperte",
+        "description": "Mbështetje teknike e plotë dhe trajnim nga ekspertë të industrisë."
+      }
+    }
   },
   "brands": {
     "title": "Markat Tona Partnere",
@@ -678,5 +709,53 @@
   "trusted": {
     "trustedBy": "E besuar nga",
     "worldIndustryLeaders": "liderët botërorë të industrisë"
+  },
+  "productShowcase": {
+    "title": "Produktet e Zgjedhura",
+    "subtitle": "Zbuloni zgjidhjet tona premium të bojërave për automjete të projektuara për përsosmëri profesionale dhe rezultate superiore",
+    "keyFeatures": "Karakteristikat Kryesore",
+    "learnMore": "Mëso Më Shumë",
+    "viewAllProducts": "Shiko Të Gjitha Produktet",
+    "categories": {
+      "all": "Të Gjitha Produktet",
+      "premium": "Premium",
+      "professional": "Profesionale",
+      "specialty": "Specialiteti",
+      "eco": "Miqësore për Mjedisin",
+      "industrial": "Industriale",
+      "custom": "E Personalizuar"
+    },
+    "products": {
+      "premiumCoating": {
+        "name": "RUPES Skorpio III RH356",
+        "description": "Lëshues pneumatik orbital i rastësishëm profesional me jastëk 150mm dhe orbit 6mm. Ka motor të projektuar për çift rrotullimi maksimal, dridhje jashtëzakonisht të ulëta dhe funksionim të qetë.",
+        "features": "Orbit 6mm për balancë të përsosur|0-11,000 RPM|Veshje gome anti-rrëshqitëse|Kushineta me dy rreshta"
+      },
+      "professionalSystem": {
+        "name": "Roberlo Pistolë Profesionale",
+        "description": "Pistolë pikturimi automjetesh me precizion të lartë me teknologji atomizimi të avancuar. I projektuar për ripikturim profesional me cilësi finish superiore dhe efikasitet materiali.",
+        "features": "Atomizim i avancuar|Efikasitet transferimi i lartë|Kontroll preciz|Finish profesional"
+      },
+      "specialtyEffects": {
+        "name": "SATAjet X 5500",
+        "description": "Pistolë pikturimi revolucionare me sistem grykë X. Ka teknologji grykë të qetë, shpërndarje materiali të optimizuar dhe atomizim të jashtëzakonshëm për të gjitha sistemet e bojës.",
+        "features": "Sistem revolucionar grykë X|Teknologji grykë të qetë|Kursim materiali|Finish i përsosur 360°"
+      },
+      "ecoSolutions": {
+        "name": "RUPES BigFoot LHR21 Mark V",
+        "description": "Polizues orbital i rastësishëm premium me lëvizje diametri të madh. Ka teknologji motor pa furça, balancë të jashtëzakonshme dhe performancë të nivelit profesional.",
+        "features": "Teknologji motor pa furça|Lëvizje orbit të madhe|Balancë e jashtëzakonshme|Performancë profesionale"
+      },
+      "industrialGrade": {
+        "name": "SATAjet 5000 B",
+        "description": "Pistolë pikturimi i gjithanshëm HVLP/RP me presion hyrës të rregullueshëm dhe distancë pikturimi. I përsosur për ripikturim automjetesh me madhësi konsistente tifoz në spektrin e grykës.",
+        "features": "Teknologji HVLP/RP|Presion i rregullueshëm|Madhësi konsistente tifoz|Rezultate profesionale"
+      },
+      "customFinishes": {
+        "name": "Sistemi i Aplikimit të Personalizuar Roberlo",
+        "description": "Zgjidhje aplikimi spërkatjeje të personalizuara për kërkesa unike. Ka dizajn modular, kontroll preciz dhe konsultim ekspert për aplikime të personalizuara.",
+        "features": "Dizajn modular|Kontroll preciz|Zgjidhje të personalizuara|Konsultim ekspert"
+      }
+    }
   }
 }

@@ -8,6 +8,7 @@ import PartnerCarousel from './components/PartnerCarousel';
 import ContactForm from './components/ContactForm';
 import MissionValues from './components/MissionValues';
 import ProductCategories from './components/ProductCategories';
+import ProductShowcase from './components/ProductShowcase';
 import ServicesTimeline from './components/ServicesTimeline';
 import StatsSection from './components/StatsSection';
 import GallerySection from './components/GallerySection';
@@ -44,6 +45,9 @@ export default function Home() {
       
       {/* Product Categories Overview */}
       <ProductCategories />
+      
+      {/* Featured Products Showcase */}
+      <ProductShowcase isHomepage={true} maxProducts={3} />
       
       {/* Services & Training Timeline */}
       <ServicesTimeline />
