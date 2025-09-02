@@ -28,25 +28,80 @@ interface ProductShowcaseProps {
 export default function ProductShowcase({ isHomepage = false, maxProducts }: ProductShowcaseProps) {
   const t = useTranslations('productShowcase');
 
-  // Featured products data - showcasing key products from our most important brand partners
-  const featuredProducts: Product[] = [
-    {
-      id: 'rupes-skorpio-iii',
-      name: t('products.premiumCoating.name'),
-      description: t('products.premiumCoating.description'),
-      image: '/images/products/rupes-skorpio-iii.jpg',
-      category: t('categories.premium'),
-      features: t('products.premiumCoating.features').split('|')
-    },
-    {
-      id: 'satajet-x5500',
-      name: t('products.specialtyEffects.name'),
-      description: t('products.specialtyEffects.description'),
-      image: '/images/products/satajet-x5500.jpg',
-      category: t('categories.specialty'),
-      features: t('products.specialtyEffects.features').split('|')
-    }
+  // Lightweight config for images and categories (texts come from i18n)
+  const productConfigs: Array<Pick<Product, 'id' | 'image' | 'category'>> = [
+    // RUPES
+    { id: 'rupes-skorpio-iii', image: '/images/products/rupes-skorpio-iii-rh356.jpg', category: 'Equipment' },
+    { id: 'rupes-lhr21-mark-v', image: '/images/products/rupes-bigfoot-lhr21-mark-v.jpg', category: 'Equipment' },
+
+    // SATA
+    { id: 'sata-x5500', image: '/images/products/satajet-x-5500.jpg', category: 'Equipment' },
+    { id: 'sata-5000b', image: '/images/products/satajet-5000-b.jpg', category: 'Equipment' },
+
+    // Roberlo
+    { id: 'roberlo-kronox-320', image: '/images/products/roberlo-kronox-320-hs-clear.jpg', category: 'Professional' },
+    { id: 'roberlo-robfill-2k', image: '/images/products/roberlo-robfill-2k-primer.jpg', category: 'Professional' },
+
+    // Cromax
+    { id: 'cromax-pro-base', image: '/images/products/cromax-pro-basecoat.jpg', category: 'Premium' },
+    { id: 'cromax-cc6500', image: '/images/products/cromax-cc6500-clear.jpg', category: 'Premium' },
+
+    // Duxone
+    { id: 'duxone-dx15', image: '/images/products/duxone-dx15-basecoat.jpg', category: 'Professional' },
+    { id: 'duxone-dx57', image: '/images/products/duxone-dx57-clear.jpg', category: 'Professional' },
+
+    // EP Vernici
+    { id: 'epvernici-ep200', image: '/images/products/ep-vernici-ep-200-primer.jpg', category: 'Industrial' },
+    { id: 'epvernici-ep500', image: '/images/products/ep-vernici-ep-500-topcoat.jpg', category: 'Industrial' },
+
+    // FIAC
+    { id: 'fiac-ab100-268', image: '/images/products/fiac-ab100-268-compressor.jpg', category: 'Equipment' },
+    { id: 'fiac-cls75', image: '/images/products/fiac-cls-7-5-screw-compressor.jpg', category: 'Equipment' },
+
+    // Hempel
+    { id: 'hempel-light-primer', image: '/images/products/hempel-light-primer.jpg', category: 'Industrial' },
+    { id: 'hempel-silic-one', image: '/images/products/hempel-silic-one.jpg', category: 'Industrial' },
+
+    // JBM
+    { id: 'jbm-hvlp-gun', image: '/images/products/jbm-hvlp-spray-gun.jpg', category: 'Equipment' },
+    { id: 'jbm-polisher', image: '/images/products/jbm-1200w-dual-action-polisher.jpg', category: 'Equipment' },
+
+    // Master DiChem
+    { id: 'masterdichem-primer-2k', image: '/images/products/master-dichem-primer-2k.jpg', category: 'Professional' },
+    { id: 'masterdichem-clear-hs', image: '/images/products/master-dichem-hs-clearcoat.jpg', category: 'Professional' },
+
+    // Mirka
+    { id: 'mirka-deros', image: '/images/products/mirka-deros-sander.jpg', category: 'Equipment' },
+    { id: 'mirka-polarshine-10', image: '/images/products/mirka-polarshine-10-compound.jpg', category: 'Professional' },
+
+    // SHW (Sherwin‑Williams)
+    { id: 'shw-ultra-7000', image: '/images/products/shw-ultra-7000-basecoat.jpg', category: 'Premium' },
+    { id: 'shw-finish1-clear', image: '/images/products/shw-finish-1-clearcoat.jpg', category: 'Professional' },
+
+    // Standox
+    { id: 'standoblue-base', image: '/images/products/standox-standoblue-basecoat.jpg', category: 'Premium' },
+    { id: 'standox-k9550-clear', image: '/images/products/standox-hs-clear-k9550.jpg', category: 'Premium' },
+
+    // Telwin
+    { id: 'telwin-tig-222', image: '/images/products/telwin-technology-tig-222.jpg', category: 'Equipment' },
+    { id: 'telwin-smart-charger', image: '/images/products/telwin-smart-charger-pro.jpg', category: 'Equipment' },
+
+    // Troton
+    { id: 'troton-master-filler', image: '/images/products/troton-master-acryl-filler-4-1.jpg', category: 'Professional' },
+    { id: 'troton-brayd-clear', image: '/images/products/troton-brayd-hs-clear.jpg', category: 'Professional' }
   ];
+
+  const featuredProducts: Product[] = productConfigs.map((cfg) => {
+    const features = (t.raw(`productsData.${cfg.id}.features`) as string[]) || [];
+    return {
+      id: cfg.id,
+      name: t(`productsData.${cfg.id}.name`),
+      description: t(`productsData.${cfg.id}.description`),
+      image: cfg.image,
+      category: cfg.category,
+      features
+    };
+  });
 
   const displayProducts = maxProducts ? featuredProducts.slice(0, maxProducts) : featuredProducts;
 
@@ -107,8 +162,7 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
           className={`grid gap-8 ${isHomepage ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-2'}`}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          animate="visible"
         >
           {displayProducts.map((product, index) => (
             <motion.div

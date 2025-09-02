@@ -638,6 +638,158 @@
         "description": "Tailored spray application solutions for unique requirements. Features modular design, precision control, and expert consultation for custom applications.",
         "features": "Modular design|Precision control|Custom solutions|Expert consultation"
       }
+    },
+    "productsData": {
+      "rupes-skorpio-iii": {
+        "name": "RUPES Skorpio III RH356",
+        "description": "Professional random orbital pneumatic sander with 150mm pad and 6mm orbit for perfect balance and control.",
+        "features": ["6mm orbit", "Low vibration", "High torque motor"]
+      },
+      "rupes-lhr21-mark-v": {
+        "name": "RUPES BigFoot LHR21 Mark V",
+        "description": "Dual action polisher with 21mm orbit delivering speed, balance and superior finishing on large panels.",
+        "features": ["21mm orbit", "Ergonomic design", "Consistent power"]
+      },
+      "sata-x5500": {
+        "name": "SATAjet X 5500",
+        "description": "Revolutionary spray gun with X‑nozzle concept for whisper‑quiet atomization and optimized material distribution.",
+        "features": ["X‑nozzle", "HVLP/RP options", "Uniform fan size"]
+      },
+      "sata-5000b": {
+        "name": "SATAjet 5000 B",
+        "description": "Versatile spray gun designed for precise control and outstanding finishes across coating systems.",
+        "features": ["Ergonomic", "Optimized airflow", "Consistent results"]
+      },
+      "roberlo-kronox-320": {
+        "name": "Roberlo Kronox 320 HS Clear",
+        "description": "High‑solids clearcoat with fast drying, excellent gloss and durable protection.",
+        "features": ["High solids", "Fast curing", "Deep gloss"]
+      },
+      "roberlo-robfill-2k": {
+        "name": "Roberlo Robfill 2K Primer",
+        "description": "2K acrylic primer with great filling power and easy sanding for uniform surfaces.",
+        "features": ["High filling", "Easy sanding", "Smooth finish"]
+      },
+      "cromax-pro-base": {
+        "name": "Cromax Pro Basecoat",
+        "description": "Waterborne basecoat engineered for fast application and accurate color.",
+        "features": ["Fast coverage", "Color accuracy", "Low VOC"]
+      },
+      "cromax-cc6500": {
+        "name": "Cromax CC6500 High Solid Clear",
+        "description": "HS clearcoat providing durable, deep gloss with a wide application window.",
+        "features": ["Deep gloss", "Durable film", "Efficient application"]
+      },
+      "duxone-dx15": {
+        "name": "Duxone DX15 Basecoat",
+        "description": "Reliable solvent‑borne basecoat for everyday refinishing with consistent sprayability.",
+        "features": ["Good hiding", "Consistent flow", "Wide palette"]
+      },
+      "duxone-dx57": {
+        "name": "Duxone DX57 Clearcoat",
+        "description": "Versatile clear offering glossy finishes and dependable curing in varied conditions.",
+        "features": ["High gloss", "User‑friendly", "Reliable cure"]
+      },
+      "epvernici-ep200": {
+        "name": "EP Vernici EP‑200 Primer",
+        "description": "Epoxy primer with strong adhesion and corrosion resistance.",
+        "features": ["Strong adhesion", "Anti‑corrosion", "Smooth build"]
+      },
+      "epvernici-ep500": {
+        "name": "EP Vernici EP‑500 Topcoat",
+        "description": "Durable 2K topcoat with excellent gloss retention and weatherability.",
+        "features": ["High durability", "Weather resistant", "Lasting gloss"]
+      },
+      "fiac-ab100-268": {
+        "name": "FIAC AB100/268 Compressor",
+        "description": "Workshop‑grade piston compressor delivering reliable air and long service life.",
+        "features": ["Robust build", "Stable airflow", "Serviceable"]
+      },
+      "fiac-cls75": {
+        "name": "FIAC CLS 7.5 Screw Compressor",
+        "description": "Compact screw compressor for efficient, quiet compressed air in bodyshops.",
+        "features": ["Low noise", "Energy efficient", "Continuous duty"]
+      },
+      "hempel-light-primer": {
+        "name": "Hempel Light Primer",
+        "description": "Epoxy primer system offering strong adhesion and anti‑corrosive protection.",
+        "features": ["Anti‑corrosion", "Strong adhesion", "Versatile use"]
+      },
+      "hempel-silic-one": {
+        "name": "Hempel Silic One",
+        "description": "Advanced foul‑release coating for smooth surfaces and reduced drag.",
+        "features": ["Foul‑release", "Smooth finish", "Lower maintenance"]
+      },
+      "jbm-hvlp-gun": {
+        "name": "JBM HVLP Spray Gun",
+        "description": "High‑precision HVLP gun providing consistent atomization and smooth finishes.",
+        "features": ["Fine atomization", "Comfort grip", "Stable pattern"]
+      },
+      "jbm-polisher": {
+        "name": "JBM 1200W Dual Action Polisher",
+        "description": "Powerful DA polisher with variable speed for cutting and finishing.",
+        "features": ["Variable speed", "Balanced", "Pro results"]
+      },
+      "masterdichem-primer-2k": {
+        "name": "Master DiChem Primer 2K",
+        "description": "2K primer with excellent adhesion and filling power.",
+        "features": ["High build", "Fast drying", "Strong adhesion"]
+      },
+      "masterdichem-clear-hs": {
+        "name": "Master DiChem HS Clearcoat",
+        "description": "HS clearcoat delivering high gloss and chemical resistance.",
+        "features": ["High solids", "High gloss", "Chemical resistance"]
+      },
+      "mirka-deros": {
+        "name": "Mirka DEROS Random Orbital Sander",
+        "description": "Lightweight electric sander with ultra‑low vibration for dust‑free sanding.",
+        "features": ["Ultra‑low vibration", "Dust extraction", "Compact design"]
+      },
+      "mirka-polarshine-10": {
+        "name": "Mirka Polarshine 10 Compound",
+        "description": "Polishing compound delivering excellent cut and high gloss.",
+        "features": ["High cut", "High gloss", "Low splatter"]
+      },
+      "shw-ultra-7000": {
+        "name": "Sherwin‑Williams Ultra 7000 Basecoat",
+        "description": "Premium basecoat system for color accuracy, coverage and productivity.",
+        "features": ["Accurate color", "Great coverage", "Productive"]
+      },
+      "shw-finish1-clear": {
+        "name": "Sherwin‑Williams Finish 1 Clearcoat",
+        "description": "Dependable clearcoat with smooth flow and gloss for daily refinish.",
+        "features": ["Smooth flow", "High gloss", "Easy application"]
+      },
+      "standoblue-base": {
+        "name": "Standox Standoblue Basecoat",
+        "description": "Waterborne basecoat offering excellent color accuracy and blendability.",
+        "features": ["Waterborne", "Blend friendly", "Great match"]
+      },
+      "standox-k9550-clear": {
+        "name": "Standox HS Clear K9550",
+        "description": "HS clearcoat providing durable gloss and robust curing.",
+        "features": ["High solids", "Durable gloss", "Robust cure"]
+      },
+      "telwin-tig-222": {
+        "name": "Telwin Technology TIG 222",
+        "description": "Professional TIG welding unit offering precise control and stable arcs.",
+        "features": ["Precise control", "Stable arc", "Wide material range"]
+      },
+      "telwin-smart-charger": {
+        "name": "Telwin Smart Charger PRO",
+        "description": "Intelligent charger/maintainer with multi‑stage charging and protection.",
+        "features": ["Multi‑stage", "Protection", "User friendly"]
+      },
+      "troton-master-filler": {
+        "name": "Troton Master Acryl Filler 4:1",
+        "description": "High‑build acrylic filler for excellent leveling and easy sanding.",
+        "features": ["High build", "Quick dry", "Easy sanding"]
+      },
+      "troton-brayd-clear": {
+        "name": "Troton BRAYD HS Clear",
+        "description": "HS clearcoat designed for deep gloss and reliable durability.",
+        "features": ["Deep gloss", "Durable film", "Chemical resistance"]
+      }
     }
   }
 }

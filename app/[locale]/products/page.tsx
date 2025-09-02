@@ -60,9 +60,10 @@ export default function ProductsPage() {
   return (
     <>
       <Header />
-      <BackgroundCanvas />
       
       <main className="min-h-screen relative overflow-hidden">
+        {/* Luxury Animated Background (full page) */}
+        <BackgroundCanvas />
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 md:pt-40 md:pb-24">
           <div className="container mx-auto px-4">

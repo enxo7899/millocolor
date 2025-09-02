@@ -756,6 +756,158 @@
         "description": "Zgjidhje aplikimi spërkatjeje të personalizuara për kërkesa unike. Ka dizajn modular, kontroll preciz dhe konsultim ekspert për aplikime të personalizuara.",
         "features": "Dizajn modular|Kontroll preciz|Zgjidhje të personalizuara|Konsultim ekspert"
       }
+    },
+    "productsData": {
+      "rupes-skorpio-iii": {
+        "name": "RUPES Skorpio III RH356",
+        "description": "Lëmues orbital pneuamtik profesional me jastëk 150mm dhe orbit 6mm për kontroll dhe balancë perfekte.",
+        "features": ["Orbit 6mm", "Dridhje shumë të ulëta", "Motor me çift rrotullimi të lartë"]
+      },
+      "rupes-lhr21-mark-v": {
+        "name": "RUPES BigFoot LHR21 Mark V",
+        "description": "Polizues me veprim të dyfishtë me orbit 21mm për sipërfaqe të mëdha; balancë dhe finish superior.",
+        "features": ["Orbit 21mm", "Ergonomi e rafinuar", "Fuqí konsistente"]
+      },
+      "sata-x5500": {
+        "name": "SATAjet X 5500",
+        "description": "Pistolë pikturimi me koncept grykë X për atomizim të qetë dhe shpërndarje materiale optimale.",
+        "features": ["Grykë X", "HVLP/RP", "Tifoz uniform"]
+      },
+      "sata-5000b": {
+        "name": "SATAjet 5000 B",
+        "description": "Pistolë e gjithanshme për kontroll të saktë dhe finish të shkëlqyer.",
+        "features": ["Ergonomi e shkëlqyer", "Rrymë ajri e optimizuar", "Rezultate konsistente"]
+      },
+      "roberlo-kronox-320": {
+        "name": "Roberlo Kronox 320 HS Llak",
+        "description": "Llak me përmbajtje të lartë solide me tharje të shpejtë, shkëlqim të lartë dhe mbrojtje të qëndrueshme.",
+        "features": ["Solid i lartë", "Tharje e shpejtë", "Shkëlqim i thellë"]
+      },
+      "roberlo-robfill-2k": {
+        "name": "Roberlo Robfill Primer 2K",
+        "description": "Primer akrilik 2K me fuqi të lartë mbushjeje dhe gërryerje të lehtë për sipërfaqe uniforme.",
+        "features": ["Mbushje e lartë", "Gërryerje e lehtë", "Sipërfaqe e rrafshët"]
+      },
+      "cromax-pro-base": {
+        "name": "Cromax Pro Basecoat",
+        "description": "Bazë me bazë uji e inxhinieruar për aplikim të shpejtë dhe përputhje të saktë ngjyrash.",
+        "features": ["Mbulim i shpejtë", "Saktësi ngjyrash", "VOC i ulët"]
+      },
+      "cromax-cc6500": {
+        "name": "Cromax CC6500 HS Llak",
+        "description": "Llak HS që ofron shkëlqim të thellë dhe qëndrueshmëri afatgjatë me dritare të gjerë aplikimi.",
+        "features": ["Shkëlqim i thellë", "Qëndrueshmëri", "Aplikim efikas"]
+      },
+      "duxone-dx15": {
+        "name": "Duxone DX15 Bazë",
+        "description": "Bazë me tretës e besueshme për rifinim të përditshëm me spërkatje konsistente.",
+        "features": ["Mbulim i mirë", "Rrjedhje konsistente", "Paletë e gjerë"]
+      },
+      "duxone-dx57": {
+        "name": "Duxone DX57 Llak",
+        "description": "Llak i gjithanshëm që ofron shkëlqim dhe tharje të besueshme në kushte të ndryshme.",
+        "features": ["Shkëlqim i lartë", "I lehtë për përdorim", "Tharje e qëndrueshme"]
+      },
+      "epvernici-ep200": {
+        "name": "EP Vernici EP‑200 Primer",
+        "description": "Primer epoksi me ngjitje të fortë dhe rezistencë ndaj korrozionit.",
+        "features": ["Ngjitje e fortë", "Anti‑korrozion", "Ndërtim i lëmuar"]
+      },
+      "epvernici-ep500": {
+        "name": "EP Vernici EP‑500 Shtresë Përfundimtare",
+        "description": "Shtresë 2K e qëndrueshme me ruajtje të shkëlqimit dhe qëndrueshmëri ndaj motit.",
+        "features": ["Qëndrueshmëri e lartë", "Rezistencë ndaj motit", "Shkëlqim i qëndrueshëm"]
+      },
+      "fiac-ab100-268": {
+        "name": "FIAC AB100/268 Kompresor",
+        "description": "Kompresor pistonik për punishte me furnizim të qëndrueshëm ajri dhe jetë të gjatë shërbimi.",
+        "features": ["Ndërtim robust", "Rrymë e qëndrueshme ajri", "I riparueshëm"]
+      },
+      "fiac-cls75": {
+        "name": "FIAC CLS 7.5 Kompresor Vidë",
+        "description": "Kompresor kompakt me vidë për ajër të kompresuar efikas dhe të qetë në punishte.",
+        "features": ["Zhurmë e ulët", "Efikas energjetik", "Punë e vazhdueshme"]
+      },
+      "hempel-light-primer": {
+        "name": "Hempel Light Primer",
+        "description": "Sistem primer epoksi me ngjitje të fortë dhe mbrojtje anti‑korrozive.",
+        "features": ["Anti‑korrozion", "Ngjitje e fortë", "Përdorim i shumëllojshëm"]
+      },
+      "hempel-silic-one": {
+        "name": "Hempel Silic One",
+        "description": "Veshje foul‑release e avancuar për sipërfaqe të lëmuara dhe fërkim të reduktuar.",
+        "features": ["Foul‑release", "Finish i lëmuar", "Mirëmbajtje e reduktuar"]
+      },
+      "jbm-hvlp-gun": {
+        "name": "JBM Pistolë HVLP",
+        "description": "Pistolë HVLP me precizion të lartë që ofron atomizim të qëndrueshëm dhe finish të butë.",
+        "features": ["Atomizim i imët", "Kapje komode", "Model spërkatje i qëndrueshëm"]
+      },
+      "jbm-polisher": {
+        "name": "JBM Polizues DA 1200W",
+        "description": "Polizues me veprim të dyfishtë dhe shpejtësi të ndryshueshme për prerje dhe përfundim.",
+        "features": ["Shpejtësi e ndryshueshme", "Balancë e mirë", "Rezultate profesionale"]
+      },
+      "masterdichem-primer-2k": {
+        "name": "Master DiChem Primer 2K",
+        "description": "Primer 2K me ngjitje të shkëlqyer dhe fuqi të lartë mbushjeje.",
+        "features": ["Mbushje e lartë", "Tharje e shpejtë", "Ngjitje e fortë"]
+      },
+      "masterdichem-clear-hs": {
+        "name": "Master DiChem HS Llak",
+        "description": "Llak HS me shkëlqim të lartë dhe rezistencë kimike.",
+        "features": ["Solid i lartë", "Shkëlqim i lartë", "Rezistencë kimike"]
+      },
+      "mirka-deros": {
+        "name": "Mirka DEROS Lëmues Orbital",
+        "description": "Lëmues elektrik shumë i lehtë me dridhje ultra të ulëta për lëmim pa pluhur.",
+        "features": ["Dridhje shumë të ulëta", "Nxjerrje pluhuri", "Dizajn kompakt"]
+      },
+      "mirka-polarshine-10": {
+        "name": "Mirka Polarshine 10 Përbërës",
+        "description": "Përbërës polirimi që ofron prerje të shkëlqyer dhe shkëlqim të lartë.",
+        "features": ["Prerje e lartë", "Shkëlqim i lartë", "Spërkatje e ulët"]
+      },
+      "shw-ultra-7000": {
+        "name": "Sherwin‑Williams Ultra 7000 Bazë",
+        "description": "Sistem baze premium për saktësi ngjyrash, mbulim dhe produktivitet.",
+        "features": ["Ngjyrë e saktë", "Mbulim i shkëlqyer", "Produktivitet"]
+      },
+      "shw-finish1-clear": {
+        "name": "Sherwin‑Williams Finish 1 Llak",
+        "description": "Llak i besueshëm me rrjedhje të butë dhe shkëlqim për rifinim ditor.",
+        "features": ["Rrjedhje e butë", "Shkëlqim i lartë", "Aplikim i lehtë"]
+      },
+      "standoblue-base": {
+        "name": "Standox Standoblue Bazë",
+        "description": "Bazë me bazë uji që ofron përputhje shumë të mirë ngjyrash dhe përzierje të lehtë.",
+        "features": ["Me bazë uji", "E lehtë për përzierje", "Përputhje e shkëlqyer"]
+      },
+      "standox-k9550-clear": {
+        "name": "Standox HS Llak K9550",
+        "description": "Llak HS që siguron shkëlqim të qëndrueshëm dhe kurim të fortë.",
+        "features": ["Solid i lartë", "Shkëlqim i qëndrueshëm", "Kurim i fortë"]
+      },
+      "telwin-tig-222": {
+        "name": "Telwin Technology TIG 222",
+        "description": "Njësi saldimi TIG profesionale me kontroll të saktë dhe hark të qëndrueshëm.",
+        "features": ["Kontroll i saktë", "Hark i qëndrueshëm", "Gama e gjerë materialesh"]
+      },
+      "telwin-smart-charger": {
+        "name": "Telwin Smart Charger PRO",
+        "description": "Karikues inteligjent me faza të shumta karikimi dhe funksione mbrojtjeje.",
+        "features": ["Karikim me shumë faza", "Mbrojtje e baterisë", "Përdorim i lehtë"]
+      },
+      "troton-master-filler": {
+        "name": "Troton Master Acryl Filler 4:1",
+        "description": "Filler akrilik me mbushje të lartë për nivelim të shkëlqyer dhe gërryerje të lehtë.",
+        "features": ["Mbushje e lartë", "Tharje e shpejtë", "Gërryerje e lehtë"]
+      },
+      "troton-brayd-clear": {
+        "name": "Troton BRAYD HS Llak",
+        "description": "Llak HS i projektuar për shkëlqim të thellë dhe qëndrueshmëri të besueshme.",
+        "features": ["Shkëlqim i thellë", "Film i qëndrueshëm", "Rezistencë kimike"]
+      }
     }
   }
 }
