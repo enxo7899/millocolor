@@ -876,5 +876,147 @@
         "description": "Polish manufacturer of automotive refinishing products and specialized coatings."
       }
     }
+  },
+
+  "services": {
+    "hero": {
+      "title": "Professional Services",
+      "subtitle": "Expert support for automotive refinishing, industrial painting, and furniture finishing professionals across Albania"
+    },
+    "categories": {
+      "all": "All Services",
+      "automotive": "Automotive",
+      "industrial": "Industrial",
+      "training": "Training",
+      "equipment": "Equipment",
+      "support": "Support"
+    },
+    "items": {
+      "colorMatching": {
+        "title": "Color Matching & Mixing Lab",
+        "desc": "Precise OEM-grade color matching, formulation, and on-demand mixing for automotive, industrial, and furniture finishes.",
+        "bullet1": "OEM-grade color accuracy",
+        "bullet2": "On-demand mixing",
+        "bullet3": "Multi-surface compatibility"
+      },
+      "technicalTraining": {
+        "title": "Technical Training & Certification",
+        "desc": "Structured training for refinishing technicians: surface prep, application techniques, safety, and product systems.",
+        "bullet1": "Hands-on workshops",
+        "bullet2": "Certification programs",
+        "bullet3": "Safety protocols"
+      },
+      "bodyshopConsulting": {
+        "title": "Bodyshop & Workshop Consulting",
+        "desc": "Layout design, product system selection, workflow optimization, and cost-per-job guidance.",
+        "bullet1": "Workshop layout design",
+        "bullet2": "Workflow optimization",
+        "bullet3": "Cost analysis"
+      },
+      "equipmentSupply": {
+        "title": "Equipment Supply & Setup",
+        "desc": "Selection, procurement, and setup of sanding systems, spray guns, welders, and accessories.",
+        "bullet1": "Professional equipment",
+        "bullet2": "Installation & setup",
+        "bullet3": "Maintenance support"
+      },
+      "processAudits": {
+        "title": "Process Audits & Productivity Upgrades",
+        "desc": "On-site audits, SOPs, material usage optimization, and cycle-time reduction.",
+        "bullet1": "On-site assessments",
+        "bullet2": "Process optimization",
+        "bullet3": "Productivity improvements"
+      },
+      "industrialCoatings": {
+        "title": "Industrial & Furniture Coatings Support",
+        "desc": "System recommendations and trials for machinery, metalwork, wood finishes, and bespoke projects.",
+        "bullet1": "System recommendations",
+        "bullet2": "Trial applications",
+        "bullet3": "Custom solutions"
+      },
+      "afterSalesSupport": {
+        "title": "After-Sales & Warranty Support",
+        "desc": "Ongoing technical assistance, troubleshooting, and warranty guidance.",
+        "bullet1": "Technical assistance",
+        "bullet2": "Troubleshooting",
+        "bullet3": "Warranty guidance"
+      },
+      "sprayBoothSetup": {
+        "title": "Spray Booth Setup & Optimization",
+        "desc": "Professional spray booth installation, ventilation setup, and best-practice configuration for optimal results.",
+        "bullet1": "Booth installation",
+        "bullet2": "Ventilation systems",
+        "bullet3": "Best-practice setup"
+      }
+    },
+    "howWeWork": {
+      "title": "How We Work",
+      "subtitle": "Our proven process ensures optimal results for your business",
+      "steps": {
+        "assess": {
+          "title": "Assess",
+          "desc": "We evaluate your current setup, processes, and requirements"
+        },
+        "recommend": {
+          "title": "Recommend",
+          "desc": "We provide tailored solutions and product recommendations"
+        },
+        "implement": {
+          "title": "Implement",
+          "desc": "We support installation, training, and system integration"
+        },
+        "support": {
+          "title": "Support",
+          "desc": "We provide ongoing assistance and optimization"
+        }
+      }
+    },
+    "featuredBrands": {
+      "title": "Trusted by Leading Brands",
+      "subtitle": "We work with the world's most reputable manufacturers"
+    },
+    "trainingCta": {
+      "title": "Ready to Enhance Your Skills?",
+      "subtitle": "Join our professional training programs and get certified",
+      "button": "View Training Schedule",
+      "contactButton": "Contact Us"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Get answers to common questions about our services",
+      "items": {
+        "q1": {
+          "question": "How long does a typical service consultation take?",
+          "answer": "Most consultations take 2-4 hours depending on the scope. We provide a detailed timeline during our initial assessment."
+        },
+        "q2": {
+          "question": "Do you provide services across all of Albania?",
+          "answer": "Yes, we provide services throughout Albania with our main operations based on the Tirana-Durres highway for efficient coverage."
+        },
+        "q3": {
+          "question": "What brands and equipment do you work with?",
+          "answer": "We work with leading brands including Cromax, Standox, RUPES, Mirka, SATA, TELWIN, 3M, and many others."
+        },
+        "q4": {
+          "question": "Do you offer training for new technicians?",
+          "answer": "Yes, we offer comprehensive training programs for technicians at all skill levels, from beginners to experienced professionals."
+        },
+        "q5": {
+          "question": "Can you help optimize our current processes?",
+          "answer": "Absolutely. Our process audits help identify inefficiencies and provide actionable recommendations for improvement."
+        },
+        "q6": {
+          "question": "What kind of after-sales support do you provide?",
+          "answer": "We provide ongoing technical assistance, troubleshooting, warranty guidance, and regular follow-ups to ensure optimal performance."
+        }
+      }
+    },
+    "contactBanner": {
+      "title": "Need Tailored Guidance?",
+      "subtitle": "Our experts are ready to help you achieve exceptional results",
+      "button": "Talk to Our Team",
+      "phone": "Call Us",
+      "email": "Email Us"
+    }
   }
 }

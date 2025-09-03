@@ -994,5 +994,147 @@
         "description": "Prodhues polak i produkteve të rinovimit automobilistik dhe veshjeve të specializuara."
       }
     }
+  },
+
+  "services": {
+    "hero": {
+      "title": "Shërbime Profesionale",
+      "subtitle": "Mbështetje eksperte për profesionistët e rifiniturës automobilistike, pikturimit industrial dhe përfundimeve për mobilje në të gjithë Shqipërinë"
+    },
+    "categories": {
+      "all": "Të Gjitha Shërbimet",
+      "automotive": "Automobilistike",
+      "industrial": "Industriale",
+      "training": "Trajnime",
+      "equipment": "Pajisje",
+      "support": "Mbështetje"
+    },
+    "items": {
+      "colorMatching": {
+        "title": "Laboratori i Përputhjes dhe Përzierjes së Ngjyrave",
+        "desc": "Përputhje dhe përzierje ngjyrash me saktësi OEM për automjete, industri dhe mobilje.",
+        "bullet1": "Saktësi OEM e ngjyrave",
+        "bullet2": "Përzierje sipas kërkesës",
+        "bullet3": "Përputhshmëri shumë-sipërfaqësore"
+      },
+      "technicalTraining": {
+        "title": "Trajnime Teknike dhe Certifikime",
+        "desc": "Trajnime të strukturuara për teknikët e rifiniturës: përgatitje, aplikim, siguri dhe sisteme produktesh.",
+        "bullet1": "Workshop praktike",
+        "bullet2": "Programe certifikimi",
+        "bullet3": "Protokolle sigurie"
+      },
+      "bodyshopConsulting": {
+        "title": "Konsulencë për Punëtoritë dhe Atelie",
+        "desc": "Konsulencë për organizimin, zgjedhjen e sistemeve, optimizimin e fluksit dhe kostot për punim.",
+        "bullet1": "Dizajn organizimi të punëtorisë",
+        "bullet2": "Optimizim fluksi pune",
+        "bullet3": "Analizë kostosh"
+      },
+      "equipmentSupply": {
+        "title": "Furnizim dhe Instalim Pajisjesh",
+        "desc": "Zgjedhje, furnizim dhe instalim i sistemeve të lëmimit, pistoletave të spërkatjes, saldimit dhe aksesorëve.",
+        "bullet1": "Pajisje profesionale",
+        "bullet2": "Instalim dhe konfigurim",
+        "bullet3": "Mbështetje mirëmbajtjeje"
+      },
+      "processAudits": {
+        "title": "Auditime Procesi dhe Përmirësime Produktiviteti",
+        "desc": "Auditime në vend, procedura pune, optimizim i materialeve dhe ulje e kohës së ciklit.",
+        "bullet1": "Vlerësime në vend",
+        "bullet2": "Optimizim procesi",
+        "bullet3": "Përmirësime produktiviteti"
+      },
+      "industrialCoatings": {
+        "title": "Mbështetje për Veshje Industriale dhe Mobilje",
+        "desc": "Rekomandime dhe prova sistemesh për makineri, metal, dru dhe projekte të personalizuara.",
+        "bullet1": "Rekomandime sistemi",
+        "bullet2": "Aplikime provë",
+        "bullet3": "Zgjidhje të personalizuara"
+      },
+      "afterSalesSupport": {
+        "title": "Mbështetje Pas-Shitje dhe Garancie",
+        "desc": "Asistencë e vazhdueshme teknike, zgjidhje problemesh dhe udhëzime garancie.",
+        "bullet1": "Asistencë teknike",
+        "bullet2": "Zgjidhje problemesh",
+        "bullet3": "Udhëzime garancie"
+      },
+      "sprayBoothSetup": {
+        "title": "Instalim dhe Optimizim Kabine Spërkatjeje",
+        "desc": "Instalim profesional kabine spërkatjeje, konfigurim ventilimi dhe organizim sipas praktikave më të mira për rezultate optimale.",
+        "bullet1": "Instalim kabine",
+        "bullet2": "Sisteme ventilimi",
+        "bullet3": "Organizim praktikash më të mira"
+      }
+    },
+    "howWeWork": {
+      "title": "Si Punojmë",
+      "subtitle": "Procesi ynë i provuar siguron rezultate optimale për biznesin tuaj",
+      "steps": {
+        "assess": {
+          "title": "Vlerësojmë",
+          "desc": "Vlerësojmë konfigurimin, proceset dhe kërkesat tuaja aktuale"
+        },
+        "recommend": {
+          "title": "Rekomandojmë",
+          "desc": "Ofrojmë zgjidhje të personalizuara dhe rekomandime produktesh"
+        },
+        "implement": {
+          "title": "Zbatojmë",
+          "desc": "Mbështesim instalimin, trajnimin dhe integrimin e sistemit"
+        },
+        "support": {
+          "title": "Mbështesim",
+          "desc": "Ofrojmë mbështetje të vazhdueshme dhe optimizim"
+        }
+      }
+    },
+    "featuredBrands": {
+      "title": "Të Besuar nga Markat Kryesore",
+      "subtitle": "Punojmë me prodhuesit më të njohur në botë"
+    },
+    "trainingCta": {
+      "title": "Gati të Përmirësoni Aftësitë Tuaja?",
+      "subtitle": "Bashkohuni me programet tona profesionale të trajnimit dhe merrni certifikim",
+      "button": "Shiko Orarin e Trajnimit",
+      "contactButton": "Na Kontaktoni"
+    },
+    "faq": {
+      "title": "Pyetjet e Bëra Më Shpesh",
+      "subtitle": "Merrni përgjigje për pyetjet e zakonshme rreth shërbimeve tona",
+      "items": {
+        "q1": {
+          "question": "Sa kohë zgjat një konsulencë tipike shërbimi?",
+          "answer": "Shumica e konsulencave zgjasin 2-4 orë në varësi të fushës. Ofrojmë një afat kohor të detajuar gjatë vlerësimit tonë fillestar."
+        },
+        "q2": {
+          "question": "A ofroni shërbime në të gjithë Shqipërinë?",
+          "answer": "Po, ofrojmë shërbime në të gjithë Shqipërinë me operacionet tona kryesore të bazuara në autostradën Tirana-Durrës për mbulim efikas."
+        },
+        "q3": {
+          "question": "Me cilat marka dhe pajisje punoni?",
+          "answer": "Punojmë me marka kryesore duke përfshirë Cromax, Standox, RUPES, Mirka, SATA, TELWIN, 3M, dhe shumë të tjera."
+        },
+        "q4": {
+          "question": "A ofroni trajnime për teknikë të rinj?",
+          "answer": "Po, ofrojmë programe gjithëpërfshirëse trajnimi për teknikë në të gjitha nivelet e aftësive, nga fillestarët deri te profesionistët me përvojë."
+        },
+        "q5": {
+          "question": "A mund të ndihmoni në optimizimin e proceseve tona aktuale?",
+          "answer": "Absolutisht. Auditimet tona të procesit ndihmojnë në identifikimin e joefikasitetit dhe ofrojnë rekomandime të veprueshme për përmirësim."
+        },
+        "q6": {
+          "question": "Çfarë lloj mbështetjeje pas-shitje ofroni?",
+          "answer": "Ofrojmë mbështetje teknike të vazhdueshme, zgjidhje problemesh, udhëzime garancie dhe ndjekje të rregullta për të siguruar performancë optimale."
+        }
+      }
+    },
+    "contactBanner": {
+      "title": "Keni Nevojë për Këshillim të Personalizuar?",
+      "subtitle": "Ekspertët tanë janë gati t'ju ndihmojnë të arrini rezultate të jashtëzakonshme",
+      "button": "Flisni me Ekipin Tonë",
+      "phone": "Na Telefononi",
+      "email": "Na Dërgoni Email"
+    }
   }
 }
