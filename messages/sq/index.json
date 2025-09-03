@@ -21,43 +21,48 @@
     "scrollHint": "Lëviz poshtë për të eksploruar"
   },
   "about": {
-    "title": "Rreth MilloColor",
-    "subtitle": "Mbi 30 Vjet Ekselencë në Zgjidhjet e Bojërave për Automjete",
-    "history": {
-      "title": "Historia Jonë",
-      "paragraph1": "Themeluar në 1990, MilloColor filloi si një shpërndarës i vogël i bojërave evropiane për automjete. Sot, jemi një ofruesi kryesor i zgjidhjeve premium të bojërave, me prezencë në më shumë se 20 vende në mbarë botën.",
-      "paragraph2": "Nëpërmjet përkushtimit ndaj cilësisë dhe inovacionit, kemi ndërtuar partneritete të forta me prodhueset më të respektuara të bojërave në botë, duke na lejuar të sjellim produkte të teknologjisë së fundit për klientët tanë.",
-      "imageAlt": "Vijat kohore të historisë së MilloColor"
+    "hero": {
+      "title": "Ekselencë Lider Që nga 1993",
+      "subtitle": "Fuqizojmë profesionistët në të gjithë Shqipërinë me bojërat, veshjet, materialet dhe pajisjet më të mira",
+      "description": "Millocolor sh.p.k. është një kompani lider me bazë në Shqipëri, e dedikuar për ofrimin e produkteve të cilësisë së lartë dhe zgjidhjeve eksperte për sektorët e rifinimit automobilistik, bojatisjes industriale dhe përfundimit të mobiljeve. E themeluar në 1993 si shpërndarës dhe agjent i autorizuar për disa nga markat më të respektuara në botë, kemi ndërtuar një reputacion të fortë për ekselencë, besueshmëri dhe mbështetje të paçmuar për klientët."
     },
     "mission": {
-      "title": "Misioni dhe Vlerat Tona",
-      "paragraph": "Në MilloColor, ne besojmë në ofrim ekselence përmes produkteve cilësore, njohurive të ekspertëve dhe shërbimit të jashtëzakonshëm. Misioni ynë është të ngremë standardin e bojatisjes së automjeteve në të gjithë botën.",
-      "values": {
-        "value1": {
-          "title": "Ekselencë",
-          "description": "Jemi të përkushtuar ndaj ekselencës në çdo gjë që bëjmë, nga cilësia e produktit deri te shërbimi ndaj klientit."
-        },
-        "value2": {
-          "title": "Inovacion",
-          "description": "Ne vazhdimisht kërkojmë teknologji dhe metoda të reja për të përmirësuar performancën dhe rezultatet."
-        },
-        "value3": {
-          "title": "Qëndrueshmeri",
-          "description": "Jemi të përkushtuar ndaj praktikave dhe produkteve që respektojnë mjedisin."
-        }
+      "title": "Misioni Ynë",
+      "description": "Misioni ynë është të fuqizojmë profesionistët në të gjithë Shqipërinë me bojërat, veshjet, materialet dhe pajisjet më të mira, të bashkuara me njohuritë dhe mbështetjen që u nevojiten për të arritur rezultate të jashtëzakonshme në projektet e tyre të bojatisjes dhe përfundimit. Jemi të përkushtuar për të drejtuar inovacionin dhe ngritjen e standardeve të industrisë përmes ofrimit tonë gjithëpërfshirës dhe shërbimeve të specializuara."
+    },
+    "whatWeOffer": {
+      "title": "Çfarë Oferojmë",
+      "description": "Në Millocolor, ne e kuptojmë kërkesat e ndërlikuara të punës moderne të përfundimit. Portofoli ynë i gjerë përfshin:",
+      "premiumPaints": {
+        "title": "Bojëra dhe Veshje Premium",
+        "description": "Furnizojmë një gamë të gjerë bojërash dhe veshjesh profesionale nga marka të njohura si Cromax, Standox, Sherwin-Williams, Roberlo S.A., Dichem, EP Vernici, Troton, Duxone dhe Hempel."
+      },
+      "auxiliaryMaterials": {
+        "title": "Materiale Ndihmëse të Specializuara",
+        "description": "Putty, bazë, llakë të tejdukshëm dhe materiale konsumimi të klasës së lartë që sigurojnë një përfundim të përsosur dhe qëndrueshmëri të qëndrueshme."
+      },
+      "equipment": {
+        "title": "Pajisje dhe Vegla të Avancuara",
+        "description": "Jemi shpërndarës të pajisjeve të teknologjisë më të fundit nga liderët si RUPES, Mirka, SATA, TELWIN dhe 3M — duke ofruar saktësi dhe efikasitet."
       }
     },
-    "team": {
-      "title": "Ekipi Ynë",
-      "paragraph1": "Ekipi ynë përbeket nga ekspertë të industrisë me dhjetra vjet përvojë të kombinuar në ngjyrosjen dhe rifinimin e automjeteve. Shumë prej tyre janë ish-bojatisja, teknikë dhe specialistë të ngjyrave që i kuptojnë sfidat tuaja drejtfërdrejtë.",
-      "paragraph2": "Kjo ekspertizë praktike na lejon të ofrojmë jo vetëm produkte, por zgjidhje të përshtatura për nevojat specifike të bojatisjes profesionale dhe dyqaneve të karrocerisë.",
-      "imageAlt": "Ekipi i ekspertëve MilloColor"
+    "commitment": {
+      "title": "Përkushtimi Ynë ndaj Ekselencës",
+      "description": "Përveç produkteve, Millocolor nxit ekspertizën përmes shërbimeve të trajnimit dhe konsulencës, duke përfshirë programe teorike për teknikët e rifinimit. Kjo siguron që klientët të fitojnë si produkte superiore ashtu edhe aftësitë për të maksimizuar përdorimin e tyre."
     },
-    "future": {
-      "title": "Duke Parë Drejt së Ardhmes",
-      "paragraph": "Ndërsa vazhdojmë të rritemi, fokusi ynë mbetet në sjelljen e inovacioneve më të fundit dhe produkteve të cilësisë më të lartë për klientët tanë. Jemi të entëziazmuar për të ardhmen e bojatisjes së automjeteve dhe rolin tonë në formimin e saj.",
-      "cta": "Na Kontaktoni Sot"
-    }
+    "reach": {
+      "title": "Arritja Jonë",
+      "description": "E vendosur strategjikisht në autostradën Tiranë-Durrës, operacionet tona lejojnë importe dhe shpërndarje efikase nga Belgjika, Gjermania dhe Turqia — duke garantuar akses të qëndrueshëm në zgjidhjet më të mira në të gjithë Shqipërinë."
+    },
+    "partnership": {
+      "title": "Më Shumë se një Furnizues",
+      "description": "Millocolor sh.p.k. është më shumë se një furnizues; ne jemi një partner i besuar, duke drejtuar rritjen dhe suksesin në industrinë e bojatisjes dhe përfundimit në Shqipëri."
+    },
+    "established": "Themeluar në 1993",
+    "authorizedDealer": "Shpërndarës dhe Agjent i Autorizuar",
+    "worldReputableBrands": "Markat Më të Respektuara në Botë",
+    "strongReputation": "Reputacion i Fortë për Ekselencë",
+    "unparalleledSupport": "Mbështetje e Paçmuar për Klientët"
   },
   "products": {
     "title": "Produktet Tona",

@@ -24,43 +24,48 @@
     "scrollHint": "Scroll to explore"
   },
   "about": {
-    "title": "About MilloColor",
-    "subtitle": "30+ Years of Excellence in Automotive Paint Solutions",
-    "history": {
-      "title": "Our History",
-      "paragraph1": "Founded in 1990, MilloColor began as a small distributor of European automotive paints. Today, we're a leading provider of premium paint solutions, with a presence in over 20 countries worldwide.",
-      "paragraph2": "Through dedication to quality and innovation, we've built strong partnerships with the world's most respected paint manufacturers, allowing us to bring cutting-edge products to our customers.",
-      "imageAlt": "MilloColor history timeline"
+    "hero": {
+      "title": "Leading Excellence Since 1993",
+      "subtitle": "Empowering professionals across Albania with the finest paints, coatings, materials, and equipment",
+      "description": "Millocolor sh.p.k. is a leading Albanian based company dedicated to providing high-quality products and expert solutions for the automotive refinishing, industrial painting, and furniture finishing sectors. Established in 1993 as an authorized dealer and distributor for some of the world's most reputable brands, we have built a strong reputation for excellence, reliability, and unparalleled customer support."
     },
     "mission": {
-      "title": "Our Mission & Values",
-      "paragraph": "At MilloColor, we believe in delivering excellence through quality products, expert knowledge, and exceptional service. Our mission is to elevate the standard of automotive finishing worldwide.",
-      "values": {
-        "value1": {
-          "title": "Excellence",
-          "description": "We are committed to excellence in everything we do, from product quality to customer service."
-        },
-        "value2": {
-          "title": "Innovation",
-          "description": "We continuously seek new technologies and methods to improve performance and results."
-        },
-        "value3": {
-          "title": "Sustainability",
-          "description": "We are dedicated to environmentally responsible practices and products."
-        }
+      "title": "Our Mission",
+      "description": "To empower professionals across Albania with the finest paints, coatings, materials, and equipment, coupled with the knowledge and support they need to achieve exceptional results in their painting and finishing projects. We are committed to driving innovation and raising industry standards through our comprehensive offerings and specialized services."
+    },
+    "whatWeOffer": {
+      "title": "What We Offer",
+      "description": "At Millocolor, we understand the intricate demands of modern finishing work. Our extensive portfolio includes:",
+      "premiumPaints": {
+        "title": "Premium Paints & Coatings",
+        "description": "We supply a wide array of professional paints and coatings from renowned brands such as Cromax, Standox, Sherwin-Williams, Roberlo S.A., Dichem, EP Vernici, Troton, Duxone, and Hempel."
+      },
+      "auxiliaryMaterials": {
+        "title": "Specialized Auxiliary Materials",
+        "description": "Top-grade putties, primers, clearcoats, and consumables that ensure a flawless finish and lasting durability."
+      },
+      "equipment": {
+        "title": "Advanced Equipment & Tools",
+        "description": "Distributors of cutting-edge equipment from leaders like RUPES, Mirka, SATA, TELWIN, and 3M — providing precision and efficiency."
       }
     },
-    "team": {
-      "title": "Our Team",
-      "paragraph1": "Our team consists of industry experts with decades of combined experience in automotive painting and refinishing. Many are former painters, technicians, and color specialists who understand your challenges firsthand.",
-      "paragraph2": "This practical expertise allows us to provide not just products, but solutions tailored to the specific needs of professional painters and body shops.",
-      "imageAlt": "MilloColor expert team"
+    "commitment": {
+      "title": "Our Commitment to Excellence",
+      "description": "Beyond products, Millocolor fosters expertise through training and consulting services, including theoretical programs for refinishing technicians. This ensures clients gain both superior products and the skills to maximize their use."
     },
-    "future": {
-      "title": "Looking Forward",
-      "paragraph": "As we continue to grow, our focus remains on bringing the latest innovations and highest quality products to our customers. We're excited about the future of automotive finishing and our role in shaping it.",
-      "cta": "Contact Us Today"
-    }
+    "reach": {
+      "title": "Our Reach",
+      "description": "Strategically located on the Tirana-Durres highway, our operations enable efficient imports and distribution from Belgium, Germany, and Turkey — guaranteeing consistent access to the best solutions across Albania."
+    },
+    "partnership": {
+      "title": "More Than a Supplier",
+      "description": "Millocolor sh.p.k. is more than a supplier; we are a trusted partner, driving growth and success in the Albanian painting and finishing industry."
+    },
+    "established": "Established in 1993",
+    "authorizedDealer": "Authorized Dealer & Distributor",
+    "worldReputableBrands": "World's Most Reputable Brands",
+    "strongReputation": "Strong Reputation for Excellence",
+    "unparalleledSupport": "Unparalleled Customer Support"
   },
   "products": {
     "title": "Our Products",
