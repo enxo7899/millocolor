@@ -914,5 +914,85 @@
         "features": ["Shkëlqim i thellë", "Film i qëndrueshëm", "Rezistencë kimike"]
       }
     }
+  },
+  "brands": {
+    "hero": {
+      "title": "Markat Tona",
+      "subtitle": "Partneritete të besuara me prodhueset më të njohura në botë në rinovimin automobilistik dhe veshjet industriale"
+    },
+    "filters": {
+      "all": "Të Gjitha Markat",
+      "automotive": "Bojëra & Veshje Automobilistike",
+      "equipment": "Pajisje & Vegla",
+      "industrial": "Veshje Industriale",
+      "marine": "Veshje Detare",
+      "consumables": "Materiale Konsumimi"
+    },
+    "search": {
+      "placeholder": "Kërko marka...",
+      "noResults": "Nuk u gjetën marka",
+      "resetFilters": "Rivendos filtrat"
+    },
+    "brandCard": {
+      "visitWebsite": "Vizito faqen",
+      "learnMore": "Mëso më shumë"
+    },
+    "categories": {
+      "automotive": "Bojëra & Veshje Automobilistike",
+      "equipment": "Pajisje & Vegla",
+      "industrial": "Veshje Industriale",
+      "marine": "Veshje Detare",
+      "consumables": "Materiale Konsumimi"
+    },
+    "brandDescriptions": {
+      "3m": {
+        "description": "Kompani globale inovacioni që ofron zgjidhje për rinovim automobilistik dhe përgatitjen e sipërfaqeve."
+      },
+      "cromax": {
+        "description": "Markë premium për rinovimin e automobilave, e njohur për përputhje të saktë të ngjyrave dhe procese të shpejta pune."
+      },
+      "duxone": {
+        "description": "Veshje profesionale automobilistike që ofrojnë qëndrueshmëri të jashtëzakonshme dhe saktësi të përputhjes së ngjyrave."
+      },
+      "ep-vernici": {
+        "description": "Prodhues italian i specializuar në produkte të cilësisë së lartë për rinovim automobilistik dhe sisteme."
+      },
+      "fiac": {
+        "description": "Prodhues kryesor i zgjidhjeve të ajrit të kompresuar dhe pajisjeve automobilistike për aplikime profesionale."
+      },
+      "hempel": {
+        "description": "Kompani globale veshjesh që ofron zgjidhje inovative për aplikime automobilistike, detare dhe industriale."
+      },
+      "jbm": {
+        "description": "Pajisje profesionale automobilistike dhe vegla për punë trupash, pikturë dhe aplikime rinovimi."
+      },
+      "master-dichem": {
+        "description": "Produkte të specializuara për rinovimin automobilistik me fokus në cilësi dhe inovacion."
+      },
+      "mirka": {
+        "description": "Zgjidhje premium abrazive dhe lëmimi për përgatitjen profesionale të sipërfaqeve."
+      },
+      "roberlo": {
+        "description": "Prodhues spanjoll i sistemeve të rinovimit automobilistik dhe veshjeve të specializuara."
+      },
+      "rupes": {
+        "description": "Vegla italiane precizie dhe sisteme polirimi për aplikime automobilistike dhe industriale."
+      },
+      "sata": {
+        "description": "Pistoleta gjermane precizie dhe pajisje aplikimi për rinovim profesional."
+      },
+      "sherwin-williams": {
+        "description": "Lider global në bojëra dhe veshje me zgjidhje gjithëpërfshirëse për rinovim automobilistik."
+      },
+      "standox": {
+        "description": "Markë premium për rinovim automobilistik që ofron përputhje superiore ngjyrash dhe qëndrueshmëri."
+      },
+      "telwin": {
+        "description": "Prodhues italian i pajisjeve të saldimit dhe veglave diagnostike automobilistike."
+      },
+      "troton": {
+        "description": "Prodhues polak i produkteve të rinovimit automobilistik dhe veshjeve të specializuara."
+      }
+    }
   }
 }

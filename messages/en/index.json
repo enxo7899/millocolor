@@ -796,5 +796,85 @@
         "features": ["Deep gloss", "Durable film", "Chemical resistance"]
       }
     }
+  },
+  "brands": {
+    "hero": {
+      "title": "Our Brands",
+      "subtitle": "Trusted partnerships with the world's leading manufacturers in automotive refinishing and industrial coatings"
+    },
+    "filters": {
+      "all": "All Brands",
+      "automotive": "Automotive Paints & Coatings",
+      "equipment": "Equipment & Tools",
+      "industrial": "Industrial Coatings",
+      "marine": "Marine Coatings",
+      "consumables": "Consumables"
+    },
+    "search": {
+      "placeholder": "Search brands...",
+      "noResults": "No brands found",
+      "resetFilters": "Reset filters"
+    },
+    "brandCard": {
+      "visitWebsite": "Visit website",
+      "learnMore": "Learn more"
+    },
+    "categories": {
+      "automotive": "Automotive Paints & Coatings",
+      "equipment": "Equipment & Tools",
+      "industrial": "Industrial Coatings",
+      "marine": "Marine Coatings",
+      "consumables": "Consumables"
+    },
+    "brandDescriptions": {
+      "3m": {
+        "description": "Global innovation company providing automotive refinishing and surface preparation solutions."
+      },
+      "cromax": {
+        "description": "A premium automotive refinishing brand known for color accuracy and fast workflow systems."
+      },
+      "duxone": {
+        "description": "Professional automotive coatings delivering exceptional durability and color matching precision."
+      },
+      "ep-vernici": {
+        "description": "Italian manufacturer specializing in high-quality automotive refinishing products and systems."
+      },
+      "fiac": {
+        "description": "Leading manufacturer of compressed air solutions and automotive equipment for professional applications."
+      },
+      "hempel": {
+        "description": "Global coatings company providing innovative solutions for automotive, marine, and industrial applications."
+      },
+      "jbm": {
+        "description": "Professional automotive equipment and tools for bodywork, painting, and refinishing applications."
+      },
+      "master-dichem": {
+        "description": "Specialized automotive refinishing products with focus on quality and innovation."
+      },
+      "mirka": {
+        "description": "Premium abrasives and sanding solutions for professional surface preparation."
+      },
+      "roberlo": {
+        "description": "Spanish manufacturer of automotive refinishing systems and specialized coatings."
+      },
+      "rupes": {
+        "description": "Italian precision tools and polishing systems for automotive and industrial applications."
+      },
+      "sata": {
+        "description": "German precision spray guns and application equipment for professional refinishing."
+      },
+      "sherwin-williams": {
+        "description": "Global leader in paint and coatings with comprehensive automotive refinishing solutions."
+      },
+      "standox": {
+        "description": "Premium automotive refinishing brand offering superior color matching and durability."
+      },
+      "telwin": {
+        "description": "Italian manufacturer of welding equipment and automotive diagnostic tools."
+      },
+      "troton": {
+        "description": "Polish manufacturer of automotive refinishing products and specialized coatings."
+      }
+    }
   }
 }

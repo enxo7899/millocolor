@@ -1,276 +1,217 @@
+/**
+ * Brands Page
+ * 
+ * A luxury, modern, and minimalist page showcasing our partner brands.
+ * Features responsive grid layout with all brands displayed.
+ * 
+ * To add/edit a brand:
+ * 1. Update the brands array in data/brands.ts
+ * 2. Add translations to messages/en/index.json and messages/sq/index.json
+ * 3. Ensure the logo exists in /public/images/partners/ (optional)
+ */
+
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useTheme } from '../components/ThemeProvider';
+import BackgroundCanvas from '../components/BackgroundCanvas';
+import { brands, type Brand } from '../../../data/brands';
 
 export default function BrandsPage() {
   const t = useTranslations('brands');
-  const { prefersReducedMotion } = useTheme();
-  const [selectedBrand, setSelectedBrand] = useState<number | null>(null);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
-  // Brand list (would come from a database in a real application)
-  const brands = [
-    {
-      id: 1,
-      name: t('brand1.name'),
-      description: t('brand1.description'),
-      fullDescription: t('brand1.fullDescription'),
-      logo: '/brands/brand1.svg',
-      image: '/brands/brand1-hero.jpg',
-      features: [
-        t('brand1.features.feature1'),
-        t('brand1.features.feature2'),
-        t('brand1.features.feature3')
-      ]
-    },
-    {
-      id: 2,
-      name: t('brand2.name'),
-      description: t('brand2.description'),
-      fullDescription: t('brand2.fullDescription'),
-      logo: '/brands/brand2.svg',
-      image: '/brands/brand2-hero.jpg',
-      features: [
-        t('brand2.features.feature1'),
-        t('brand2.features.feature2'),
-        t('brand2.features.feature3')
-      ]
-    },
-    {
-      id: 3,
-      name: t('brand3.name'),
-      description: t('brand3.description'),
-      fullDescription: t('brand3.fullDescription'),
-      logo: '/brands/brand3.svg',
-      image: '/brands/brand3-hero.jpg',
-      features: [
-        t('brand3.features.feature1'),
-        t('brand3.features.feature2'),
-        t('brand3.features.feature3')
-      ]
-    },
-    {
-      id: 4,
-      name: t('brand4.name'),
-      description: t('brand4.description'),
-      fullDescription: t('brand4.fullDescription'),
-      logo: '/brands/brand4.svg',
-      image: '/brands/brand4-hero.jpg',
-      features: [
-        t('brand4.features.feature1'),
-        t('brand4.features.feature2'),
-        t('brand4.features.feature3')
-      ]
-    }
-  ];
-
-  const selectedBrandDetails = selectedBrand !== null ? brands.find(brand => brand.id === selectedBrand) : null;
+  // Sort brands alphabetically
+  const sortedBrands = brands.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <>
       <Header />
       
-      <main className="container mx-auto px-4 py-12 md:py-16 lg:py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('title')}</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
-
-        {/* Brand Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
-        >
-          {brands.map((brand) => (
-            <motion.div
-              key={brand.id}
-              variants={itemVariants}
-              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer"
-              onClick={() => setSelectedBrand(brand.id)}
-            >
-              <div className="h-40 bg-gray-100 dark:bg-gray-700 flex items-center justify-center p-6">
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="max-h-full max-w-full"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{brand.name}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">{brand.description}</p>
-                <button 
-                  className="text-millo-red font-medium hover:underline focus:outline-none flex items-center"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedBrand(brand.id);
-                  }}
-                >
-                  {t('learnMore')}
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Featured Brand Partnerships */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-gray-50 dark:bg-gray-800/50 p-10 md:p-16 rounded-2xl mb-16"
-        >
-          <h2 className="text-3xl font-bold mb-10 text-center">{t('partnerships.title')}</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-                <img 
-                  src={`/brands/partner${i}.svg`} 
-                  alt={t(`partnerships.partner${i}`)}
-                  className="max-h-16" 
-                />
-              </div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Selected Brand Details Modal */}
-        {selectedBrandDetails && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedBrand(null)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-4xl max-h-[90vh] overflow-y-auto"
-              onClick={e => e.stopPropagation()}
-            >
-              <div className="relative h-80">
-                <img 
-                  src={selectedBrandDetails.image} 
-                  alt={selectedBrandDetails.name}
-                  className="w-full h-full object-cover" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                  <div className="p-8">
-                    <img 
-                      src={selectedBrandDetails.logo} 
-                      alt={selectedBrandDetails.name}
-                      className="h-16 mb-4" 
-                    />
-                    <h2 className="text-3xl font-bold text-white">{selectedBrandDetails.name}</h2>
-                  </div>
-                </div>
-                <button
-                  className="absolute top-4 right-4 bg-black/50 text-white rounded-full p-2 hover:bg-black/70 transition-colors"
-                  onClick={() => setSelectedBrand(null)}
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              <div className="p-8">
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-                  {selectedBrandDetails.fullDescription}
-                </p>
-                <h3 className="text-xl font-bold mb-4">{t('keyFeatures')}</h3>
-                <ul className="space-y-3 mb-8">
-                  {selectedBrandDetails.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg className="w-5 h-5 text-millo-red mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex justify-between items-center">
-                  <a 
-                    href={`/products?brand=${selectedBrandDetails.id}`}
-                    className="bg-millo-red hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors shadow-lg"
-                  >
-                    {t('viewProducts')}
-                  </a>
-                  <button 
-                    onClick={() => setSelectedBrand(null)}
-                    className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                  >
-                    {t('close')}
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-
-        {/* Global Distribution */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-          <h2 className="text-3xl font-bold mb-6">{t('global.title')}</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-12">
-            {t('global.description')}
-          </p>
-          <div className="bg-gray-100 dark:bg-gray-800 h-80 rounded-xl flex items-center justify-center mb-12">
-            <p className="text-gray-500 dark:text-gray-400">{t('global.mapPlaceholder')}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {['europe', 'americas', 'asia'].map((region) => (
-              <div key={region} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-                <h3 className="text-xl font-bold mb-3">{t(`global.regions.${region}.name`)}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">{t(`global.regions.${region}.description`)}</p>
-                <p className="font-medium">{t(`global.regions.${region}.countries`)}</p>
-              </div>
-            ))}
-          </div>
-        </motion.section>
+      <main className="min-h-screen relative overflow-hidden">
+        {/* Luxury Animated Background */}
+        <BackgroundCanvas />
+        
+        {/* Hero Section */}
+        <HeroSection />
+        
+        {/* Brands Grid */}
+        <BrandsGrid brands={sortedBrands} />
       </main>
       
       <Footer />
     </>
   );
 }
+
+// Hero Section
+function HeroSection() {
+  const t = useTranslations('brands');
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <section className="relative min-h-[40vh] sm:h-[50vh] flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6"
+          >
+            <span className="text-white">
+              {t('hero.title')}
+            </span>
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-light max-w-3xl mx-auto leading-relaxed px-4"
+          >
+            {t('hero.subtitle')}
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+
+
+// Brands Grid
+interface BrandsGridProps {
+  brands: Brand[];
+}
+
+function BrandsGrid({ brands }: BrandsGridProps) {
+  const t = useTranslations('brands');
+
+  return (
+    <section className="py-4 sm:py-2 relative z-10">
+      <div className="container mx-auto px-4">
+        <motion.div
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto"
+        >
+          <AnimatePresence mode="popLayout">
+            {brands.map((brand, index) => (
+              <motion.div
+                key={brand.id}
+                layout
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: index * 0.05,
+                  layout: { duration: 0.3 }
+                }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.01,
+                  transition: { duration: 0.2 }
+                }}
+                className="group"
+              >
+                <BrandCard brand={brand} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// Brand Card Component
+interface BrandCardProps {
+  brand: Brand;
+}
+
+function BrandCard({ brand }: BrandCardProps) {
+  const t = useTranslations('brands');
+
+  return (
+    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 sm:p-6 h-full flex flex-col hover:bg-white/10 transition-all duration-300 group cursor-pointer">
+      {/* Logo Section */}
+      <div className="h-16 sm:h-20 mb-3 sm:mb-4 flex items-center justify-center">
+        {brand.logoSrc ? (
+          <div className="relative w-full h-full">
+            <Image
+              src={brand.logoSrc}
+              alt={brand.name}
+              fill
+              className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            />
+          </div>
+        ) : (
+          <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center">
+            <span className="text-2xl font-bold text-white/60">
+              {brand.name.charAt(0)}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 flex flex-col">
+        {/* Brand Name */}
+        <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-millo-blue transition-colors duration-300">
+          {brand.name}
+        </h3>
+
+        {/* Description */}
+        <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-1">
+          {t(`brandDescriptions.${brand.slug}.description`)}
+        </p>
+
+        {/* Categories */}
+        <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+          {brand.categories.map((category) => (
+            <span
+              key={category}
+              className="px-2 sm:px-3 py-1 bg-white/10 rounded-full text-xs text-white/70"
+            >
+              {category}
+            </span>
+          ))}
+        </div>
+
+        {/* Country */}
+        {brand.country && (
+          <p className="text-white/50 text-xs mb-3 sm:mb-4">
+            {brand.country}
+          </p>
+        )}
+
+        {/* Website Link */}
+        {brand.website && (
+          <a
+            href={brand.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-millo-blue hover:text-millo-red transition-colors duration-300 text-sm font-medium"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {t('brandCard.visitWebsite')}
+            <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
