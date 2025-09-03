@@ -1018,5 +1018,94 @@
       "phone": "Call Us",
       "email": "Email Us"
     }
+  },
+  "contact": {
+    "getInTouch": {
+      "title": "Get in Touch",
+      "subtitle": "Ready to enhance your painting process? Contact our experts today",
+      "contactInfo": {
+        "title": "Contact Information",
+        "address": {
+          "label": "Address",
+          "value": "123 Paint Street, Tirana, Albania"
+        },
+        "phone": {
+          "label": "Phone",
+          "value": "+355 42 123 456"
+        },
+        "email": {
+          "label": "Email",
+          "value": "info@millocolor.com"
+        }
+      }
+    },
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "We're here to help with refinishing, equipment, training, and more"
+    },
+    "actions": {
+      "email": "Email us",
+      "call": "Call us",
+      "whatsapp": "Message on WhatsApp",
+      "emailDesc": "Send us an email and we'll respond within 24 hours",
+      "callDesc": "Speak directly with our experts for immediate assistance",
+      "whatsappDesc": "Quick questions? Chat with us on WhatsApp"
+    },
+    "locations": {
+      "title": "Our Location",
+      "address": "Tirana Headquarters"
+    },
+    "hours": {
+      "title": "Business Hours"
+    },
+    "form": {
+      "title": "Send us a Message",
+      "subtitle": "Prefer to write? Fill out the form below and we'll get back to you",
+      "name": "Full Name",
+      "email": "Email Address",
+      "message": "Your Message",
+      "namePlaceholder": "Enter your full name",
+      "emailPlaceholder": "Enter your email address",
+      "messagePlaceholder": "Tell us how we can help you...",
+      "submit": "Send Message",
+      "preferEmail": "Prefer email?",
+      "privacy": "Your information is safe with us. We'll only use it to respond to your inquiry."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Quick answers to common questions about our services",
+      "items": {
+        "q1": {
+          "question": "How quickly do you respond to inquiries?",
+          "answer": "We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly."
+        },
+        "q2": {
+          "question": "Do you provide services across all of Albania?",
+          "answer": "Yes, we provide services throughout Albania with our main operations based in Tirana for efficient coverage."
+        },
+        "q3": {
+          "question": "What are your business hours?",
+          "answer": "We're open Monday-Friday 8:00-17:00, Saturday 9:00-14:00, and closed on Sundays."
+        },
+        "q4": {
+          "question": "Can I visit your showroom?",
+          "answer": "Yes, you're welcome to visit our Tirana headquarters. We recommend calling ahead to schedule a visit."
+        },
+        "q5": {
+          "question": "Do you offer training programs?",
+          "answer": "Yes, we offer comprehensive training programs for technicians at all skill levels, from beginners to experienced professionals."
+        },
+        "q6": {
+          "question": "What brands do you work with?",
+          "answer": "We work with leading brands including Cromax, Standox, RUPES, Mirka, SATA, TELWIN, 3M, and many others."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Contact our experts today for personalized assistance",
+      "emailButton": "Email Us",
+      "callButton": "Call Us"
+    }
   }
 }

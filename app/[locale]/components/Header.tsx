@@ -197,17 +197,6 @@ export default function Header() {
                 <NavLink href="/services" pathname={pathname}>{t('services')}</NavLink>
                 <NavLink href="/contact" pathname={pathname}>{t('contact')}</NavLink>
                 
-                {/* Separator */}
-                <div className="h-6 w-px bg-gray-300"></div>
-                
-                {/* Contact Button */}
-                <Link
-                  href="/contact"
-                  className="px-6 py-2.5 bg-millo-dark-blue text-white font-semibold rounded-full hover:bg-blue-800 hover:shadow-lg transition-all duration-300 text-sm"
-                >
-                  {t('contact')}
-                </Link>
-                
                 {/* Language Switcher */}
                 <LanguageSwitcher />
               </div>

@@ -1136,5 +1136,94 @@
       "phone": "Na Telefononi",
       "email": "Na Dërgoni Email"
     }
+  },
+  "contact": {
+    "getInTouch": {
+      "title": "Na Kontaktoni",
+      "subtitle": "Gati për të përmirësuar procesin tuaj të bojatisjes? Kontaktoni ekspertët tanë sot",
+      "contactInfo": {
+        "title": "Informacioni i Kontaktit",
+        "address": {
+          "label": "Adresa",
+          "value": "Rr. Bojës 123, Tiranë, Shqipëri"
+        },
+        "phone": {
+          "label": "Telefoni",
+          "value": "+355 42 123 456"
+        },
+        "email": {
+          "label": "Email",
+          "value": "info@millocolor.com"
+        }
+      }
+    },
+    "hero": {
+      "title": "Na Kontaktoni",
+      "subtitle": "Jemi këtu për rifiniturë, pajisje, trajnim dhe çdo nevojë tjetër"
+    },
+    "actions": {
+      "email": "Na dërgoni email",
+      "call": "Na telefononi",
+      "whatsapp": "Na shkruani në WhatsApp",
+      "emailDesc": "Dërgoni një email dhe do t'ju përgjigjemi brenda 24 orësh",
+      "callDesc": "Flisni drejtpërdrejt me ekspertët tanë për ndihmë të menjëhershme",
+      "whatsappDesc": "Pyetje të shpejta? Bisedoni me ne në WhatsApp"
+    },
+    "locations": {
+      "title": "Lokacioni ynë",
+      "address": "Zyra Kryesore në Tiranë"
+    },
+    "hours": {
+      "title": "Orari i Punës"
+    },
+    "form": {
+      "title": "Na dërgoni një mesazh",
+      "subtitle": "Preferoni të shkruani? Plotësoni formularin më poshtë dhe do t'ju kontaktojmë",
+      "name": "Emri i Plotë",
+      "email": "Adresa e Email",
+      "message": "Mesazhi Juaj",
+      "namePlaceholder": "Shkruani emrin tuaj të plotë",
+      "emailPlaceholder": "Shkruani adresën tuaj të email",
+      "messagePlaceholder": "Na tregoni si mund t'ju ndihmojmë...",
+      "submit": "Dërgoni Mesazhin",
+      "preferEmail": "Preferoni email?",
+      "privacy": "Informacioni juaj është i sigurt me ne. Do ta përdorim vetëm për t'ju përgjigjur pyetjes suaj."
+    },
+    "faq": {
+      "title": "Pyetje të Bëra Më Shpesh",
+      "subtitle": "Përgjigje të shpejta për pyetjet e zakonshme rreth shërbimeve tona",
+      "items": {
+        "q1": {
+          "question": "Sa shpejt përgjigjeni pyetjeve?",
+          "answer": "Zakonisht përgjigjemi të gjitha pyetjeve brenda 24 orësh gjatë ditëve të punës. Për çështje urgjente, ju lutemi na telefononi drejtpërdrejt."
+        },
+        "q2": {
+          "question": "A ofroni shërbime në të gjithë Shqipërinë?",
+          "answer": "Po, ofrojmë shërbime në të gjithë Shqipërinë me operacionet tona kryesore të bazuara në Tiranë për mbulim efikas."
+        },
+        "q3": {
+          "question": "Cili është orari juaj i punës?",
+          "answer": "Jemi të hapur E Hënë-E Premte 8:00-17:00, E Shtunë 9:00-14:00, dhe të mbyllur të Dielave."
+        },
+        "q4": {
+          "question": "A mund të vizitoj showroom-in tuaj?",
+          "answer": "Po, jeni të mirëpritur të vizitoni zyrën tonë kryesore në Tiranë. Rekomandojmë të telefononi paraprakisht për të planifikuar një vizitë."
+        },
+        "q5": {
+          "question": "A ofroni programe trajnimi?",
+          "answer": "Po, ofrojmë programe gjithëpërfshirëse trajnimi për teknikë në të gjitha nivelet e aftësive, nga fillestarët deri te profesionistët me përvojë."
+        },
+        "q6": {
+          "question": "Me cilat marka punoni?",
+          "answer": "Punojmë me marka kryesore duke përfshirë Cromax, Standox, RUPES, Mirka, SATA, TELWIN, 3M, dhe shumë të tjera."
+        }
+      }
+    },
+    "cta": {
+      "title": "Gati për të Filluar?",
+      "subtitle": "Kontaktoni ekspertët tanë sot për ndihmë të personalizuar",
+      "emailButton": "Na Dërgoni Email",
+      "callButton": "Na Telefononi"
+    }
   }
 }
