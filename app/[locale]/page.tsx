@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Suspense, useState } from 'react';
-import Hero3D from './components/Hero3D';
+import HeroDynamicWrapper from './components/HeroDynamicWrapper';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import PartnerCarousel from './components/PartnerCarousel';
 import ContactForm from './components/ContactForm';
@@ -69,7 +69,7 @@ function HeroSection() {
     <section className="relative h-[70vh] md:h-[75vh] lg:h-[80vh] w-full flex items-center justify-center overflow-hidden">
       {/* Hero3D Component */}
       <div className="absolute inset-0 z-10 w-full">
-        <Hero3D />
+        <HeroDynamicWrapper />
       </div>
     </section>
   );

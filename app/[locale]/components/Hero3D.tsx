@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, useGLTF, Environment, PerspectiveCamera, useFont } from '@react-three/drei';
-import { useRef, useState, useEffect, useMemo, Suspense } from 'react';
+import { useRef, useState, useEffect, useMemo, Suspense, useLayoutEffect } from 'react';
 import dynamic from 'next/dynamic';
 import * as THREE from 'three';
 import gsap from 'gsap';
@@ -10,6 +10,8 @@ import SprayParticles from './SprayParticles';
 import { useResponsiveScaling } from '../hooks/useResponsiveScaling';
 import TypewriterText from './TypewriterText';
 import VideoBackground from './VideoBackground';
+import CanvasRecommendedProps from './CanvasRecommendedProps';
+import AnimationHealthMonitor from './AnimationHealthMonitor';
 
 // Only preload on client-side
 if (typeof window !== 'undefined') {
@@ -44,6 +46,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const [sprayColor, setSprayColor] = useState<THREE.Color>(new THREE.Color('#314485'));
   const [animationReady, setAnimationReady] = useState(false);
   const [forceRender, setForceRender] = useState(0);
+  const [modelLoaded, setModelLoaded] = useState(false);
 
 
   // Reduced fontSize to compensate for capital letters being larger
@@ -94,63 +97,74 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     }
   }, [milloTextRef.current, colorTextRef.current, fontSize, isMobile]);
 
-  // Comprehensive animation initialization with multiple retry attempts
-  useEffect(() => {
-    if (!gunRef.current || !milloTextRef.current || !colorTextRef.current) return;
-    
+  // More reliable animation initialization using useLayoutEffect
+  useLayoutEffect(() => {
     let retryCount = 0;
-    const MAX_RETRIES = 10;
+    const MAX_RETRIES = 50; // Increased retries
+    const RETRY_DELAY = 100; // Faster retries
     
-    const checkComponentsReady = () => {
-      const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
-      const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
-      const gunObject = gunRef.current;
+    const initializeAnimation = () => {
+      const checkComponentsReady = () => {
+        const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
+        const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
+        const gunObject = gunRef.current;
+        
+        const isReady = milloMat && colorMat && gunObject && 
+                       milloTextRef.current?.geometry && 
+                       colorTextRef.current?.geometry &&
+                       milloMat.color && colorMat.color;
+        
+        console.log(`Animation check ${retryCount + 1}:`, {
+          milloMat: !!milloMat,
+          colorMat: !!colorMat, 
+          gunObject: !!gunObject,
+          milloGeometry: !!milloTextRef.current?.geometry,
+          colorGeometry: !!colorTextRef.current?.geometry,
+          ready: isReady
+        });
+        
+        return isReady;
+      };
       
-      const isReady = milloMat && colorMat && gunObject && 
-                     milloTextRef.current?.geometry && 
-                     colorTextRef.current?.geometry &&
-                     milloMat.color && colorMat.color; // Ensure materials have color property
-      
-      console.log(`Animation check attempt ${retryCount + 1}:`, {
-        milloMat: !!milloMat,
-        colorMat: !!colorMat, 
-        gunObject: !!gunObject,
-        milloGeometry: !!milloTextRef.current?.geometry,
-        colorGeometry: !!colorTextRef.current?.geometry,
-        ready: isReady
-      });
-      
-      return isReady;
-    };
-    
-    const attemptInitialization = () => {
       if (checkComponentsReady()) {
         console.log('🎉 Animation components ready - starting animation!');
         setAnimationReady(true);
-        return true;
-      }
-      
-      retryCount++;
-      if (retryCount < MAX_RETRIES) {
-        console.log(`⏳ Components not ready, retry ${retryCount}/${MAX_RETRIES} in 200ms...`);
-        setTimeout(attemptInitialization, 200);
       } else {
-        console.error('❌ Animation initialization failed after maximum retries');
-        // Force animation start anyway as fallback
-        console.log('🔧 Forcing animation start as fallback...');
-        setAnimationReady(true);
-        setForceRender(prev => prev + 1); // Force re-render
+        retryCount++;
+        if (retryCount < MAX_RETRIES) {
+          console.log(`⏳ Components not ready, retry ${retryCount}/${MAX_RETRIES} in ${RETRY_DELAY}ms...`);
+          setTimeout(initializeAnimation, RETRY_DELAY);
+        } else {
+          console.warn('⚠️ Max retries reached, forcing animation start...');
+          setAnimationReady(true);
+        }
       }
-      return false;
     };
     
-    // Start with immediate check, then 500ms delay if not ready
-    if (!attemptInitialization()) {
-      setTimeout(attemptInitialization, 500);
-    }
+    // Start initialization immediately
+    initializeAnimation();
     
-  }, [gunRef.current, milloTextRef.current, colorTextRef.current, isMobile]);
+    // Fallback: force animation start after 3 seconds regardless
+    const fallbackTimeout = setTimeout(() => {
+      if (!animationReady) {
+        console.warn('🚨 Fallback: Forcing animation start after timeout');
+        setAnimationReady(true);
+      }
+    }, 3000);
+    
+    return () => {
+      clearTimeout(fallbackTimeout);
+    };
+  }, [isMobile, animationReady]);
   
+  // Also trigger animation when model loads
+  useEffect(() => {
+    if (modelLoaded && !animationReady) {
+      console.log('🎯 Model loaded, triggering animation check...');
+      setAnimationReady(true);
+    }
+  }, [modelLoaded, animationReady]);
+
   useEffect(() => {
     // Only create timeline when animation is ready
     if (!animationReady || !gunRef.current || !milloTextRef.current || !colorTextRef.current) return;
@@ -461,6 +475,11 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
 
     return (
     <>
+      <AnimationHealthMonitor 
+        animationReady={animationReady} 
+        isMobile={isMobile} 
+        componentName="Hero3D" 
+      />
       <PerspectiveCamera makeDefault position={[0, 0, isMobile ? 3.5 : 5]} fov={isMobile ? 65 : 50} />
       <ambientLight intensity={0.8} />
       <directionalLight position={[5, 5, 5]} intensity={1.5} />
@@ -506,24 +525,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   );
 }
 
-// WebGL context cleanup utility
-const cleanupWebGLContexts = () => {
-  const canvases = document.querySelectorAll('canvas');
-  canvases.forEach((canvas) => {
-    try {
-      const gl = canvas.getContext('webgl') || canvas.getContext('webgl2') || canvas.getContext('experimental-webgl');
-      if (gl && ('getExtension' in gl)) {
-        const webglContext = gl as WebGLRenderingContext;
-        const loseContext = webglContext.getExtension('WEBGL_lose_context');
-        if (loseContext) {
-          loseContext.loseContext();
-        }
-      }
-    } catch (error: unknown) {
-      console.log('Context cleanup:', error instanceof Error ? error.message : 'Unknown error');
-    }
-  });
-};
+// WebGL context cleanup utility - removed to avoid destroying active contexts
 
 // Simplified Hero3D component
 function Hero3DClient() {
@@ -533,32 +535,17 @@ function Hero3DClient() {
   const [canvasKey, setCanvasKey] = useState(0);
   
   useEffect(() => {
-    // Cleanup any existing WebGL contexts first
-    cleanupWebGLContexts();
-    
     setMounted(true);
     
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
     
-    // Handle WebGL context errors
-    const handleWebGLError = () => {
-      console.log('🔧 WebGL context error detected, forcing canvas recreation...');
-      cleanupWebGLContexts();
-      setCanvasKey(prev => prev + 1);
-    };
-    
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    window.addEventListener('webglcontextlost', handleWebGLError);
-    window.addEventListener('webglcontextcreationerror', handleWebGLError);
     
     return () => {
       window.removeEventListener('resize', checkMobile);
-      window.removeEventListener('webglcontextlost', handleWebGLError);
-      window.removeEventListener('webglcontextcreationerror', handleWebGLError);
-      cleanupWebGLContexts();
     };
   }, []);
 
@@ -672,15 +659,8 @@ function Hero3DClient() {
         </div>
       )}
       
-      <Canvas 
+      <CanvasRecommendedProps 
         key={`hero3d-canvas-${canvasKey}`}
-        gl={{ 
-          antialias: true,
-          alpha: true,
-          powerPreference: 'high-performance',
-          preserveDrawingBuffer: false,
-          failIfMajorPerformanceCaveat: false
-        }}
         className="w-full h-full relative z-20"
         camera={{ 
           position: [0, 0, isMobile ? 4 : 6], 
@@ -690,16 +670,15 @@ function Hero3DClient() {
           gl.setClearColor('#000000', 0);
           console.log('✅ New WebGL context created successfully');
         }}
-        onError={(error) => {
-          console.error('❌ Canvas error:', error);
-          cleanupWebGLContexts();
+        onError={() => {
+          // increment key to recreate the canvas on error
           setCanvasKey(prev => prev + 1);
         }}
       >
         <Suspense fallback={<LoadingFallback />}>
           <Scene isMobile={isMobile} onModelLoaded={() => setModelLoaded(true)} />
         </Suspense>
-      </Canvas>
+      </CanvasRecommendedProps>
     </section>
   );
 }

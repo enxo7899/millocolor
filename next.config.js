@@ -1,10 +1,31 @@
 /** @type {import('next').NextConfig} */
 
 const withNextIntl = require('next-intl/plugin')('./i18n.ts');
+// Bundle analyzer - only load if available
+let withBundleAnalyzer = (config) => config;
+try {
+  withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+  });
+} catch (e) {
+  console.log('Bundle analyzer not available, skipping...');
+}
 
 const nextConfig = {
-  // Allow external images from official manufacturer websites
+  // Performance optimizations
+  experimental: {
+    optimizePackageImports: ['@react-three/drei', 'gsap', 'three'],
+  },
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Image optimizations
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',
@@ -51,4 +72,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withNextIntl(nextConfig);
+module.exports = withBundleAnalyzer(withNextIntl(nextConfig));
