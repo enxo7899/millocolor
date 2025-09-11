@@ -194,7 +194,7 @@ const ServicesTimeline = () => {
 
                   {/* Content */}
                   <p className="text-white/80 mb-4 italic leading-relaxed">
-                    "{testimonial.content}"
+                    &ldquo;{testimonial.content}&rdquo;
                   </p>
 
                   {/* Author */}

@@ -583,7 +583,7 @@ function BrandShowcaseSection() {
             {t('trustedBy')} {t('worldIndustryLeaders')}
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Trusted partnerships with the world's most reputable brands in automotive refinishing
+            Trusted partnerships with the world&apos;s most reputable brands in automotive refinishing
           </p>
         </motion.div>
 

@@ -242,7 +242,26 @@ const GallerySection = () => {
 
 // Location Card Component with Image Carousel
 const LocationCard = ({ location, isActive, onToggle }: { 
-  location: any; 
+  location: { 
+    id: number;
+    name: string; 
+    nameSq: string;
+    country: string;
+    countrySq: string;
+    subtitle: string;
+    subtitleSq: string;
+    features: string[];
+    featuresSq: string[];
+    address: string;
+    addressSq: string;
+    phone: string;
+    email: string;
+    hours: string;
+    hoursSq: string;
+    color: string;
+    icon: string;
+    images: string[]; 
+  }; 
   isActive: boolean; 
   onToggle: () => void;
 }) => {

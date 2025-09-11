@@ -95,7 +95,7 @@ const ContactForm: React.FC = () => {
           </svg>
         </motion.div>
         <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
-        <p className="text-white/80">Your message has been sent successfully. We'll be in touch soon.</p>
+        <p className="text-white/80">Your message has been sent successfully. We&apos;ll be in touch soon.</p>
       </motion.div>
     );
   }

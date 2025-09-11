@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 
 interface ActionCardProps {
@@ -8,7 +8,7 @@ interface ActionCardProps {
   title: string;
   description: string;
   href: string;
-  variants?: any;
+  variants?: Variants;
 }
 
 const iconMap = {

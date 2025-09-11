@@ -78,18 +78,13 @@
   transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
-/* Pause animation when carousel is paused (mobile touch) */
-.partner-carousel-wrapper.paused .partner-carousel-item {
+/* Pause animation when carousel is paused (desktop hover) */
+.partner-carousel-wrapper:hover .partner-carousel-item {
   animation-play-state: paused;
 }
 
 /* Mobile touch feedback and improvements */
 @media (max-width: 768px) {
-  .partner-carousel-item:active {
-    transform: scale(0.95);
-    transition: transform 0.1s ease;
-  }
-  
   /* Enhanced touch interaction for mobile */
   .partner-carousel-wrapper {
     touch-action: pan-x;
@@ -101,15 +96,20 @@
     cursor: grabbing;
   }
   
-  /* Disable animation on mobile when dragging */
-  .partner-carousel-wrapper.dragging .partner-carousel-item {
-    animation-play-state: paused;
+  /* Default state: animation should be running on mobile */
+  .partner-carousel-item {
+    animation-play-state: running !important;
   }
   
-  /* Smooth pause/resume animation */
-  .partner-carousel-wrapper.paused .partner-carousel-item {
-    animation-play-state: paused;
-    transition: all 0.3s ease;
+  /* Only pause when explicitly paused or dragging */
+  .partner-carousel-wrapper.paused .partner-carousel-item,
+  .partner-carousel-wrapper.dragging .partner-carousel-item {
+    animation-play-state: paused !important;
+  }
+  
+  .partner-carousel-item:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
   }
   
   /* Better visual feedback for mobile */
@@ -125,10 +125,6 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-  }
-  
-  /* Smooth transitions for mobile dragging */
-  .partner-carousel-container {
     transition: transform 0.3s ease-out;
   }
   

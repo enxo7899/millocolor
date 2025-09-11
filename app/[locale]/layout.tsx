@@ -20,7 +20,7 @@ export async function generateMetadata({
   const locale = (await params).locale;
   
   // Verify that locale is supported first
-  if (!locales.includes(locale as any)) {
+  if (!locales.includes(locale as string)) {
     notFound();
   }
 
@@ -70,7 +70,7 @@ export default async function RootLayout({
   const locale = (await params).locale;
 
   // Validate that the incoming locale is supported
-  if (!locales.includes(locale as any)) {
+  if (!locales.includes(locale as string)) {
     return notFound();
   }
 

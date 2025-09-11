@@ -11,8 +11,8 @@ interface SprayParticlesProps {
   spreadAngle?: number;   // cone angle in degrees
   speed?: number;         // base particle speed
   lifeTime?: number;      // base lifetime in seconds
-  milloTextRef?: React.RefObject<any>; // Reference to Millo text for masking
-  colorTextRef?: React.RefObject<any>; // Reference to Color text for masking
+  milloTextRef?: React.RefObject<THREE.Mesh | null>; // Reference to Millo text for masking
+  colorTextRef?: React.RefObject<THREE.Mesh | null>; // Reference to Color text for masking
 }
 
 function SprayParticles({
@@ -195,7 +195,7 @@ function SprayParticles({
         .add(upVector.clone().multiplyScalar(spreadY * (p.triangularOffset - 0.5) * 1.0));
       
       // DEBUG: Show all particles for now to ensure spray is working
-      let particleVisible = true; // Always show particles for debugging
+      const particleVisible = true; // Always show particles for debugging
       
       // Position the particle
       dummy.position.copy(particlePos);

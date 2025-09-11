@@ -37,8 +37,8 @@ function LoadingFallback() {
 function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: () => void }) {
   const { scene: sprayGun } = useGLTF('/models/spray_gun.glb');
   const gunRef = useRef<THREE.Object3D>(null);
-  const milloTextRef = useRef<any>(null);
-  const colorTextRef = useRef<any>(null);
+  const milloTextRef = useRef<THREE.Mesh>(null);
+  const colorTextRef = useRef<THREE.Mesh>(null);
 
   const scale = useResponsiveScaling();
   const [milloColor, setMilloColor] = useState(new THREE.Color('#CCCCCC'));
@@ -198,10 +198,10 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     const milloStart = milloPosX;
     const milloEnd = transitionX;
     const colorStart = colorPosX;
-    const colorEnd = colorPosX + (colorTextRef.current?.geometry.boundingBox?.max.x - colorTextRef.current?.geometry.boundingBox?.min.x || 1.5);
+    const colorEnd = colorPosX + ((colorTextRef.current?.geometry.boundingBox?.max.x ?? 0) - (colorTextRef.current?.geometry.boundingBox?.min.x ?? 0) || 1.5);
     let t = 0;
-    let passDuration = 0.9;
-    let halfPass = passDuration / 2;
+    const passDuration = 0.9;
+    const halfPass = passDuration / 2;
     
     // Pass 1: Left to right
     tl.to(gun.position, {
@@ -450,43 +450,53 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
       onModelLoaded();
       
       // Optimize the 3D model for better performance
-      sprayGun.traverse((child: any) => {
-        if (child.isMesh) {
+      sprayGun.traverse((child: THREE.Object3D) => {
+        if ('isMesh' in child && child.isMesh) {
+          const mesh = child as THREE.Mesh;
           // Clone material only if necessary
-          if (!child.material.userData?.optimized) {
-            child.material = child.material.clone();
-            child.material.metalness = 0.8;
-            child.material.roughness = 0.2;
-            child.material.userData = { optimized: true };
+          const material = mesh.material as THREE.Material;
+          if (!material.userData?.optimized) {
+            mesh.material = material.clone();
+            const clonedMaterial = mesh.material as THREE.MeshStandardMaterial;
+            if (clonedMaterial.metalness !== undefined) {
+              clonedMaterial.metalness = 0.8;
+            }
+            if (clonedMaterial.roughness !== undefined) {
+              clonedMaterial.roughness = 0.2;
+            }
+            clonedMaterial.userData = { optimized: true };
           }
           
           // Optimize geometry
-          if (child.geometry) {
-            child.geometry.computeBoundingBox();
-            child.geometry.computeBoundingSphere();
+          if (mesh.geometry) {
+            mesh.geometry.computeBoundingBox();
+            mesh.geometry.computeBoundingSphere();
             
             // Enable frustum culling
-            child.frustumCulled = true;
+            mesh.frustumCulled = true;
             
             // Optimize for static meshes
-            child.matrixAutoUpdate = false;
-            child.updateMatrix();
+            mesh.matrixAutoUpdate = false;
+            mesh.updateMatrix();
             
             // Dispose of unused geometry data
-            if (child.geometry.attributes.normal) {
-              child.geometry.attributes.normal.needsUpdate = false;
+            if (mesh.geometry.attributes.normal) {
+              mesh.geometry.attributes.normal.needsUpdate = false;
             }
-            if (child.geometry.attributes.uv) {
-              child.geometry.attributes.uv.needsUpdate = false;
+            if (mesh.geometry.attributes.uv) {
+              mesh.geometry.attributes.uv.needsUpdate = false;
             }
           }
         }
       });
       
       // Mark geometry as optimized
-      sprayGun.traverse((child: any) => {
-        if (child.isMesh && child.geometry) {
-          child.geometry.userData = { optimized: true };
+      sprayGun.traverse((child: THREE.Object3D) => {
+        if ('isMesh' in child && child.isMesh) {
+          const mesh = child as THREE.Mesh;
+          if (mesh.geometry) {
+            mesh.geometry.userData = { optimized: true };
+          }
         }
       });
     }
