@@ -113,6 +113,7 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
   const [dragOffset, setDragOffset] = useState(0);
   const [isMobileInteracting, setIsMobileInteracting] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const resetAnimationRef = useRef<NodeJS.Timeout | null>(null);
 
   // Check if device is mobile - only on client side
   useEffect(() => {
@@ -152,6 +153,13 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
     
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      // Cleanup timeouts and intervals
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      if (resetAnimationRef.current) {
+        clearInterval(resetAnimationRef.current);
+      }
     };
   }, [isClient, isMobile, isPaused, isDragging, isMobileInteracting]);
 
@@ -176,7 +184,7 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
     setIsDragging(false);
     setIsPaused(false);
     setIsMobileInteracting(false);
-    setDragOffset(0);
+    // Don't reset dragOffset here - let it stay where user dragged it
     setTouchStart(null);
     
     // Clear any existing timeout
@@ -195,25 +203,58 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
     timeoutRef.current = setTimeout(() => {
       if (isMobile && (isPaused || isDragging || isMobileInteracting)) {
         resetCarouselState();
+        startDragOffsetReset(); // Start gradual reset of drag offset
       }
     }, 2000); // Auto-resume after 2 seconds of inactivity
+  };
+
+  // Function to gradually reset drag offset over time
+  const startDragOffsetReset = () => {
+    if (resetAnimationRef.current) {
+      clearInterval(resetAnimationRef.current);
+    }
+
+    const startOffset = dragOffset;
+    const startTime = Date.now();
+    const duration = 1000; // 1 second to reset
+
+    resetAnimationRef.current = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3); // Ease out function
+      const currentOffset = startOffset * (1 - easeOut);
+
+      setDragOffset(currentOffset);
+
+      if (progress >= 1) {
+        setDragOffset(0);
+        if (resetAnimationRef.current) {
+          clearInterval(resetAnimationRef.current);
+          resetAnimationRef.current = null;
+        }
+      }
+    }, 16); // ~60fps
   };
 
   // Touch handlers for mobile swiping/dragging
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!isClient || !isMobile) return;
     
-    // Clear any existing timeout
+    // Clear any existing timeout and reset animation
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
+    }
+    if (resetAnimationRef.current) {
+      clearInterval(resetAnimationRef.current);
+      resetAnimationRef.current = null;
     }
     
     setTouchStart(e.targetTouches[0].clientX);
     setIsPaused(true);
     setIsDragging(true);
     setIsMobileInteracting(true);
-    setDragOffset(0);
+    // Don't reset dragOffset to 0 - keep current position
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -242,17 +283,21 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!isClient || !isMobile) return;
     
-    // Clear any existing timeout
+    // Clear any existing timeout and reset animation
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
+    }
+    if (resetAnimationRef.current) {
+      clearInterval(resetAnimationRef.current);
+      resetAnimationRef.current = null;
     }
     
     setTouchStart(e.clientX);
     setIsPaused(true);
     setIsDragging(true);
     setIsMobileInteracting(true);
-    setDragOffset(0);
+    // Don't reset dragOffset to 0 - keep current position
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -290,7 +335,7 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
         className="partner-carousel-container"
         ref={containerRef}
         style={{
-          transform: isClient && isMobile && isDragging ? `translateX(${dragOffset}px)` : 'none',
+          transform: isClient && isMobile && dragOffset !== 0 ? `translateX(${dragOffset}px)` : 'none',
           transition: isClient && isMobile && !isDragging ? 'transform 0.3s ease-out' : 'none'
         }}
       >
