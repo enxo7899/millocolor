@@ -173,7 +173,7 @@ const Navbar: React.FC = () => {
                             : 'hover:bg-white/10 text-white/90 hover:text-white'
                         }`}
                       >
-                        <span className="text-lg">{lang.flag}</span>
+                        <Flag country={lang.flagComponent as 'uk' | 'albania'} size={18} className="flex-shrink-0"/>
                         <span className="font-medium">{lang.name}</span>
                       </button>
                     ))}
