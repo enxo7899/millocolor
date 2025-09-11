@@ -52,20 +52,89 @@
   margin-right: var(--spacing);
   animation-delay: calc(var(--animation-duration) / var(--total-items) * (var(--total-items) - var(--n)) * -1);
   filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
 }
 
-/* When carousel is hovered, all items become colored */
-.partner-carousel-wrapper:hover .partner-carousel-item {
-  filter: grayscale(0%);
-  transition: filter 0.4s ease;
+/* Default state: all items are grayscale */
+.partner-carousel-item {
+  filter: grayscale(100%);
+  opacity: 0.7;
 }
 
-/* Individual item hover effect when carousel is not hovered */
-.partner-carousel-item:hover {
+/* When a specific item is hovered, only that item becomes colored */
+.partner-carousel-item.hovered {
   filter: grayscale(0%);
+  opacity: 1;
   z-index: 10;
-  transition: filter 0.2s ease;
+  transform: scale(1.05);
+  transition: filter 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* When an item is hovered, dim all other items */
+.partner-carousel-item.dimmed {
+  filter: grayscale(100%);
+  opacity: 0.4;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+/* Pause animation when carousel is paused (mobile touch) */
+.partner-carousel-wrapper.paused .partner-carousel-item {
+  animation-play-state: paused;
+}
+
+/* Mobile touch feedback and improvements */
+@media (max-width: 768px) {
+  .partner-carousel-item:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Enhanced touch interaction for mobile */
+  .partner-carousel-wrapper {
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+  
+  .partner-carousel-wrapper.dragging {
+    cursor: grabbing;
+  }
+  
+  /* Disable animation on mobile when dragging */
+  .partner-carousel-wrapper.dragging .partner-carousel-item {
+    animation-play-state: paused;
+  }
+  
+  /* Smooth pause/resume animation */
+  .partner-carousel-wrapper.paused .partner-carousel-item {
+    animation-play-state: paused;
+    transition: all 0.3s ease;
+  }
+  
+  /* Better visual feedback for mobile */
+  .partner-carousel-item.hovered {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Mobile carousel container adjustments */
+  .partner-carousel-container {
+    will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  /* Smooth transitions for mobile dragging */
+  .partner-carousel-container {
+    transition: transform 0.3s ease-out;
+  }
+  
+  .partner-carousel-wrapper.dragging .partner-carousel-container {
+    transition: none;
+  }
 }
 
 .partner-carousel-item a {

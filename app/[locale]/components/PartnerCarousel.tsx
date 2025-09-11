@@ -1,7 +1,7 @@
 'use client';
 
 import './PartnerCarousel.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface PartnerCarouselProps {
   onHoverChange?: (isHovered: boolean) => void;
@@ -103,6 +103,29 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
   ];
 
   const carouselRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [hoveredPartner, setHoveredPartner] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [animationPosition, setAnimationPosition] = useState(0);
+
+  // Check if device is mobile - only on client side
+  useEffect(() => {
+    setIsClient(true);
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   const handleMouseEnter = () => {
     onHoverChange?.(true);
@@ -112,19 +135,105 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
     onHoverChange?.(false);
   };
 
+  const handlePartnerHover = (partnerId: number) => {
+    setHoveredPartner(partnerId);
+  };
+
+  const handlePartnerLeave = () => {
+    setHoveredPartner(null);
+  };
+
+  // Touch handlers for mobile swiping/dragging
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!isClient || !isMobile) return;
+    
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsPaused(true);
+    setIsDragging(true);
+    setDragOffset(0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isClient || !isMobile || !isDragging || !touchStart) return;
+    
+    const currentTouch = e.targetTouches[0].clientX;
+    const deltaX = currentTouch - touchStart;
+    
+    setTouchEnd(currentTouch);
+    setDragOffset(deltaX);
+    
+    // Prevent default scrolling behavior
+    e.preventDefault();
+  };
+
+  const handleTouchEnd = () => {
+    if (!isClient || !isMobile || !isDragging) return;
+    
+    setIsDragging(false);
+    setIsPaused(false);
+    
+    // Reset drag offset
+    setDragOffset(0);
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  // Mouse handlers for desktop dragging (optional)
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!isClient || !isMobile) return;
+    
+    setTouchStart(e.clientX);
+    setIsPaused(true);
+    setIsDragging(true);
+    setDragOffset(0);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isClient || !isMobile || !isDragging || !touchStart) return;
+    
+    const deltaX = e.clientX - touchStart;
+    setDragOffset(deltaX);
+  };
+
+  const handleMouseUp = () => {
+    if (!isClient || !isMobile || !isDragging) return;
+    
+    setIsDragging(false);
+    setIsPaused(false);
+    setDragOffset(0);
+    setTouchStart(null);
+  };
+
   return (
     <div 
-      className="partner-carousel-wrapper"
+      className={`partner-carousel-wrapper ${isPaused ? 'paused' : ''} ${isDragging ? 'dragging' : ''}`}
       ref={carouselRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
     >
-      <div className="partner-carousel-container">
+      <div 
+        className="partner-carousel-container"
+        ref={containerRef}
+        style={{
+          transform: isClient && isMobile && isDragging ? `translateX(${dragOffset}px)` : 'none',
+          transition: isClient && isMobile && !isDragging ? 'transform 0.3s ease-out' : 'none'
+        }}
+      >
         {partners.map((partner) => (
           <div 
             key={partner.id} 
-            className="partner-carousel-item"
+            className={`partner-carousel-item ${hoveredPartner === partner.id ? 'hovered' : ''} ${hoveredPartner && hoveredPartner !== partner.id ? 'dimmed' : ''}`}
             style={{ '--n': partner.id } as React.CSSProperties}
+            onMouseEnter={() => isClient && !isMobile && handlePartnerHover(partner.id)}
+            onMouseLeave={() => isClient && !isMobile && handlePartnerLeave()}
           >
             <a href={partner.url} target="_blank" rel="noopener noreferrer">
               <img src={partner.logo} alt={partner.name} className="partner-logo" />
@@ -134,8 +243,10 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ onHoverChange }) => {
         {partners.map((partner, index) => (
           <div 
             key={`duplicate-${index}`} 
-            className="partner-carousel-item"
+            className={`partner-carousel-item ${hoveredPartner === partner.id ? 'hovered' : ''} ${hoveredPartner && hoveredPartner !== partner.id ? 'dimmed' : ''}`}
             style={{ '--n': partners.length + index + 1 } as React.CSSProperties}
+            onMouseEnter={() => isClient && !isMobile && handlePartnerHover(partner.id)}
+            onMouseLeave={() => isClient && !isMobile && handlePartnerLeave()}
           >
             <a href={partner.url} target="_blank" rel="noopener noreferrer">
               <img src={partner.logo} alt={partner.name} className="partner-logo" />

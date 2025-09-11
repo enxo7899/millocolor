@@ -35,9 +35,7 @@ function LoadingFallback() {
 
 // Main scene component with optimized animations
 function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: () => void }) {
-  const { scene: sprayGun } = useGLTF('/models/spray_gun.glb', undefined, (error) => {
-    console.error('Failed to load 3D model:', error);
-  });
+  const { scene: sprayGun } = useGLTF('/models/spray_gun.glb');
   const gunRef = useRef<THREE.Object3D>(null);
   const milloTextRef = useRef<any>(null);
   const colorTextRef = useRef<any>(null);
