@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Flag } from './FlagIcons';
 
 /**
  * Premium glassmorphic navigation bar inspired by luxury tech brands
@@ -63,8 +64,8 @@ const Navbar: React.FC = () => {
   ];
 
   const languages = [
-    { code: 'en', flag: '🇬🇧', name: 'English' },
-    { code: 'sq', flag: '🇦🇱', name: 'Shqip' }
+    { code: 'en', flagComponent: 'uk', name: 'English' },
+    { code: 'sq', flagComponent: 'albania', name: 'Shqip' }
   ];
 
   const currentLang = languages.find(lang => lang.code === locale) || languages[0];
@@ -135,7 +136,11 @@ const Navbar: React.FC = () => {
                 className="flex items-center space-x-2 px-3 py-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
                 aria-label="Switch language"
               >
-                <span className="text-lg">{currentLang.flag}</span>
+                <Flag 
+                  country={currentLang.flagComponent as 'uk' | 'albania'} 
+                  size={18} 
+                  className="flex-shrink-0"
+                />
                 <span className="text-sm font-medium text-white">{currentLang.code.toUpperCase()}</span>
                 <motion.svg
                   className="w-4 h-4 text-white/70"
@@ -298,7 +303,11 @@ const Navbar: React.FC = () => {
                             : 'bg-white/10 text-white/70 hover:text-white hover:bg-white/20'
                         }`}
                       >
-                        <span className="text-lg">{lang.flag}</span>
+                        <Flag 
+                          country={lang.flagComponent as 'uk' | 'albania'} 
+                          size={18} 
+                          className="flex-shrink-0"
+                        />
                         <span className="font-medium text-sm">{lang.name}</span>
                       </button>
                     ))}

@@ -3,16 +3,17 @@
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
+import { Flag } from './FlagIcons';
 
-// Language configuration with flag emojis and display names
+// Language configuration with flag components and display names
 const languages = {
   en: {
-    flag: '🇬🇧',
+    flagComponent: 'uk',
     name: 'English',
     shortName: 'EN'
   },
   sq: {
-    flag: '🇦🇱',
+    flagComponent: 'albania',
     name: 'Shqip',
     shortName: 'SQ'
   }
@@ -84,9 +85,11 @@ export default function LanguageSwitcher() {
         aria-haspopup="true"
         aria-label={`Current language: ${currentLanguage.name}. Click to change language.`}
       >
-        <span className="text-lg" role="img" aria-label={`${currentLanguage.name} flag`}>
-          {currentLanguage.flag}
-        </span>
+        <Flag 
+          country={currentLanguage.flagComponent as 'uk' | 'albania'} 
+          size={18} 
+          className="flex-shrink-0"
+        />
         <span className="hidden sm:inline text-sm font-medium">
           {currentLanguage.shortName}
         </span>
@@ -119,9 +122,11 @@ export default function LanguageSwitcher() {
                 }`}
                 aria-label={`Switch to ${lang.name}`}
               >
-                <span className="text-xl" role="img" aria-label={`${lang.name} flag`}>
-                  {lang.flag}
-                </span>
+                <Flag 
+                  country={lang.flagComponent as 'uk' | 'albania'} 
+                  size={20} 
+                  className="flex-shrink-0"
+                />
                 <div className="flex flex-col items-start">
                   <span className="font-semibold">{lang.name}</span>
                   <span className="text-xs text-gray-500 group-hover:text-gray-600">

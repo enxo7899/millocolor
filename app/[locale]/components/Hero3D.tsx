@@ -13,10 +13,14 @@ import VideoBackground from './VideoBackground';
 import CanvasRecommendedProps from './CanvasRecommendedProps';
 import AnimationHealthMonitor from './AnimationHealthMonitor';
 
-// Only preload on client-side
+// Only preload on client-side with error handling
 if (typeof window !== 'undefined') {
-  useGLTF.preload('/models/spray_gun.glb');
-  useFont.preload('/fonts/Baloo2-Bold.ttf');
+  try {
+    useGLTF.preload('/models/spray_gun.glb');
+    useFont.preload('/fonts/Baloo2-Bold.ttf');
+  } catch (error) {
+    console.warn('Failed to preload 3D assets:', error);
+  }
 }
 
 // Loading fallback component
@@ -31,7 +35,9 @@ function LoadingFallback() {
 
 // Main scene component with optimized animations
 function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: () => void }) {
-  const { scene: sprayGun } = useGLTF('/models/spray_gun.glb');
+  const { scene: sprayGun } = useGLTF('/models/spray_gun.glb', undefined, (error) => {
+    console.error('Failed to load 3D model:', error);
+  });
   const gunRef = useRef<THREE.Object3D>(null);
   const milloTextRef = useRef<any>(null);
   const colorTextRef = useRef<any>(null);
@@ -467,7 +473,22 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
             // Optimize for static meshes
             child.matrixAutoUpdate = false;
             child.updateMatrix();
+            
+            // Dispose of unused geometry data
+            if (child.geometry.attributes.normal) {
+              child.geometry.attributes.normal.needsUpdate = false;
+            }
+            if (child.geometry.attributes.uv) {
+              child.geometry.attributes.uv.needsUpdate = false;
+            }
           }
+        }
+      });
+      
+      // Mark geometry as optimized
+      sprayGun.traverse((child: any) => {
+        if (child.isMesh && child.geometry) {
+          child.geometry.userData = { optimized: true };
         }
       });
     }
@@ -533,6 +554,7 @@ function Hero3DClient() {
   const [isMobile, setIsMobile] = useState(false);
   const [modelLoaded, setModelLoaded] = useState(false);
   const [canvasKey, setCanvasKey] = useState(0);
+  const [loadingProgress, setLoadingProgress] = useState(0);
   
   useEffect(() => {
     setMounted(true);
@@ -544,8 +566,17 @@ function Hero3DClient() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
+    // Simulate loading progress
+    const progressInterval = setInterval(() => {
+      setLoadingProgress(prev => {
+        if (prev >= 90) return prev; // Stop at 90% until model loads
+        return prev + Math.random() * 10;
+      });
+    }, 200);
+    
     return () => {
       window.removeEventListener('resize', checkMobile);
+      clearInterval(progressInterval);
     };
   }, []);
 
@@ -597,14 +628,14 @@ function Hero3DClient() {
                   </div>
                   <div className="text-right">
                     <span className="text-xs font-semibold inline-block text-[#C73834]">
-                      Initializing...
+                      {Math.round(loadingProgress)}%
                     </span>
                   </div>
                 </div>
                 <div className="overflow-hidden h-4 mb-4 text-xs flex rounded-full bg-gray-800">
                   <div 
-                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#314485] to-[#C73834] transition-all duration-500 ease-in-out"
-                    style={{ width: '45%' }}
+                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#314485] to-[#C73834] transition-all duration-300 ease-in-out"
+                    style={{ width: `${Math.min(loadingProgress, 100)}%` }}
                   ></div>
                 </div>
               </div>
@@ -676,7 +707,10 @@ function Hero3DClient() {
         }}
       >
         <Suspense fallback={<LoadingFallback />}>
-          <Scene isMobile={isMobile} onModelLoaded={() => setModelLoaded(true)} />
+          <Scene isMobile={isMobile} onModelLoaded={() => {
+            setModelLoaded(true);
+            setLoadingProgress(100);
+          }} />
         </Suspense>
       </CanvasRecommendedProps>
     </section>
