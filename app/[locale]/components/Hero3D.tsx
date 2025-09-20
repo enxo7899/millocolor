@@ -17,6 +17,8 @@ import AnimationHealthMonitor from './AnimationHealthMonitor';
 const MODEL_PATH = '/models/spray_gun.opt.glb';
 const FONT_PATH = '/fonts/Baloo2-Bold.ttf';
 
+type SceneLoadingEvent = 'model-loaded' | 'text-ready' | 'animation-starting';
+
 let preloadProgress = 0;
 
 function isWebGLAvailable() {
@@ -70,7 +72,15 @@ function LoadingFallback() {
 }
 
 // Main scene component with optimized animations
-function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; onModelLoaded?: () => void; onSceneReady: () => void }) {
+function Scene({
+  isMobile,
+  onSceneReady,
+  onSceneStateChange
+}: {
+  isMobile: boolean;
+  onSceneReady: () => void;
+  onSceneStateChange?: (state: SceneLoadingEvent) => void;
+}) {
   const { scene: sprayGun } = useGLTF(MODEL_PATH);
   const gunRef = useRef<THREE.Object3D>(null);
   const milloTextRef = useRef<THREE.Mesh>(null);
@@ -87,6 +97,16 @@ function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; o
   const [modelLoaded, setModelLoaded] = useState(false);
   const [textGeometryReady, setTextGeometryReady] = useState(false);
   const hasReportedReady = useRef(false);
+  const textReadyNotified = useRef(false);
+  const animationStartNotified = useRef(false);
+  const modelNotified = useRef(false);
+
+  const notifyAnimationStarting = useCallback(() => {
+    if (!animationStartNotified.current) {
+      animationStartNotified.current = true;
+      onSceneStateChange?.('animation-starting');
+    }
+  }, [onSceneStateChange]);
 
 
   // Optimized fontSize and spacing for better performance
@@ -133,23 +153,31 @@ function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; o
 
   // Enhanced animation initialization with better dependency tracking
   useEffect(() => {
+    if (animationStartNotified.current) return;
+
     let mounted = true;
     let checkInterval: NodeJS.Timeout;
     let retryCount = 0;
     const MAX_RETRIES = 100;
-    
+
     const checkAllDependencies = () => {
       if (!mounted) return false;
-      
+
       const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
       const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
       const gunObject = gunRef.current;
       const milloGeom = milloTextRef.current?.geometry;
       const colorGeom = colorTextRef.current?.geometry;
-      
-      const allReady = milloMat && colorMat && gunObject && milloGeom && colorGeom &&
-                      modelLoaded && textGeometryReady;
-      
+
+      const allReady =
+        milloMat &&
+        colorMat &&
+        gunObject &&
+        milloGeom &&
+        colorGeom &&
+        modelLoaded &&
+        textGeometryReady;
+
       console.log(`🔍 Dependency check ${retryCount + 1}:`, {
         milloMat: !!milloMat,
         colorMat: !!colorMat,
@@ -160,46 +188,47 @@ function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; o
         textGeometryReady,
         allReady
       });
-      
+
       return allReady;
     };
-    
+
     const startAnimationCheck = () => {
-      if (!mounted) return;
-      
+      if (!mounted || animationStartNotified.current) return;
+
       if (checkAllDependencies()) {
         console.log('🎉 All dependencies ready - starting animation!');
+        notifyAnimationStarting();
         setAnimationReady(true);
         return;
       }
-      
+
       retryCount++;
       if (retryCount < MAX_RETRIES) {
-        checkInterval = setTimeout(startAnimationCheck, 25); // Very frequent checks
+        checkInterval = setTimeout(startAnimationCheck, 25);
       } else {
         console.warn('⚠️ Max retries reached - forcing animation start');
+        notifyAnimationStarting();
         setAnimationReady(true);
       }
     };
-    
-    // Wait a bit for components to mount, then start checking
+
     const initialDelay = setTimeout(startAnimationCheck, 100);
-    
-    // Absolute fallback - start animation after 3 seconds no matter what
+
     const absoluteFallback = setTimeout(() => {
-      if (!animationReady && mounted) {
+      if (mounted && !animationStartNotified.current) {
         console.log('🚨 Absolute fallback - forcing animation start');
+        notifyAnimationStarting();
         setAnimationReady(true);
       }
     }, 3000);
-    
+
     return () => {
       mounted = false;
       clearTimeout(initialDelay);
       clearTimeout(checkInterval);
       clearTimeout(absoluteFallback);
     };
-  }, [modelLoaded, textGeometryReady, animationReady]);
+  }, [modelLoaded, textGeometryReady, notifyAnimationStarting]);
 
   useEffect(() => {
     if (!animationReady || hasReportedReady.current) return;
@@ -486,10 +515,12 @@ function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; o
 
   useEffect(() => {
     if (sprayGun) {
-      // Notify that model is loaded immediately
       setModelLoaded(true);
-      onModelLoaded?.();
-      
+      if (!modelNotified.current) {
+        modelNotified.current = true;
+        onSceneStateChange?.('model-loaded');
+      }
+
       // Optimize the 3D model for better performance
       sprayGun.traverse((child: THREE.Object3D) => {
         if ('isMesh' in child && child.isMesh) {
@@ -532,7 +563,7 @@ function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; o
       
       console.log('🎯 3D Model loaded and optimized');
     }
-  }, [sprayGun, onModelLoaded]);
+  }, [sprayGun, onSceneStateChange]);
 
     return (
     <>
@@ -558,7 +589,13 @@ function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; o
           onSync={() => {
             console.log('📝 MILLO text geometry ready');
             if (colorTextRef.current?.geometry) {
-              setTextGeometryReady(true);
+              setTextGeometryReady((prev) => {
+                if (!prev && !textReadyNotified.current) {
+                  textReadyNotified.current = true;
+                  onSceneStateChange?.('text-ready');
+                }
+                return true;
+              });
             }
           }}
         >
@@ -576,7 +613,13 @@ function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; o
           onSync={() => {
             console.log('📝 COLOR text geometry ready');
             if (milloTextRef.current?.geometry) {
-              setTextGeometryReady(true);
+              setTextGeometryReady((prev) => {
+                if (!prev && !textReadyNotified.current) {
+                  textReadyNotified.current = true;
+                  onSceneStateChange?.('text-ready');
+                }
+                return true;
+              });
             }
           }}
         >
@@ -623,7 +666,7 @@ function LoadingOverlay({ progress, showStalledWarning }: { progress: number; sh
             <div className="overflow-hidden h-4 mb-4 text-xs flex rounded-full bg-gray-800">
               <div
                 className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#314485] to-[#C73834] transition-all duration-300 ease-in-out"
-                style={{ width: `${Math.min(100, Math.max(progress, 5))}%` }}
+                style={{ width: `${Math.min(100, Math.max(progress, 0))}%` }}
               />
             </div>
             {showStalledWarning && (
@@ -687,6 +730,10 @@ function Hero3DClient() {
   const [webglSupported, setWebglSupported] = useState(true);
   const [sceneReady, setSceneReady] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
+  const [milestones, setMilestones] = useState({ model: false, text: false, animation: false });
+  const [latestAssetProgress, setLatestAssetProgress] = useState(preloadProgress);
+  const [displayProgress, setDisplayProgress] = useState(0);
+  const [showStalledWarning, setShowStalledWarning] = useState(false);
   const { active, progress, errors } = useProgress();
 
   useEffect(() => {
@@ -720,6 +767,22 @@ function Hero3DClient() {
     setShowFallback(true);
   }, [errors]);
 
+  // Reset tracked progress whenever a new loading cycle begins
+  useEffect(() => {
+    if (active && progress === 0) {
+      setLatestAssetProgress(0);
+      setDisplayProgress(0);
+      setMilestones({ model: false, text: false, animation: false });
+      setShowStalledWarning(false);
+    }
+  }, [active, progress]);
+
+  // Track the furthest asset progress reached so far in this session
+  useEffect(() => {
+    if (active && progress === 0) return;
+    setLatestAssetProgress((prev) => Math.max(prev, progress, preloadProgress));
+  }, [active, progress]);
+
   useEffect(() => {
     if (!webglSupported || sceneReady || showFallback) return;
     if (active) return;
@@ -729,13 +792,59 @@ function Hero3DClient() {
         console.warn('Hero3D scene did not signal readiness in time - falling back');
         setShowFallback(true);
       }
-    }, 5000);
+    }, 8000);
 
     return () => window.clearTimeout(timeout);
   }, [active, sceneReady, webglSupported, showFallback]);
 
+  const assetPortion = Math.min(latestAssetProgress, 100) * 0.6;
+  let targetProgress = assetPortion;
+
+  if (milestones.model) targetProgress = Math.max(targetProgress, 70);
+  if (milestones.text) targetProgress = Math.max(targetProgress, 85);
+  if (milestones.animation) targetProgress = Math.max(targetProgress, 95);
+  if (sceneReady) targetProgress = 100;
+
+  useEffect(() => {
+    setDisplayProgress((prev) => (targetProgress < prev ? prev : targetProgress));
+  }, [targetProgress]);
+
+  const overlayProgress = sceneReady ? 100 : displayProgress;
+
+  useEffect(() => {
+    if (sceneReady) {
+      setShowStalledWarning(false);
+      return;
+    }
+
+    if (!active && overlayProgress >= 90) {
+      const timer = window.setTimeout(() => setShowStalledWarning(true), 1500);
+      return () => window.clearTimeout(timer);
+    }
+
+    setShowStalledWarning(false);
+  }, [active, overlayProgress, sceneReady]);
+
   const handleSceneReady = useCallback(() => {
     setSceneReady(true);
+  }, []);
+
+  const handleSceneStateChange = useCallback((state: SceneLoadingEvent) => {
+    setMilestones((prev) => {
+      switch (state) {
+        case 'model-loaded':
+          if (prev.model) return prev;
+          return { ...prev, model: true };
+        case 'text-ready':
+          if (prev.text) return prev;
+          return { ...prev, text: true };
+        case 'animation-starting':
+          if (prev.animation) return prev;
+          return { ...prev, animation: true };
+        default:
+          return prev;
+      }
+    });
   }, []);
 
   if (!isMounted) {
@@ -757,15 +866,14 @@ function Hero3DClient() {
     return <Hero3DFallback />;
   }
 
-  const overlayProgress = sceneReady ? 100 : Math.min(100, Math.max(progress, preloadProgress));
-  const shouldShowOverlay = !sceneReady || active;
+  const shouldShowOverlay = !sceneReady;
 
   return (
     <section className="relative h-[80vh] w-full bg-transparent overflow-hidden">
       <VideoBackground videoSrc="/videos/hero.mp4" className="z-0" />
 
       {shouldShowOverlay && (
-        <LoadingOverlay progress={overlayProgress} showStalledWarning={!active && !sceneReady && overlayProgress >= 95} />
+        <LoadingOverlay progress={overlayProgress} showStalledWarning={showStalledWarning} />
       )}
 
       {sceneReady && (
@@ -801,12 +909,17 @@ function Hero3DClient() {
         }}
       >
         <Suspense fallback={<LoadingFallback />}>
-          <Scene isMobile={isMobile} onSceneReady={handleSceneReady} />
+          <Scene
+            isMobile={isMobile}
+            onSceneReady={handleSceneReady}
+            onSceneStateChange={handleSceneStateChange}
+          />
         </Suspense>
       </CanvasRecommendedProps>
     </section>
   );
 }
+
 // Main export with dynamic import to prevent SSR
 export default dynamic(() => Promise.resolve(Hero3DClient), { 
   ssr: false,
