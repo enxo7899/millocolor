@@ -675,8 +675,8 @@ function Hero3DClient() {
               <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
                 Spray Like a{' '}
                 <TypewriterText 
-                  strings={['Champ']}
-                  colors={['#314485']}
+                  strings={['Champion', 'Pro']}
+                  colors={['#314485', '#C73834']}
                   className="inline-block font-montserrat"
                 />
               </span>
