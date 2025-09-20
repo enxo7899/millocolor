@@ -151,84 +151,45 @@ function Scene({
     };
   }, [textGeometryReady, charGap, isMobile, fontSize]);
 
-  // Enhanced animation initialization with better dependency tracking
+  // Mark animation ready as soon as all dependencies are present
   useEffect(() => {
     if (animationStartNotified.current) return;
 
-    let mounted = true;
-    let checkInterval: NodeJS.Timeout;
-    let retryCount = 0;
-    const MAX_RETRIES = 100;
+    const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial | undefined;
+    const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial | undefined;
+    const gunObject = gunRef.current;
+    const milloGeom = milloTextRef.current?.geometry;
+    const colorGeom = colorTextRef.current?.geometry;
 
-    const checkAllDependencies = () => {
-      if (!mounted) return false;
+    if (
+      milloMat &&
+      colorMat &&
+      gunObject &&
+      milloGeom &&
+      colorGeom &&
+      modelLoaded &&
+      textGeometryReady
+    ) {
+      console.log('🎉 All dependencies ready - starting animation!');
+      notifyAnimationStarting();
+      setAnimationReady(true);
+    }
+  }, [modelLoaded, textGeometryReady, notifyAnimationStarting]);
 
-      const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
-      const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
-      const gunObject = gunRef.current;
-      const milloGeom = milloTextRef.current?.geometry;
-      const colorGeom = colorTextRef.current?.geometry;
+  // Absolute fallback in case something silently fails
+  useEffect(() => {
+    if (animationStartNotified.current) return;
 
-      const allReady =
-        milloMat &&
-        colorMat &&
-        gunObject &&
-        milloGeom &&
-        colorGeom &&
-        modelLoaded &&
-        textGeometryReady;
-
-      console.log(`🔍 Dependency check ${retryCount + 1}:`, {
-        milloMat: !!milloMat,
-        colorMat: !!colorMat,
-        gunObject: !!gunObject,
-        milloGeom: !!milloGeom,
-        colorGeom: !!colorGeom,
-        modelLoaded,
-        textGeometryReady,
-        allReady
-      });
-
-      return allReady;
-    };
-
-    const startAnimationCheck = () => {
-      if (!mounted || animationStartNotified.current) return;
-
-      if (checkAllDependencies()) {
-        console.log('🎉 All dependencies ready - starting animation!');
-        notifyAnimationStarting();
-        setAnimationReady(true);
-        return;
-      }
-
-      retryCount++;
-      if (retryCount < MAX_RETRIES) {
-        checkInterval = setTimeout(startAnimationCheck, 25);
-      } else {
-        console.warn('⚠️ Max retries reached - forcing animation start');
-        notifyAnimationStarting();
-        setAnimationReady(true);
-      }
-    };
-
-    const initialDelay = setTimeout(startAnimationCheck, 100);
-
-    const absoluteFallback = setTimeout(() => {
-      if (mounted && !animationStartNotified.current) {
-        console.log('🚨 Absolute fallback - forcing animation start');
+    const fallback = setTimeout(() => {
+      if (!animationStartNotified.current) {
+        console.warn('🚨 Animation dependencies stalled - forcing start');
         notifyAnimationStarting();
         setAnimationReady(true);
       }
     }, 3000);
 
-    return () => {
-      mounted = false;
-      clearTimeout(initialDelay);
-      clearTimeout(checkInterval);
-      clearTimeout(absoluteFallback);
-    };
-  }, [modelLoaded, textGeometryReady, notifyAnimationStarting]);
+    return () => clearTimeout(fallback);
+  }, [notifyAnimationStarting]);
 
   useEffect(() => {
     if (!animationReady || hasReportedReady.current) return;
@@ -734,6 +695,8 @@ function Hero3DClient() {
   const [latestAssetProgress, setLatestAssetProgress] = useState(preloadProgress);
   const [displayProgress, setDisplayProgress] = useState(0);
   const [showStalledWarning, setShowStalledWarning] = useState(false);
+  const progressAnimationRef = useRef<number | null>(null);
+  const latestProgressRef = useRef(0);
   const { active, progress, errors } = useProgress();
 
   useEffect(() => {
@@ -797,17 +760,66 @@ function Hero3DClient() {
     return () => window.clearTimeout(timeout);
   }, [active, sceneReady, webglSupported, showFallback]);
 
-  const assetPortion = Math.min(latestAssetProgress, 100) * 0.6;
+  const assetPortion = Math.min(latestAssetProgress, 100) * 0.55;
   let targetProgress = assetPortion;
 
-  if (milestones.model) targetProgress = Math.max(targetProgress, 70);
-  if (milestones.text) targetProgress = Math.max(targetProgress, 85);
-  if (milestones.animation) targetProgress = Math.max(targetProgress, 95);
+  if (milestones.model) targetProgress = Math.max(targetProgress, 65);
+  if (milestones.text) targetProgress = Math.max(targetProgress, 88);
+  if (milestones.animation) targetProgress = Math.max(targetProgress, 97);
   if (sceneReady) targetProgress = 100;
 
   useEffect(() => {
-    setDisplayProgress((prev) => (targetProgress < prev ? prev : targetProgress));
+    latestProgressRef.current = displayProgress;
+  }, [displayProgress]);
+
+  const animateProgress = useCallback(() => {
+    const current = latestProgressRef.current;
+    if (current >= targetProgress) {
+      progressAnimationRef.current = null;
+      return;
+    }
+
+    const delta = targetProgress - current;
+    const increment = Math.max(delta * 0.12, 0.35);
+    const next = Math.min(current + increment, targetProgress);
+
+    latestProgressRef.current = next;
+    setDisplayProgress(next);
+
+    if (next < targetProgress - 0.25) {
+      progressAnimationRef.current = requestAnimationFrame(animateProgress);
+    } else if (next < targetProgress) {
+      // schedule one final frame to reach the target without overshooting
+      progressAnimationRef.current = requestAnimationFrame(() => {
+        latestProgressRef.current = targetProgress;
+        setDisplayProgress(targetProgress);
+        progressAnimationRef.current = null;
+      });
+    } else {
+      progressAnimationRef.current = null;
+    }
   }, [targetProgress]);
+
+  useEffect(() => {
+    if (progressAnimationRef.current) {
+      cancelAnimationFrame(progressAnimationRef.current);
+      progressAnimationRef.current = null;
+    }
+
+    if (latestProgressRef.current >= targetProgress) {
+      setDisplayProgress((prev) => (targetProgress < prev ? prev : targetProgress));
+      return;
+    }
+
+    progressAnimationRef.current = requestAnimationFrame(animateProgress);
+
+    return () => {
+      if (progressAnimationRef.current) {
+        cancelAnimationFrame(progressAnimationRef.current);
+        progressAnimationRef.current = null;
+      }
+    };
+  }, [animateProgress, targetProgress]);
 
   const overlayProgress = sceneReady ? 100 : displayProgress;
 
@@ -818,7 +830,7 @@ function Hero3DClient() {
     }
 
     if (!active && overlayProgress >= 90) {
-      const timer = window.setTimeout(() => setShowStalledWarning(true), 1500);
+      const timer = window.setTimeout(() => setShowStalledWarning(true), 3000);
       return () => window.clearTimeout(timer);
     }
 
