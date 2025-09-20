@@ -13,14 +13,20 @@ import VideoBackground from './VideoBackground';
 import CanvasRecommendedProps from './CanvasRecommendedProps';
 import AnimationHealthMonitor from './AnimationHealthMonitor';
 
-// Only preload on client-side with error handling
+// Preload assets with better error handling and tracking
 if (typeof window !== 'undefined') {
-  try {
-    useGLTF.preload('/models/spray_gun.opt.glb');
-    useFont.preload('/fonts/Baloo2-Bold.ttf');
-  } catch (error) {
-    console.warn('Failed to preload 3D assets:', error);
-  }
+  const preloadAssets = async () => {
+    try {
+      await Promise.all([
+        useGLTF.preload('/models/spray_gun.opt.glb'),
+        useFont.preload('/fonts/Baloo2-Bold.ttf')
+      ]);
+      console.log('✅ Assets preloaded successfully');
+    } catch (error) {
+      console.warn('⚠️ Asset preload failed, will load on demand:', error);
+    }
+  };
+  preloadAssets();
 }
 
 // Loading fallback component
@@ -101,73 +107,50 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     }
   }, [milloTextRef.current, colorTextRef.current, fontSize, isMobile]);
 
-  // More reliable animation initialization using useLayoutEffect
-  useLayoutEffect(() => {
-    let retryCount = 0;
-    const MAX_RETRIES = 50; // Increased retries
-    const RETRY_DELAY = 100; // Faster retries
+  // Simplified and more reliable animation initialization
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    let mounted = true;
     
-    const initializeAnimation = () => {
-      const checkComponentsReady = () => {
+    const startAnimation = () => {
+      if (!mounted) return;
+      
+      const checkReady = () => {
         const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
         const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
         const gunObject = gunRef.current;
         
-        const isReady = milloMat && colorMat && gunObject && 
-                       milloTextRef.current?.geometry && 
-                       colorTextRef.current?.geometry &&
-                       milloMat.color && colorMat.color;
-        
-        console.log(`Animation check ${retryCount + 1}:`, {
-          milloMat: !!milloMat,
-          colorMat: !!colorMat, 
-          gunObject: !!gunObject,
-          milloGeometry: !!milloTextRef.current?.geometry,
-          colorGeometry: !!colorTextRef.current?.geometry,
-          ready: isReady
-        });
-        
-        return isReady;
+        return milloMat && colorMat && gunObject && 
+               milloTextRef.current?.geometry && 
+               colorTextRef.current?.geometry;
       };
       
-      if (checkComponentsReady()) {
-        console.log('🎉 Animation components ready - starting animation!');
+      if (checkReady()) {
+        console.log('✅ Animation ready - starting immediately!');
         setAnimationReady(true);
       } else {
-        retryCount++;
-        if (retryCount < MAX_RETRIES) {
-          console.log(`⏳ Components not ready, retry ${retryCount}/${MAX_RETRIES} in ${RETRY_DELAY}ms...`);
-          setTimeout(initializeAnimation, RETRY_DELAY);
-        } else {
-          console.warn('⚠️ Max retries reached, forcing animation start...');
-          setAnimationReady(true);
-        }
+        // Quick retry with shorter interval
+        timeoutId = setTimeout(startAnimation, 50);
       }
     };
     
-    // Start initialization immediately
-    initializeAnimation();
+    // Start checking immediately when component mounts
+    startAnimation();
     
-    // Fallback: force animation start after 3 seconds regardless
-    const fallbackTimeout = setTimeout(() => {
-      if (!animationReady) {
-        console.warn('🚨 Fallback: Forcing animation start after timeout');
+    // Guaranteed fallback - always start animation after 2 seconds
+    const guaranteedStart = setTimeout(() => {
+      if (!animationReady && mounted) {
+        console.log('🚀 Guaranteed animation start after 2 seconds');
         setAnimationReady(true);
       }
-    }, 3000);
+    }, 2000);
     
     return () => {
-      clearTimeout(fallbackTimeout);
+      mounted = false;
+      clearTimeout(timeoutId);
+      clearTimeout(guaranteedStart);
     };
-  }, [isMobile, animationReady]);
-  
-  // Also trigger animation when model loads
-  useEffect(() => {
-    if (modelLoaded && !animationReady) {
-      console.log('🎯 Model loaded, triggering animation check...');
-      setAnimationReady(true);
-    }
-  }, [modelLoaded, animationReady]);
+  }, [modelLoaded]); // Only depend on modelLoaded to reduce re-runs
 
   useEffect(() => {
     // Only create timeline when animation is ready
@@ -176,16 +159,17 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     const colorMat = colorTextRef.current.material as THREE.MeshStandardMaterial;
     if (!milloMat || !colorMat) return;
     
-    console.log('Creating GSAP timeline...');
+    console.log('🎬 Creating optimized GSAP timeline...');
     const tl = gsap.timeline({ 
       repeat: -1, 
-      repeatDelay: 2,
+      repeatDelay: 1.5, // Reduced delay for better user experience
       onRepeat: () => {
-        // Only reset Color text, keep Millo's color progression smooth
-        setMilloColor(new THREE.Color('#CCCCCC'));
-        setColorTextColor(new THREE.Color('#CCCCCC'));
-        if (milloMat) milloMat.color.set('#CCCCCC');
-        if (colorMat) colorMat.color.set('#CCCCCC');
+        // Reset colors efficiently
+        const grayColor = new THREE.Color('#CCCCCC');
+        setMilloColor(grayColor);
+        setColorTextColor(grayColor);
+        milloMat.color.copy(grayColor);
+        colorMat.color.copy(grayColor);
       }
     });
     const gun = gunRef.current;
@@ -437,16 +421,18 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   }, [animationReady, isMobile, milloPosX, colorPosX, fontSize]);
 
   useFrame(() => {
-    if (gunRef.current) {
-      const time = performance.now() * 0.001;
-      const wobble = Math.sin(time * 6) * 0.002 + Math.sin(time * 13) * 0.001;
+    if (gunRef.current && animationReady) {
+      // Reduced wobble for better performance and smoother animation
+      const time = performance.now() * 0.0008;
+      const wobble = Math.sin(time * 4) * 0.001;
       gunRef.current.position.y += wobble;
     }
   });
 
   useEffect(() => {
     if (sprayGun) {
-      // Notify that model is loaded
+      // Notify that model is loaded immediately
+      setModelLoaded(true);
       onModelLoaded();
       
       // Optimize the 3D model for better performance
@@ -475,9 +461,8 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
             // Enable frustum culling
             mesh.frustumCulled = true;
             
-            // Optimize for static meshes
-            mesh.matrixAutoUpdate = false;
-            mesh.updateMatrix();
+            // Optimize for static meshes - but keep auto update for animation
+            mesh.matrixAutoUpdate = true; // Keep this true for smooth animation
             
             // Dispose of unused geometry data
             if (mesh.geometry.attributes.normal) {
@@ -490,15 +475,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
         }
       });
       
-      // Mark geometry as optimized
-      sprayGun.traverse((child: THREE.Object3D) => {
-        if ('isMesh' in child && child.isMesh) {
-          const mesh = child as THREE.Mesh;
-          if (mesh.geometry) {
-            mesh.geometry.userData = { optimized: true };
-          }
-        }
-      });
+      console.log('🎯 3D Model loaded and optimized');
     }
   }, [sprayGun, onModelLoaded]);
 
@@ -563,6 +540,7 @@ function Hero3DClient() {
   const [modelLoaded, setModelLoaded] = useState(false);
   const [canvasKey, setCanvasKey] = useState(0);
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [forceStart, setForceStart] = useState(false);
   
   useEffect(() => {
     setMounted(true);
@@ -574,7 +552,7 @@ function Hero3DClient() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Simulate loading progress
+    // Simulate loading progress with guaranteed completion
     const progressInterval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 90) return prev; // Stop at 90% until model loads
@@ -582,9 +560,18 @@ function Hero3DClient() {
       });
     }, 200);
     
+    // Force start animation after 3 seconds if nothing has loaded
+    const forceStartTimer = setTimeout(() => {
+      console.log('🚀 Force starting animation for better UX');
+      setForceStart(true);
+      setModelLoaded(true);
+      setLoadingProgress(100);
+    }, 3000);
+    
     return () => {
       window.removeEventListener('resize', checkMobile);
       clearInterval(progressInterval);
+      clearTimeout(forceStartTimer);
     };
   }, []);
 
@@ -615,7 +602,7 @@ function Hero3DClient() {
         videoSrc="/videos/hero.mp4" 
         className="z-0"
       />
-      {!modelLoaded && (
+      {!modelLoaded && !forceStart && (
         <div className="absolute inset-0 flex items-center justify-center z-30 bg-gradient-to-br from-gray-900/80 to-black/80">
           <div className="text-center px-4 w-full max-w-2xl">
             <div className="mb-8 flex justify-center">
@@ -676,8 +663,8 @@ function Hero3DClient() {
         </div>
       )}
       
-      {/* Typewriter Subtitle Overlay - Only show when model is loaded */}
-      {modelLoaded && (
+      {/* Typewriter Subtitle Overlay - Show when model is loaded or force started */}
+      {(modelLoaded || forceStart) && (
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
           <div className="text-center px-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold opacity-0">
@@ -688,8 +675,8 @@ function Hero3DClient() {
               <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
                 Spray Like a{' '}
                 <TypewriterText 
-                  strings={['Champion', 'Pro']}
-                  colors={['#314485', '#C73834']}
+                  strings={['Champ']}
+                  colors={['#314485']}
                   className="inline-block font-montserrat"
                 />
               </span>
