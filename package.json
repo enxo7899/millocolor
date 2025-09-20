@@ -11,6 +11,7 @@
     "perf-check": "node scripts/performance-check.js"
   },
   "dependencies": {
+    "@gltf-transform/cli": "^4.2.1",
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^10.4.2",
     "@react-three/fiber": "^9.2.0",

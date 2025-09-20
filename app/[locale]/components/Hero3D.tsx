@@ -16,7 +16,7 @@ import AnimationHealthMonitor from './AnimationHealthMonitor';
 // Only preload on client-side with error handling
 if (typeof window !== 'undefined') {
   try {
-    useGLTF.preload('/models/spray_gun.glb');
+    useGLTF.preload('/models/spray_gun.opt.glb');
     useFont.preload('/fonts/Baloo2-Bold.ttf');
   } catch (error) {
     console.warn('Failed to preload 3D assets:', error);
@@ -35,7 +35,7 @@ function LoadingFallback() {
 
 // Main scene component with optimized animations
 function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: () => void }) {
-  const { scene: sprayGun } = useGLTF('/models/spray_gun.glb');
+  const { scene: sprayGun } = useGLTF('/models/spray_gun.opt.glb');
   const gunRef = useRef<THREE.Object3D>(null);
   const milloTextRef = useRef<THREE.Mesh>(null);
   const colorTextRef = useRef<THREE.Mesh>(null);
