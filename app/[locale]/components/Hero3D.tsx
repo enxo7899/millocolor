@@ -13,17 +13,33 @@ import VideoBackground from './VideoBackground';
 import CanvasRecommendedProps from './CanvasRecommendedProps';
 import AnimationHealthMonitor from './AnimationHealthMonitor';
 
-// Preload assets with better error handling and tracking
+// Enhanced asset preloading with progress tracking
+let assetsPreloaded = false;
+let preloadProgress = 0;
+
 if (typeof window !== 'undefined') {
   const preloadAssets = async () => {
     try {
-      await Promise.all([
-        useGLTF.preload('/models/spray_gun.opt.glb'),
-        useFont.preload('/fonts/Baloo2-Bold.ttf')
-      ]);
-      console.log('✅ Assets preloaded successfully');
+      console.log('🔄 Starting asset preload...');
+      
+      // Track individual asset loading
+      const modelPromise = Promise.resolve(useGLTF.preload('/models/spray_gun.opt.glb')).then(() => {
+        preloadProgress += 50;
+        console.log('📦 3D Model preloaded');
+      });
+      
+      const fontPromise = Promise.resolve(useFont.preload('/fonts/Baloo2-Bold.ttf')).then(() => {
+        preloadProgress += 50;
+        console.log('🔤 Font preloaded');
+      });
+      
+      await Promise.all([modelPromise, fontPromise]);
+      assetsPreloaded = true;
+      console.log('✅ All assets preloaded successfully');
     } catch (error) {
       console.warn('⚠️ Asset preload failed, will load on demand:', error);
+      // Still mark as "preloaded" to prevent blocking
+      assetsPreloaded = true;
     }
   };
   preloadAssets();
@@ -57,13 +73,14 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const [animationReady, setAnimationReady] = useState(false);
   const [forceRender, setForceRender] = useState(0);
   const [modelLoaded, setModelLoaded] = useState(false);
+  const [fontLoaded, setFontLoaded] = useState(false);
+  const [textGeometryReady, setTextGeometryReady] = useState(false);
 
 
-  // Reduced fontSize to compensate for capital letters being larger
-  const fontSize = 0.85 * scale; // Reduced from 1.2 to 0.85 to maintain visual size with capitals
-  // Dynamic letter spacing: reduce spacing on smaller screens first, then scale text
-  const letterSpacing = 0.006 * scale; // Slightly tighter letter spacing for capital letters
-  const charGap = letterSpacing * 1.8; // Slightly reduced word gap for more compact text
+  // Optimized fontSize and spacing for better performance
+  const fontSize = 0.8 * scale; // Further reduced for better performance
+  const letterSpacing = 0.005 * scale; // Tighter spacing for optimization
+  const charGap = letterSpacing * 1.6; // Reduced gap for compactness
 
   // Measure and center the text group after mount with null checks
   useEffect(() => {
@@ -107,50 +124,75 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     }
   }, [milloTextRef.current, colorTextRef.current, fontSize, isMobile]);
 
-  // Simplified and more reliable animation initialization
+  // Enhanced animation initialization with better dependency tracking
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
     let mounted = true;
+    let checkInterval: NodeJS.Timeout;
+    let retryCount = 0;
+    const MAX_RETRIES = 100;
     
-    const startAnimation = () => {
+    const checkAllDependencies = () => {
+      if (!mounted) return false;
+      
+      const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
+      const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
+      const gunObject = gunRef.current;
+      const milloGeom = milloTextRef.current?.geometry;
+      const colorGeom = colorTextRef.current?.geometry;
+      
+      const allReady = milloMat && colorMat && gunObject && milloGeom && colorGeom &&
+                      modelLoaded && textGeometryReady;
+      
+      console.log(`🔍 Dependency check ${retryCount + 1}:`, {
+        milloMat: !!milloMat,
+        colorMat: !!colorMat,
+        gunObject: !!gunObject,
+        milloGeom: !!milloGeom,
+        colorGeom: !!colorGeom,
+        modelLoaded,
+        textGeometryReady,
+        allReady
+      });
+      
+      return allReady;
+    };
+    
+    const startAnimationCheck = () => {
       if (!mounted) return;
       
-      const checkReady = () => {
-        const milloMat = milloTextRef.current?.material as THREE.MeshStandardMaterial;
-        const colorMat = colorTextRef.current?.material as THREE.MeshStandardMaterial;
-        const gunObject = gunRef.current;
-        
-        return milloMat && colorMat && gunObject && 
-               milloTextRef.current?.geometry && 
-               colorTextRef.current?.geometry;
-      };
-      
-      if (checkReady()) {
-        console.log('✅ Animation ready - starting immediately!');
+      if (checkAllDependencies()) {
+        console.log('🎉 All dependencies ready - starting animation!');
         setAnimationReady(true);
+        return;
+      }
+      
+      retryCount++;
+      if (retryCount < MAX_RETRIES) {
+        checkInterval = setTimeout(startAnimationCheck, 25); // Very frequent checks
       } else {
-        // Quick retry with shorter interval
-        timeoutId = setTimeout(startAnimation, 50);
+        console.warn('⚠️ Max retries reached - forcing animation start');
+        setAnimationReady(true);
       }
     };
     
-    // Start checking immediately when component mounts
-    startAnimation();
+    // Wait a bit for components to mount, then start checking
+    const initialDelay = setTimeout(startAnimationCheck, 100);
     
-    // Guaranteed fallback - always start animation after 2 seconds
-    const guaranteedStart = setTimeout(() => {
+    // Absolute fallback - start animation after 3 seconds no matter what
+    const absoluteFallback = setTimeout(() => {
       if (!animationReady && mounted) {
-        console.log('🚀 Guaranteed animation start after 2 seconds');
+        console.log('🚨 Absolute fallback - forcing animation start');
         setAnimationReady(true);
       }
-    }, 2000);
+    }, 3000);
     
     return () => {
       mounted = false;
-      clearTimeout(timeoutId);
-      clearTimeout(guaranteedStart);
+      clearTimeout(initialDelay);
+      clearTimeout(checkInterval);
+      clearTimeout(absoluteFallback);
     };
-  }, [modelLoaded]); // Only depend on modelLoaded to reduce re-runs
+  }, [modelLoaded, textGeometryReady, animationReady]);
 
   useEffect(() => {
     // Only create timeline when animation is ready
@@ -500,6 +542,12 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
           anchorX="left"
           anchorY="middle"
           letterSpacing={letterSpacing}
+          onSync={() => {
+            console.log('📝 MILLO text geometry ready');
+            if (colorTextRef.current?.geometry) {
+              setTextGeometryReady(true);
+            }
+          }}
         >
           MILLO
         </Text>
@@ -512,6 +560,12 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
           anchorX="left"
           anchorY="middle"
           letterSpacing={letterSpacing}
+          onSync={() => {
+            console.log('📝 COLOR text geometry ready');
+            if (milloTextRef.current?.geometry) {
+              setTextGeometryReady(true);
+            }
+          }}
         >
           COLOR
         </Text>
@@ -541,6 +595,8 @@ function Hero3DClient() {
   const [canvasKey, setCanvasKey] = useState(0);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [forceStart, setForceStart] = useState(false);
+  const [realLoadingProgress, setRealLoadingProgress] = useState(0);
+  const [animationFailureDetected, setAnimationFailureDetected] = useState(false);
   
   useEffect(() => {
     setMounted(true);
@@ -552,26 +608,68 @@ function Hero3DClient() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
+    // Real progress tracking based on actual loading states
+    const updateRealProgress = () => {
+      let progress = 0;
+      
+      // Check preload progress
+      progress += (preloadProgress / 100) * 30; // 30% for asset preload
+      
+      // Check if components are mounted
+      if (mounted) progress += 20; // 20% for mounting
+      
+      // Check if canvas is ready
+      const canvas = document.querySelector('canvas');
+      if (canvas) progress += 20; // 20% for canvas
+      
+      // Check if model is loaded
+      if (modelLoaded) progress += 30; // 30% for model
+      
+      setRealLoadingProgress(Math.min(progress, 95)); // Cap at 95% until animation starts
+    };
+    
+    const progressUpdateInterval = setInterval(updateRealProgress, 100);
+    
     // Simulate loading progress with guaranteed completion
     const progressInterval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 90) return prev; // Stop at 90% until model loads
-        return prev + Math.random() * 10;
+        return prev + Math.random() * 5; // Slower fake progress
       });
-    }, 200);
+    }, 300);
     
-    // Force start animation after 3 seconds if nothing has loaded
+    // Animation failure detection and smart reload
+    const animationHealthCheck = setTimeout(() => {
+      const canvas = document.querySelector('canvas');
+      const hasAnimation = document.querySelector('[data-animation-active]');
+      
+      if (canvas && !hasAnimation && !modelLoaded) {
+        console.warn('🚨 Animation failure detected - components loaded but animation not starting');
+        setAnimationFailureDetected(true);
+        
+        // Smart reload after giving user a moment to see the issue
+        setTimeout(() => {
+          console.log('🔄 Smart reload triggered due to animation failure');
+          window.location.reload();
+        }, 2000);
+      }
+    }, 5000);
+    
+    // Force start animation after 4 seconds if nothing has loaded
     const forceStartTimer = setTimeout(() => {
       console.log('🚀 Force starting animation for better UX');
       setForceStart(true);
       setModelLoaded(true);
       setLoadingProgress(100);
-    }, 3000);
+      setRealLoadingProgress(100);
+    }, 4000);
     
     return () => {
       window.removeEventListener('resize', checkMobile);
       clearInterval(progressInterval);
+      clearInterval(progressUpdateInterval);
       clearTimeout(forceStartTimer);
+      clearTimeout(animationHealthCheck);
     };
   }, []);
 
@@ -623,16 +721,21 @@ function Hero3DClient() {
                   </div>
                   <div className="text-right">
                     <span className="text-xs font-semibold inline-block text-[#C73834]">
-                      {Math.round(loadingProgress)}%
+                      {Math.round(Math.max(realLoadingProgress, loadingProgress))}%
                     </span>
                   </div>
                 </div>
                 <div className="overflow-hidden h-4 mb-4 text-xs flex rounded-full bg-gray-800">
                   <div 
                     className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#314485] to-[#C73834] transition-all duration-300 ease-in-out"
-                    style={{ width: `${Math.min(loadingProgress, 100)}%` }}
+                    style={{ width: `${Math.min(Math.max(realLoadingProgress, loadingProgress), 100)}%` }}
                   ></div>
                 </div>
+                {animationFailureDetected && (
+                  <div className="text-center text-yellow-400 text-sm mb-4">
+                    ⚠️ Loading issue detected - Reloading automatically...
+                  </div>
+                )}
               </div>
             </div>
             
@@ -688,6 +791,7 @@ function Hero3DClient() {
       <CanvasRecommendedProps 
         key={`hero3d-canvas-${canvasKey}`}
         className="w-full h-full relative z-20"
+        data-animation-active={modelLoaded || forceStart}
         camera={{ 
           position: [0, 0, isMobile ? 4 : 6], 
           fov: isMobile ? 70 : 55

@@ -20,7 +20,7 @@ function SprayParticles({
   sprayActive,
   sprayColor,
   scaleFactor,
-  count = Math.floor(200 + 300 * scaleFactor), // Optimized particle count
+  count = Math.floor(150 + 200 * scaleFactor), // Reduced particle count for better performance
   spreadAngle = scaleFactor > 0.8 ? 20 + (scaleFactor * 5) : 8 + (scaleFactor * 6), // Desktop: 20-25°, Mobile: 8-12.8°
   speed = 5,
   lifeTime = 0.8 // Slightly shorter lifetime for tighter spray
