@@ -1,8 +1,8 @@
 "use client";
 
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, useGLTF, Environment, PerspectiveCamera, useFont } from '@react-three/drei';
-import { useRef, useState, useEffect, useMemo, Suspense, useLayoutEffect } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { Text, useGLTF, Environment, PerspectiveCamera, useFont, useProgress } from '@react-three/drei';
+import { useRef, useState, useEffect, Suspense, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import * as THREE from 'three';
 import gsap from 'gsap';
@@ -14,8 +14,25 @@ import CanvasRecommendedProps from './CanvasRecommendedProps';
 import AnimationHealthMonitor from './AnimationHealthMonitor';
 
 // Enhanced asset preloading with progress tracking
-let assetsPreloaded = false;
+const MODEL_PATH = '/models/spray_gun.opt.glb';
+const FONT_PATH = '/fonts/Baloo2-Bold.ttf';
+
 let preloadProgress = 0;
+
+function isWebGLAvailable() {
+  if (typeof window === 'undefined') return false;
+
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      canvas.getContext('webgl') ||
+      canvas.getContext('experimental-webgl')
+    );
+  } catch (error) {
+    console.warn('WebGL detection failed', error);
+    return false;
+  }
+}
 
 if (typeof window !== 'undefined') {
   const preloadAssets = async () => {
@@ -23,23 +40,20 @@ if (typeof window !== 'undefined') {
       console.log('🔄 Starting asset preload...');
       
       // Track individual asset loading
-      const modelPromise = Promise.resolve(useGLTF.preload('/models/spray_gun.opt.glb')).then(() => {
+      const modelPromise = Promise.resolve(useGLTF.preload(MODEL_PATH)).then(() => {
         preloadProgress += 50;
         console.log('📦 3D Model preloaded');
       });
       
-      const fontPromise = Promise.resolve(useFont.preload('/fonts/Baloo2-Bold.ttf')).then(() => {
+      const fontPromise = Promise.resolve(useFont.preload(FONT_PATH)).then(() => {
         preloadProgress += 50;
         console.log('🔤 Font preloaded');
       });
       
       await Promise.all([modelPromise, fontPromise]);
-      assetsPreloaded = true;
       console.log('✅ All assets preloaded successfully');
     } catch (error) {
       console.warn('⚠️ Asset preload failed, will load on demand:', error);
-      // Still mark as "preloaded" to prevent blocking
-      assetsPreloaded = true;
     }
   };
   preloadAssets();
@@ -56,8 +70,8 @@ function LoadingFallback() {
 }
 
 // Main scene component with optimized animations
-function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: () => void }) {
-  const { scene: sprayGun } = useGLTF('/models/spray_gun.opt.glb');
+function Scene({ isMobile, onModelLoaded, onSceneReady }: { isMobile: boolean; onModelLoaded?: () => void; onSceneReady: () => void }) {
+  const { scene: sprayGun } = useGLTF(MODEL_PATH);
   const gunRef = useRef<THREE.Object3D>(null);
   const milloTextRef = useRef<THREE.Mesh>(null);
   const colorTextRef = useRef<THREE.Mesh>(null);
@@ -67,14 +81,12 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
   const [colorTextColor, setColorTextColor] = useState(new THREE.Color('#CCCCCC'));
   const [milloPosX, setMilloPosX] = useState(-1.0);
   const [colorPosX, setColorPosX] = useState(1.0);
-  const [centerOffset, setCenterOffset] = useState(0);
   const [sprayActive, setSprayActive] = useState(false);
   const [sprayColor, setSprayColor] = useState<THREE.Color>(new THREE.Color('#314485'));
   const [animationReady, setAnimationReady] = useState(false);
-  const [forceRender, setForceRender] = useState(0);
   const [modelLoaded, setModelLoaded] = useState(false);
-  const [fontLoaded, setFontLoaded] = useState(false);
   const [textGeometryReady, setTextGeometryReady] = useState(false);
+  const hasReportedReady = useRef(false);
 
 
   // Optimized fontSize and spacing for better performance
@@ -84,45 +96,40 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
 
   // Measure and center the text group after mount with null checks
   useEffect(() => {
-    if (milloTextRef.current && colorTextRef.current) {
-      const measureText = () => {
-        try {
-          // Add null checks and ensure geometry exists
-          if (!milloTextRef.current?.geometry || !colorTextRef.current?.geometry) {
-            return;
-          }
-          
-          const bboxMillo = milloTextRef.current.geometry.boundingBox;
-          const bboxColor = colorTextRef.current.geometry.boundingBox;
-          
-          if (bboxMillo && bboxColor) {
-            const widthMillo = bboxMillo.max.x - bboxMillo.min.x;
-            const widthColor = bboxColor.max.x - bboxColor.min.x;
-            const totalWidth = widthMillo + charGap + widthColor;
-            // Center the group
-            setMilloPosX(-totalWidth / 2);
-            setColorPosX(-totalWidth / 2 + widthMillo + charGap);
-            setCenterOffset(totalWidth / 2);
-          }
-        } catch (error) {
-          console.warn('Text measurement failed, using default positions:', error);
-          // Use fallback positions
-          setMilloPosX(-1.0);
-          setColorPosX(1.0);
+    if (!textGeometryReady) return;
+
+    const measureText = () => {
+      try {
+        if (!milloTextRef.current?.geometry || !colorTextRef.current?.geometry) {
+          return;
         }
-      };
-      
-      // Try immediately, then with delays for geometry to be ready
-      measureText();
-      const timeout1 = setTimeout(measureText, 100);
-      const timeout2 = setTimeout(measureText, 300);
-      
-      return () => {
-        clearTimeout(timeout1);
-        clearTimeout(timeout2);
-      };
-    }
-  }, [milloTextRef.current, colorTextRef.current, fontSize, isMobile]);
+
+        const bboxMillo = milloTextRef.current.geometry.boundingBox;
+        const bboxColor = colorTextRef.current.geometry.boundingBox;
+
+        if (bboxMillo && bboxColor) {
+          const widthMillo = bboxMillo.max.x - bboxMillo.min.x;
+          const widthColor = bboxColor.max.x - bboxColor.min.x;
+          const totalWidth = widthMillo + charGap + widthColor;
+          setMilloPosX(-totalWidth / 2);
+          setColorPosX(-totalWidth / 2 + widthMillo + charGap);
+        }
+      } catch (error) {
+        console.warn('Text measurement failed, using default positions:', error);
+        setMilloPosX(-1.0);
+        setColorPosX(1.0);
+      }
+    };
+
+    measureText();
+    const timeout1 = setTimeout(measureText, 100);
+    const timeout2 = setTimeout(measureText, 300);
+
+    return () => {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+    };
+  }, [textGeometryReady, charGap, isMobile, fontSize]);
 
   // Enhanced animation initialization with better dependency tracking
   useEffect(() => {
@@ -193,6 +200,12 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
       clearTimeout(absoluteFallback);
     };
   }, [modelLoaded, textGeometryReady, animationReady]);
+
+  useEffect(() => {
+    if (!animationReady || hasReportedReady.current) return;
+    hasReportedReady.current = true;
+    onSceneReady();
+  }, [animationReady, onSceneReady]);
 
   useEffect(() => {
     // Only create timeline when animation is ready
@@ -460,7 +473,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     }, t);
     
     return () => { tl.kill(); };
-  }, [animationReady, isMobile, milloPosX, colorPosX, fontSize]);
+  }, [animationReady, isMobile, milloPosX, colorPosX, fontSize, charGap]);
 
   useFrame(() => {
     if (gunRef.current && animationReady) {
@@ -475,7 +488,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
     if (sprayGun) {
       // Notify that model is loaded immediately
       setModelLoaded(true);
-      onModelLoaded();
+      onModelLoaded?.();
       
       // Optimize the 3D model for better performance
       sprayGun.traverse((child: THREE.Object3D) => {
@@ -535,7 +548,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
       <Suspense fallback={<LoadingFallback />}>
         <Text
           ref={milloTextRef}
-          font="/fonts/Baloo2-Bold.ttf"
+          font={FONT_PATH}
           position={[milloPosX, 0, 0]}
           fontSize={fontSize}
           color={milloColor}
@@ -553,7 +566,7 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
         </Text>
         <Text
           ref={colorTextRef}
-          font="/fonts/Baloo2-Bold.ttf"
+          font={FONT_PATH}
           position={[colorPosX, 0, 0]}
           fontSize={fontSize}
           color={colorTextColor}
@@ -587,187 +600,175 @@ function Scene({ isMobile, onModelLoaded }: { isMobile: boolean; onModelLoaded: 
 
 // WebGL context cleanup utility - removed to avoid destroying active contexts
 
-// Simplified Hero3D component
+function LoadingOverlay({ progress, showStalledWarning }: { progress: number; showStalledWarning?: boolean }) {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center z-30 bg-gradient-to-br from-gray-900/80 to-black/80">
+      <div className="text-center px-4 w-full max-w-2xl">
+        <div className="mb-8 flex justify-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">
+            <span className="text-[#314485]">MILLO</span>
+            <span className="text-[#C73834]">COLOR</span>
+          </h1>
+        </div>
+        <div className="mb-8 mx-auto max-w-md">
+          <div className="relative pt-1">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-[#314485] bg-[#314485]/20">
+                Loading 3D Experience
+              </span>
+              <span className="text-xs font-semibold inline-block text-[#C73834]">
+                {Math.round(progress)}%
+              </span>
+            </div>
+            <div className="overflow-hidden h-4 mb-4 text-xs flex rounded-full bg-gray-800">
+              <div
+                className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#314485] to-[#C73834] transition-all duration-300 ease-in-out"
+                style={{ width: `${Math.min(100, Math.max(progress, 5))}%` }}
+              />
+            </div>
+            {showStalledWarning && (
+              <div className="text-center text-yellow-400 text-sm">
+                Having trouble starting the animation. Showing fallback shortly…
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="relative h-24 mb-8 flex items-center justify-center">
+          <div className="absolute w-3 h-3 rounded-full bg-[#314485] animate-ping opacity-75" />
+          <div className="absolute w-3 h-3 rounded-full bg-[#314485] animate-pulse" />
+          <div className="absolute flex space-x-1">
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={i}
+                className="w-2 h-2 rounded-full bg-[#C73834] opacity-80"
+                style={{
+                  animation: `spray 1.5s infinite ${i * 0.2}s`,
+                  transform: `translateX(${i * 10}px) translateY(${Math.sin(i) * 5}px)`
+                }}
+              />
+            ))}
+          </div>
+        </div>
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-400 font-light">
+          Preparing your immersive experience…
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Hero3DFallback() {
+  return (
+    <section className="relative h-[80vh] w-full bg-transparent flex items-center justify-center overflow-hidden">
+      <VideoBackground videoSrc="/videos/hero.mp4" className="z-0" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6">
+          <span className="text-[#314485]">MILLO</span>
+          <span className="text-[#C73834]">COLOR</span>
+        </h1>
+        <h2 className="font-montserrat font-bold text-white mb-6">
+          <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+            Spray Like a{' '}
+            <TypewriterText strings={['Champion', 'Pro']} colors={['#314485', '#C73834']} className="inline-block font-montserrat" />
+          </span>
+        </h2>
+        <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl">
+          This device is viewing the optimized hero experience while we keep the same premium design and messaging.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// Simplified Hero3D component with resilient loading
 function Hero3DClient() {
-  const [mounted, setMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [modelLoaded, setModelLoaded] = useState(false);
-  const [canvasKey, setCanvasKey] = useState(0);
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [forceStart, setForceStart] = useState(false);
-  const [realLoadingProgress, setRealLoadingProgress] = useState(0);
-  const [animationFailureDetected, setAnimationFailureDetected] = useState(false);
-  
+  const [webglSupported, setWebglSupported] = useState(true);
+  const [sceneReady, setSceneReady] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
+  const { active, progress, errors } = useProgress();
+
   useEffect(() => {
-    setMounted(true);
-    
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    // Real progress tracking based on actual loading states
-    const updateRealProgress = () => {
-      let progress = 0;
-      
-      // Check preload progress
-      progress += (preloadProgress / 100) * 30; // 30% for asset preload
-      
-      // Check if components are mounted
-      if (mounted) progress += 20; // 20% for mounting
-      
-      // Check if canvas is ready
-      const canvas = document.querySelector('canvas');
-      if (canvas) progress += 20; // 20% for canvas
-      
-      // Check if model is loaded
-      if (modelLoaded) progress += 30; // 30% for model
-      
-      setRealLoadingProgress(Math.min(progress, 95)); // Cap at 95% until animation starts
-    };
-    
-    const progressUpdateInterval = setInterval(updateRealProgress, 100);
-    
-    // Simulate loading progress with guaranteed completion
-    const progressInterval = setInterval(() => {
-      setLoadingProgress(prev => {
-        if (prev >= 90) return prev; // Stop at 90% until model loads
-        return prev + Math.random() * 5; // Slower fake progress
-      });
-    }, 300);
-    
-    // Animation failure detection and smart reload
-    const animationHealthCheck = setTimeout(() => {
-      const canvas = document.querySelector('canvas');
-      const hasAnimation = document.querySelector('[data-animation-active]');
-      
-      if (canvas && !hasAnimation && !modelLoaded) {
-        console.warn('🚨 Animation failure detected - components loaded but animation not starting');
-        setAnimationFailureDetected(true);
-        
-        // Smart reload after giving user a moment to see the issue
-        setTimeout(() => {
-          console.log('🔄 Smart reload triggered due to animation failure');
-          window.location.reload();
-        }, 2000);
-      }
-    }, 5000);
-    
-    // Force start animation after 4 seconds if nothing has loaded
-    const forceStartTimer = setTimeout(() => {
-      console.log('🚀 Force starting animation for better UX');
-      setForceStart(true);
-      setModelLoaded(true);
-      setLoadingProgress(100);
-      setRealLoadingProgress(100);
-    }, 4000);
-    
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-      clearInterval(progressInterval);
-      clearInterval(progressUpdateInterval);
-      clearTimeout(forceStartTimer);
-      clearTimeout(animationHealthCheck);
-    };
+    setIsMounted(true);
   }, []);
 
-  // Show loading until mounted
-  if (!mounted) {
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const supportsWebGL = isWebGLAvailable();
+    setWebglSupported(supportsWebGL);
+
+    if (!supportsWebGL) {
+      console.warn('WebGL is not available on this device - falling back to static hero');
+      setShowFallback(true);
+      return;
+    }
+
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMounted]);
+
+  useEffect(() => {
+    if (errors.length === 0) return;
+    console.warn('Hero3D asset loading errors', errors);
+    setShowFallback(true);
+  }, [errors]);
+
+  useEffect(() => {
+    if (!webglSupported || sceneReady || showFallback) return;
+    if (active) return;
+
+    const timeout = window.setTimeout(() => {
+      if (!sceneReady) {
+        console.warn('Hero3D scene did not signal readiness in time - falling back');
+        setShowFallback(true);
+      }
+    }, 5000);
+
+    return () => window.clearTimeout(timeout);
+  }, [active, sceneReady, webglSupported, showFallback]);
+
+  const handleSceneReady = useCallback(() => {
+    setSceneReady(true);
+  }, []);
+
+  if (!isMounted) {
     return (
       <section className="relative h-[80vh] w-full bg-transparent flex items-center justify-center overflow-hidden">
-        <VideoBackground 
-          videoSrc="/videos/hero.mp4" 
-          className="z-0"
-        />
+        <VideoBackground videoSrc="/videos/hero.mp4" className="z-0" />
         <div className="text-center px-4 z-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6 animate-pulse">
             <span className="text-[#314485]">MILLO</span>
             <span className="text-[#C73834]">COLOR</span>
           </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400">Loading...</p>
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400">Loading…</p>
         </div>
       </section>
     );
   }
-  
-  // Render the 3D scene once mounted
+
+  if (showFallback) {
+    return <Hero3DFallback />;
+  }
+
+  const overlayProgress = sceneReady ? 100 : Math.min(100, Math.max(progress, preloadProgress));
+  const shouldShowOverlay = !sceneReady || active;
+
   return (
     <section className="relative h-[80vh] w-full bg-transparent overflow-hidden">
-      {/* Video Background */}
-      <VideoBackground 
-        videoSrc="/videos/hero.mp4" 
-        className="z-0"
-      />
-      {!modelLoaded && !forceStart && (
-        <div className="absolute inset-0 flex items-center justify-center z-30 bg-gradient-to-br from-gray-900/80 to-black/80">
-          <div className="text-center px-4 w-full max-w-2xl">
-            <div className="mb-8 flex justify-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">
-                <span className="text-[#314485]">MILLO</span>
-                <span className="text-[#C73834]">COLOR</span>
-              </h1>
-            </div>
-            
-            {/* Progress bar container */}
-            <div className="mb-8 mx-auto max-w-md">
-              <div className="relative pt-1">
-                <div className="flex items-center justify-between mb-2">
-                  <div>
-                    <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-[#314485] bg-[#314485]/20">
-                      Loading 3D Model
-                    </span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs font-semibold inline-block text-[#C73834]">
-                      {Math.round(Math.max(realLoadingProgress, loadingProgress))}%
-                    </span>
-                  </div>
-                </div>
-                <div className="overflow-hidden h-4 mb-4 text-xs flex rounded-full bg-gray-800">
-                  <div 
-                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#314485] to-[#C73834] transition-all duration-300 ease-in-out"
-                    style={{ width: `${Math.min(Math.max(realLoadingProgress, loadingProgress), 100)}%` }}
-                  ></div>
-                </div>
-                {animationFailureDetected && (
-                  <div className="text-center text-yellow-400 text-sm mb-4">
-                    ⚠️ Loading issue detected - Reloading automatically...
-                  </div>
-                )}
-              </div>
-            </div>
-            
-            {/* Animated spray effect */}
-            <div className="relative h-24 mb-8 flex items-center justify-center">
-              <div className="absolute w-3 h-3 rounded-full bg-[#314485] animate-ping opacity-75"></div>
-              <div className="absolute w-3 h-3 rounded-full bg-[#314485] animate-pulse"></div>
-              
-              {/* Spray particles animation */}
-              <div className="absolute flex space-x-1">
-                {[...Array(5)].map((_, i) => (
-                  <div 
-                    key={i}
-                    className="w-2 h-2 rounded-full bg-[#C73834] opacity-80"
-                    style={{
-                      animation: `spray 1.5s infinite ${i * 0.2}s`,
-                      transform: `translateX(${i * 10}px) translateY(${Math.sin(i) * 5}px)`
-                    }}
-                  ></div>
-                ))}
-              </div>
-            </div>
-            
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-400 font-light">
-              Preparing your immersive experience...
-            </p>
-          </div>
-        </div>
+      <VideoBackground videoSrc="/videos/hero.mp4" className="z-0" />
+
+      {shouldShowOverlay && (
+        <LoadingOverlay progress={overlayProgress} showStalledWarning={!active && !sceneReady && overlayProgress >= 95} />
       )}
-      
-      {/* Typewriter Subtitle Overlay - Show when model is loaded or force started */}
-      {(modelLoaded || forceStart) && (
+
+      {sceneReady && (
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
           <div className="text-center px-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold opacity-0">
@@ -777,39 +778,30 @@ function Hero3DClient() {
             <h2 className="font-montserrat font-bold text-white mt-24 sm:mt-28 md:mt-32 lg:mt-36 xl:mt-40 2xl:mt-44">
               <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
                 Spray Like a{' '}
-                <TypewriterText 
-                  strings={['Champion', 'Pro']}
-                  colors={['#314485', '#C73834']}
-                  className="inline-block font-montserrat"
-                />
+                <TypewriterText strings={['Champion', 'Pro']} colors={['#314485', '#C73834']} className="inline-block font-montserrat" />
               </span>
             </h2>
           </div>
         </div>
       )}
-      
-      <CanvasRecommendedProps 
-        key={`hero3d-canvas-${canvasKey}`}
+
+      <CanvasRecommendedProps
         className="w-full h-full relative z-20"
-        data-animation-active={modelLoaded || forceStart}
-        camera={{ 
-          position: [0, 0, isMobile ? 4 : 6], 
-          fov: isMobile ? 70 : 55
-        }}
+        data-animation-active={sceneReady}
+        camera={{ position: [0, 0, isMobile ? 4 : 6], fov: isMobile ? 70 : 55 }}
         onCreated={({ gl }) => {
           gl.setClearColor('#000000', 0);
           console.log('✅ New WebGL context created successfully');
-        }}
-        onError={() => {
-          // increment key to recreate the canvas on error
-          setCanvasKey(prev => prev + 1);
+          const handleContextLost = (event: Event) => {
+            event.preventDefault();
+            console.warn('WebGL context lost - switching to fallback');
+            setShowFallback(true);
+          };
+          gl.domElement.addEventListener('webglcontextlost', handleContextLost, { once: true });
         }}
       >
         <Suspense fallback={<LoadingFallback />}>
-          <Scene isMobile={isMobile} onModelLoaded={() => {
-            setModelLoaded(true);
-            setLoadingProgress(100);
-          }} />
+          <Scene isMobile={isMobile} onSceneReady={handleSceneReady} />
         </Suspense>
       </CanvasRecommendedProps>
     </section>
