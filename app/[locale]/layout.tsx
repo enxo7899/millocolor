@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { ThemeProvider } from './components/ThemeProvider';
 import Script from 'next/script';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import { locales } from '@/i18n';
 import '../globals.css';
 
@@ -89,6 +91,12 @@ export default async function RootLayout({
           <Footer />
         </ThemeProvider>
       </NextIntlClientProvider>
+      
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
+      
+      {/* Vercel Analytics */}
+      <Analytics />
       
       {/* Analytics Script - Load only after user consent */}
       <Script
