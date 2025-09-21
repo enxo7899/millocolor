@@ -85,9 +85,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
         )}
 
         {/* Image Container */}
-        <div className="relative h-56 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+        <div className="relative h-56 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden flex items-center justify-center p-4">
           <motion.div
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
             className="w-full h-full"
           >
@@ -95,7 +95,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               src={image}
               alt={title}
               fill
-              className="object-cover"
+              className="object-contain"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>

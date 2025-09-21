@@ -142,7 +142,7 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
 
   const imageVariants = {
     hover: {
-      scale: 1.05
+      scale: 1.02
     }
   };
 
@@ -188,7 +188,7 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
 
 
                 {/* Product Image */}
-                <div className="relative h-64 md:h-72 overflow-hidden">
+                <div className="relative h-64 md:h-72 overflow-hidden bg-white/5 flex items-center justify-center p-4">
                   <motion.div
                     variants={imageVariants}
                     whileHover="hover"
@@ -199,7 +199,7 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </motion.div>
