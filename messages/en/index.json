@@ -55,7 +55,12 @@
     },
     "reach": {
       "title": "Our Reach",
-      "description": "Strategically located on the Tirana-Durres highway, our operations enable efficient imports and distribution from Belgium, Germany, and Turkey — guaranteeing consistent access to the best solutions across Albania."
+      "description": "Strategically located on the Tirana-Durres highway, our operations enable efficient imports and distribution from Belgium, Germany, and Spain — guaranteeing consistent access to the best solutions across Albania.",
+      "countries": [
+        { "name": "Belgium", "flag": "belgium", "type": "Strategic" },
+        { "name": "Germany", "flag": "germany", "type": "Premium" },
+        { "name": "Spain", "flag": "spain", "type": "Regional" }
+      ]
     },
     "partnership": {
       "title": "More Than a Supplier",

@@ -29,7 +29,7 @@
     },
     "mission": {
       "title": "Misioni dhe Vlerat Tona",
-      "paragraph": "Në MilloColor, ne besojmë në ofrim ekselence përmes produkteve cilësore, njohurive të ekspertëve dhe shërbimit të jashtëzakonshëm. Misioni ynë është të ngremë standardin e bojatisjes së automjeteve në të gjithë botën.",
+      "paragraph": "Në MilloColor, ne besojmë në ofrim ekselence përmes produkteve cilësore, njohurive të ekspertëve dhe shërbimit të jashtëzakonshëm. Misioni ynë është të ngremë standardin e ngjyrosjes së automjeteve në të gjithë botën.",
       "values": {
         "value1": {
           "title": "Ekselencë",
@@ -48,12 +48,12 @@
     "team": {
       "title": "Ekipi Ynë",
       "paragraph1": "Ekipi ynë përbeket nga ekspertë të industrisë me dhjetra vjet përvojë të kombinuar në ngjyrosjen dhe rifinimin e automjeteve. Shumë prej tyre janë ish-bojatisja, teknikë dhe specialistë të ngjyrave që i kuptojnë sfidat tuaja drejtfërdrejtë.",
-      "paragraph2": "Kjo ekspertizë praktike na lejon të ofrojmë jo vetëm produkte, por zgjidhje të përshtatura për nevojat specifike të bojatisjes profesionale dhe dyqaneve të karrocerisë.",
+      "paragraph2": "Kjo ekspertizë praktike na lejon të ofrojmë jo vetëm produkte, por zgjidhje të përshtatura për nevojat specifike të ngjyrosjes profesionale dhe dyqaneve të karrocerisë.",
       "imageAlt": "Ekipi i ekspertëve MilloColor"
     },
     "future": {
       "title": "Duke Parë Drejt së Ardhmes",
-      "paragraph": "Ndërsa vazhdojmë të rritemi, fokusi ynë mbetet në sjelljen e inovacioneve më të fundit dhe produkteve të cilësisë më të lartë për klientët tanë. Jemi të entëziazmuar për të ardhmen e bojatisjes së automjeteve dhe rolin tonë në formimin e saj.",
+      "paragraph": "Ndërsa vazhdojmë të rritemi, fokusi ynë mbetet në sjelljen e inovacioneve më të fundit dhe produkteve të cilësisë më të lartë për klientët tanë. Jemi të entëziazmuar për të ardhmen e ngjyrosjes së automjeteve dhe rolin tonë në formimin e saj.",
       "cta": "Na Kontaktoni Sot"
     }
   },

@@ -32,6 +32,42 @@ export const AlbaniaFlag: React.FC<FlagIconProps> = ({ className = "", size = 24
   />
 );
 
+// Belgium Flag using actual image
+export const BelgiumFlag: React.FC<FlagIconProps> = ({ className = "", size = 24 }) => (
+  <Image
+    src="/images/flags/belgium_flag.png"
+    alt="Belgium flag"
+    width={size}
+    height={size * 0.6}
+    className={`object-cover rounded-sm ${className}`}
+    style={{ width: size, height: size * 0.6 }}
+  />
+);
+
+// Germany Flag using actual image
+export const GermanyFlag: React.FC<FlagIconProps> = ({ className = "", size = 24 }) => (
+  <Image
+    src="/images/flags/germany_flag.png"
+    alt="Germany flag"
+    width={size}
+    height={size * 0.6}
+    className={`object-cover rounded-sm ${className}`}
+    style={{ width: size, height: size * 0.6 }}
+  />
+);
+
+// Spain Flag using actual image
+export const SpainFlag: React.FC<FlagIconProps> = ({ className = "", size = 24 }) => (
+  <Image
+    src="/images/flags/spain_flag.png"
+    alt="Spain flag"
+    width={size}
+    height={size * 0.6}
+    className={`object-cover rounded-sm ${className}`}
+    style={{ width: size, height: size * 0.6 }}
+  />
+);
+
 // Simple fallback flags (text-based)
 export const UKFlagSimple: React.FC<FlagIconProps> = ({ className = "", size = 24 }) => (
   <div
@@ -55,9 +91,42 @@ export const AlbaniaFlagSimple: React.FC<FlagIconProps> = ({ className = "", siz
   </div>
 );
 
+export const BelgiumFlagSimple: React.FC<FlagIconProps> = ({ className = "", size = 24 }) => (
+  <div
+    className={`rounded-sm bg-gradient-to-r from-black via-yellow-500 to-red-600 flex items-center justify-center text-white font-bold text-xs ${className}`}
+    style={{ width: size, height: size * 0.6 }}
+    role="img"
+    aria-label="Belgium flag"
+  >
+    BE
+  </div>
+);
+
+export const GermanyFlagSimple: React.FC<FlagIconProps> = ({ className = "", size = 24 }) => (
+  <div
+    className={`rounded-sm bg-gradient-to-b from-black via-red-600 to-yellow-500 flex items-center justify-center text-white font-bold text-xs ${className}`}
+    style={{ width: size, height: size * 0.6 }}
+    role="img"
+    aria-label="Germany flag"
+  >
+    DE
+  </div>
+);
+
+export const SpainFlagSimple: React.FC<FlagIconProps> = ({ className = "", size = 24 }) => (
+  <div
+    className={`rounded-sm bg-gradient-to-b from-red-600 via-yellow-500 to-red-600 flex items-center justify-center text-white font-bold text-xs ${className}`}
+    style={{ width: size, height: size * 0.6 }}
+    role="img"
+    aria-label="Spain flag"
+  >
+    ES
+  </div>
+);
+
 // Main flag component that chooses the best option
 interface FlagProps extends FlagIconProps {
-  country: 'uk' | 'albania';
+  country: 'uk' | 'albania' | 'belgium' | 'germany' | 'spain';
   variant?: 'detailed' | 'simple' | 'auto';
 }
 
@@ -69,13 +138,23 @@ export const Flag: React.FC<FlagProps> = ({
 }) => {
   // Use actual images by default, fallback to simple text flags if needed
   if (variant === 'simple') {
-    return country === 'uk' 
-      ? <UKFlagSimple className={className} size={size} />
-      : <AlbaniaFlagSimple className={className} size={size} />;
+    switch (country) {
+      case 'uk': return <UKFlagSimple className={className} size={size} />;
+      case 'albania': return <AlbaniaFlagSimple className={className} size={size} />;
+      case 'belgium': return <BelgiumFlagSimple className={className} size={size} />;
+      case 'germany': return <GermanyFlagSimple className={className} size={size} />;
+      case 'spain': return <SpainFlagSimple className={className} size={size} />;
+      default: return <UKFlagSimple className={className} size={size} />;
+    }
   }
   
   // Use actual flag images
-  return country === 'uk' 
-    ? <UKFlag className={className} size={size} />
-    : <AlbaniaFlag className={className} size={size} />;
+  switch (country) {
+    case 'uk': return <UKFlag className={className} size={size} />;
+    case 'albania': return <AlbaniaFlag className={className} size={size} />;
+    case 'belgium': return <BelgiumFlag className={className} size={size} />;
+    case 'germany': return <GermanyFlag className={className} size={size} />;
+    case 'spain': return <SpainFlag className={className} size={size} />;
+    default: return <UKFlag className={className} size={size} />;
+  }
 };

@@ -23,7 +23,7 @@
   "about": {
     "hero": {
       "title": "Ekselencë Lider Që nga 1993",
-      "subtitle": "Fuqizojmë profesionistët në të gjithë Shqipërinë me bojërat, veshjet, materialet dhe pajisjet më të mira",
+      "subtitle": "Fuqizojmë profesionistët në të gjithë Shqipërinë me bojërat, , materialet ndihmuese dhe pajisjet më të mira",
       "description": "Millocolor sh.p.k. është një kompani lider me bazë në Shqipëri dhe Kosovë, e dedikuar për ofrimin e produkteve të cilësisë së lartë dhe zgjidhjeve eksperte për sektorët e rifinimit automobilistik, ngjyrosjes industriale dhe të mobiljeve. E themeluar në 1993 si shpërndarës dhe agjent i autorizuar për disa nga markat më të respektuara në botë, kemi ndërtuar një reputacion të fortë për ekselencë, besueshmëri dhe mbështetje të paçmuar për klientët."
     },
     "mission": {
@@ -39,7 +39,7 @@
       },
       "auxiliaryMaterials": {
         "title": "Materiale Ndihmëse të Specializuara",
-        "description": "Putty, bazë, llakë të tejdukshëm dhe materiale konsumimi të klasës së lartë që sigurojnë një përfundim të përsosur dhe qëndrueshmëri të qëndrueshme."
+        "description": "Stuko, bazë, llakë të tejdukshëm dhe materiale konsumimi të klasës së lartë që sigurojnë një përfundim të përsosur dhe qëndrueshmëri."
       },
       "equipment": {
         "title": "Pajisje dhe Vegla të Avancuara",
@@ -48,11 +48,16 @@
     },
     "commitment": {
       "title": "Përkushtimi Ynë ndaj Ekselencës",
-      "description": "Përveç produkteve, Millocolor nxit ekspertizën përmes shërbimeve të trajnimit dhe konsulencës, duke përfshirë programe teorike për teknikët e rifinimit. Kjo siguron që klientët të fitojnë si produkte superiore ashtu edhe aftësitë për të maksimizuar përdorimin e tyre."
+      "description": "Përveç produkteve, Millocolor nxit ekspertizën përmes shërbimeve të trajnimit dhe konsulencës, duke përfshirë programe teorike për teknikët e rifinimit. Kjo siguron që klientët të trajnohen me produkte superiore ashtu edhe aftësitë për të maksimizuar përdorimin e tyre."
     },
     "reach": {
       "title": "Arritja Jonë",
-      "description": "E vendosur strategjikisht në autostradën Tiranë-Durrës, operacionet tona lejojnë importe dhe shpërndarje efikase nga Belgjika, Gjermania dhe Turqia — duke garantuar akses të qëndrueshëm në zgjidhjet më të mira në të gjithë Shqipërinë."
+      "description": "E vendosur strategjikisht në autostradën Tiranë-Durrës, operacionet tona lejojnë importe dhe shpërndarje efikase nga Belgjika, Gjermania dhe Spanja — duke garantuar akses të qëndrueshëm në zgjidhjet më të mira në të gjithë Shqipërinë.",
+      "countries": [
+        { "name": "Belgjika", "flag": "belgium", "type": "Strategjik" },
+        { "name": "Gjermania", "flag": "germany", "type": "Premium" },
+        { "name": "Spanja", "flag": "spain", "type": "Rajonal" }
+      ]
     },
     "partnership": {
       "title": "Më Shumë se një Furnizues",
@@ -600,7 +605,7 @@
       },
       "innovation": {
         "title": "Inovacion",
-        "description": "Pionier teknologji të avancuara bojërash dhe metoda trajnimi për t'i ardhur në ndihmë profesionistëve."
+        "description": "Pionier ne teknologjinë e avancuar të bojërave dhe metoda trajnimi për t'i ardhur në ndihmë profesionistëve."
       },
       "sustainability": {
         "title": "Qëndrueshmëri",
@@ -627,8 +632,8 @@
       "equipment": {
         "title": "Pajisje dhe Vegla",
         "shortDescription": "Pajisje profesionale lyerje",
-        "fullDescription": "Pistoleta sprajimi të teknologjisë më të fundit nga SATA, kompresorë nga FIAC dhe lëmues nga RUPES për aplikime profesionale të ngjyrosjes automobilistike.",
-        "features": ["Teknologjia Më e Fundit", "Vegla të Sakta", "Performancë e Besueshme", "Trajnim Ekspert"]
+        "fullDescription": "Pistoleta ngjyrosje të teknologjisë më të fundit nga SATA, kompresorë nga FIAC dhe zmerilues nga RUPES për aplikime profesionale të ngjyrosjes automobilistike.",
+        "features": ["Teknologjia Më e Fundit", "Vegla Eficente", "Performancë e Besueshme", "Trajnim Ekspert"]
       }
     },
     "keyFeatures": "Karakteristikat Kryesore:",
@@ -659,7 +664,7 @@
       "title": "Çfarë Thonë Studentët Tanë",
       "student1": {
         "name": "Arben Krasniqi",
-        "role": "Specialist i Bojatisjes Automobilistike",
+        "role": "Specialist i Ngjyrosjes Automobilistike",
         "text": "Programi i trajnimit transformoi plotësisht qasjen time ndaj ngjyrosjes automobilistike. Profesional dhe gjithëpërfshirës."
       },
       "student2": {
@@ -669,7 +674,7 @@
       },
       "student3": {
         "name": "Driton Berisha",
-        "role": "Teknik i Bojatisjes",
+        "role": "Teknik i Ngjyrosjes",
         "text": "Investimi më i mirë për karrierën time. Instruktorët janë ekspertë dhe pajisjet janë të klasës më të lartë."
       }
     },
@@ -701,7 +706,7 @@
   },
   "cta": {
     "title": "Gati për të Transformuar",
-    "titleHighlight": "Eksperiencën Tuaj të Bojatisjes?",
+    "titleHighlight": "Eksperiencën Tuaj të Ngjyrosjes?",
     "subtitle": "Bashkohuni me mijëra profesionistë që besojnë MilloColor për zgjidhje premium të ngjyrosjes automobilistike, trajnim ekspert dhe mbështetje të paçmuar.",
     "getInTouch": "Na Kontaktoni",
     "exploreProducts": "Eksploroni Produktet",
@@ -1025,7 +1030,7 @@
         "bullet3": "Protokolle sigurie"
       },
       "bodyshopConsulting": {
-        "title": "Konsulencë për Punëtoritë dhe Atelie",
+        "title": "Konsulencë për Punëtoritë",
         "desc": "Konsulencë për organizimin, zgjedhjen e sistemeve, optimizimin e fluksit dhe kostot për punim.",
         "bullet1": "Dizajn organizimi të punëtorisë",
         "bullet2": "Optimizim fluksi pune",
@@ -1046,7 +1051,7 @@
         "bullet3": "Përmirësime produktiviteti"
       },
       "industrialCoatings": {
-        "title": "Mbështetje për Veshje Industriale dhe Mobilje",
+        "title": "Mbështetje për ngjyrosje Industriale dhe Mobilje",
         "desc": "Rekomandime dhe prova sistemesh për makineri, metal, dru dhe projekte të personalizuara.",
         "bullet1": "Rekomandime sistemi",
         "bullet2": "Aplikime provë",
@@ -1060,7 +1065,7 @@
         "bullet3": "Udhëzime garancie"
       },
       "sprayBoothSetup": {
-        "title": "Instalim dhe Optimizim Kabine Spërkatjeje",
+        "title": "Instalim dhe Optimizim Kabine Ngjyrosjeje",
         "desc": "Instalim profesional kabine spërkatjeje, konfigurim ventilimi dhe organizim sipas praktikave më të mira për rezultate optimale.",
         "bullet1": "Instalim kabine",
         "bullet2": "Sisteme ventilimi",

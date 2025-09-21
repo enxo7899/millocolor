@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import BackgroundCanvas from '../components/BackgroundCanvas';
 import PartnerCarousel from '../components/PartnerCarousel';
 import TypewriterText from '../components/TypewriterText';
+import { Flag } from '../components/FlagIcons';
 import Image from 'next/image';
 
 export default function AboutPage() {
@@ -503,22 +504,24 @@ function ReachSection() {
             
             {/* Location indicators */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { country: 'Belgium', flag: '🇧🇪', distance: 'Strategic' },
-                { country: 'Germany', flag: '🇩🇪', distance: 'Premium' },
-                { country: 'Turkey', flag: '🇹🇷', distance: 'Regional' }
-              ].map((location, index) => (
+              {t.raw('reach.countries').map((location: any, index: number) => (
                 <motion.div
-                  key={location.country}
+                  key={location.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                   className="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
                 >
-                  <div className="text-4xl mb-3">{location.flag}</div>
-                  <h3 className="text-white font-semibold mb-1">{location.country}</h3>
-                  <p className="text-white/60 text-sm">{location.distance} Partner</p>
+                  <div className="mb-3">
+                    <Flag 
+                      country={location.flag as 'belgium' | 'germany' | 'spain'} 
+                      size={48} 
+                      className="mx-auto"
+                    />
+                  </div>
+                  <h3 className="text-white font-semibold mb-1">{location.name}</h3>
+                  <p className="text-white/60 text-sm">{location.type} Partner</p>
                 </motion.div>
               ))}
             </div>
