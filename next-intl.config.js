@@ -1,10 +1,10 @@
 /** @type {import('next-intl').NextIntlConfig} */
 module.exports = {
   // Define locales that your application supports
-  locales: ['en', 'sq'],
+  locales: ['sq', 'en'],
   
   // Set the default locale
-  defaultLocale: 'en',
+  defaultLocale: 'sq',
   
   // Define how to load messages
   localeDetection: true,
