@@ -54,9 +54,21 @@
       "title": "Arritja Jonë",
       "description": "E vendosur strategjikisht në autostradën Tiranë-Durrës, operacionet tona lejojnë importe dhe shpërndarje efikase nga Belgjika, Gjermania dhe Spanja — duke garantuar akses të qëndrueshëm në zgjidhjet më të mira në të gjithë Shqipërinë.",
       "countries": [
-        { "name": "Belgjika", "flag": "belgium", "type": "Strategjik" },
-        { "name": "Gjermania", "flag": "germany", "type": "Premium" },
-        { "name": "Spanja", "flag": "spain", "type": "Rajonal" }
+        {
+          "name": "Belgjika",
+          "flag": "belgium",
+          "type": "Strategjik"
+        },
+        {
+          "name": "Gjermania",
+          "flag": "germany",
+          "type": "Premium"
+        },
+        {
+          "name": "Spanja",
+          "flag": "spain",
+          "type": "Rajonal"
+        }
       ]
     },
     "partnership": {
@@ -141,787 +153,6 @@
     }
   },
   "brands": {
-    "title": "Markat Tona Partnere",
-    "subtitle": "Ne bashkëpunojmë me prodhueset më të njohura të bojërave në botë për t'ju sjellë produkte të cilësisë premium",
-    "brand1": {
-      "name": "ColorTech Pro",
-      "description": "Sisteme bojërash me performancë të lartë për automjete nga Gjermania",
-      "fullDescription": "ColorTech Pro është një prodhuesi premium gjerman i bojërave me më shumë se 75 vjet përvojë në zhvillimin e veshjeve të automjeteve me performancë të lartë. Produktet e tyre janë të njohura për qëndrueshmeri të jashtëzakonshme, finish të shkëlqyer dhe teknologji të avancuar të përputhjes së ngjyrave.",
-      "features": {
-        "feature1": "Sisteme me bazë uji në përputhje me mjedisin",
-        "feature2": "Teknologji e përputhjes së ngjyrave me pronesi",
-        "feature3": "Rezistencë e jashtëzakonshme ndaj motit dhe kimikateve"
-      }
-    },
-    "brand2": {
-      "name": "ItalFinish",
-      "description": "Finish luksoze italiane për automjete premium",
-      "fullDescription": "ItalFinish sjell mjeshteri italiane në rifinimin e automjeteve me produkte të projektuara specifikisht për automjete luksoze dhe të nivelit të lartë. Veshjet e tyre ofrojnë thellësi të jashtëzakonshme, qartësi dhe një finish që përmirëson dizajnet më prestigjioze të automjeteve.",
-      "features": {
-        "feature1": "Formulime të specializuara për marka të automjeteve luksoze",
-        "feature2": "Ruajtje e jashtëzakonshme e thellësisë dhe shkëlqimit",
-        "feature3": "Aditivë efekti të personalizuar për finish unik"
-      }
-    },
-    "brand3": {
-      "name": "EcoPaint Systems",
-      "description": "Zgjidhje të qëndrueshme veshjes me ndikim të reduktuar mjedisor",
-      "fullDescription": "EcoPaint Systems fokusohet në zhvillimin e veshjeve që respektojnë mjedisin, të cilat ruajnë cilësinë profesionale duke reduktuar emetimet VOC dhe ndikimin mjedisor. Produktet e tyre inovative plotësojnë ose tejkalojnë rregulloret më të rrepta mjedisore.",
-      "features": {
-        "feature1": "Formulime me VOC ultra të ulët",
-        "feature2": "Konsum i reduktuar i energjisë gjatë aplikimit",
-        "feature3": "Zgjidhje paketimi të riciklueshme"
-      }
-    },
-    "brand4": {
-      "name": "TechCoat Industrial",
-      "description": "Veshje të rënda për automjete komerciale",
-      "fullDescription": "TechCoat Industrial specializohet në sisteme veshjes të rënda për automjete komerciale, aplikime flote dhe pajisje industriale. Produktet e tyre ofrojnë mbrojtje superiore kundër kushteve ekstreme, kimikateve dhe konsumit fizik.",
-      "features": {
-        "feature1": "Teknologji e avancuar e rezistencës ndaj korrozionit",
-        "feature2": "Sisteme aplikimi direkt në metal",
-        "feature3": "Jetëgjatësi e zgjeruar e shërbimit edhe në mjedise të rënda"
-      }
-    },
-    "learnMore": "Mëso Më Shumë",
-    "keyFeatures": "Karakteristikat Kryesore",
-    "viewProducts": "Shiko Produktet",
-    "close": "Mbyll",
-    "partnerships": {
-      "title": "Partneritetet Tona Globale",
-      "partner1": "EuroFinish",
-      "partner2": "AmeriCoat",
-      "partner3": "AsiaGloss",
-      "partner4": "PacificPaint",
-      "partner5": "NordicCoat",
-      "partner6": "GlobalTint"
-    },
-    "global": {
-      "title": "Rrjeti Global i Shpërndarjes",
-      "description": "Produktet tona janë të disponueshme në më shumë se 50 vende nëpërmjet një rrjeti shpërndarësish dhe partnerësh të certifikuar",
-      "mapPlaceholder": "Hartë interaktive në arrdhje së shpejti",
-      "regions": {
-        "europe": {
-          "name": "Evropa",
-          "description": "Prezenca jonë më e fortë me shpërndarje në 25 vende",
-          "countries": "Gjermani, Itali, Francë, Mbretëri e Bashkuar, Spanjë dhe më shumë"
-        },
-        "americas": {
-          "name": "Amerika",
-          "description": "Rrjet në rritje në të gjithë Amerikën e Veriut dhe të Jugut",
-          "countries": "SHBA, Kanada, Brazil, Meksikë dhe më shumë"
-        },
-        "asia": {
-          "name": "Azia-Pacifik",
-          "description": "Prezencë në zgjerim në tregjet kyçe aziatike",
-          "countries": "Japoni, Kore e Jugut, Australi, Zelandë e Re dhe më shumë"
-        }
-      }
-    }
-  },
-  "services": {
-    "hero": {
-      "title": "Shërbime Profesionale",
-      "subtitle": "Mbështetje gjithëpërfshirëse për profesionistët e rifinimit të automjeteve"
-    },
-    "overview": {
-      "title": "Si Ju Mbështesim",
-      "description": "Përveç ofrimit të produkteve premium, ne ofrojmë një gamë të shërbimeve profesionale për t'ju ndihmuar të arrini rezultate perfekte dhe të rritni biznesin tuaj."
-    },
-    "learnMore": "Mëso Më Shumë",
-    "keyBenefits": "Përfitimet Kryesore",
-    "inquire": "Informohuni Tani",
-    "close": "Mbyll",
-    "colorConsulting": {
-      "title": "Konsulencë për Ngjyrat",
-      "shortDescription": "Shërbime eksperte të përputhjes dhe formulimit të ngjyrave për aplikimet më sfiduese.",
-      "description": "Shërbimi ynë i konsulencës së ngjyrave ofron asistencë profesionale për sfidat komplekse të përputhjes së ngjyrave. Ekspertët tanë përdorin teknologji të avancuar spektrofotometri dhe biblioteka të gjera të ngjyrave për të zhvilluar formulime të sakta për çdo projekt, nga restaurimet klasike deri te finishet e personalizuara.",
-      "benefits": {
-        "benefit1": "Përputhje e saktë e ngjyrave për ngjyrat e fabrikës dhe të personalizuara",
-        "benefit2": "Ekspertizë e specializuar për ngjyra të rralla, vintage dhe të vështira për t'u përputhur",
-        "benefit3": "Zhvillim i formulës së personalizuar për projekte unike"
-      }
-    },
-    "training": {
-      "title": "Trajnim Teknik",
-      "shortDescription": "Programe trajnimi gjithëpërfshirëse për bojatisja dhe teknikë të të gjitha niveleve të aftësive.",
-      "description": "Programet tona të trajnimit teknik janë të projektuara për të përmirësuar aftësitë dhe njohuritë e profesionistëve të rifinimit të automjeteve. Nga fillëstarët te bojatisja me përvojë, ofrojmë workshope praktike, seminare teknike dhe kurse certifikimi për t'ju ndihmuar të zëterësoni produktet tona dhe metodat më të fundit të aplikimit.",
-      "benefits": {
-        "benefit1": "Udhezim praktik nga ekspertë të industrisë",
-        "benefit2": "Teknika aplikimi specifike për produktin",
-        "benefit3": "Aftësi të avancuara të teorisë dhe përputhjes së ngjyrave"
-      }
-    },
-    "equipment": {
-      "title": "Zgjidhje Pajisjesh",
-      "shortDescription": "Pajisje sprajimi me performancë të lartë dhe sisteme përzierje ngjyrash të optimizuara për produktet tona.",
-      "description": "Ne ofrojmë një gamë të plotë të pajisjeve profesionale të sprajimit, sistemeve të përzierjes dhe aksesortë të përzgjedhur dhe optimizuar posaçërisht për përdorim me produktet tona të bojës. Zgjidhjet tona të pajisjeve fokusohen në saktësi, efikasitet dhe rezultate të qëndrueshme për të përmirësuar rrjedhën e punës tuaj.",
-      "benefits": {
-        "benefit1": "Pajisje të nivelit profesional nga prodhuest kryesorë",
-        "benefit2": "Konfigurim dhe optimizim i personalizuar i pistoletes së sprajimit",
-        "benefit3": "Sisteme përzierje të kompjuterizuara me menaxhim të avancuar të ngjyrave"
-      }
-    },
-    "support": {
-      "title": "Mbështetje Teknike",
-      "shortDescription": "Asistencë e shpejtë nga ekipi ynë i ekspertëve të rifinimit kurdo që të keni nevojë.",
-      "description": "Ekipi ynë i dedikuar i mbështetjes teknike është gjithmonë i disponueshëm për t'ju ndihmuar me pyetje për produktet, sfida të aplikimit ose zgjidhje të problemeve. Me dhjetra vjet përvojë të kombinuar në rifinimin e automjeteve, specialistët tanë të mbështetjes mund t'ju ndihmojnë të zgjidhni problemet shpejt dhe me efikasitet.",
-      "benefits": {
-        "benefit1": "Akses i drejtpërdrejtë te ekspertët e rifinimit",
-        "benefit2": "Zgjidhje problemesh për sfida specifike të aplikimit",
-        "benefit3": "Rekomandime produktesh për projekte speciale"
-      }
-    },
-    "process": {
-      "title": "Procesi Ynë i Shërbimit",
-      "description": "Ne ndjekim një qëndrim të strukturuar për të siguruar që ofrojmë ekzaktisht atë që ju nevojitet",
-      "steps": {
-        "step1": {
-          "title": "Konsultë Fillestare",
-          "description": "Fillojmë me një diskutim të detajuar të nevojave, sfidave dhe objektivave tuaja për të kuptuar se si mund t'ju mbështesim më mirë."
-        },
-        "step2": {
-          "title": "Zgjidhje e Personalizuar",
-          "description": "Ekipi ynë zhvillon një plan të përshtatëm që adresojnë kërkesat tuaja specifike, qoftë trajnim, konsulencë ngjyrash ose konfigurim pajisjesh."
-        },
-        "step3": {
-          "title": "Implementim",
-          "description": "Ne ofrojmë shërbimet e rëna dakord me vëmendje të hollësishme ndaj detajeve, duke siguruar që të merrni vlerë maksimale dhe përfitime praktike."
-        },
-        "step4": {
-          "title": "Mbështetje Përmbyllese",
-          "description": "Marrëdhënia jonë vazhdon me mbështetje të vazhdueshme për të adresuar çdo pyetje ose nevoja shtesë që dalin pas shërbimit fillestar."
-        }
-      }
-    },
-    "testimonials": {
-      "title": "Çfarë Thonë Klientët Tanë",
-      "description": "Dëgjoni nga profesionistët që kanë përfituar nga shërbimet tona",
-      "testimonial1": {
-        "name": "Michael Johnson",
-        "company": "Premier Auto Body",
-        "text": "Shërbimi i konsulencës së ngjyrave nga MilloColor ka qënë një ndërrim loje për projektet tona të restaurimit të personalizuara. Aftësia e tyre për të përputhur ngjyrat e fabrikës të dekadave më parë është thjesht e mahnitshme."
-      },
-      "testimonial2": {
-        "name": "Sarah Rodriguez",
-        "company": "Elite Refinishing",
-        "text": "Trajnimi teknik që morrëm ka përmirësuar në mënyrë të konsiderueshme efikasitetin dhe cilësinë e finishit tonë. Bojatisja jonë janë tani më të sigurt dhe të aftë edhe me punët më sfiduese."
-      },
-      "testimonial3": {
-        "name": "David Chen",
-        "company": "Precision Automotive",
-        "text": "Zgjidhjet e pajisjeve dhe ndihma e konfigurimit nga MilloColor kanë reduktuar konsumin tonë të materialeve duke përmirësuar cilësinë e finishit. Kthimi i investimit ishte pothuajse i menjhereshëm."
-      }
-    },
-    "cta": {
-      "title": "Gati për të Ngritur Aftësitë Tuaja të Rifinimit?",
-      "description": "Na kontaktoni sot për të diskutuar se si shërbimet tona profesionale mund t'ju ndihmojnë të arrini rezultate superiore dhe të rritni biznesin tuaj.",
-      "button": "Planifikoni një Konsultë"
-    }
-  },
-  "contact": {
-    "title": "Na Kontaktoni",
-    "subtitle": "Jemi këtu për t'ju mbështetur në çdo hap të procesit të rifinimit tuaj",
-    "getInTouch": {
-      "title": "Na Kontaktoni",
-      "subtitle": "Gati për të përmirësuar procesin tuaj të ngjyrosjes? Kontaktoni ekspertët tanë sot",
-      "contactInfo": {
-        "title": "Informacioni i Kontaktit",
-        "address": {
-          "label": "Adresa",
-          "value": "Tiranë - Durrës km8, Tirana, Shqipëri"
-        },
-        "phone": {
-          "label": "Telefoni",
-          "value": "+355 42 123 456"
-        },
-        "email": {
-          "label": "Email",
-          "value": "info@millocolor.com"
-        }
-      }
-    },
-    "info": {
-      "title": "Informacioni i Kontaktit",
-      "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
-      "phone": "+355 69 123 4567",
-      "email": "info@millocolor.com",
-      "hours": {
-        "title": "Oret e Punës",
-        "weekdays": "E Hënë - E Premte: 8:00 - 17:00",
-        "saturday": "E Shtunë: 9:00 - 14:00",
-        "sunday": "E Diel: Mbyllur"
-      }
-    },
-    "form": {
-      "title": "Na Dërgoni një Mesazh",
-      "description": "Plotesoni formularin më poshtë dhe një anëtar i ekipit tonë do t'ju kontaktojë brenda 24 orësh",
-      "name": "Emri i Plotë",
-      "email": "Adresa e Email",
-      "phone": "Numri i Telefonit",
-      "nameFields": {
-        "label": "Emri i Plotë",
-        "placeholder": "Shkruani emrin tuaj të plotë"
-      },
-      "emailFields": {
-        "label": "Adresa e Email",
-        "placeholder": "Shkruani adresën tuaj të email"
-      },
-      "phoneFields": {
-        "label": "Numri i Telefonit",
-        "placeholder": "Shkruani numrin tuaj të telefonit"
-      },
-      "company": {
-        "label": "Kompania/Organizata",
-        "placeholder": "Shkruani emrin e kompaniës suaj (opsionale)"
-      },
-      "subject": "Subjekti",
-      "selectSubject": "Zgjidhni një subjekt",
-      "subjectFields": {
-        "label": "Subjekti",
-        "placeholder": "Përse po na kontaktoni?"
-      },
-      "subjects": {
-        "product": "Informacione për Produkte",
-        "support": "Mbështetje Teknike",
-        "partnership": "Partneritet",
-        "other": "Tjetër"
-      },
-      "message": "Mesazhi Juaj",
-      "messageFields": {
-        "label": "Mesazhi Juaj",
-        "placeholder": "Shkruani mesazhin tuaj të detajuar këtu..."
-      },
-      "send": "Dërgoni Mesazhin",
-      "sending": "Duke dërguar...",
-      "successMessage": "Faleminderit! Mesazhi juaj u dërgua me sukses. Do t'ju përgjigjemi sa më shpejt.",
-      "errorMessage": "Na vjen keq, ndodhi një gabim gjatë dërgimit të mesazhit. Ju lutemi provoni përsëri ose na kontaktoni me telefon."
-    },
-    "map": {
-      "placeholder": "Hartë interaktive në arrdhje së shpejti"
-    },
-    "info": {
-      "address": {
-        "title": "Adresa",
-        "line1": "Rr. Skenderbeu 55",
-        "line2": "Tiranë, Shqipëri"
-      },
-      "phone": {
-        "title": "Telefoni",
-        "sales": "+355 69 123 4567",
-        "support": "+355 69 987 6543"
-      },
-      "email": {
-        "title": "Email",
-        "sales": "sales@millocolor.com",
-        "support": "support@millocolor.com"
-      },
-      "hours": {
-        "title": "Oret e Punës",
-        "weekdays": "E Hënë - E Premte: 8:00 - 17:00",
-        "weekend": "E Shtunë: 9:00 - 14:00, E Diel: Mbyllur"
-      }
-    },
-    "locations": {
-      "title": "Vendndodhjet Tona",
-      "description": "Na vizitoni në një nga vendndodhjet tona të përshtatshme",
-      "headquarters": {
-        "title": "Zyra Kryesore",
-        "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
-        "phone": "+355 69 123 4567",
-        "directions": "Merrni Drejtimet"
-      },
-      "distribution": {
-        "title": "Qendra e Shpërndarjes",
-        "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
-        "phone": "+355 69 765 4321",
-        "directions": "Merrni Drejtimet"
-      }
-    },
-    "faq": {
-      "title": "Pyetje të Shpeshta",
-      "questions": {
-        "q1": "Si mund të bëj një porosi?",
-        "a1": "Ju mund të bëni porosi nëpërmjet shpërndarësve tanë lokalë ose duke na kontaktuar direkt nëpërmjet formularit të kontaktit. Për porosi të mëdha, na telefononi drejtojpërdrejt për një ofertë të personalizuar.",
-        "q2": "A ofroni dërgim nderkombëtar?",
-        "a2": "Po, ne dërgojmë në më shumë se 50 vende. Tarifat dhe afatet kohëre të dërgimit ndryshojnë sipas vendndodhjes. Ju lutemi kontaktoni ekipin tonë për të marrje detaje specifike për rajonin tuaj.",
-        "q3": "Si mund të planifikoj një seance trajnimi teknik?",
-        "a3": "Trajnimet teknike mund të planifikohen duke kontaktuar departamentin tonë të sherbimeve. Ne ofrojmë trajnime në vendet tona ose mund të organizojmë seanca në vendin tuaj për grupe.",
-        "q4": "A keni një ekip teknik që mund të ndihmojë me përputhjen e ngjyrave?",
-        "a4": "Po, ekipi ynë i konsulences së ngjyrave ofron mbështetje të specializuar për çdo sfidë të përputhjes së ngjyrave. Ata mund të ndihmojnë me formula të personalizuara për ngjyra sfiduese ose ngjyra të personalizuara."
-      }
-    },
-    "support": {
-      "title": "Mbështetje & Asistencë",
-      "description": "Për kërkesa të mbështetjes teknike, përfshirë zgjidhjen e problemeve dhe këshillat për aplikimin e produktit, ju lutemi kontaktoni ekipin tonë të mbështetjes teknike.",
-      "email": "support@millocolor.com",
-      "phone": "+355 69 987 6543",
-      "hours": "E disponueshme E Hënë - E Premte, 8:00 - 17:00 CET"
-    }
-  },
-  "footer": {
-    "company": "MilloColor",
-    "tagline": "Zgjidhje Premium Bojërash për Automjete",
-    "rights": "© 2025 MilloColor. Të gjitha të drejtat e rezervuara.",
-    "nav": {
-      "title": "Lidhje të Shpejta",
-      "company": "Kompania",
-      "about": "Rreth Nesh",
-      "careers": "Karriera",
-      "news": "Lajme & Ngjarje",
-      "distributors": "Bëhuni Shpërndarës"
-    },
-    "products": {
-      "title": "Produktet",
-      "all": "Të Gjitha Produktet",
-      "automotive": "Bojëra Automjetesh",
-      "industrial": "Zgjidhje Industriale",
-      "accessories": "Aksesorë & Pajisje"
-    },
-    "resources": {
-      "title": "Burime",
-      "colorFinder": "Gjetësi i Ngjyrave",
-      "datasheets": "Fletët e të Dhënave Teknike",
-      "application": "Udhëzime Aplikimi",
-      "videos": "Video Tutoriale"
-    },
-    "legal": {
-      "title": "Ligjore",
-      "privacy": "Politika e Privatësisë",
-      "terms": "Kushtet e Shërbimit",
-      "cookies": "Politika e Cookies",
-      "accessibility": "Deklarata e Aksesueshmërisë"
-    },
-    "social": {
-      "title": "Na Ndiqni",
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "twitter": "Twitter",
-      "youtube": "YouTube",
-      "linkedin": "LinkedIn"
-    },
-    "newsletter": {
-      "title": "Abonohu në Buletinin Tonë",
-      "description": "Merrni lajmet më të fundit të industrisë, përditësimet e produkteve dhe këshilla teknike direkt në kutinë tuaj të postës elektronike",
-      "placeholder": "Shkruani adresën tuaj të emailit",
-      "subscribe": "Abonohu",
-      "success": "Faleminderit për abonimin tuaj!",
-      "error": "Ndodhi një gabim. Ju lutemi provoni përsëri."
-    },
-    "showcase": {
-      "title": "Zgjidhje të Avancuara Bojësh",
-      "subtitle": "Zbuloni gamën tonë të plotë të finishimeve profesionale për automjete",
-      "products": {
-        "premium": {
-          "title": "Zgjidhje Mbulesash Premium",
-          "description": "Linja jonë kryesore e mbulesave me performancë të lartë të inxhinjeruara për automjete luksoze dhe aplikime të kërkueshme.",
-          "features": [
-            "Qëndrueshmëri dhe jetëgjatësi superiore",
-            "Saktësi e jashtëzakonshme e ngjyrës",
-            "Mbrojtje e avancuar UV",
-            "Aplikim dhe mbulim i lehtë"
-          ]
-        },
-        "professional": {
-          "title": "Sisteme Ripërfundimi Profesional",
-          "description": "Sisteme të plota ngjyrosje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
-          "features": [
-            "Kohër të shpejta tharjeje për efikasitet",
-            "Përputhje konsistente ngjyrash",
-            "Veti të shkëlqyera ngjitjeje",
-            "Mbështetje teknike gjithëpërfshirëse"
-          ]
-        },
-        "specialty": {
-          "title": "Finishime me Efekte Speciale",
-          "description": "Finishime unike dhe të personalizuara për estetikë dalluese automobilistike dhe projekte restaurimi.",
-          "features": [
-            "Efekte metalike dhe perlash",
-            "Formulime ngjyrash të personalizuara",
-            "Përputhshmëri me restaurimin vintage",
-            "Konsulencë eksperte ngjyrash"
-          ]
-        }
-      }
-    },
-    "contact": {
-      "title": "Kontakt i Shpejtë",
-      "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
-      "phone": "+355 69 123 4567",
-      "email": "info@millocolor.com"
-    }
-  },
-  "stats": {
-    "years": "Vjet Ekselencë",
-    "colors": "Ngjyra të Personalizuara të Zhvilluara",
-    "partners": "Partnerë Globalë",
-    "awards": "Çmime të Industrisë",
-    "countries": "Vende të Shërbyera",
-    "title": "Rekordi Ynë",
-    "subtitle": "Ofrim ekselencë në të gjithë industrinë automobilistike"
-  },
-  "showcase": {
-    "title": "Zgjidhje Premium Bojërash",
-    "subtitle": "Zbuloni gamën tonë të plotë të finishimeve profesionale për automjete",
-    "products": {
-      "premium": {
-        "title": "Zgjidhje Mbulesash Premium",
-        "description": "Linja jonë kryesore e mbulesave me performancë të lartë të inxhinjeruara për automjete luksoze dhe aplikime të kërkueshme.",
-        "features": [
-          "Qëndrueshmëri dhe jetëgjatësi superiore",
-          "Saktësi e jashtëzakonshme e ngjyrës",
-          "Mbrojtje e avancuar UV",
-          "Aplikim dhe mbulim i lehtë"
-        ]
-      },
-      "professional": {
-        "title": "Sisteme Ripërfundimi Profesional",
-        "description": "Sisteme të plota ngjyrosje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
-        "features": [
-          "Kohër të shpejta tharjeje për efikasitet",
-          "Përputhje konsistente ngjyrash",
-          "Veti të shkëlqyera ngjitjeje",
-          "Mbështetje teknike gjithëpërfshirëse"
-        ]
-      },
-      "specialty": {
-        "title": "Finishime me Efekte Speciale",
-        "description": "Finishime unike dhe të personalizuara për estetikë dalluese automobilistike dhe projekte restaurimi.",
-        "features": [
-          "Efekte metalike dhe perlash",
-          "Formulime ngjyrash të personalizuara",
-          "Përputhshmëri me restaurimin vintage",
-          "Konsulencë eksperte ngjyrash"
-        ]
-      }
-    }
-  },
-  "foundation": {
-    "title": "Themelet Tona",
-    "subtitle": "E ndërtuar mbi tre shtylla që drejtojnë çdo gjë që bëjmë",
-    "values": {
-      "excellence": {
-        "title": "Ekselencë",
-        "description": "Ofrojmë shërbime në fushën automobilistike me standarde cilësie të maksimale që nga viti 1993."
-      },
-      "innovation": {
-        "title": "Inovacion",
-        "description": "Pionier ne teknologjinë e avancuar të bojërave dhe metoda trajnimi për t'i ardhur në ndihmë profesionistëve."
-      },
-      "sustainability": {
-        "title": "Qëndrueshmëri",
-        "description": "Të përkushtuar ndaj praktikave miqësore mjedisore dhe zgjidhjeve të qëndrueshme për një të ardhme më të mirë."
-      }
-    }
-  },
-  "productCategories": {
-    "title": "Kategoritë e Produkteve",
-    "subtitle": "Zgjidhje gjithëpërfshirëse për të gjitha nevojat tuaja të ngjyrosjes automobilistike",
-    "categories": {
-      "premium": {
-        "title": "Bojëra dhe Primer Premium",
-        "shortDescription": "Zgjidhje të avancuara të rifinimit automobilistik",
-        "fullDescription": "Linjat tona premium të bojërave nga Cromax, Standox dhe Sherwin-Williams ofrojnë përputhje të jashtëzakonshme të ngjyrave, qëndrueshmëri dhe cilësi për lyerjen e automjeteve.",
-        "features": ["Përputhje Superiore e Ngjyrave", "Qëndrueshmëri e Gjatë", "Aplikim i Lehtë", "Niveli Profesional"]
-      },
-      "auxiliary": {
-        "title": "Materiale Ndihmëse",
-        "shortDescription": "Produkte mbështetëse për rezultate perfekte",
-        "fullDescription": "Gamë e plotë e bazave, llakëve të tejdukshëm, holluesve dhe fortësuesve nga marka të besuara si Roberlo dhe Hempel për të siguruar performancë optimale të bojës.",
-        "features": ["Sisteme të Përputhshme", "Cilësi e Siguruar", "Mbështetje Teknike", "Formulime të Ndryshme"]
-      },
-      "equipment": {
-        "title": "Pajisje dhe Vegla",
-        "shortDescription": "Pajisje profesionale lyerje",
-        "fullDescription": "Pistoleta ngjyrosje të teknologjisë më të fundit nga SATA, kompresorë nga FIAC dhe zmerilues nga RUPES për aplikime profesionale të ngjyrosjes automobilistike.",
-        "features": ["Teknologjia Më e Fundit", "Vegla Eficente", "Performancë e Besueshme", "Trajnim Ekspert"]
-      }
-    },
-    "keyFeatures": "Karakteristikat Kryesore:",
-    "exploreProducts": "Eksploroni Produktet"
-  },
-  "training": {
-    "title": "Programi i Trajnimit Profesional",
-    "subtitle": "Udhëtimi juaj për të zotëruar ekselencën e ngjyrosjes automobilistike",
-    "theoretical": {
-      "title": "Trajnimi Teorik",
-      "duration": "2-3 ditë",
-      "description": "Seanca gjithëpërfshirëse në klasë që mbulojnë teorinë e bojës, përputhjen e ngjyrave dhe teknikat e aplikimit.",
-      "features": ["Kimi e Bojës", "Teoria e Ngjyrave", "Përgatitja e Sipërfaqes", "Protokollet e Sigurisë"]
-    },
-    "handsOn": {
-      "title": "Praktika e Drejtpërdrejtë",
-      "duration": "3-5 ditë",
-      "description": "Workshop praktik duke përdorur pajisje profesionale dhe skenare reale të ngjyrosjes automobilistike.",
-      "features": ["Demonstrime të Gjalla", "Seanca të Praktikës", "Trajtimi i Pajisjeve", "Kontrolli i Cilësisë"]
-    },
-    "certification": {
-      "title": "Certifikimi",
-      "duration": "1 ditë",
-      "description": "Procesi i vlerësimit dhe certifikimit për të vlerësuar aftësitë dhe për të ofruar kredenciale të njohura.",
-      "features": ["Vlerësimi i Aftësive", "Projekti Përfundimtar", "Lëshimi i Certifikatës", "Mbështetja e Vazhdueshme"]
-    },
-    "testimonials": {
-      "title": "Çfarë Thonë Studentët Tanë",
-      "student1": {
-        "name": "Arben Krasniqi",
-        "role": "Specialist i Ngjyrosjes Automobilistike",
-        "text": "Programi i trajnimit transformoi plotësisht qasjen time ndaj ngjyrosjes automobilistike. Profesional dhe gjithëpërfshirës."
-      },
-      "student2": {
-        "name": "Lena Shabani",
-        "role": "Pronare e Punëtorisë",
-        "text": "Trajnim i shkëlqyeshëm me eksperiencë praktike. Ekipi im përmirësoi në mënyrë dramatike pas certifikimit."
-      },
-      "student3": {
-        "name": "Driton Berisha",
-        "role": "Teknik i Ngjyrosjes",
-        "text": "Investimi më i mirë për karrierën time. Instruktorët janë ekspertë dhe pajisjet janë të klasës më të lartë."
-      }
-    },
-    "cta": "Bashkohuni me Trajnimin Tonë të Radhës"
-  },
-  "stats": {
-    "title": "Ndikimi Ynë në Numra",
-    "subtitle": "Tre dekada ekselencë në zgjidhjet e ngjyrosjes automobilistike",
-    "years": {
-      "title": "Vjet Eksperience",
-      "description": "Shërbyer industrinë automobilistike që nga 1993"
-    },
-    "brands": {
-      "title": "Marka Globale",
-      "description": "Partneritete me liderët e industrisë"
-    },
-    "clients": {
-      "title": "Klientë të Kënaqur",
-      "description": "Klientë të kënaqur në të gjithë Shqipërinë"
-    },
-    "sessions": {
-      "title": "Seanca Trajnimi",
-      "description": "Programe zhvillimi profesional"
-    },
-    "trusted": {
-      "title": "E Besuar nga Profesionistët në të Gjithë Shqipërinë",
-      "description": "Nga Tirana në Durrës, Vlorë në Shkodër, MilloColor ka qenë burimi kryesor për profesionistët e ngjyrosjes automobilistike. Përkushtimi ynë ndaj cilësisë, inovacionit dhe suksesit të klientit na ka bërë shpërndarësin kryesor në rajon."
-    }
-  },
-  "cta": {
-    "title": "Gati për të Transformuar",
-    "titleHighlight": "Eksperiencën Tuaj të Ngjyrosjes?",
-    "subtitle": "Bashkohuni me mijëra profesionistë që besojnë MilloColor për zgjidhje premium të ngjyrosjes automobilistike, trajnim ekspert dhe mbështetje të paçmuar.",
-    "getInTouch": "Na Kontaktoni",
-    "exploreProducts": "Eksploroni Produktet",
-    "contactInfo": {
-      "phone": "+355 69 123 4567",
-      "email": "info@millocolor.com",
-      "location": "Tiranë, Shqipëri"
-    }
-  },
-  "trusted": {
-    "trustedBy": "E besuar nga",
-    "worldIndustryLeaders": "liderët botërorë të industrisë"
-  },
-  "productShowcase": {
-    "title": "Produktet e Zgjedhura",
-    "subtitle": "Zbuloni zgjidhjet tona premium të bojërave për automjete të projektuara për përsosmëri profesionale dhe rezultate superiore",
-    "keyFeatures": "Karakteristikat Kryesore",
-    "learnMore": "Mëso Më Shumë",
-    "viewAllProducts": "Shiko Të Gjitha Produktet",
-    "categories": {
-      "all": "Të Gjitha Produktet",
-      "premium": "Premium",
-      "professional": "Profesionale",
-      "specialty": "Specialiteti",
-      "eco": "Miqësore për Mjedisin",
-      "industrial": "Industriale",
-      "custom": "E Personalizuar"
-    },
-    "products": {
-      "premiumCoating": {
-        "name": "RUPES Skorpio III RH356",
-        "description": "Lëshues pneumatik orbital i rastësishëm profesional me jastëk 150mm dhe orbit 6mm. Ka motor të projektuar për çift rrotullimi maksimal, dridhje jashtëzakonisht të ulëta dhe funksionim të qetë.",
-        "features": "Orbit 6mm për balancë të përsosur|0-11,000 RPM|Veshje gome anti-rrëshqitëse|Kushineta me dy rreshta"
-      },
-      "professionalSystem": {
-        "name": "Roberlo Pistolë Profesionale",
-        "description": "Pistolë pikturimi automjetesh me precizion të lartë me teknologji atomizimi të avancuar. I projektuar për ripikturim profesional me cilësi finish superiore dhe efikasitet materiali.",
-        "features": "Atomizim i avancuar|Efikasitet transferimi i lartë|Kontroll preciz|Finish profesional"
-      },
-      "specialtyEffects": {
-        "name": "SATAjet X 5500",
-        "description": "Pistolë pikturimi revolucionare me sistem grykë X. Ka teknologji grykë të qetë, shpërndarje materiali të optimizuar dhe atomizim të jashtëzakonshëm për të gjitha sistemet e bojës.",
-        "features": "Sistem revolucionar grykë X|Teknologji grykë të qetë|Kursim materiali|Finish i përsosur 360°"
-      },
-      "ecoSolutions": {
-        "name": "RUPES BigFoot LHR21 Mark V",
-        "description": "Polizues orbital i rastësishëm premium me lëvizje diametri të madh. Ka teknologji motor pa furça, balancë të jashtëzakonshme dhe performancë të nivelit profesional.",
-        "features": "Teknologji motor pa furça|Lëvizje orbit të madhe|Balancë e jashtëzakonshme|Performancë profesionale"
-      },
-      "industrialGrade": {
-        "name": "SATAjet 5000 B",
-        "description": "Pistolë pikturimi i gjithanshëm HVLP/RP me presion hyrës të rregullueshëm dhe distancë pikturimi. I përsosur për ripikturim automjetesh me madhësi konsistente tifoz në spektrin e grykës.",
-        "features": "Teknologji HVLP/RP|Presion i rregullueshëm|Madhësi konsistente tifoz|Rezultate profesionale"
-      },
-      "customFinishes": {
-        "name": "Sistemi i Aplikimit të Personalizuar Roberlo",
-        "description": "Zgjidhje aplikimi spërkatjeje të personalizuara për kërkesa unike. Ka dizajn modular, kontroll preciz dhe konsultim ekspert për aplikime të personalizuara.",
-        "features": "Dizajn modular|Kontroll preciz|Zgjidhje të personalizuara|Konsultim ekspert"
-      }
-    },
-    "productsData": {
-      "rupes-skorpio-iii": {
-        "name": "RUPES Skorpio III RH356",
-        "description": "Lëmues orbital pneuamtik profesional me jastëk 150mm dhe orbit 6mm për kontroll dhe balancë perfekte.",
-        "features": ["Orbit 6mm", "Dridhje shumë të ulëta", "Motor me çift rrotullimi të lartë"]
-      },
-      "rupes-lhr21-mark-v": {
-        "name": "RUPES BigFoot LHR21 Mark V",
-        "description": "Polizues me veprim të dyfishtë me orbit 21mm për sipërfaqe të mëdha; balancë dhe finish superior.",
-        "features": ["Orbit 21mm", "Ergonomi e rafinuar", "Fuqí konsistente"]
-      },
-      "sata-x5500": {
-        "name": "SATAjet X 5500",
-        "description": "Pistolë pikturimi me koncept grykë X për atomizim të qetë dhe shpërndarje materiale optimale.",
-        "features": ["Grykë X", "HVLP/RP", "Tifoz uniform"]
-      },
-      "sata-5000b": {
-        "name": "SATAjet 5000 B",
-        "description": "Pistolë e gjithanshme për kontroll të saktë dhe finish të shkëlqyer.",
-        "features": ["Ergonomi e shkëlqyer", "Rrymë ajri e optimizuar", "Rezultate konsistente"]
-      },
-      "roberlo-kronox-320": {
-        "name": "Roberlo Kronox 320 HS Llak",
-        "description": "Llak me përmbajtje të lartë solide me tharje të shpejtë, shkëlqim të lartë dhe mbrojtje të qëndrueshme.",
-        "features": ["Solid i lartë", "Tharje e shpejtë", "Shkëlqim i thellë"]
-      },
-      "roberlo-robfill-2k": {
-        "name": "Roberlo Robfill Primer 2K",
-        "description": "Primer akrilik 2K me fuqi të lartë mbushjeje dhe gërryerje të lehtë për sipërfaqe uniforme.",
-        "features": ["Mbushje e lartë", "Gërryerje e lehtë", "Sipërfaqe e rrafshët"]
-      },
-      "cromax-pro-base": {
-        "name": "Cromax Pro Basecoat",
-        "description": "Bazë me bazë uji e inxhinieruar për aplikim të shpejtë dhe përputhje të saktë ngjyrash.",
-        "features": ["Mbulim i shpejtë", "Saktësi ngjyrash", "VOC i ulët"]
-      },
-      "cromax-cc6500": {
-        "name": "Cromax CC6500 HS Llak",
-        "description": "Llak HS që ofron shkëlqim të thellë dhe qëndrueshmëri afatgjatë me dritare të gjerë aplikimi.",
-        "features": ["Shkëlqim i thellë", "Qëndrueshmëri", "Aplikim efikas"]
-      },
-      "duxone-dx15": {
-        "name": "Duxone DX15 Bazë",
-        "description": "Bazë me tretës e besueshme për rifinim të përditshëm me spërkatje konsistente.",
-        "features": ["Mbulim i mirë", "Rrjedhje konsistente", "Paletë e gjerë"]
-      },
-      "duxone-dx57": {
-        "name": "Duxone DX57 Llak",
-        "description": "Llak i gjithanshëm që ofron shkëlqim dhe tharje të besueshme në kushte të ndryshme.",
-        "features": ["Shkëlqim i lartë", "I lehtë për përdorim", "Tharje e qëndrueshme"]
-      },
-      "epvernici-ep200": {
-        "name": "EP Vernici EP‑200 Primer",
-        "description": "Primer epoksi me ngjitje të fortë dhe rezistencë ndaj korrozionit.",
-        "features": ["Ngjitje e fortë", "Anti‑korrozion", "Ndërtim i lëmuar"]
-      },
-      "epvernici-ep500": {
-        "name": "EP Vernici EP‑500 Shtresë Përfundimtare",
-        "description": "Shtresë 2K e qëndrueshme me ruajtje të shkëlqimit dhe qëndrueshmëri ndaj motit.",
-        "features": ["Qëndrueshmëri e lartë", "Rezistencë ndaj motit", "Shkëlqim i qëndrueshëm"]
-      },
-      "fiac-ab100-268": {
-        "name": "FIAC AB100/268 Kompresor",
-        "description": "Kompresor pistonik për punishte me furnizim të qëndrueshëm ajri dhe jetë të gjatë shërbimi.",
-        "features": ["Ndërtim robust", "Rrymë e qëndrueshme ajri", "I riparueshëm"]
-      },
-      "fiac-cls75": {
-        "name": "FIAC CLS 7.5 Kompresor Vidë",
-        "description": "Kompresor kompakt me vidë për ajër të kompresuar efikas dhe të qetë në punishte.",
-        "features": ["Zhurmë e ulët", "Efikas energjetik", "Punë e vazhdueshme"]
-      },
-      "hempel-light-primer": {
-        "name": "Hempel Light Primer",
-        "description": "Sistem primer epoksi me ngjitje të fortë dhe mbrojtje anti‑korrozive.",
-        "features": ["Anti‑korrozion", "Ngjitje e fortë", "Përdorim i shumëllojshëm"]
-      },
-      "hempel-silic-one": {
-        "name": "Hempel Silic One",
-        "description": "Veshje foul‑release e avancuar për sipërfaqe të lëmuara dhe fërkim të reduktuar.",
-        "features": ["Foul‑release", "Finish i lëmuar", "Mirëmbajtje e reduktuar"]
-      },
-      "jbm-hvlp-gun": {
-        "name": "JBM Pistolë HVLP",
-        "description": "Pistolë HVLP me precizion të lartë që ofron atomizim të qëndrueshëm dhe finish të butë.",
-        "features": ["Atomizim i imët", "Kapje komode", "Model spërkatje i qëndrueshëm"]
-      },
-      "jbm-polisher": {
-        "name": "JBM Polizues DA 1200W",
-        "description": "Polizues me veprim të dyfishtë dhe shpejtësi të ndryshueshme për prerje dhe përfundim.",
-        "features": ["Shpejtësi e ndryshueshme", "Balancë e mirë", "Rezultate profesionale"]
-      },
-      "masterdichem-primer-2k": {
-        "name": "Master DiChem Primer 2K",
-        "description": "Primer 2K me ngjitje të shkëlqyer dhe fuqi të lartë mbushjeje.",
-        "features": ["Mbushje e lartë", "Tharje e shpejtë", "Ngjitje e fortë"]
-      },
-      "masterdichem-clear-hs": {
-        "name": "Master DiChem HS Llak",
-        "description": "Llak HS me shkëlqim të lartë dhe rezistencë kimike.",
-        "features": ["Solid i lartë", "Shkëlqim i lartë", "Rezistencë kimike"]
-      },
-      "mirka-deros": {
-        "name": "Mirka DEROS Lëmues Orbital",
-        "description": "Lëmues elektrik shumë i lehtë me dridhje ultra të ulëta për lëmim pa pluhur.",
-        "features": ["Dridhje shumë të ulëta", "Nxjerrje pluhuri", "Dizajn kompakt"]
-      },
-      "mirka-polarshine-10": {
-        "name": "Mirka Polarshine 10 Përbërës",
-        "description": "Përbërës polirimi që ofron prerje të shkëlqyer dhe shkëlqim të lartë.",
-        "features": ["Prerje e lartë", "Shkëlqim i lartë", "Spërkatje e ulët"]
-      },
-      "shw-ultra-7000": {
-        "name": "Sherwin‑Williams Ultra 7000 Bazë",
-        "description": "Sistem baze premium për saktësi ngjyrash, mbulim dhe produktivitet.",
-        "features": ["Ngjyrë e saktë", "Mbulim i shkëlqyer", "Produktivitet"]
-      },
-      "shw-finish1-clear": {
-        "name": "Sherwin‑Williams Finish 1 Llak",
-        "description": "Llak i besueshëm me rrjedhje të butë dhe shkëlqim për rifinim ditor.",
-        "features": ["Rrjedhje e butë", "Shkëlqim i lartë", "Aplikim i lehtë"]
-      },
-      "standoblue-base": {
-        "name": "Standox Standoblue Bazë",
-        "description": "Bazë me bazë uji që ofron përputhje shumë të mirë ngjyrash dhe përzierje të lehtë.",
-        "features": ["Me bazë uji", "E lehtë për përzierje", "Përputhje e shkëlqyer"]
-      },
-      "standox-k9550-clear": {
-        "name": "Standox HS Llak K9550",
-        "description": "Llak HS që siguron shkëlqim të qëndrueshëm dhe kurim të fortë.",
-        "features": ["Solid i lartë", "Shkëlqim i qëndrueshëm", "Kurim i fortë"]
-      },
-      "telwin-tig-222": {
-        "name": "Telwin Technology TIG 222",
-        "description": "Njësi saldimi TIG profesionale me kontroll të saktë dhe hark të qëndrueshëm.",
-        "features": ["Kontroll i saktë", "Hark i qëndrueshëm", "Gama e gjerë materialesh"]
-      },
-      "telwin-smart-charger": {
-        "name": "Telwin Smart Charger PRO",
-        "description": "Karikues inteligjent me faza të shumta karikimi dhe funksione mbrojtjeje.",
-        "features": ["Karikim me shumë faza", "Mbrojtje e baterisë", "Përdorim i lehtë"]
-      },
-      "troton-master-filler": {
-        "name": "Troton Master Acryl Filler 4:1",
-        "description": "Filler akrilik me mbushje të lartë për nivelim të shkëlqyer dhe gërryerje të lehtë.",
-        "features": ["Mbushje e lartë", "Tharje e shpejtë", "Gërryerje e lehtë"]
-      },
-      "troton-brayd-clear": {
-        "name": "Troton BRAYD HS Llak",
-        "description": "Llak HS i projektuar për shkëlqim të thellë dhe qëndrueshmëri të besueshme.",
-        "features": ["Shkëlqim i thellë", "Film i qëndrueshëm", "Rezistencë kimike"]
-      }
-    }
-  },
-  "brands": {
     "hero": {
       "title": "Markat Tona",
       "subtitle": "Partneritete të besuara me prodhueset më të njohura në botë në rinovimin automobilistik dhe veshjet industriale"
@@ -1001,7 +232,6 @@
       }
     }
   },
-
   "services": {
     "hero": {
       "title": "Shërbime Profesionale",
@@ -1230,6 +460,573 @@
       "subtitle": "Kontaktoni ekspertët tanë sot për ndihmë të personalizuar",
       "emailButton": "Na Dërgoni Email",
       "callButton": "Na Telefononi"
+    }
+  },
+  "footer": {
+    "company": "MilloColor",
+    "tagline": "Zgjidhje Premium Bojërash për Automjete",
+    "rights": "© 2025 MilloColor. Të gjitha të drejtat e rezervuara.",
+    "nav": {
+      "title": "Lidhje të Shpejta",
+      "company": "Kompania",
+      "about": "Rreth Nesh",
+      "careers": "Karriera",
+      "news": "Lajme & Ngjarje",
+      "distributors": "Bëhuni Shpërndarës"
+    },
+    "products": {
+      "title": "Produktet",
+      "all": "Të Gjitha Produktet",
+      "automotive": "Bojëra Automjetesh",
+      "industrial": "Zgjidhje Industriale",
+      "accessories": "Aksesorë & Pajisje"
+    },
+    "resources": {
+      "title": "Burime",
+      "colorFinder": "Gjetësi i Ngjyrave",
+      "datasheets": "Fletët e të Dhënave Teknike",
+      "application": "Udhëzime Aplikimi",
+      "videos": "Video Tutoriale"
+    },
+    "legal": {
+      "title": "Ligjore",
+      "privacy": "Politika e Privatësisë",
+      "terms": "Kushtet e Shërbimit",
+      "cookies": "Politika e Cookies",
+      "accessibility": "Deklarata e Aksesueshmërisë"
+    },
+    "social": {
+      "title": "Na Ndiqni",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "youtube": "YouTube",
+      "linkedin": "LinkedIn"
+    },
+    "newsletter": {
+      "title": "Abonohu në Buletinin Tonë",
+      "description": "Merrni lajmet më të fundit të industrisë, përditësimet e produkteve dhe këshilla teknike direkt në kutinë tuaj të postës elektronike",
+      "placeholder": "Shkruani adresën tuaj të emailit",
+      "subscribe": "Abonohu",
+      "success": "Faleminderit për abonimin tuaj!",
+      "error": "Ndodhi një gabim. Ju lutemi provoni përsëri."
+    },
+    "showcase": {
+      "title": "Zgjidhje të Avancuara Bojësh",
+      "subtitle": "Zbuloni gamën tonë të plotë të finishimeve profesionale për automjete",
+      "products": {
+        "premium": {
+          "title": "Zgjidhje Mbulesash Premium",
+          "description": "Linja jonë kryesore e mbulesave me performancë të lartë të inxhinjeruara për automjete luksoze dhe aplikime të kërkueshme.",
+          "features": [
+            "Qëndrueshmëri dhe jetëgjatësi superiore",
+            "Saktësi e jashtëzakonshme e ngjyrës",
+            "Mbrojtje e avancuar UV",
+            "Aplikim dhe mbulim i lehtë"
+          ]
+        },
+        "professional": {
+          "title": "Sisteme Ripërfundimi Profesional",
+          "description": "Sisteme të plota ngjyrosje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
+          "features": [
+            "Kohër të shpejta tharjeje për efikasitet",
+            "Përputhje konsistente ngjyrash",
+            "Veti të shkëlqyera ngjitjeje",
+            "Mbështetje teknike gjithëpërfshirëse"
+          ]
+        },
+        "specialty": {
+          "title": "Finishime me Efekte Speciale",
+          "description": "Finishime unike dhe të personalizuara për estetikë dalluese automobilistike dhe projekte restaurimi.",
+          "features": [
+            "Efekte metalike dhe perlash",
+            "Formulime ngjyrash të personalizuara",
+            "Përputhshmëri me restaurimin vintage",
+            "Konsulencë eksperte ngjyrash"
+          ]
+        }
+      }
+    },
+    "contact": {
+      "title": "Kontakt i Shpejtë",
+      "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
+      "phone": "+355 69 123 4567",
+      "email": "info@millocolor.com"
+    }
+  },
+  "stats": {
+    "title": "Ndikimi Ynë në Numra",
+    "subtitle": "Tre dekada ekselencë në zgjidhjet e ngjyrosjes automobilistike",
+    "years": {
+      "title": "Vjet Eksperience",
+      "description": "Shërbyer industrinë automobilistike që nga 1993"
+    },
+    "brands": {
+      "title": "Marka Globale",
+      "description": "Partneritete me liderët e industrisë"
+    },
+    "clients": {
+      "title": "Klientë të Kënaqur",
+      "description": "Klientë të kënaqur në të gjithë Shqipërinë"
+    },
+    "sessions": {
+      "title": "Seanca Trajnimi",
+      "description": "Programe zhvillimi profesional"
+    },
+    "trusted": {
+      "title": "E Besuar nga Profesionistët në të Gjithë Shqipërinë",
+      "description": "Nga Tirana në Durrës, Vlorë në Shkodër, MilloColor ka qenë burimi kryesor për profesionistët e ngjyrosjes automobilistike. Përkushtimi ynë ndaj cilësisë, inovacionit dhe suksesit të klientit na ka bërë shpërndarësin kryesor në rajon."
+    }
+  },
+  "showcase": {
+    "title": "Zgjidhje Premium Bojërash",
+    "subtitle": "Zbuloni gamën tonë të plotë të finishimeve profesionale për automjete",
+    "products": {
+      "premium": {
+        "title": "Zgjidhje Mbulesash Premium",
+        "description": "Linja jonë kryesore e mbulesave me performancë të lartë të inxhinjeruara për automjete luksoze dhe aplikime të kërkueshme.",
+        "features": [
+          "Qëndrueshmëri dhe jetëgjatësi superiore",
+          "Saktësi e jashtëzakonshme e ngjyrës",
+          "Mbrojtje e avancuar UV",
+          "Aplikim dhe mbulim i lehtë"
+        ]
+      },
+      "professional": {
+        "title": "Sisteme Ripërfundimi Profesional",
+        "description": "Sisteme të plota ngjyrosje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
+        "features": [
+          "Kohër të shpejta tharjeje për efikasitet",
+          "Përputhje konsistente ngjyrash",
+          "Veti të shkëlqyera ngjitjeje",
+          "Mbështetje teknike gjithëpërfshirëse"
+        ]
+      },
+      "specialty": {
+        "title": "Finishime me Efekte Speciale",
+        "description": "Finishime unike dhe të personalizuara për estetikë dalluese automobilistike dhe projekte restaurimi.",
+        "features": [
+          "Efekte metalike dhe perlash",
+          "Formulime ngjyrash të personalizuara",
+          "Përputhshmëri me restaurimin vintage",
+          "Konsulencë eksperte ngjyrash"
+        ]
+      }
+    }
+  },
+  "foundation": {
+    "title": "Themelet Tona",
+    "subtitle": "E ndërtuar mbi tre shtylla që drejtojnë çdo gjë që bëjmë",
+    "values": {
+      "excellence": {
+        "title": "Ekselencë",
+        "description": "Ofrojmë shërbime në fushën automobilistike me standarde cilësie të maksimale që nga viti 1993."
+      },
+      "innovation": {
+        "title": "Inovacion",
+        "description": "Pionier ne teknologjinë e avancuar të bojërave dhe metoda trajnimi për t'i ardhur në ndihmë profesionistëve."
+      },
+      "sustainability": {
+        "title": "Qëndrueshmëri",
+        "description": "Të përkushtuar ndaj praktikave miqësore mjedisore dhe zgjidhjeve të qëndrueshme për një të ardhme më të mirë."
+      }
+    }
+  },
+  "productCategories": {
+    "title": "Kategoritë e Produkteve",
+    "subtitle": "Zgjidhje gjithëpërfshirëse për të gjitha nevojat tuaja të ngjyrosjes automobilistike",
+    "categories": {
+      "premium": {
+        "title": "Bojëra dhe Primer Premium",
+        "shortDescription": "Zgjidhje të avancuara të rifinimit automobilistik",
+        "fullDescription": "Linjat tona premium të bojërave nga Cromax, Standox dhe Sherwin-Williams ofrojnë përputhje të jashtëzakonshme të ngjyrave, qëndrueshmëri dhe cilësi për lyerjen e automjeteve.",
+        "features": [
+          "Përputhje Superiore e Ngjyrave",
+          "Qëndrueshmëri e Gjatë",
+          "Aplikim i Lehtë",
+          "Niveli Profesional"
+        ]
+      },
+      "auxiliary": {
+        "title": "Materiale Ndihmëse",
+        "shortDescription": "Produkte mbështetëse për rezultate perfekte",
+        "fullDescription": "Gamë e plotë e bazave, llakëve të tejdukshëm, holluesve dhe fortësuesve nga marka të besuara si Roberlo dhe Hempel për të siguruar performancë optimale të bojës.",
+        "features": [
+          "Sisteme të Përputhshme",
+          "Cilësi e Siguruar",
+          "Mbështetje Teknike",
+          "Formulime të Ndryshme"
+        ]
+      },
+      "equipment": {
+        "title": "Pajisje dhe Vegla",
+        "shortDescription": "Pajisje profesionale lyerje",
+        "fullDescription": "Pistoleta ngjyrosje të teknologjisë më të fundit nga SATA, kompresorë nga FIAC dhe zmerilues nga RUPES për aplikime profesionale të ngjyrosjes automobilistike.",
+        "features": [
+          "Teknologjia Më e Fundit",
+          "Vegla Eficente",
+          "Performancë e Besueshme",
+          "Trajnim Ekspert"
+        ]
+      }
+    },
+    "keyFeatures": "Karakteristikat Kryesore:",
+    "exploreProducts": "Eksploroni Produktet"
+  },
+  "training": {
+    "title": "Programi i Trajnimit Profesional",
+    "subtitle": "Udhëtimi juaj për të zotëruar ekselencën e ngjyrosjes automobilistike",
+    "theoretical": {
+      "title": "Trajnimi Teorik",
+      "duration": "2-3 ditë",
+      "description": "Seanca gjithëpërfshirëse në klasë që mbulojnë teorinë e bojës, përputhjen e ngjyrave dhe teknikat e aplikimit.",
+      "features": [
+        "Kimi e Bojës",
+        "Teoria e Ngjyrave",
+        "Përgatitja e Sipërfaqes",
+        "Protokollet e Sigurisë"
+      ]
+    },
+    "handsOn": {
+      "title": "Praktika e Drejtpërdrejtë",
+      "duration": "3-5 ditë",
+      "description": "Workshop praktik duke përdorur pajisje profesionale dhe skenare reale të ngjyrosjes automobilistike.",
+      "features": [
+        "Demonstrime të Gjalla",
+        "Seanca të Praktikës",
+        "Trajtimi i Pajisjeve",
+        "Kontrolli i Cilësisë"
+      ]
+    },
+    "certification": {
+      "title": "Certifikimi",
+      "duration": "1 ditë",
+      "description": "Procesi i vlerësimit dhe certifikimit për të vlerësuar aftësitë dhe për të ofruar kredenciale të njohura.",
+      "features": [
+        "Vlerësimi i Aftësive",
+        "Projekti Përfundimtar",
+        "Lëshimi i Certifikatës",
+        "Mbështetja e Vazhdueshme"
+      ]
+    },
+    "testimonials": {
+      "title": "Çfarë Thonë Studentët Tanë",
+      "student1": {
+        "name": "Arben Krasniqi",
+        "role": "Specialist i Ngjyrosjes Automobilistike",
+        "text": "Programi i trajnimit transformoi plotësisht qasjen time ndaj ngjyrosjes automobilistike. Profesional dhe gjithëpërfshirës."
+      },
+      "student2": {
+        "name": "Lena Shabani",
+        "role": "Pronare e Punëtorisë",
+        "text": "Trajnim i shkëlqyeshëm me eksperiencë praktike. Ekipi im përmirësoi në mënyrë dramatike pas certifikimit."
+      },
+      "student3": {
+        "name": "Driton Berisha",
+        "role": "Teknik i Ngjyrosjes",
+        "text": "Investimi më i mirë për karrierën time. Instruktorët janë ekspertë dhe pajisjet janë të klasës më të lartë."
+      }
+    },
+    "cta": "Bashkohuni me Trajnimin Tonë të Radhës"
+  },
+  "cta": {
+    "title": "Gati për të Transformuar",
+    "titleHighlight": "Eksperiencën Tuaj të Ngjyrosjes?",
+    "subtitle": "Bashkohuni me mijëra profesionistë që besojnë MilloColor për zgjidhje premium të ngjyrosjes automobilistike, trajnim ekspert dhe mbështetje të paçmuar.",
+    "getInTouch": "Na Kontaktoni",
+    "exploreProducts": "Eksploroni Produktet",
+    "contactInfo": {
+      "phone": "+355 69 123 4567",
+      "email": "info@millocolor.com",
+      "location": "Tiranë, Shqipëri"
+    }
+  },
+  "trusted": {
+    "trustedBy": "E besuar nga",
+    "worldIndustryLeaders": "liderët botërorë të industrisë"
+  },
+  "productShowcase": {
+    "title": "Produktet e Zgjedhura",
+    "subtitle": "Zbuloni zgjidhjet tona premium të bojërave për automjete të projektuara për përsosmëri profesionale dhe rezultate superiore",
+    "keyFeatures": "Karakteristikat Kryesore",
+    "learnMore": "Mëso Më Shumë",
+    "viewAllProducts": "Shiko Të Gjitha Produktet",
+    "categories": {
+      "all": "Të Gjitha Produktet",
+      "premium": "Premium",
+      "professional": "Profesionale",
+      "specialty": "Specialiteti",
+      "eco": "Miqësore për Mjedisin",
+      "industrial": "Industriale",
+      "custom": "E Personalizuar"
+    },
+    "products": {
+      "premiumCoating": {
+        "name": "RUPES Skorpio III RH356",
+        "description": "Lëshues pneumatik orbital i rastësishëm profesional me jastëk 150mm dhe orbit 6mm. Ka motor të projektuar për çift rrotullimi maksimal, dridhje jashtëzakonisht të ulëta dhe funksionim të qetë.",
+        "features": "Orbit 6mm për balancë të përsosur|0-11,000 RPM|Veshje gome anti-rrëshqitëse|Kushineta me dy rreshta"
+      },
+      "professionalSystem": {
+        "name": "Roberlo Pistolë Profesionale",
+        "description": "Pistolë pikturimi automjetesh me precizion të lartë me teknologji atomizimi të avancuar. I projektuar për ripikturim profesional me cilësi finish superiore dhe efikasitet materiali.",
+        "features": "Atomizim i avancuar|Efikasitet transferimi i lartë|Kontroll preciz|Finish profesional"
+      },
+      "specialtyEffects": {
+        "name": "SATAjet X 5500",
+        "description": "Pistolë pikturimi revolucionare me sistem grykë X. Ka teknologji grykë të qetë, shpërndarje materiali të optimizuar dhe atomizim të jashtëzakonshëm për të gjitha sistemet e bojës.",
+        "features": "Sistem revolucionar grykë X|Teknologji grykë të qetë|Kursim materiali|Finish i përsosur 360°"
+      },
+      "ecoSolutions": {
+        "name": "RUPES BigFoot LHR21 Mark V",
+        "description": "Polizues orbital i rastësishëm premium me lëvizje diametri të madh. Ka teknologji motor pa furça, balancë të jashtëzakonshme dhe performancë të nivelit profesional.",
+        "features": "Teknologji motor pa furça|Lëvizje orbit të madhe|Balancë e jashtëzakonshme|Performancë profesionale"
+      },
+      "industrialGrade": {
+        "name": "SATAjet 5000 B",
+        "description": "Pistolë pikturimi i gjithanshëm HVLP/RP me presion hyrës të rregullueshëm dhe distancë pikturimi. I përsosur për ripikturim automjetesh me madhësi konsistente tifoz në spektrin e grykës.",
+        "features": "Teknologji HVLP/RP|Presion i rregullueshëm|Madhësi konsistente tifoz|Rezultate profesionale"
+      },
+      "customFinishes": {
+        "name": "Sistemi i Aplikimit të Personalizuar Roberlo",
+        "description": "Zgjidhje aplikimi spërkatjeje të personalizuara për kërkesa unike. Ka dizajn modular, kontroll preciz dhe konsultim ekspert për aplikime të personalizuara.",
+        "features": "Dizajn modular|Kontroll preciz|Zgjidhje të personalizuara|Konsultim ekspert"
+      }
+    },
+    "productsData": {
+      "roberlo-kronox-510": {
+        "name": "Roberlo Kronox 510",
+        "description": "Veshje transparente me përmbajtje të lartë lëndësh të ngurta për tharje të shpejtë, shkëlqim të thellë dhe stabilitet vertikal.",
+        "features": [
+          "Formulë high solids",
+          "Tharje e shpejtë",
+          "Qëndrueshmëri vertikale"
+        ]
+      },
+      "roberlo-multyfiller-express": {
+        "name": "Roberlo Multyfiller Express",
+        "description": "Primer universal 3 në 1 me tharje shumë të shpejtë për cikle të shkurtra gërryerjeje.",
+        "features": [
+          "Aplikim 3 në 1",
+          "Tharje ekspres",
+          "Sipërfaqe lehtësisht e rërueshme"
+        ]
+      },
+      "cromax-vr-1120": {
+        "name": "Cromax VR-1120",
+        "description": "Pallto transparente me VOC të ulët për produktivitet të lartë dhe shkëlqim të qëndrueshëm në rifiniturë.",
+        "features": [
+          "VOC i ulët",
+          "Cikël i shkurtër pjekjeje",
+          "Shkëlqim afatgjatë"
+        ]
+      },
+      "cromax-710r": {
+        "name": "Cromax 710-R",
+        "description": "Primer dy-komponentësh me mbulim të lartë për tharje të shpejtë dhe sipërfaqe uniforme para bojës.",
+        "features": [
+          "Fuqí e lartë mbuluese",
+          "Aplikim wet-on-wet",
+          "Mbajtje e qëndrueshme e ngjyrës"
+        ]
+      },
+      "standox-k9600-xtreme": {
+        "name": "Standox K9600 Xtreme",
+        "description": "Llak i shpejtë Standox me rrjedhje të shkëlqyer, shkëlqim të thellë dhe rezistencë të lartë kimike.",
+        "features": [
+          "Pjekje shumë e shpejtë",
+          "Rrjedhje perfekte",
+          "Rezistencë kimike e lartë"
+        ]
+      },
+      "standox-k9510-easy": {
+        "name": "Standox K9510 Easy",
+        "description": "Llak praktike për përdorim të përditshëm me dritare të gjerë aplikimi dhe tharje të parashikueshme.",
+        "features": [
+          "Aplikim i lehtë",
+          "Shkëlqim brilant",
+          "Tharje e qëndrueshme"
+        ]
+      },
+      "duxone-dx48": {
+        "name": "Duxone DX48",
+        "description": "Primer 2K me përmbajtje të lartë lëndësh të ngurta për mbushje të fortë dhe ngjitje të sigurt.",
+        "features": [
+          "Mbushje e lartë",
+          "Ngjitje e shkëlqyer",
+          "Gërryerje e shpejtë"
+        ]
+      },
+      "duxone-dx64": {
+        "name": "Duxone DX64",
+        "description": "Llak high solids që kombinon aplikim të lehtë me mbrojtje të qëndrueshme dhe shkëlqim të madh.",
+        "features": [
+          "Shkëlqim i lartë",
+          "Aplikim fleksibël",
+          "Mbrojtje e qëndrueshme"
+        ]
+      },
+      "hempel-zinc-17360": {
+        "name": "Hempel Zinc 17360",
+        "description": "Primer epoksi me përmbajtje të lartë zinku për mbrojtje të fuqishme antikorrozione në kushte të vështira.",
+        "features": [
+          "Përqindje e lartë zinku",
+          "Mbrojtje katodike",
+          "Ngjitje e shkëlqyer"
+        ]
+      },
+      "hempel-underwater-primer": {
+        "name": "Hempel Underwater Primer",
+        "description": "Primer epoksi dy-komponentësh për ngjitje të fortë dhe hidroizolim nën vijën e ujit.",
+        "features": [
+          "Hidroizolim shumë i mirë",
+          "Rezistencë ndaj flluskëzimit",
+          "Ngjitje e fortë"
+        ]
+      },
+      "fiac-500-industrial-black": {
+        "name": "FIAC 500 Industrial Black",
+        "description": "Kompresor pistoni 500L për përdorim industrial me prodhim të qëndrueshëm ajri dhe strukturë të fortë.",
+        "features": [
+          "Rezervuar 500L",
+          "Pompë gize",
+          "Prurje e vazhdueshme"
+        ]
+      },
+      "fiac-500-silver": {
+        "name": "FIAC 500 Silver",
+        "description": "Kompresor profesional me rrjedhë të qëndrueshme ajri, ftohje efikase dhe konstrukcion të fortë.",
+        "features": [
+          "Fluks i qëndrueshëm",
+          "Ftohje efikase",
+          "Ndërtim i qëndrueshëm"
+        ]
+      },
+      "epvernici-vrap": {
+        "name": "EP Vernici VRAP",
+        "description": "Primer epoksi me ngjitje të lartë dhe barriera korrozioni për strukturat metalike.",
+        "features": [
+          "Ngjitje e lartë",
+          "Mbrojtje antikorrozione",
+          "Sipërfaqe e rrafshët"
+        ]
+      },
+      "epvernici-vprl": {
+        "name": "EP Vernici VPRL",
+        "description": "Shtresë përfundimtare poliuretani me rezistencë ndaj UV dhe motit për një shkëlqim të qëndrueshëm.",
+        "features": [
+          "Qëndrueshmëri poliuretani",
+          "Rezistencë ndaj UV dhe motit",
+          "Shkëlqim afatgjatë"
+        ]
+      },
+      "jbm-7-drawer-trolley": {
+        "name": "JBM Karrocë me 7 sirtarë",
+        "description": "Karrocë pune e veshur me pluhur me shtatë sirtarë me kushineta dhe mbyllje qendrore.",
+        "features": [
+          "7 sirtarë të gjerë",
+          "Shina me kushineta",
+          "Kyçje qendrore"
+        ]
+      },
+      "jbm-modular-storage": {
+        "name": "JBM Sistem magazinimi modular",
+        "description": "Sistem modular magazinimi me dollapë, panele varëse dhe plan pune për organizim maksimal.",
+        "features": [
+          "Konfigurim modular",
+          "Panel varës i integruar",
+          "Plan pune i qëndrueshëm"
+        ]
+      },
+      "masterdichem-acrilprimer-gold": {
+        "name": "Master DiChem Acrilprimer 2K Gold",
+        "description": "Primer akrilik 2K me përzierje 5:1 për mbyllje të shkëlqyer, tharje të shpejtë dhe rrafshim të lehtë.",
+        "features": [
+          "Raport 5:1",
+          "Tharje e shpejtë",
+          "Mbyllje e shkëlqyer"
+        ]
+      },
+      "masterdichem-sigil-metal": {
+        "name": "Master DiChem Sigil Metal",
+        "description": "Mastikë elastike për fuga metalike me ngjitje të fortë dhe mbrojtje nga lagështia.",
+        "features": [
+          "Vulosje elastike",
+          "Ngjitje në metal të zhveshur",
+          "Rezistencë ndaj lagështisë"
+        ]
+      },
+      "mirka-deros-680": {
+        "name": "Mirka DEROS 680",
+        "description": "Lëmues elektrik 150mm me orbitë 5mm, motor brushless dhe dalje për thithjen e pluhurit.",
+        "features": [
+          "Orbitë 5mm",
+          "Motor brushless",
+          "Dalje për pluhur"
+        ]
+      },
+      "mirka-abranet": {
+        "name": "Mirka Abranet",
+        "description": "Disk gërryes me rrjetë të hapur për gërryerje pa pluhur dhe jetëgjatësi të lartë.",
+        "features": [
+          "Rrjetë e hapur",
+          "Gërryerje pa pluhur",
+          "Jetë e gjatë"
+        ]
+      },
+      "shw-wood-basecoat": {
+        "name": "Sherwin-Williams Wood Basecoat",
+        "description": "Shtresë bazë për dru me mbulim të njëtrajtshëm, që bllokon taninet dhe rërohet shpejt.",
+        "features": [
+          "Mbulim i njëtrajtshëm",
+          "Bllokon taninet",
+          "Rërohet shpejt"
+        ]
+      },
+      "shw-wood-topcoat": {
+        "name": "Sherwin-Williams Wood Topcoat",
+        "description": "Veshje përfundimtare për dru që sjell ngrohtësi, transparencë dhe rezistencë ndaj gërvishtjeve.",
+        "features": [
+          "Shkëlqim i ngrohtë",
+          "Rezistencë ndaj gërvishtjeve",
+          "Mbrojtje e qëndrueshme"
+        ]
+      },
+      "telwin-smart-inductor-5000": {
+        "name": "Telwin Smart Inductor 5000",
+        "description": "Sistem induksioni inteligjent për zbutje të shpejtë dhe të kontrolluar të pjesëve të ngjitura ose të bllokuara.",
+        "features": [
+          "Ngrohje precize",
+          "Cikle të programueshme",
+          "I sigurt për bojë dhe aksesorë"
+        ]
+      },
+      "telwin-aqua-inductor-6000": {
+        "name": "Telwin Aqua Inductor 6000",
+        "description": "Njësi induksioni me ftohje uji për fuqi të vazhdueshme në drejtimin strukturor dhe riparime.",
+        "features": [
+          "Sistem me ftohje uji",
+          "Fuqí e vazhdueshme",
+          "E përshtatshme për strukturë"
+        ]
+      },
+      "troton-light-putty": {
+        "name": "Troton Light Putty",
+        "description": "Kit poliester i lehtë që aplikohet lehtë, thahet shpejt dhe gërryhet pa bllokuar letër zmerilen.",
+        "features": [
+          "Dendësi e ulët",
+          "Tharje e shpejtë",
+          "Rërim i lehtë"
+        ]
+      },
+      "troton-bold-putty": {
+        "name": "Troton Bold Putty",
+        "description": "Kit i përforcuar për riparime të mëdha me rezistencë të lartë mekanike dhe ngjitje shumë të mirë.",
+        "features": [
+          "Formulë e përforcuar",
+          "Forcë e lartë mekanike",
+          "Ngjitje në shumë sipërfaqe"
+        ]
+      }
     }
   }
 }

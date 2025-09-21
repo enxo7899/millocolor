@@ -57,9 +57,21 @@
       "title": "Our Reach",
       "description": "Strategically located on the Tirana-Durres highway, our operations enable efficient imports and distribution from Belgium, Germany, and Spain — guaranteeing consistent access to the best solutions across Albania.",
       "countries": [
-        { "name": "Belgium", "flag": "belgium", "type": "Strategic" },
-        { "name": "Germany", "flag": "germany", "type": "Premium" },
-        { "name": "Spain", "flag": "spain", "type": "Regional" }
+        {
+          "name": "Belgium",
+          "flag": "belgium",
+          "type": "Strategic"
+        },
+        {
+          "name": "Germany",
+          "flag": "germany",
+          "type": "Premium"
+        },
+        {
+          "name": "Spain",
+          "flag": "spain",
+          "type": "Regional"
+        }
       ]
     },
     "partnership": {
@@ -144,670 +156,6 @@
     }
   },
   "brands": {
-    "title": "Our Partner Brands",
-    "subtitle": "We partner with the world's leading paint manufacturers to bring you premium quality products",
-    "brand1": {
-      "name": "ColorTech Pro",
-      "description": "High-performance automotive paint systems from Germany",
-      "fullDescription": "ColorTech Pro is a premium German paint manufacturer with over 75 years of experience in developing high-performance automotive coatings. Their products are known for exceptional durability, brilliant finish, and advanced color-matching technology.",
-      "features": {
-        "feature1": "Environmentally compliant water-based systems",
-        "feature2": "Proprietary color-matching technology",
-        "feature3": "Outstanding resistance to weathering and chemicals"
-      }
-    },
-    "brand2": {
-      "name": "ItalFinish",
-      "description": "Italian luxury finishes for premium vehicles",
-      "fullDescription": "ItalFinish brings Italian craftsmanship to automotive refinishing with products specifically designed for luxury and high-end vehicles. Their coatings deliver extraordinary depth, clarity, and a finish that enhances the most prestigious automotive designs.",
-      "features": {
-        "feature1": "Specialized formulations for luxury vehicle brands",
-        "feature2": "Exceptional depth and gloss retention",
-        "feature3": "Custom effect additives for unique finishes"
-      }
-    },
-    "brand3": {
-      "name": "EcoPaint Systems",
-      "description": "Sustainable coating solutions with reduced environmental impact",
-      "fullDescription": "EcoPaint Systems focuses on developing environmentally responsible coatings that maintain professional quality while reducing VOC emissions and environmental impact. Their innovative products meet or exceed the strictest environmental regulations.",
-      "features": {
-        "feature1": "Ultra-low VOC formulations",
-        "feature2": "Reduced energy consumption during application",
-        "feature3": "Recyclable packaging solutions"
-      }
-    },
-    "brand4": {
-      "name": "TechCoat Industrial",
-      "description": "Heavy-duty coatings for commercial vehicles",
-      "fullDescription": "TechCoat Industrial specializes in heavy-duty coating systems for commercial vehicles, fleet applications, and industrial equipment. Their products offer superior protection against extreme conditions, chemicals, and physical wear.",
-      "features": {
-        "feature1": "Advanced corrosion resistance technology",
-        "feature2": "Direct-to-metal application systems",
-        "feature3": "Extended service life even in harsh environments"
-      }
-    },
-    "learnMore": "Learn More",
-    "keyFeatures": "Key Features",
-    "viewProducts": "View Products",
-    "close": "Close",
-    "partnerships": {
-      "title": "Our Global Partnerships",
-      "partner1": "EuroFinish",
-      "partner2": "AmeriCoat",
-      "partner3": "AsiaGloss",
-      "partner4": "PacificPaint",
-      "partner5": "NordicCoat",
-      "partner6": "GlobalTint"
-    },
-    "global": {
-      "title": "Global Distribution Network",
-      "description": "Our products are available in over 50 countries through a network of certified distributors and partners",
-      "mapPlaceholder": "Interactive map coming soon",
-      "regions": {
-        "europe": {
-          "name": "Europe",
-          "description": "Our strongest presence with distribution in 25 countries",
-          "countries": "Germany, Italy, France, UK, Spain and more"
-        },
-        "americas": {
-          "name": "The Americas",
-          "description": "Growing network throughout North and South America",
-          "countries": "USA, Canada, Brazil, Mexico and more"
-        },
-        "asia": {
-          "name": "Asia Pacific",
-          "description": "Expanding presence in key Asian markets",
-          "countries": "Japan, South Korea, Australia, New Zealand and more"
-        }
-      }
-    }
-  },
-
-  "services": {
-    "hero": {
-      "title": "Professional Services",
-      "subtitle": "Comprehensive support for automotive refinishing professionals"
-    },
-    "overview": {
-      "title": "How We Support You",
-      "description": "Beyond providing premium products, we offer a range of professional services to help you achieve perfect results and grow your business."
-    },
-    "learnMore": "Learn More",
-    "keyBenefits": "Key Benefits",
-    "inquire": "Inquire Now",
-    "close": "Close",
-    "colorConsulting": {
-      "title": "Color Consulting",
-      "shortDescription": "Expert color matching and formulation services for even the most challenging applications.",
-      "description": "Our color consulting service provides professional assistance with complex color matching challenges. Our experts use advanced spectrophotometer technology and extensive color libraries to develop precise formulations for any project, from classic restorations to custom finishes.",
-      "benefits": {
-        "benefit1": "Precise color matching for factory and custom colors",
-        "benefit2": "Specialized expertise for rare, vintage, and difficult-to-match colors",
-        "benefit3": "Custom formula development for unique projects"
-      }
-    },
-    "training": {
-      "title": "Technical Training",
-      "shortDescription": "Comprehensive training programs for painters and technicians at all skill levels.",
-      "description": "Our technical training programs are designed to enhance the skills and knowledge of automotive refinishing professionals. From beginners to experienced painters, we offer hands-on workshops, technique seminars, and certification courses to help you master our products and the latest application methods.",
-      "benefits": {
-        "benefit1": "Hands-on instruction from industry experts",
-        "benefit2": "Product-specific application techniques",
-        "benefit3": "Advanced color theory and matching skills"
-      }
-    },
-    "equipment": {
-      "title": "Equipment Solutions",
-      "shortDescription": "High-performance spray equipment and color mixing systems optimized for our products.",
-      "description": "We offer a complete range of professional spray equipment, mixing systems, and accessories specifically selected and optimized for use with our paint products. Our equipment solutions focus on precision, efficiency, and consistent results to enhance your workflow.",
-      "benefits": {
-        "benefit1": "Professional-grade equipment from leading manufacturers",
-        "benefit2": "Customized spray gun setup and optimization",
-        "benefit3": "Computerized mixing systems with advanced color management"
-      }
-    },
-    "support": {
-      "title": "Technical Support",
-      "shortDescription": "Responsive assistance from our team of refinishing experts whenever you need it.",
-      "description": "Our dedicated technical support team is always available to assist with product questions, application challenges, or troubleshooting. With decades of combined experience in automotive refinishing, our support specialists can help you resolve issues quickly and efficiently.",
-      "benefits": {
-        "benefit1": "Direct access to refinishing experts",
-        "benefit2": "Problem-solving for specific application challenges",
-        "benefit3": "Product recommendations for special projects"
-      }
-    },
-    "process": {
-      "title": "Our Service Process",
-      "description": "We follow a structured approach to ensure we deliver exactly what you need",
-      "steps": {
-        "step1": {
-          "title": "Initial Consultation",
-          "description": "We begin with a detailed discussion of your needs, challenges, and objectives to understand how we can best support you."
-        },
-        "step2": {
-          "title": "Customized Solution",
-          "description": "Our team develops a tailored plan that addresses your specific requirements, whether it's training, color consulting, or equipment setup."
-        },
-        "step3": {
-          "title": "Implementation",
-          "description": "We deliver the agreed services with meticulous attention to detail, ensuring you receive maximum value and practical benefits."
-        },
-        "step4": {
-          "title": "Follow-up Support",
-          "description": "Our relationship continues with ongoing support to address any questions or additional needs that arise after the initial service."
-        }
-      }
-    },
-    "testimonials": {
-      "title": "What Our Clients Say",
-      "description": "Hear from professionals who have benefited from our services",
-      "testimonial1": {
-        "name": "Michael Johnson",
-        "company": "Premier Auto Body",
-        "text": "The color consulting service from MilloColor has been a game-changer for our custom restoration projects. Their ability to match decades-old factory colors is nothing short of amazing."
-      },
-      "testimonial2": {
-        "name": "Sarah Rodriguez",
-        "company": "Elite Refinishing",
-        "text": "The technical training we received has significantly improved our efficiency and finish quality. Our painters are now more confident and capable with even the most challenging jobs."
-      },
-      "testimonial3": {
-        "name": "David Chen",
-        "company": "Precision Automotive",
-        "text": "The equipment solutions and setup assistance from MilloColor have reduced our material consumption while improving our finish quality. The return on investment was almost immediate."
-      }
-    },
-    "cta": {
-      "title": "Ready to Elevate Your Refinishing Capabilities?",
-      "description": "Contact us today to discuss how our professional services can help you achieve superior results and grow your business.",
-      "button": "Schedule a Consultation"
-    }
-  },
-  "contact": {
-    "title": "Contact Us",
-    "subtitle": "We're here to answer your questions and provide expert support",
-    "getInTouch": {
-      "title": "Get In Touch",
-      "subtitle": "Ready to enhance your painting process? Contact our experts today",
-      "contactInfo": {
-        "title": "Contact Information",
-        "address": {
-          "label": "Address",
-          "value": "123 Paint Street, Tirana, Albania"
-        },
-        "phone": {
-          "label": "Phone",
-          "value": "+355 42 123 456"
-        },
-        "email": {
-          "label": "Email",
-          "value": "info@millocolor.com"
-        }
-      }
-    },
-    "form": {
-      "title": "Send Us a Message",
-      "name": "Your Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "subject": "Subject",
-      "selectSubject": "Please select a subject",
-      "subjects": {
-        "product": "Product Information",
-        "support": "Technical Support",
-        "partnership": "Partnership Opportunities",
-        "other": "Other Inquiry"
-      },
-      "message": "Your Message",
-      "send": "Send Message",
-      "sending": "Sending...",
-      "successMessage": "Thank you! Your message has been sent successfully. We'll respond as soon as possible.",
-      "errorMessage": "Sorry, there was an error sending your message. Please try again or contact us directly by phone."
-    },
-    "map": {
-      "placeholder": "Interactive map coming soon"
-    },
-    "info": {
-      "address": {
-        "title": "Our Location",
-        "line1": "MilloColor Headquarters",
-        "line2": "123 Innovation Drive, Tech City, TC 12345"
-      },
-      "phone": {
-        "title": "Phone",
-        "sales": "Sales",
-        "support": "Technical Support"
-      },
-      "email": {
-        "title": "Email",
-        "sales": "Sales",
-        "support": "Support"
-      },
-      "hours": {
-        "title": "Business Hours",
-        "weekdays": "Monday - Friday: 8:00 AM - 6:00 PM",
-        "weekend": "Saturday: 9:00 AM - 1:00 PM, Sunday: Closed"
-      }
-    }
-  },
-  "footer": {
-    "tagline": "Premium automotive paint solutions with over 30 years of experience.",
-    "nav": { "title": "Quick Links" },
-    "contact": { "title": "Contact Us" },
-    "rights": "© 2025 MilloColor. All rights reserved.",
-    "about": {
-      "title": "About MilloColor",
-      "description": "Leading provider of premium automotive paint solutions with over 30 years of experience serving professionals worldwide."
-    },
-    "quickLinks": {
-      "title": "Quick Links",
-      "products": "Products",
-      "brands": "Brands",
-      "services": "Services",
-      "about": "About Us",
-      "contact": "Contact"
-    },
-    "copyright": "© 2025 MilloColor. All rights reserved.",
-    "legal": {
-      "title": "Legal",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "cookies": "Cookie Policy"
-    },
-    "newsletter": {
-      "title": "Stay Updated",
-      "description": "Subscribe to our newsletter for the latest product news and technical tips.",
-      "placeholder": "Your email address",
-      "submit": "Subscribe",
-      "subscribe": "Subscribe",
-      "success": "Thank you for subscribing!",
-      "error": "Subscription failed. Please try again."
-    },
-    "social": {
-      "title": "Connect With Us",
-      "facebook": "Facebook",
-      "twitter": "Twitter",
-      "instagram": "Instagram",
-      "linkedin": "LinkedIn",
-      "youtube": "YouTube"
-    },
-    "language": "Language"
-  },
-  "stats": {
-    "years": "Years of Excellence",
-    "colors": "Custom Colors Developed",
-    "partners": "Global Partners",
-    "awards": "Industry Awards",
-    "countries": "Countries Served",
-    "title": "Our Track Record",
-    "subtitle": "Delivering excellence across the automotive industry"
-  },
-  "showcase": {
-    "title": "Premium Paint Solutions",
-    "subtitle": "Discover our comprehensive range of professional-grade automotive finishes",
-    "products": {
-      "premium": {
-        "title": "Premium Coating Solutions",
-        "description": "Our flagship line of high-performance coatings engineered for luxury vehicles and demanding applications.",
-        "features": [
-          "Superior durability and longevity",
-          "Exceptional color accuracy",
-          "Advanced UV protection",
-          "Easy application and coverage"
-        ]
-      },
-      "professional": {
-        "title": "Professional Refinishing Systems",
-        "description": "Complete painting systems designed for professional body shops and collision repair centers.",
-        "features": [
-          "Fast cure times for efficiency",
-          "Consistent color matching",
-          "Excellent adhesion properties",
-          "Comprehensive technical support"
-        ]
-      },
-      "specialty": {
-        "title": "Specialty Effect Finishes",
-        "description": "Unique and custom effect finishes for distinctive automotive aesthetics and restoration projects.",
-        "features": [
-          "Metallic and pearl effects",
-          "Custom color formulations",
-          "Vintage restoration compatibility",
-          "Expert color consulting"
-        ]
-      }
-    }
-  },
-  "partners": {
-    "title": "Trusted by Industry Leaders",
-    "subtitle": "We partner with the world's most respected automotive paint manufacturers"
-  },
-  "foundation": {
-    "title": "Our Foundation",
-    "subtitle": "Built on three pillars that drive everything we do",
-    "values": {
-      "excellence": {
-        "title": "Excellence",
-        "description": "Delivering premium automotive solutions with uncompromising quality standards since 1993."
-      },
-      "innovation": {
-        "title": "Innovation",
-        "description": "Pioneering cutting-edge paint technologies and training methods to keep professionals ahead."
-      },
-      "sustainability": {
-        "title": "Sustainability",
-        "description": "Committed to eco-friendly practices and sustainable solutions for a better tomorrow."
-      }
-    }
-  },
-  "productCategories": {
-    "title": "Product Categories",
-    "subtitle": "Comprehensive solutions for all your automotive painting needs",
-    "categories": {
-      "premium": {
-        "title": "Premium Paints & Coatings",
-        "shortDescription": "High-end automotive refinishing solutions",
-        "fullDescription": "Our premium paint lines from Cromax, Standox, and Sherwin-Williams deliver exceptional color matching, durability, and finish quality for luxury vehicle refinishing.",
-        "features": ["Superior Color Match", "Long-lasting Durability", "Easy Application", "Professional Grade"]
-      },
-      "auxiliary": {
-        "title": "Auxiliary Materials",
-        "shortDescription": "Supporting products for perfect results",
-        "fullDescription": "Complete range of primers, clearcoats, thinners, and hardeners from trusted brands like Roberlo and Hempel to ensure optimal paint performance.",
-        "features": ["Compatible Systems", "Quality Assured", "Technical Support", "Various Formulations"]
-      },
-      "equipment": {
-        "title": "Equipment & Tools",
-        "shortDescription": "Professional-grade painting equipment",
-        "fullDescription": "State-of-the-art spray guns from SATA, compressors from FIAC, and sanders from RUPES for professional automotive painting applications.",
-        "features": ["Latest Technology", "Precision Tools", "Reliable Performance", "Expert Training"]
-      }
-    },
-    "keyFeatures": "Key Features:",
-    "exploreProducts": "Explore Products"
-  },
-  "training": {
-    "title": "Professional Training Program",
-    "subtitle": "Your journey to mastering automotive painting excellence",
-    "theoretical": {
-      "title": "Theoretical Training",
-      "duration": "2-3 days",
-      "description": "Comprehensive classroom sessions covering paint theory, color matching, and application techniques.",
-      "features": ["Paint Chemistry", "Color Theory", "Surface Preparation", "Safety Protocols"]
-    },
-    "handsOn": {
-      "title": "Hands-on Practice",
-      "duration": "3-5 days",
-      "description": "Practical workshops using professional equipment and real-world automotive painting scenarios.",
-      "features": ["Live Demonstrations", "Practice Sessions", "Equipment Handling", "Quality Control"]
-    },
-    "certification": {
-      "title": "Certification",
-      "duration": "1 day",
-      "description": "Assessment and certification process to validate skills and provide recognized credentials.",
-      "features": ["Skills Assessment", "Final Project", "Certificate Issuance", "Ongoing Support"]
-    },
-    "testimonials": {
-      "title": "What Our Students Say",
-      "student1": {
-        "name": "Arben Krasniqi",
-        "role": "Auto Paint Specialist",
-        "text": "The training program completely transformed my approach to automotive painting. Professional and comprehensive."
-      },
-      "student2": {
-        "name": "Lena Shabani",
-        "role": "Workshop Owner",
-        "text": "Excellent training with hands-on experience. My team improved dramatically after the certification."
-      },
-      "student3": {
-        "name": "Driton Berisha",
-        "role": "Paint Technician",
-        "text": "Best investment for my career. The instructors are experts and the equipment is top-notch."
-      }
-    },
-    "cta": "Join Our Next Training"
-  },
-  "stats": {
-    "title": "Our Impact in Numbers",
-    "subtitle": "Three decades of excellence in automotive painting solutions",
-    "years": {
-      "title": "Years of Experience",
-      "description": "Serving the automotive industry since 1993"
-    },
-    "brands": {
-      "title": "Global Brands",
-      "description": "Partnerships with industry leaders"
-    },
-    "clients": {
-      "title": "Happy Clients",
-      "description": "Satisfied customers across Albania"
-    },
-    "sessions": {
-      "title": "Training Sessions",
-      "description": "Professional development programs"
-    },
-    "trusted": {
-      "title": "Trusted by Professionals Across Albania",
-      "description": "From Tirana to Durrës, Vlorë to Shkodër, MilloColor has been the go-to source for automotive painting professionals. Our commitment to quality, innovation, and customer success has made us the leading distributor in the region."
-    }
-  },
-  "cta": {
-    "title": "Ready to Transform Your",
-    "titleHighlight": "Painting Experience?",
-    "subtitle": "Join thousands of professionals who trust MilloColor for premium automotive painting solutions, expert training, and unmatched support.",
-    "getInTouch": "Get in Touch",
-    "exploreProducts": "Explore Products",
-    "contactInfo": {
-      "phone": "+355 69 123 4567",
-      "email": "info@millocolor.com",
-      "location": "Tirana - Durres km8, Tirana, Albania"
-    }
-  },
-  "trusted": {
-    "trustedBy": "Trusted by",
-    "worldIndustryLeaders": "World Industry Leaders"
-  },
-  "productShowcase": {
-    "title": "Featured Products",
-    "subtitle": "Discover our premium automotive paint solutions engineered for professional excellence and superior results",
-    "keyFeatures": "Key Features",
-    "learnMore": "Learn More",
-    "viewAllProducts": "View All Products",
-    "categories": {
-      "all": "All Products",
-      "premium": "Premium",
-      "professional": "Professional",
-      "specialty": "Specialty",
-      "eco": "Eco-Friendly",
-      "industrial": "Industrial",
-      "custom": "Custom"
-    },
-    "products": {
-      "premiumCoating": {
-        "name": "RUPES Skorpio III RH356",
-        "description": "Professional random orbital pneumatic sander with 150mm pad and 6mm orbit. Features engineered motor for maximum torque, extremely low vibration, and quiet operation.",
-        "features": "6mm orbit for perfect balance|0-11,000 RPM|Anti-slip rubber coating|Double row bearings"
-      },
-      "professionalSystem": {
-        "name": "Roberlo Professional Spray Gun",
-        "description": "High-precision automotive spray gun with advanced atomization technology. Designed for professional refinishing with superior finish quality and material efficiency.",
-        "features": "Advanced atomization|High transfer efficiency|Precision control|Professional finish"
-      },
-      "specialtyEffects": {
-        "name": "SATAjet X 5500",
-        "description": "Revolutionary paint spray gun with X nozzle system. Features whispering nozzle technology, optimized material distribution, and exceptional atomization for all paint systems.",
-        "features": "Revolutionary X nozzle system|Whispering nozzle technology|Material savings|360° perfect finish"
-      },
-      "ecoSolutions": {
-        "name": "RUPES BigFoot LHR21 Mark V",
-        "description": "Premium random orbital polisher with large diameter movement. Features brushless motor technology, exceptional balance, and professional-grade performance.",
-        "features": "Brushless motor technology|Large orbit movement|Exceptional balance|Professional performance"
-      },
-      "industrialGrade": {
-        "name": "SATAjet 5000 B",
-        "description": "Versatile HVLP/RP spray gun with adjustable inlet pressure and painting distance. Perfect for automotive refinishing with consistent fan size across nozzle spectrum.",
-        "features": "HVLP/RP technology|Adjustable pressure|Consistent fan size|Professional results"
-      },
-      "customFinishes": {
-        "name": "Roberlo Custom Application System",
-        "description": "Tailored spray application solutions for unique requirements. Features modular design, precision control, and expert consultation for custom applications.",
-        "features": "Modular design|Precision control|Custom solutions|Expert consultation"
-      }
-    },
-    "productsData": {
-      "rupes-skorpio-iii": {
-        "name": "RUPES Skorpio III RH356",
-        "description": "Professional random orbital pneumatic sander with 150mm pad and 6mm orbit for perfect balance and control.",
-        "features": ["6mm orbit", "Low vibration", "High torque motor"]
-      },
-      "rupes-lhr21-mark-v": {
-        "name": "RUPES BigFoot LHR21 Mark V",
-        "description": "Dual action polisher with 21mm orbit delivering speed, balance and superior finishing on large panels.",
-        "features": ["21mm orbit", "Ergonomic design", "Consistent power"]
-      },
-      "sata-x5500": {
-        "name": "SATAjet X 5500",
-        "description": "Revolutionary spray gun with X‑nozzle concept for whisper‑quiet atomization and optimized material distribution.",
-        "features": ["X‑nozzle", "HVLP/RP options", "Uniform fan size"]
-      },
-      "sata-5000b": {
-        "name": "SATAjet 5000 B",
-        "description": "Versatile spray gun designed for precise control and outstanding finishes across coating systems.",
-        "features": ["Ergonomic", "Optimized airflow", "Consistent results"]
-      },
-      "roberlo-kronox-320": {
-        "name": "Roberlo Kronox 320 HS Clear",
-        "description": "High‑solids clearcoat with fast drying, excellent gloss and durable protection.",
-        "features": ["High solids", "Fast curing", "Deep gloss"]
-      },
-      "roberlo-robfill-2k": {
-        "name": "Roberlo Robfill 2K Primer",
-        "description": "2K acrylic primer with great filling power and easy sanding for uniform surfaces.",
-        "features": ["High filling", "Easy sanding", "Smooth finish"]
-      },
-      "cromax-pro-base": {
-        "name": "Cromax Pro Basecoat",
-        "description": "Waterborne basecoat engineered for fast application and accurate color.",
-        "features": ["Fast coverage", "Color accuracy", "Low VOC"]
-      },
-      "cromax-cc6500": {
-        "name": "Cromax CC6500 High Solid Clear",
-        "description": "HS clearcoat providing durable, deep gloss with a wide application window.",
-        "features": ["Deep gloss", "Durable film", "Efficient application"]
-      },
-      "duxone-dx15": {
-        "name": "Duxone DX15 Basecoat",
-        "description": "Reliable solvent‑borne basecoat for everyday refinishing with consistent sprayability.",
-        "features": ["Good hiding", "Consistent flow", "Wide palette"]
-      },
-      "duxone-dx57": {
-        "name": "Duxone DX57 Clearcoat",
-        "description": "Versatile clear offering glossy finishes and dependable curing in varied conditions.",
-        "features": ["High gloss", "User‑friendly", "Reliable cure"]
-      },
-      "epvernici-ep200": {
-        "name": "EP Vernici EP‑200 Primer",
-        "description": "Epoxy primer with strong adhesion and corrosion resistance.",
-        "features": ["Strong adhesion", "Anti‑corrosion", "Smooth build"]
-      },
-      "epvernici-ep500": {
-        "name": "EP Vernici EP‑500 Topcoat",
-        "description": "Durable 2K topcoat with excellent gloss retention and weatherability.",
-        "features": ["High durability", "Weather resistant", "Lasting gloss"]
-      },
-      "fiac-ab100-268": {
-        "name": "FIAC AB100/268 Compressor",
-        "description": "Workshop‑grade piston compressor delivering reliable air and long service life.",
-        "features": ["Robust build", "Stable airflow", "Serviceable"]
-      },
-      "fiac-cls75": {
-        "name": "FIAC CLS 7.5 Screw Compressor",
-        "description": "Compact screw compressor for efficient, quiet compressed air in bodyshops.",
-        "features": ["Low noise", "Energy efficient", "Continuous duty"]
-      },
-      "hempel-light-primer": {
-        "name": "Hempel Light Primer",
-        "description": "Epoxy primer system offering strong adhesion and anti‑corrosive protection.",
-        "features": ["Anti‑corrosion", "Strong adhesion", "Versatile use"]
-      },
-      "hempel-silic-one": {
-        "name": "Hempel Silic One",
-        "description": "Advanced foul‑release coating for smooth surfaces and reduced drag.",
-        "features": ["Foul‑release", "Smooth finish", "Lower maintenance"]
-      },
-      "jbm-hvlp-gun": {
-        "name": "JBM HVLP Spray Gun",
-        "description": "High‑precision HVLP gun providing consistent atomization and smooth finishes.",
-        "features": ["Fine atomization", "Comfort grip", "Stable pattern"]
-      },
-      "jbm-polisher": {
-        "name": "JBM 1200W Dual Action Polisher",
-        "description": "Powerful DA polisher with variable speed for cutting and finishing.",
-        "features": ["Variable speed", "Balanced", "Pro results"]
-      },
-      "masterdichem-primer-2k": {
-        "name": "Master DiChem Primer 2K",
-        "description": "2K primer with excellent adhesion and filling power.",
-        "features": ["High build", "Fast drying", "Strong adhesion"]
-      },
-      "masterdichem-clear-hs": {
-        "name": "Master DiChem HS Clearcoat",
-        "description": "HS clearcoat delivering high gloss and chemical resistance.",
-        "features": ["High solids", "High gloss", "Chemical resistance"]
-      },
-      "mirka-deros": {
-        "name": "Mirka DEROS Random Orbital Sander",
-        "description": "Lightweight electric sander with ultra‑low vibration for dust‑free sanding.",
-        "features": ["Ultra‑low vibration", "Dust extraction", "Compact design"]
-      },
-      "mirka-polarshine-10": {
-        "name": "Mirka Polarshine 10 Compound",
-        "description": "Polishing compound delivering excellent cut and high gloss.",
-        "features": ["High cut", "High gloss", "Low splatter"]
-      },
-      "shw-ultra-7000": {
-        "name": "Sherwin‑Williams Ultra 7000 Basecoat",
-        "description": "Premium basecoat system for color accuracy, coverage and productivity.",
-        "features": ["Accurate color", "Great coverage", "Productive"]
-      },
-      "shw-finish1-clear": {
-        "name": "Sherwin‑Williams Finish 1 Clearcoat",
-        "description": "Dependable clearcoat with smooth flow and gloss for daily refinish.",
-        "features": ["Smooth flow", "High gloss", "Easy application"]
-      },
-      "standoblue-base": {
-        "name": "Standox Standoblue Basecoat",
-        "description": "Waterborne basecoat offering excellent color accuracy and blendability.",
-        "features": ["Waterborne", "Blend friendly", "Great match"]
-      },
-      "standox-k9550-clear": {
-        "name": "Standox HS Clear K9550",
-        "description": "HS clearcoat providing durable gloss and robust curing.",
-        "features": ["High solids", "Durable gloss", "Robust cure"]
-      },
-      "telwin-tig-222": {
-        "name": "Telwin Technology TIG 222",
-        "description": "Professional TIG welding unit offering precise control and stable arcs.",
-        "features": ["Precise control", "Stable arc", "Wide material range"]
-      },
-      "telwin-smart-charger": {
-        "name": "Telwin Smart Charger PRO",
-        "description": "Intelligent charger/maintainer with multi‑stage charging and protection.",
-        "features": ["Multi‑stage", "Protection", "User friendly"]
-      },
-      "troton-master-filler": {
-        "name": "Troton Master Acryl Filler 4:1",
-        "description": "High‑build acrylic filler for excellent leveling and easy sanding.",
-        "features": ["High build", "Quick dry", "Easy sanding"]
-      },
-      "troton-brayd-clear": {
-        "name": "Troton BRAYD HS Clear",
-        "description": "HS clearcoat designed for deep gloss and reliable durability.",
-        "features": ["Deep gloss", "Durable film", "Chemical resistance"]
-      }
-    }
-  },
-  "brands": {
     "hero": {
       "title": "Our Brands",
       "subtitle": "Trusted partnerships with the world's leading manufacturers in automotive refinishing and industrial coatings"
@@ -887,7 +235,6 @@
       }
     }
   },
-
   "services": {
     "hero": {
       "title": "Professional Services",
@@ -1116,6 +463,532 @@
       "subtitle": "Contact our experts today for personalized assistance",
       "emailButton": "Email Us",
       "callButton": "Call Us"
+    }
+  },
+  "footer": {
+    "tagline": "Premium automotive paint solutions with over 30 years of experience.",
+    "nav": {
+      "title": "Quick Links"
+    },
+    "contact": {
+      "title": "Contact Us"
+    },
+    "rights": "© 2025 MilloColor. All rights reserved.",
+    "about": {
+      "title": "About MilloColor",
+      "description": "Leading provider of premium automotive paint solutions with over 30 years of experience serving professionals worldwide."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "products": "Products",
+      "brands": "Brands",
+      "services": "Services",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "copyright": "© 2025 MilloColor. All rights reserved.",
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter for the latest product news and technical tips.",
+      "placeholder": "Your email address",
+      "submit": "Subscribe",
+      "subscribe": "Subscribe",
+      "success": "Thank you for subscribing!",
+      "error": "Subscription failed. Please try again."
+    },
+    "social": {
+      "title": "Connect With Us",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "youtube": "YouTube"
+    },
+    "language": "Language"
+  },
+  "stats": {
+    "title": "Our Impact in Numbers",
+    "subtitle": "Three decades of excellence in automotive painting solutions",
+    "years": {
+      "title": "Years of Experience",
+      "description": "Serving the automotive industry since 1993"
+    },
+    "brands": {
+      "title": "Global Brands",
+      "description": "Partnerships with industry leaders"
+    },
+    "clients": {
+      "title": "Happy Clients",
+      "description": "Satisfied customers across Albania"
+    },
+    "sessions": {
+      "title": "Training Sessions",
+      "description": "Professional development programs"
+    },
+    "trusted": {
+      "title": "Trusted by Professionals Across Albania",
+      "description": "From Tirana to Durrës, Vlorë to Shkodër, MilloColor has been the go-to source for automotive painting professionals. Our commitment to quality, innovation, and customer success has made us the leading distributor in the region."
+    }
+  },
+  "showcase": {
+    "title": "Premium Paint Solutions",
+    "subtitle": "Discover our comprehensive range of professional-grade automotive finishes",
+    "products": {
+      "premium": {
+        "title": "Premium Coating Solutions",
+        "description": "Our flagship line of high-performance coatings engineered for luxury vehicles and demanding applications.",
+        "features": [
+          "Superior durability and longevity",
+          "Exceptional color accuracy",
+          "Advanced UV protection",
+          "Easy application and coverage"
+        ]
+      },
+      "professional": {
+        "title": "Professional Refinishing Systems",
+        "description": "Complete painting systems designed for professional body shops and collision repair centers.",
+        "features": [
+          "Fast cure times for efficiency",
+          "Consistent color matching",
+          "Excellent adhesion properties",
+          "Comprehensive technical support"
+        ]
+      },
+      "specialty": {
+        "title": "Specialty Effect Finishes",
+        "description": "Unique and custom effect finishes for distinctive automotive aesthetics and restoration projects.",
+        "features": [
+          "Metallic and pearl effects",
+          "Custom color formulations",
+          "Vintage restoration compatibility",
+          "Expert color consulting"
+        ]
+      }
+    }
+  },
+  "partners": {
+    "title": "Trusted by Industry Leaders",
+    "subtitle": "We partner with the world's most respected automotive paint manufacturers"
+  },
+  "foundation": {
+    "title": "Our Foundation",
+    "subtitle": "Built on three pillars that drive everything we do",
+    "values": {
+      "excellence": {
+        "title": "Excellence",
+        "description": "Delivering premium automotive solutions with uncompromising quality standards since 1993."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Pioneering cutting-edge paint technologies and training methods to keep professionals ahead."
+      },
+      "sustainability": {
+        "title": "Sustainability",
+        "description": "Committed to eco-friendly practices and sustainable solutions for a better tomorrow."
+      }
+    }
+  },
+  "productCategories": {
+    "title": "Product Categories",
+    "subtitle": "Comprehensive solutions for all your automotive painting needs",
+    "categories": {
+      "premium": {
+        "title": "Premium Paints & Coatings",
+        "shortDescription": "High-end automotive refinishing solutions",
+        "fullDescription": "Our premium paint lines from Cromax, Standox, and Sherwin-Williams deliver exceptional color matching, durability, and finish quality for luxury vehicle refinishing.",
+        "features": [
+          "Superior Color Match",
+          "Long-lasting Durability",
+          "Easy Application",
+          "Professional Grade"
+        ]
+      },
+      "auxiliary": {
+        "title": "Auxiliary Materials",
+        "shortDescription": "Supporting products for perfect results",
+        "fullDescription": "Complete range of primers, clearcoats, thinners, and hardeners from trusted brands like Roberlo and Hempel to ensure optimal paint performance.",
+        "features": [
+          "Compatible Systems",
+          "Quality Assured",
+          "Technical Support",
+          "Various Formulations"
+        ]
+      },
+      "equipment": {
+        "title": "Equipment & Tools",
+        "shortDescription": "Professional-grade painting equipment",
+        "fullDescription": "State-of-the-art spray guns from SATA, compressors from FIAC, and sanders from RUPES for professional automotive painting applications.",
+        "features": [
+          "Latest Technology",
+          "Precision Tools",
+          "Reliable Performance",
+          "Expert Training"
+        ]
+      }
+    },
+    "keyFeatures": "Key Features:",
+    "exploreProducts": "Explore Products"
+  },
+  "training": {
+    "title": "Professional Training Program",
+    "subtitle": "Your journey to mastering automotive painting excellence",
+    "theoretical": {
+      "title": "Theoretical Training",
+      "duration": "2-3 days",
+      "description": "Comprehensive classroom sessions covering paint theory, color matching, and application techniques.",
+      "features": [
+        "Paint Chemistry",
+        "Color Theory",
+        "Surface Preparation",
+        "Safety Protocols"
+      ]
+    },
+    "handsOn": {
+      "title": "Hands-on Practice",
+      "duration": "3-5 days",
+      "description": "Practical workshops using professional equipment and real-world automotive painting scenarios.",
+      "features": [
+        "Live Demonstrations",
+        "Practice Sessions",
+        "Equipment Handling",
+        "Quality Control"
+      ]
+    },
+    "certification": {
+      "title": "Certification",
+      "duration": "1 day",
+      "description": "Assessment and certification process to validate skills and provide recognized credentials.",
+      "features": [
+        "Skills Assessment",
+        "Final Project",
+        "Certificate Issuance",
+        "Ongoing Support"
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Students Say",
+      "student1": {
+        "name": "Arben Krasniqi",
+        "role": "Auto Paint Specialist",
+        "text": "The training program completely transformed my approach to automotive painting. Professional and comprehensive."
+      },
+      "student2": {
+        "name": "Lena Shabani",
+        "role": "Workshop Owner",
+        "text": "Excellent training with hands-on experience. My team improved dramatically after the certification."
+      },
+      "student3": {
+        "name": "Driton Berisha",
+        "role": "Paint Technician",
+        "text": "Best investment for my career. The instructors are experts and the equipment is top-notch."
+      }
+    },
+    "cta": "Join Our Next Training"
+  },
+  "cta": {
+    "title": "Ready to Transform Your",
+    "titleHighlight": "Painting Experience?",
+    "subtitle": "Join thousands of professionals who trust MilloColor for premium automotive painting solutions, expert training, and unmatched support.",
+    "getInTouch": "Get in Touch",
+    "exploreProducts": "Explore Products",
+    "contactInfo": {
+      "phone": "+355 69 123 4567",
+      "email": "info@millocolor.com",
+      "location": "Tirana - Durres km8, Tirana, Albania"
+    }
+  },
+  "trusted": {
+    "trustedBy": "Trusted by",
+    "worldIndustryLeaders": "World Industry Leaders"
+  },
+  "productShowcase": {
+    "title": "Featured Products",
+    "subtitle": "Discover our premium automotive paint solutions engineered for professional excellence and superior results",
+    "keyFeatures": "Key Features",
+    "learnMore": "Learn More",
+    "viewAllProducts": "View All Products",
+    "categories": {
+      "all": "All Products",
+      "premium": "Premium",
+      "professional": "Professional",
+      "specialty": "Specialty",
+      "eco": "Eco-Friendly",
+      "industrial": "Industrial",
+      "custom": "Custom"
+    },
+    "products": {
+      "premiumCoating": {
+        "name": "RUPES Skorpio III RH356",
+        "description": "Professional random orbital pneumatic sander with 150mm pad and 6mm orbit. Features engineered motor for maximum torque, extremely low vibration, and quiet operation.",
+        "features": "6mm orbit for perfect balance|0-11,000 RPM|Anti-slip rubber coating|Double row bearings"
+      },
+      "professionalSystem": {
+        "name": "Roberlo Professional Spray Gun",
+        "description": "High-precision automotive spray gun with advanced atomization technology. Designed for professional refinishing with superior finish quality and material efficiency.",
+        "features": "Advanced atomization|High transfer efficiency|Precision control|Professional finish"
+      },
+      "specialtyEffects": {
+        "name": "SATAjet X 5500",
+        "description": "Revolutionary paint spray gun with X nozzle system. Features whispering nozzle technology, optimized material distribution, and exceptional atomization for all paint systems.",
+        "features": "Revolutionary X nozzle system|Whispering nozzle technology|Material savings|360° perfect finish"
+      },
+      "ecoSolutions": {
+        "name": "RUPES BigFoot LHR21 Mark V",
+        "description": "Premium random orbital polisher with large diameter movement. Features brushless motor technology, exceptional balance, and professional-grade performance.",
+        "features": "Brushless motor technology|Large orbit movement|Exceptional balance|Professional performance"
+      },
+      "industrialGrade": {
+        "name": "SATAjet 5000 B",
+        "description": "Versatile HVLP/RP spray gun with adjustable inlet pressure and painting distance. Perfect for automotive refinishing with consistent fan size across nozzle spectrum.",
+        "features": "HVLP/RP technology|Adjustable pressure|Consistent fan size|Professional results"
+      },
+      "customFinishes": {
+        "name": "Roberlo Custom Application System",
+        "description": "Tailored spray application solutions for unique requirements. Features modular design, precision control, and expert consultation for custom applications.",
+        "features": "Modular design|Precision control|Custom solutions|Expert consultation"
+      }
+    },
+    "productsData": {
+      "roberlo-kronox-510": {
+        "name": "Roberlo Kronox 510 Clearcoat",
+        "description": "High-solids clearcoat delivering rapid curing, deep gloss, and reliable vertical stability for premium finishes.",
+        "features": [
+          "High solids clarity",
+          "Fast bake or air dry",
+          "Excellent vertical hold"
+        ]
+      },
+      "roberlo-multyfiller-express": {
+        "name": "Roberlo Multyfiller Express",
+        "description": "Versatile 3-in-1 primer-surfacer-filler with express drying for quick sanding cycles.",
+        "features": [
+          "3-in-1 application",
+          "Express flash-off",
+          "Easy sanding finish"
+        ]
+      },
+      "cromax-vr-1120": {
+        "name": "Cromax VR-1120 Low VOC Clear",
+        "description": "Low VOC clearcoat engineered for fast throughput and brilliant gloss retention on refinish jobs.",
+        "features": [
+          "Low VOC compliant",
+          "Short bake cycles",
+          "Long-lasting gloss"
+        ]
+      },
+      "cromax-710r": {
+        "name": "Cromax 710-R Primer Surfacer",
+        "description": "High-build two-pack primer delivering excellent coverage, quick drying, and consistent color holdout.",
+        "features": [
+          "Excellent filling power",
+          "Wet-on-wet capable",
+          "Consistent color holdout"
+        ]
+      },
+      "standox-k9600-xtreme": {
+        "name": "Standox K9600 Xtreme Clear",
+        "description": "Ultra-fast clearcoat with outstanding flow, deep gloss, and extreme chemical resistance.",
+        "features": [
+          "Very short bake time",
+          "Superior flow-out",
+          "High chemical resistance"
+        ]
+      },
+      "standox-k9510-easy": {
+        "name": "Standox K9510 Easy Clear",
+        "description": "User-friendly clearcoat with a broad application window and reliable drying on everyday repairs.",
+        "features": [
+          "Wide application window",
+          "Brilliant gloss",
+          "Predictable drying"
+        ]
+      },
+      "duxone-dx48": {
+        "name": "Duxone DX48 HS Primer",
+        "description": "High-solids 2K primer offering strong filling power, adhesion, and fast sanding properties.",
+        "features": [
+          "High filling capacity",
+          "Excellent adhesion",
+          "Quick sanding"
+        ]
+      },
+      "duxone-dx64": {
+        "name": "Duxone DX64 HS Clear",
+        "description": "Dependable high-solids clearcoat balancing easy application with durable, high-gloss finishes.",
+        "features": [
+          "High gloss finish",
+          "Flexible application",
+          "Durable protection"
+        ]
+      },
+      "hempel-zinc-17360": {
+        "name": "Hempel Zinc 17360",
+        "description": "Zinc-rich epoxy primer designed for superior corrosion protection in aggressive environments.",
+        "features": [
+          "High zinc content",
+          "Cathodic protection",
+          "Excellent adhesion"
+        ]
+      },
+      "hempel-underwater-primer": {
+        "name": "Hempel Underwater Primer",
+        "description": "Two-component epoxy primer providing strong adhesion and waterproofing below the waterline.",
+        "features": [
+          "Excellent waterproofing",
+          "Resists blistering",
+          "Strong adhesion"
+        ]
+      },
+      "fiac-500-industrial-black": {
+        "name": "FIAC 500 Industrial Compressor – Black",
+        "description": "Heavy-duty 500L piston compressor engineered for continuous air delivery in industrial workshops.",
+        "features": [
+          "500L air receiver",
+          "Cast iron pump",
+          "Continuous duty design"
+        ]
+      },
+      "fiac-500-silver": {
+        "name": "FIAC 500 Silver Compressor",
+        "description": "Powerful workshop compressor delivering stable airflow, efficient cooling, and reliable operation.",
+        "features": [
+          "Stable air delivery",
+          "Efficient cooling",
+          "Robust construction"
+        ]
+      },
+      "epvernici-vrap": {
+        "name": "EP Vernici VRAP Primer",
+        "description": "High-performance epoxy primer for robust adhesion and corrosion shielding on structural steel.",
+        "features": [
+          "High adhesion",
+          "Anti-corrosion barrier",
+          "Smooth build"
+        ]
+      },
+      "epvernici-vprl": {
+        "name": "EP Vernici VPRL Topcoat",
+        "description": "Durable polyurethane topcoat that maintains color and gloss in demanding industrial conditions.",
+        "features": [
+          "Polyurethane durability",
+          "UV and weather resistance",
+          "Long-term gloss"
+        ]
+      },
+      "jbm-7-drawer-trolley": {
+        "name": "JBM 7 Drawer Tool Trolley – Green",
+        "description": "Powder-coated workshop trolley with seven ball-bearing drawers and central locking.",
+        "features": [
+          "Seven spacious drawers",
+          "Ball-bearing slides",
+          "Central locking"
+        ]
+      },
+      "jbm-modular-storage": {
+        "name": "JBM Workshop Modular Storage System",
+        "description": "Modular workshop furniture solution combining cabinets, pegboards, and worktops for organised spaces.",
+        "features": [
+          "Modular layout",
+          "Integrated pegboard",
+          "Durable worktop"
+        ]
+      },
+      "masterdichem-acrilprimer-gold": {
+        "name": "Master DiChem Acrilprimer 2K 5:1 Gold",
+        "description": "Premium acrylic primer offering excellent sealing, fast drying, and smooth sanding in a 5:1 mix.",
+        "features": [
+          "5:1 mixing ratio",
+          "Fast drying",
+          "Excellent sealing"
+        ]
+      },
+      "masterdichem-sigil-metal": {
+        "name": "Master DiChem Sigil Metal",
+        "description": "Flexible 1K sealant for metal seams providing strong adhesion and durable protection against moisture.",
+        "features": [
+          "Elastic sealing",
+          "Adheres to bare metal",
+          "Resists moisture"
+        ]
+      },
+      "mirka-deros-680": {
+        "name": "Mirka DEROS 680",
+        "description": "Compact 150mm electric sander with 5mm orbit delivering low vibration and connected dust extraction.",
+        "features": [
+          "5mm random orbit",
+          "Brushless motor",
+          "Integrated dust ports"
+        ]
+      },
+      "mirka-abranet": {
+        "name": "Mirka Abranet Abrasive",
+        "description": "Net-backed abrasive discs that stay clog-free and support virtually dust-free sanding.",
+        "features": [
+          "Open mesh design",
+          "Dust-free sanding",
+          "Long lifespan"
+        ]
+      },
+      "shw-wood-basecoat": {
+        "name": "Sherwin-Williams Wood Basecoat",
+        "description": "High-build wood basecoat providing smooth coverage and excellent stain blocking for furniture finishing.",
+        "features": [
+          "Smooth coverage",
+          "Blocks tannins",
+          "Fast sanding"
+        ]
+      },
+      "shw-wood-topcoat": {
+        "name": "Sherwin-Williams Wood Topcoat",
+        "description": "Protective wood topcoat that enhances warmth, clarity, and scratch resistance on cabinetry.",
+        "features": [
+          "Warm, clear finish",
+          "Scratch resistant",
+          "Durable protection"
+        ]
+      },
+      "telwin-smart-inductor-5000": {
+        "name": "Telwin Smart Inductor 5000",
+        "description": "Smart induction heating system for rapid, controlled removal of glued or seized components.",
+        "features": [
+          "Precise induction heating",
+          "Programmable cycles",
+          "Safe on paint and trim"
+        ]
+      },
+      "telwin-aqua-inductor-6000": {
+        "name": "Telwin Aqua Inductor 6000",
+        "description": "Water-cooled induction unit delivering continuous power for structural straightening and repairs.",
+        "features": [
+          "Water-cooled system",
+          "Continuous output",
+          "Ideal for structural work"
+        ]
+      },
+      "troton-light-putty": {
+        "name": "Troton Light Putty",
+        "description": "Lightweight polyester putty that spreads easily, cures fast, and sands without clogging.",
+        "features": [
+          "Low density",
+          "Fast curing",
+          "Easy sanding"
+        ]
+      },
+      "troton-bold-putty": {
+        "name": "Troton Bold Putty",
+        "description": "Reinforced body filler providing high mechanical strength and excellent adhesion on large repairs.",
+        "features": [
+          "Reinforced formula",
+          "High mechanical strength",
+          "Adheres to multiple substrates"
+        ]
+      }
     }
   }
 }

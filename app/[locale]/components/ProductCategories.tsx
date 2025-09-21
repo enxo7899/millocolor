@@ -17,7 +17,7 @@ const ProductCategories = () => {
       shortDescription: t('categories.premium.shortDescription'),
       fullDescription: t('categories.premium.fullDescription'),
       features: t.raw('categories.premium.features') as string[],
-      image: '/images/products/rupes-skorpio-iii.jpg',
+      image: '/images/products/cromax-vr-1120.jpg',
       color: 'from-millo-blue to-blue-700'
     },
     {
@@ -27,7 +27,7 @@ const ProductCategories = () => {
       shortDescription: t('categories.auxiliary.shortDescription'),
       fullDescription: t('categories.auxiliary.fullDescription'),
       features: t.raw('categories.auxiliary.features') as string[],
-      image: '/images/products/roberlo-spray-gun.jpg',
+      image: '/images/products/troton-light-putty.jpg',
       color: 'from-millo-red to-red-700'
     },
     {
@@ -37,7 +37,7 @@ const ProductCategories = () => {
       shortDescription: t('categories.equipment.shortDescription'),
       fullDescription: t('categories.equipment.fullDescription'),
       features: t.raw('categories.equipment.features') as string[],
-      image: '/images/products/satajet-x5500.jpg',
+      image: '/images/products/telwin-smart-inductor-5000.jpg',
       color: 'from-green-600 to-green-700'
     }
   ];

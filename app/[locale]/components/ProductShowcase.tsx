@@ -30,65 +30,57 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
 
   // Lightweight config for images and categories (texts come from i18n)
   const productConfigs: Array<Pick<Product, 'id' | 'image' | 'category'>> = [
-    // RUPES
-    { id: 'rupes-skorpio-iii', image: '/images/products/rupes-skorpio-iii-rh356.jpg', category: 'Equipment' },
-    { id: 'rupes-lhr21-mark-v', image: '/images/products/rupes-bigfoot-lhr21-mark-v.jpg', category: 'Equipment' },
-
-    // SATA
-    { id: 'sata-x5500', image: '/images/products/satajet-x-5500.jpg', category: 'Equipment' },
-    { id: 'sata-5000b', image: '/images/products/satajet-5000-b.jpg', category: 'Equipment' },
-
     // Roberlo
-    { id: 'roberlo-kronox-320', image: '/images/products/roberlo-kronox-320-hs-clear.jpg', category: 'Professional' },
-    { id: 'roberlo-robfill-2k', image: '/images/products/roberlo-robfill-2k-primer.jpg', category: 'Professional' },
+    { id: 'roberlo-kronox-510', image: '/images/products/roberlo-kronox-510.jpg', category: 'Professional' },
+    { id: 'roberlo-multyfiller-express', image: '/images/products/roberlo-multyfiller-express.jpg', category: 'Professional' },
 
     // Cromax
-    { id: 'cromax-pro-base', image: '/images/products/cromax-pro-basecoat.jpg', category: 'Premium' },
-    { id: 'cromax-cc6500', image: '/images/products/cromax-cc6500-clear.jpg', category: 'Premium' },
-
-    // Duxone
-    { id: 'duxone-dx15', image: '/images/products/duxone-dx15-basecoat.jpg', category: 'Professional' },
-    { id: 'duxone-dx57', image: '/images/products/duxone-dx57-clear.jpg', category: 'Professional' },
-
-    // EP Vernici
-    { id: 'epvernici-ep200', image: '/images/products/ep-vernici-ep-200-primer.jpg', category: 'Industrial' },
-    { id: 'epvernici-ep500', image: '/images/products/ep-vernici-ep-500-topcoat.jpg', category: 'Industrial' },
-
-    // FIAC
-    { id: 'fiac-ab100-268', image: '/images/products/fiac-ab100-268-compressor.jpg', category: 'Equipment' },
-    { id: 'fiac-cls75', image: '/images/products/fiac-cls-7-5-screw-compressor.jpg', category: 'Equipment' },
-
-    // Hempel
-    { id: 'hempel-light-primer', image: '/images/products/hempel-light-primer.jpg', category: 'Industrial' },
-    { id: 'hempel-silic-one', image: '/images/products/hempel-silic-one.jpg', category: 'Industrial' },
-
-    // JBM
-    { id: 'jbm-hvlp-gun', image: '/images/products/jbm-hvlp-spray-gun.jpg', category: 'Equipment' },
-    { id: 'jbm-polisher', image: '/images/products/jbm-1200w-dual-action-polisher.jpg', category: 'Equipment' },
-
-    // Master DiChem
-    { id: 'masterdichem-primer-2k', image: '/images/products/master-dichem-primer-2k.jpg', category: 'Professional' },
-    { id: 'masterdichem-clear-hs', image: '/images/products/master-dichem-hs-clearcoat.jpg', category: 'Professional' },
-
-    // Mirka
-    { id: 'mirka-deros', image: '/images/products/mirka-deros-sander.jpg', category: 'Equipment' },
-    { id: 'mirka-polarshine-10', image: '/images/products/mirka-polarshine-10-compound.jpg', category: 'Professional' },
-
-    // SHW (Sherwin‑Williams)
-    { id: 'shw-ultra-7000', image: '/images/products/shw-ultra-7000-basecoat.jpg', category: 'Premium' },
-    { id: 'shw-finish1-clear', image: '/images/products/shw-finish-1-clearcoat.jpg', category: 'Professional' },
+    { id: 'cromax-vr-1120', image: '/images/products/cromax-vr-1120.jpg', category: 'Premium' },
+    { id: 'cromax-710r', image: '/images/products/cromax-710r.jpg', category: 'Premium' },
 
     // Standox
-    { id: 'standoblue-base', image: '/images/products/standox-standoblue-basecoat.jpg', category: 'Premium' },
-    { id: 'standox-k9550-clear', image: '/images/products/standox-hs-clear-k9550.jpg', category: 'Premium' },
+    { id: 'standox-k9600-xtreme', image: '/images/products/standox-k9600-xtreme.jpg', category: 'Premium' },
+    { id: 'standox-k9510-easy', image: '/images/products/standox-k9510-easy.jpg', category: 'Premium' },
+
+    // Duxone
+    { id: 'duxone-dx48', image: '/images/products/duxone-dx48.jpg', category: 'Professional' },
+    { id: 'duxone-dx64', image: '/images/products/duxone-dx64.jpg', category: 'Professional' },
+
+    // Hempel
+    { id: 'hempel-zinc-17360', image: '/images/products/hempel-zinc-17360.jpg', category: 'Industrial' },
+    { id: 'hempel-underwater-primer', image: '/images/products/hempel-underwater-primer.jpg', category: 'Industrial' },
+
+    // FIAC
+    { id: 'fiac-500-industrial-black', image: '/images/products/fiac-500-industrial-black.jpg', category: 'Equipment' },
+    { id: 'fiac-500-silver', image: '/images/products/fiac-500-silver.jpg', category: 'Equipment' },
+
+    // EP Vernici
+    { id: 'epvernici-vrap', image: '/images/products/epvernici-vrap.jpg', category: 'Industrial' },
+    { id: 'epvernici-vprl', image: '/images/products/epvernici-vprl.jpg', category: 'Industrial' },
+
+    // JBM
+    { id: 'jbm-7-drawer-trolley', image: '/images/products/jbm-7-drawer-trolley.jpg', category: 'Equipment' },
+    { id: 'jbm-modular-storage', image: '/images/products/jbm-modular-storage.jpg', category: 'Equipment' },
+
+    // Master DiChem
+    { id: 'masterdichem-acrilprimer-gold', image: '/images/products/masterdichem-acrilprimer-gold.jpg', category: 'Professional' },
+    { id: 'masterdichem-sigil-metal', image: '/images/products/masterdichem-sigil-metal.jpg', category: 'Professional' },
+
+    // Mirka
+    { id: 'mirka-deros-680', image: '/images/products/mirka-deros-680.jpg', category: 'Equipment' },
+    { id: 'mirka-abranet', image: '/images/products/mirka-abranet.jpg', category: 'Professional' },
+
+    // Sherwin-Williams
+    { id: 'shw-wood-basecoat', image: '/images/products/shw-wood-basecoat.jpg', category: 'Premium' },
+    { id: 'shw-wood-topcoat', image: '/images/products/shw-wood-topcoat.jpg', category: 'Premium' },
 
     // Telwin
-    { id: 'telwin-tig-222', image: '/images/products/telwin-technology-tig-222.jpg', category: 'Equipment' },
-    { id: 'telwin-smart-charger', image: '/images/products/telwin-smart-charger-pro.jpg', category: 'Equipment' },
+    { id: 'telwin-smart-inductor-5000', image: '/images/products/telwin-smart-inductor-5000.jpg', category: 'Equipment' },
+    { id: 'telwin-aqua-inductor-6000', image: '/images/products/telwin-aqua-inductor-6000.jpg', category: 'Equipment' },
 
     // Troton
-    { id: 'troton-master-filler', image: '/images/products/troton-master-acryl-filler-4-1.jpg', category: 'Professional' },
-    { id: 'troton-brayd-clear', image: '/images/products/troton-brayd-hs-clear.jpg', category: 'Professional' }
+    { id: 'troton-light-putty', image: '/images/products/troton-light-putty.jpg', category: 'Professional' },
+    { id: 'troton-bold-putty', image: '/images/products/troton-bold-putty.jpg', category: 'Professional' }
   ];
 
   const featuredProducts: Product[] = productConfigs.map((cfg) => {
@@ -104,6 +96,25 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
   });
 
   const displayProducts = maxProducts ? featuredProducts.slice(0, maxProducts) : featuredProducts;
+
+  // Map each product to its provider website for detailed information
+  const getProviderUrl = (productId: string): string => {
+    const id = productId.toLowerCase();
+    if (id.startsWith('roberlo')) return 'https://www.roberlo.com/en';
+    if (id.startsWith('cromax')) return 'https://www.cromax.com/eu/en_GB/products.html';
+    if (id.startsWith('standox')) return 'https://www.standox.com';
+    if (id.startsWith('duxone')) return 'https://www.axalta.com/duxone_corporate/en_GB.html';
+    if (id.startsWith('hempel')) return 'https://www.hempel.com/products';
+    if (id.startsWith('fiac')) return 'https://web.fiac.it/en/';
+    if (id.startsWith('epvernici')) return 'https://www.epvernici.it/prodotti';
+    if (id.startsWith('jbm')) return 'https://jbmcamp.com/en/';
+    if (id.startsWith('masterdichem')) return 'https://www.dichemitaly.com';
+    if (id.startsWith('mirka')) return 'https://www.mirka.com/en/products';
+    if (id.startsWith('shw')) return 'https://www.sherwin-williams.com/na/en/industrial-wood';
+    if (id.startsWith('telwin')) return 'https://www.telwin.com/en/products';
+    if (id.startsWith('troton')) return 'https://www.troton.pl/en/products/';
+    return '/brands';
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -159,7 +170,7 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
 
         {/* Products Grid */}
         <motion.div 
-          className={`grid gap-8 ${isHomepage ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-2'}`}
+          className={`grid gap-8 items-stretch ${isHomepage ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-2'}`}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -170,10 +181,10 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
               variants={cardVariants}
               transition={{ duration: 0.6, ease: "easeOut" }}
               whileHover={{ y: -8 }}
-              className="group relative"
+              className="group relative h-full"
             >
               {/* Glassmorphism Card */}
-              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:border-white/20">
+              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:border-white/20 flex flex-col h-full">
 
 
                 {/* Product Image */}
@@ -213,7 +224,7 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-3 font-montserrat group-hover:text-millo-blue transition-colors duration-300">
                     {product.name}
                   </h3>
@@ -235,14 +246,17 @@ export default function ProductShowcase({ isHomepage = false, maxProducts }: Pro
                   </div>
 
                   {/* Learn More Button */}
-                  <motion.button
+                  <motion.a
+                    href={getProviderUrl(product.id)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ x: 4 }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center text-millo-gold hover:text-white font-semibold transition-colors duration-300 group"
+                    className="inline-flex items-center text-millo-gold hover:text-white font-semibold transition-colors duration-300 group mt-auto"
                   >
                     <span>{t('learnMore')}</span>
                     <ArrowRightIcon className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </motion.button>
+                  </motion.a>
                 </div>
 
                 {/* Premium Glow Effect */}
