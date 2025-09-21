@@ -16,8 +16,6 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import BackgroundCanvas from '../components/BackgroundCanvas';
 import ServiceCard from '../components/services/ServiceCard';
 import HowWeWork from '../components/services/HowWeWork';
@@ -32,7 +30,6 @@ export default function ServicesPage() {
 
   return (
     <>
-      <Header />
       
       <main className="min-h-screen relative overflow-hidden">
         {/* Luxury Animated Background */}
@@ -66,7 +63,6 @@ export default function ServicesPage() {
         <ContactBanner />
       </main>
       
-      <Footer />
     </>
   );
 }

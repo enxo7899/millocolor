@@ -16,8 +16,6 @@ import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import BackgroundCanvas from '../components/BackgroundCanvas';
 import { brands, type Brand } from '../../../data/brands';
 
@@ -29,7 +27,6 @@ export default function BrandsPage() {
 
   return (
     <>
-      <Header />
       
       <main className="min-h-screen relative overflow-hidden">
         {/* Luxury Animated Background */}
@@ -42,7 +39,6 @@ export default function BrandsPage() {
         <BrandsGrid brands={sortedBrands} />
       </main>
       
-      <Footer />
     </>
   );
 }

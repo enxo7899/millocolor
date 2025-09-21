@@ -3,8 +3,6 @@
 import { useTranslations } from 'next-intl';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import BackgroundCanvas from '../components/BackgroundCanvas';
 import PartnerCarousel from '../components/PartnerCarousel';
 import TypewriterText from '../components/TypewriterText';
@@ -24,7 +22,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <Header />
       
       <main className="min-h-screen relative overflow-hidden" ref={containerRef}>
         {/* Luxury Animated Background */}
@@ -52,7 +49,6 @@ export default function AboutPage() {
         <BrandShowcaseSection />
       </main>
       
-      <Footer />
     </>
   );
 }

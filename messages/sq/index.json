@@ -329,7 +329,7 @@
         "title": "Informacioni i Kontaktit",
         "address": {
           "label": "Adresa",
-          "value": "Rr. Bojës 123, Tiranë, Shqipëri"
+          "value": "Tiranë - Durrës km8, Tirana, Shqipëri"
         },
         "phone": {
           "label": "Telefoni",
@@ -343,7 +343,7 @@
     },
     "info": {
       "title": "Informacioni i Kontaktit",
-      "address": "Rr. Skenderbeu 55, Tiranë, Shqipëri",
+      "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
       "phone": "+355 69 123 4567",
       "email": "info@millocolor.com",
       "hours": {
@@ -427,13 +427,13 @@
       "description": "Na vizitoni në një nga vendndodhjet tona të përshtatshme",
       "headquarters": {
         "title": "Zyra Kryesore",
-        "address": "Rr. Skenderbeu 55, Tiranë, Shqipëri",
+        "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
         "phone": "+355 69 123 4567",
         "directions": "Merrni Drejtimet"
       },
       "distribution": {
         "title": "Qendra e Shpërndarjes",
-        "address": "Rr. Industrisë 22, Durrës, Shqipëri",
+        "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
         "phone": "+355 69 765 4321",
         "directions": "Merrni Drejtimet"
       }
@@ -462,8 +462,9 @@
   "footer": {
     "company": "MilloColor",
     "tagline": "Zgjidhje Premium Bojërash për Automjete",
-    "copyright": "© 2025 MilloColor. Të gjitha të drejtat e rezervuara.",
+    "rights": "© 2025 MilloColor. Të gjitha të drejtat e rezervuara.",
     "nav": {
+      "title": "Lidhje të Shpejta",
       "company": "Kompania",
       "about": "Rreth Nesh",
       "careers": "Karriera",
@@ -545,7 +546,7 @@
     },
     "contact": {
       "title": "Kontakt i Shpejtë",
-      "address": "Rr. Skenderbeu 55, Tiranë, Shqipëri",
+      "address": "Tiranë - Durrës km8, Tirana, Shqipëri",
       "phone": "+355 69 123 4567",
       "email": "info@millocolor.com"
     }
@@ -1150,7 +1151,7 @@
         "title": "Informacioni i Kontaktit",
         "address": {
           "label": "Adresa",
-          "value": "Rr. Bojës 123, Tiranë, Shqipëri"
+          "value": "Tiranë - Durrës km8, Tirana, Shqipëri"
         },
         "phone": {
           "label": "Telefoni",

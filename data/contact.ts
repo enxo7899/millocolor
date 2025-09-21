@@ -9,26 +9,26 @@ export const contactInfo = {
   email: 'info@millocolor.com',
   
   // Primary contact phone (Albanian format)
-  phone: '+355 42 123 456',
+  phone: '+355686017350',
   
   // WhatsApp number (international format without +)
-  whatsapp: '35542123456',
+  whatsapp: '355686017350',
   
   // Google Maps URL for Tirana Headquarters
-  googleMapsUrl: 'https://maps.google.com/?q=Tirana+Albania',
+  googleMapsUrl: 'https://www.google.com/maps/place/Millocolor+Shpk+-+Tiranë/@41.3701187,19.6853582,17z/data=!3m1!4b1!4m6!3m5!1s0x13502fe0f91a2731:0x316865c77b4b7231!8m2!3d41.3701147!4d19.6879331!16s%2Fg%2F11g0j9kxkk?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D',
   
   // Physical address
   address: {
-    street: '123 Paint Street',
+    street: 'Tiranë - Durrës km8',
     city: 'Tirana',
     country: 'Albania',
-    full: '123 Paint Street, Tirana, Albania'
+    full: 'Tiranë - Durrës km8, Tirana, Albania'
   },
   
   // Business hours
   hours: {
-    weekdays: 'Monday - Friday: 8:00 - 17:00',
-    saturday: 'Saturday: 9:00 - 14:00',
+    weekdays: 'Monday - Friday: 8:00 - 16:30',
+    saturday: 'Saturday: 8:00 - 15:00',
     sunday: 'Sunday: Closed'
   },
   

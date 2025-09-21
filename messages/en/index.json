@@ -391,6 +391,10 @@
     }
   },
   "footer": {
+    "tagline": "Premium automotive paint solutions with over 30 years of experience.",
+    "nav": { "title": "Quick Links" },
+    "contact": { "title": "Contact Us" },
+    "rights": "© 2025 MilloColor. All rights reserved.",
     "about": {
       "title": "About MilloColor",
       "description": "Leading provider of premium automotive paint solutions with over 30 years of experience serving professionals worldwide."
@@ -415,6 +419,7 @@
       "description": "Subscribe to our newsletter for the latest product news and technical tips.",
       "placeholder": "Your email address",
       "submit": "Subscribe",
+      "subscribe": "Subscribe",
       "success": "Thank you for subscribing!",
       "error": "Subscription failed. Please try again."
     },
@@ -595,7 +600,7 @@
     "contactInfo": {
       "phone": "+355 69 123 4567",
       "email": "info@millocolor.com",
-      "location": "Tirana, Albania"
+      "location": "Tirana - Durres km8, Tirana, Albania"
     }
   },
   "trusted": {
@@ -1058,7 +1063,7 @@
     },
     "locations": {
       "title": "Our Location",
-      "address": "Tirana Headquarters"
+      "address": "Tirana - Durres km8, Tirana, Albania"
     },
     "hours": {
       "title": "Business Hours"

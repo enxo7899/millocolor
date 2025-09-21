@@ -3,8 +3,6 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import BackgroundCanvas from '../components/BackgroundCanvas';
 import ProductShowcase from '../components/ProductShowcase';
 
@@ -59,7 +57,6 @@ export default function ProductsPage() {
 
   return (
     <>
-      <Header />
       
       <main className="min-h-screen relative overflow-hidden">
         {/* Luxury Animated Background (full page) */}
@@ -244,7 +241,6 @@ export default function ProductsPage() {
         </div>
       </main>
       
-      <Footer />
     </>
   );
 }
