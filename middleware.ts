@@ -8,8 +8,8 @@ export default createMiddleware({
   // Used when no locale matches
   defaultLocale,
   
-  // Use path-based routing for all locales
-  localePrefix: 'as-needed'
+  // Always use path-based routing for all locales including default
+  localePrefix: 'always'
 });
  
 export const config = {
