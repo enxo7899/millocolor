@@ -504,7 +504,7 @@ function ReachSection() {
             
             {/* Location indicators */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {t.raw('reach.countries').map((location: any, index: number) => (
+              {t.raw('reach.countries').map((location: { name: string; flag: string; type: string }, index: number) => (
                 <motion.div
                   key={location.name}
                   initial={{ opacity: 0, y: 20 }}
