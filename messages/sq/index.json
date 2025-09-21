@@ -24,11 +24,11 @@
     "hero": {
       "title": "Ekselencë Lider Që nga 1993",
       "subtitle": "Fuqizojmë profesionistët në të gjithë Shqipërinë me bojërat, veshjet, materialet dhe pajisjet më të mira",
-      "description": "Millocolor sh.p.k. është një kompani lider me bazë në Shqipëri dhe Kosovë, e dedikuar për ofrimin e produkteve të cilësisë së lartë dhe zgjidhjeve eksperte për sektorët e rifinimit automobilistik, bojatisjes industriale dhe përfundimit të mobiljeve. E themeluar në 1993 si shpërndarës dhe agjent i autorizuar për disa nga markat më të respektuara në botë, kemi ndërtuar një reputacion të fortë për ekselencë, besueshmëri dhe mbështetje të paçmuar për klientët."
+      "description": "Millocolor sh.p.k. është një kompani lider me bazë në Shqipëri dhe Kosovë, e dedikuar për ofrimin e produkteve të cilësisë së lartë dhe zgjidhjeve eksperte për sektorët e rifinimit automobilistik, ngjyrosjes industriale dhe të mobiljeve. E themeluar në 1993 si shpërndarës dhe agjent i autorizuar për disa nga markat më të respektuara në botë, kemi ndërtuar një reputacion të fortë për ekselencë, besueshmëri dhe mbështetje të paçmuar për klientët."
     },
     "mission": {
       "title": "Misioni Ynë",
-      "description": "Misioni ynë është të fuqizojmë profesionistët në të gjithë Shqipërinë me bojërat, veshjet, materialet dhe pajisjet më të mira, të bashkuara me njohuritë dhe mbështetjen që u nevojiten për të arritur rezultate të jashtëzakonshme në projektet e tyre të bojatisjes dhe përfundimit. Jemi të përkushtuar për të drejtuar inovacionin dhe ngritjen e standardeve të industrisë përmes ofrimit tonë gjithëpërfshirës dhe shërbimeve të specializuara."
+      "description": "Misioni ynë është të fuqizojmë profesionistët në të gjithë Shqipërinë me bojërat, veshjet, materialet dhe pajisjet më të mira, të bashkuara me njohuritë dhe mbështetjen që u nevojiten për të arritur rezultate të jashtëzakonshme në projektet e tyre të ngjyrosjes dhe përfundimit. Jemi të përkushtuar për të drejtuar inovacionin dhe ngritjen e standardeve të industrisë përmes ofrimit tonë gjithëpërfshirës dhe shërbimeve të specializuara."
     },
     "whatWeOffer": {
       "title": "Çfarë Oferojmë",
@@ -56,7 +56,7 @@
     },
     "partnership": {
       "title": "Më Shumë se një Furnizues",
-      "description": "Millocolor sh.p.k. është më shumë se një furnizues; ne jemi një partner i besuar, duke drejtuar rritjen dhe suksesin në industrinë e bojatisjes dhe përfundimit në Shqipëri."
+      "description": "Millocolor sh.p.k. është më shumë se një furnizues; ne jemi një partner i besuar, duke drejtuar rritjen dhe suksesin në industrinë e ngjyrosjes dhe përfundimit në Shqipëri."
     },
     "established": "Themeluar në 1993",
     "authorizedDealer": "Shpërndarës dhe Agjent i Autorizuar",
@@ -319,7 +319,7 @@
     "subtitle": "Jemi këtu për t'ju mbështetur në çdo hap të procesit të rifinimit tuaj",
     "getInTouch": {
       "title": "Na Kontaktoni",
-      "subtitle": "Gati për të përmirësuar procesin tuaj të bojatisjes? Kontaktoni ekspertët tanë sot",
+      "subtitle": "Gati për të përmirësuar procesin tuaj të ngjyrosjes? Kontaktoni ekspertët tanë sot",
       "contactInfo": {
         "title": "Informacioni i Kontaktit",
         "address": {
@@ -518,7 +518,7 @@
         },
         "professional": {
           "title": "Sisteme Ripërfundimi Profesional",
-          "description": "Sisteme të plota bojatisje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
+          "description": "Sisteme të plota ngjyrosje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
           "features": [
             "Kohër të shpejta tharjeje për efikasitet",
             "Përputhje konsistente ngjyrash",
@@ -570,7 +570,7 @@
       },
       "professional": {
         "title": "Sisteme Ripërfundimi Profesional",
-        "description": "Sisteme të plota bojatisje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
+        "description": "Sisteme të plota ngjyrosje të dizajnuara për punëtori profesionale dhe qendra riparimi.",
         "features": [
           "Kohër të shpejta tharjeje për efikasitet",
           "Përputhje konsistente ngjyrash",
@@ -610,7 +610,7 @@
   },
   "productCategories": {
     "title": "Kategoritë e Produkteve",
-    "subtitle": "Zgjidhje gjithëpërfshirëse për të gjitha nevojat tuaja të bojatisjes automobilistike",
+    "subtitle": "Zgjidhje gjithëpërfshirëse për të gjitha nevojat tuaja të ngjyrosjes automobilistike",
     "categories": {
       "premium": {
         "title": "Bojëra dhe Primer Premium",
@@ -627,7 +627,7 @@
       "equipment": {
         "title": "Pajisje dhe Vegla",
         "shortDescription": "Pajisje profesionale lyerje",
-        "fullDescription": "Pistoleta sprajimi të teknologjisë më të fundit nga SATA, kompresorë nga FIAC dhe lëmues nga RUPES për aplikime profesionale të bojatisjes automobilistike.",
+        "fullDescription": "Pistoleta sprajimi të teknologjisë më të fundit nga SATA, kompresorë nga FIAC dhe lëmues nga RUPES për aplikime profesionale të ngjyrosjes automobilistike.",
         "features": ["Teknologjia Më e Fundit", "Vegla të Sakta", "Performancë e Besueshme", "Trajnim Ekspert"]
       }
     },
@@ -636,7 +636,7 @@
   },
   "training": {
     "title": "Programi i Trajnimit Profesional",
-    "subtitle": "Udhëtimi juaj për të zotëruar ekselencën e bojatisjes automobilistike",
+    "subtitle": "Udhëtimi juaj për të zotëruar ekselencën e ngjyrosjes automobilistike",
     "theoretical": {
       "title": "Trajnimi Teorik",
       "duration": "2-3 ditë",
@@ -646,7 +646,7 @@
     "handsOn": {
       "title": "Praktika e Drejtpërdrejtë",
       "duration": "3-5 ditë",
-      "description": "Workshop praktik duke përdorur pajisje profesionale dhe skenare reale të bojatisjes automobilistike.",
+      "description": "Workshop praktik duke përdorur pajisje profesionale dhe skenare reale të ngjyrosjes automobilistike.",
       "features": ["Demonstrime të Gjalla", "Seanca të Praktikës", "Trajtimi i Pajisjeve", "Kontrolli i Cilësisë"]
     },
     "certification": {
@@ -660,7 +660,7 @@
       "student1": {
         "name": "Arben Krasniqi",
         "role": "Specialist i Bojatisjes Automobilistike",
-        "text": "Programi i trajnimit transformoi plotësisht qasjen time ndaj bojatisjes automobilistike. Profesional dhe gjithëpërfshirës."
+        "text": "Programi i trajnimit transformoi plotësisht qasjen time ndaj ngjyrosjes automobilistike. Profesional dhe gjithëpërfshirës."
       },
       "student2": {
         "name": "Lena Shabani",
@@ -677,7 +677,7 @@
   },
   "stats": {
     "title": "Ndikimi Ynë në Numra",
-    "subtitle": "Tre dekada ekselencë në zgjidhjet e bojatisjes automobilistike",
+    "subtitle": "Tre dekada ekselencë në zgjidhjet e ngjyrosjes automobilistike",
     "years": {
       "title": "Vjet Eksperience",
       "description": "Shërbyer industrinë automobilistike që nga 1993"
@@ -696,13 +696,13 @@
     },
     "trusted": {
       "title": "E Besuar nga Profesionistët në të Gjithë Shqipërinë",
-      "description": "Nga Tirana në Durrës, Vlorë në Shkodër, MilloColor ka qenë burimi kryesor për profesionistët e bojatisjes automobilistike. Përkushtimi ynë ndaj cilësisë, inovacionit dhe suksesit të klientit na ka bërë shpërndarësin kryesor në rajon."
+      "description": "Nga Tirana në Durrës, Vlorë në Shkodër, MilloColor ka qenë burimi kryesor për profesionistët e ngjyrosjes automobilistike. Përkushtimi ynë ndaj cilësisë, inovacionit dhe suksesit të klientit na ka bërë shpërndarësin kryesor në rajon."
     }
   },
   "cta": {
     "title": "Gati për të Transformuar",
     "titleHighlight": "Eksperiencën Tuaj të Bojatisjes?",
-    "subtitle": "Bashkohuni me mijëra profesionistë që besojnë MilloColor për zgjidhje premium të bojatisjes automobilistike, trajnim ekspert dhe mbështetje të paçmuar.",
+    "subtitle": "Bashkohuni me mijëra profesionistë që besojnë MilloColor për zgjidhje premium të ngjyrosjes automobilistike, trajnim ekspert dhe mbështetje të paçmuar.",
     "getInTouch": "Na Kontaktoni",
     "exploreProducts": "Eksploroni Produktet",
     "contactInfo": {
@@ -1140,7 +1140,7 @@
   "contact": {
     "getInTouch": {
       "title": "Na Kontaktoni",
-      "subtitle": "Gati për të përmirësuar procesin tuaj të bojatisjes? Kontaktoni ekspertët tanë sot",
+      "subtitle": "Gati për të përmirësuar procesin tuaj të ngjyrosjes? Kontaktoni ekspertët tanë sot",
       "contactInfo": {
         "title": "Informacioni i Kontaktit",
         "address": {
