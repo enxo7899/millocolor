@@ -69,11 +69,12 @@ const NavLink = ({ href, children, pathname, onClick }: {
   pathname: string;
   onClick?: () => void;
 }) => {
-  const isActive = pathname === href;
+  const locale = useLocale();
+  const isActive = pathname === `/${locale}${href}`;
   
   return (
     <Link 
-      href={href}
+      href={`/${locale}${href}`}
       onClick={onClick}
       className={`relative font-medium text-sm whitespace-nowrap transition-all duration-200 group tracking-wide ${
         isActive 

@@ -66,9 +66,7 @@ export default function LanguageSwitcher() {
     
     // Calculate the new path by replacing the locale segment
     const currentPathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
-    const newPath = newLocale === 'en' 
-      ? currentPathWithoutLocale  // Default locale (English) might not need the prefix
-      : `/${newLocale}${currentPathWithoutLocale}`;
+    const newPath = `/${newLocale}${currentPathWithoutLocale}`;
     
     // Navigate to the new path
     router.push(newPath);
