@@ -1,7 +1,7 @@
 "use client";
 import { Component, ErrorInfo, ReactNode } from 'react';
 import Image from 'next/image';
-import * as Sentry from '@sentry/nextjs';
+// import * as Sentry from '@sentry/nextjs';
 
 interface Props {
   children: ReactNode;
@@ -24,18 +24,18 @@ class ErrorBoundary extends Component<Props, State> {
     console.error('Hero ErrorBoundary caught an error', error, info);
     
     // Send detailed error to Sentry
-    Sentry.captureException(error, {
-      tags: {
-        component: 'Hero3D',
-        section: 'hero-animation'
-      },
-      extra: {
-        errorInfo: info,
-        userAgent: typeof window !== 'undefined' ? window.navigator.userAgent : 'unknown',
-        timestamp: new Date().toISOString(),
-        url: typeof window !== 'undefined' ? window.location.href : 'unknown'
-      }
-    });
+    // Sentry.captureException(error, {
+    //   tags: {
+    //     component: 'Hero3D',
+    //     section: 'hero-animation'
+    //   },
+    //   extra: {
+    //     errorInfo: info,
+    //     userAgent: typeof window !== 'undefined' ? window.navigator.userAgent : 'unknown',
+    //     timestamp: new Date().toISOString(),
+    //     url: typeof window !== 'undefined' ? window.location.href : 'unknown'
+    //   }
+    // });
   }
   render() {
     if (this.state.hasError) {

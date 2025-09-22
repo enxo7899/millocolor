@@ -34,6 +34,11 @@ export async function generateMetadata({
     title: messages.site.title,
     description: messages.site.description,
     metadataBase: new URL('https://millocolor.com'),
+    icons: {
+      icon: '/images/favicon.png',
+      shortcut: '/images/favicon.png',
+      apple: '/images/favicon.png',
+    },
     alternates: {
       canonical: '/',
       languages: {
