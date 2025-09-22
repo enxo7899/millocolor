@@ -1,12 +1,14 @@
 "use client";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
   const t = useTranslations('footer');
   const tNav = useTranslations('nav');
+  const locale = useLocale();
   
   // Animation variants
   const containerVariants = {
@@ -47,10 +49,15 @@ export default function Footer() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <div className="text-3xl font-bold tracking-tight">
-                <span className="text-millo-blue">MILLO</span>
-                <span className="text-millo-red">COLOR</span>
-              </div>
+              <Image
+                src={locale === 'en' ? '/images/logo_en.png' : '/images/logo_sq.png'}
+                alt="MilloColor Logo"
+                width={300}
+                height={100}
+                className="object-contain"
+                priority
+                quality={90}
+              />
             </motion.div>
             <motion.p 
               className="mt-4 text-gray-300 max-w-xs"

@@ -1,7 +1,8 @@
 "use client";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -33,52 +34,29 @@ const AnimatedHamburger = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
   );
 };
 
-// Premium Logo Component
-const PremiumLogo = ({ isScrolled }: { isScrolled: boolean }) => {
-  const t = useTranslations('nav');
+// Premium Logo Component - Unified with image logos for both languages
+const PremiumLogo = () => {
+  const locale = useLocale();
+  
+  // Determine which logo to use based on locale
+  const logoSrc = locale === 'en' ? '/images/logo_en.png' : '/images/logo_sq.png';
+  const logoAlt = locale === 'en' ? 'MilloColor Logo' : 'MilloColor Logo';
   
   return (
     <Link 
       href="/" 
-      className="flex flex-col items-start group h-full py-1"
+      className="flex items-center group h-full py-2"
     >
-      <div 
-        className={`font-bold tracking-tight transition-all duration-300 group-hover:scale-105 ${
-          isScrolled ? 'text-xl lg:text-2xl' : 'text-2xl lg:text-3xl'
-        }`} 
-        style={{ 
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', 
-          lineHeight: '1'
-        }}
-      >
-        <span className="text-[#314485] font-extrabold">MILLO</span>
-        <span className="text-[#C73834] font-extrabold">COLOR</span>
-      </div>
-      <div 
-        className={`transition-all duration-300 ${
-          isScrolled ? 'mt-1' : 'mt-1'
-        } w-full`} 
-        style={{ 
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', 
-          lineHeight: '1',
-          fontSize: isScrolled ? '0.75rem' : '0.875rem',
-          maxWidth: '100%', // Ensure it never exceeds parent width
-          display: 'block',
-          overflow: 'hidden'
-        }}
-      >
-        <span 
-          className="text-white font-medium tracking-wide block !text-white !text-opacity-100" 
-          style={{
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            maxWidth: '100%', // Ensure text is truncated if it exceeds container width
-            fontSize: isScrolled ? '0.75rem' : '0.875rem' // Explicitly set font size here too
-          }}
-        >
-          {t('tagline')}
-        </span>
+      <div className="relative">
+        <Image
+          src={logoSrc}
+          alt={logoAlt}
+          width={180}
+          height={60}
+          className="transition-all duration-300 group-hover:scale-105 object-contain"
+          priority
+          quality={90}
+        />
       </div>
     </Link>
   );
@@ -171,9 +149,9 @@ export default function Header() {
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
           isScrolled 
-            ? 'bg-slate-900/70 backdrop-blur-md shadow-lg border-b border-white/10 h-16' 
-            : 'bg-slate-900/70 backdrop-blur-md h-18'
-        }`}
+            ? 'bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-white/10' 
+            : 'bg-slate-900/70 backdrop-blur-md'
+        } h-18`}
       >
         {/* Modern gradient accent line */}
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -183,7 +161,7 @@ export default function Header() {
           <div className="hidden lg:flex lg:items-center h-full w-full">
             {/* Left: Logo at absolute left edge with zero padding */}
             <div className="pl-1">
-              <PremiumLogo isScrolled={isScrolled} />
+              <PremiumLogo />
             </div>
 
             {/* Right: All navigation content - tight grouping with auto margin */}
@@ -207,7 +185,7 @@ export default function Header() {
           <div className="lg:hidden flex items-center justify-between h-full">
             {/* Logo */}
             <div className="flex-shrink-0 pl-2">
-              <PremiumLogo isScrolled={isScrolled} />
+              <PremiumLogo />
             </div>
 
             {/* Mobile Actions */}
@@ -232,7 +210,7 @@ export default function Header() {
           <div className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-black/90 backdrop-blur-xl shadow-2xl animate-slide-in-right">
             {/* Mobile Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
-              <PremiumLogo isScrolled={false} />
+              <PremiumLogo />
               <AnimatedHamburger isOpen={isMenuOpen} onClick={toggleMobileMenu} />
             </div>
             
