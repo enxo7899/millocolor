@@ -795,11 +795,11 @@
     "productsData": {
       "roberlo-kronox-510": {
         "name": "Roberlo Kronox 510",
-        "description": "Veshje transparente me përmbajtje të lartë lëndësh të ngurta për tharje të shpejtë, shkëlqim të thellë dhe stabilitet vertikal.",
+        "description": "Shtresë transparente me përmbajtje të lartë ngurtësie, që ofron tharje të shpejtë, shkëlqim të thellë dhe stabilitet të lartë për aplikime premium.",
         "features": [
           "Formulë high solids",
           "Tharje e shpejtë",
-          "Qëndrueshmëri vertikale"
+          "Qëndrueshmëri pas aplikimit"
         ]
       },
       "roberlo-multyfiller-express": {
@@ -807,13 +807,13 @@
         "description": "Primer universal 3 në 1 me tharje shumë të shpejtë për cikle të shkurtra gërryerjeje.",
         "features": [
           "Aplikim 3 në 1",
-          "Tharje ekspres",
-          "Sipërfaqe lehtësisht e rërueshme"
+          "Tharje e shpejtë",
+          "Sipërfaqe lehtësisht e zmerilueshme"
         ]
       },
       "cromax-vr-1120": {
         "name": "Cromax VR-1120",
-        "description": "Pallto transparente me VOC të ulët për produktivitet të lartë dhe shkëlqim të qëndrueshëm në rifiniturë.",
+        "description": "Shtresë transparente me VOC të ulët për produktivitet të lartë dhe shkëlqim të qëndrueshëm në rifiniturë.",
         "features": [
           "VOC i ulët",
           "Cikël i shkurtër pjekjeje",
@@ -831,34 +831,34 @@
       },
       "standox-k9600-xtreme": {
         "name": "Standox K9600 Xtreme",
-        "description": "Llak i shpejtë Standox me rrjedhje të shkëlqyer, shkëlqim të thellë dhe rezistencë të lartë kimike.",
+        "description": "Shtrese transparente me tharje te shpejte Standox me përhapje të shkëlqyer, shkëlqim të thellë dhe rezistencë të lartë kimike.",
         "features": [
           "Pjekje shumë e shpejtë",
-          "Rrjedhje perfekte",
+          "Përhapje perfekte",
           "Rezistencë kimike e lartë"
         ]
       },
       "standox-k9510-easy": {
         "name": "Standox K9510 Easy",
-        "description": "Llak praktike për përdorim të përditshëm me dritare të gjerë aplikimi dhe tharje të parashikueshme.",
+        "description": "Shtrese transparente praktike për përdorim të përditshëm me një gamë të gjerë riparimesh.",
         "features": [
           "Aplikim i lehtë",
           "Shkëlqim brilant",
-          "Tharje e qëndrueshme"
+          "Tharje e shpejtë"
         ]
       },
       "duxone-dx48": {
         "name": "Duxone DX48",
         "description": "Primer 2K me përmbajtje të lartë lëndësh të ngurta për mbushje të fortë dhe ngjitje të sigurt.",
         "features": [
-          "Mbushje e lartë",
+          "Mbulim e lartë",
           "Ngjitje e shkëlqyer",
           "Gërryerje e shpejtë"
         ]
       },
       "duxone-dx64": {
         "name": "Duxone DX64",
-        "description": "Llak high solids që kombinon aplikim të lehtë me mbrojtje të qëndrueshme dhe shkëlqim të madh.",
+        "description": "Shtresë Transparente që kombinon aplikim të lehtë me mbrojtje të qëndrueshme dhe shkëlqim të lartë.",
         "features": [
           "Shkëlqim i lartë",
           "Aplikim fleksibël",
@@ -876,7 +876,7 @@
       },
       "hempel-underwater-primer": {
         "name": "Hempel Underwater Primer",
-        "description": "Primer epoksi dy-komponentësh për ngjitje të fortë dhe hidroizolim nën vijën e ujit.",
+        "description": "Primer epoksi dy-komponentësh për ngjitje të fortë dhe hidroizolim nën ujë.",
         "features": [
           "Hidroizolim shumë i mirë",
           "Rezistencë ndaj flluskëzimit",
@@ -885,16 +885,16 @@
       },
       "fiac-500-industrial-black": {
         "name": "FIAC 500 Industrial Black",
-        "description": "Kompresor pistoni 500L për përdorim industrial me prodhim të qëndrueshëm ajri dhe strukturë të fortë.",
+        "description": "Kompresor pistoni 500L për përdorim industrial me presion të qëndrueshëm ajri.",
         "features": [
           "Rezervuar 500L",
           "Pompë gize",
-          "Prurje e vazhdueshme"
+          "Presion i qëndrueshem"
         ]
       },
       "fiac-500-silver": {
         "name": "FIAC 500 Silver",
-        "description": "Kompresor profesional me rrjedhë të qëndrueshme ajri, ftohje efikase dhe konstrukcion të fortë.",
+        "description": "Kompresor profesional me presion të qëndrueshme ajri, ftohje efikase dhe konstrukcion të fortë.",
         "features": [
           "Fluks i qëndrueshëm",
           "Ftohje efikase",
@@ -907,7 +907,7 @@
         "features": [
           "Ngjitje e lartë",
           "Mbrojtje antikorrozione",
-          "Sipërfaqe e rrafshët"
+          "Sipërfaqe e lëmuar"
         ]
       },
       "epvernici-vprl": {
@@ -921,7 +921,7 @@
       },
       "jbm-7-drawer-trolley": {
         "name": "JBM Karrocë me 7 sirtarë",
-        "description": "Karrocë pune e veshur me pluhur me shtatë sirtarë me kushineta dhe mbyllje qendrore.",
+        "description": "Karrocë pune me shtatë me kushineta, sirtarë dhe mbyllje qendrore.",
         "features": [
           "7 sirtarë të gjerë",
           "Shina me kushineta",
@@ -930,34 +930,34 @@
       },
       "jbm-modular-storage": {
         "name": "JBM Sistem magazinimi modular",
-        "description": "Sistem modular magazinimi me dollapë, panele varëse dhe plan pune për organizim maksimal.",
+        "description": "Sistem modular magazinimi me dollapë, panele varëse dhe tavolinë pune për organizim maksimal.",
         "features": [
           "Konfigurim modular",
           "Panel varës i integruar",
-          "Plan pune i qëndrueshëm"
+          "Tavolinë pune i qëndrueshëm"
         ]
       },
       "masterdichem-acrilprimer-gold": {
         "name": "Master DiChem Acrilprimer 2K Gold",
-        "description": "Primer akrilik 2K me përzierje 5:1 për mbyllje të shkëlqyer, tharje të shpejtë dhe rrafshim të lehtë.",
+        "description": "Primer akrilik 2K me përzierje 5:1 për ngjitje të shkëlqyer, tharje të shpejtë dhe përhapje të lehtë.",
         "features": [
           "Raport 5:1",
           "Tharje e shpejtë",
-          "Mbyllje e shkëlqyer"
+          "Izolim i shkëlqyer"
         ]
       },
       "masterdichem-sigil-metal": {
         "name": "Master DiChem Sigil Metal",
-        "description": "Mastikë elastike për fuga metalike me ngjitje të fortë dhe mbrojtje nga lagështia.",
+        "description": "Izolues 1K për fuga metalike me ngjitje të fortë dhe mbrojtje nga lagështia.",
         "features": [
-          "Vulosje elastike",
+          "Izolim elastike",
           "Ngjitje në metal të zhveshur",
           "Rezistencë ndaj lagështisë"
         ]
       },
       "mirka-deros-680": {
         "name": "Mirka DEROS 680",
-        "description": "Lëmues elektrik 150mm me orbitë 5mm, motor brushless dhe dalje për thithjen e pluhurit.",
+        "description": "Lëmues elektrik kompakt 150 mm me orbitë 5 mm, që garanton vibrim të ulët dhe sistem të integruar për pastrimin e pluhurit.",
         "features": [
           "Orbitë 5mm",
           "Motor brushless",
@@ -966,27 +966,27 @@
       },
       "mirka-abranet": {
         "name": "Mirka Abranet",
-        "description": "Disk gërryes me rrjetë të hapur për gërryerje pa pluhur dhe jetëgjatësi të lartë.",
+        "description": "Disqe gërryese me rrjetë, që nuk bllokohen dhe mundësojnë lëmim pothuajse pa pluhur.",
         "features": [
           "Rrjetë e hapur",
           "Gërryerje pa pluhur",
-          "Jetë e gjatë"
+          "Qëndrueshmëri afatgjatë"
         ]
       },
       "shw-wood-basecoat": {
         "name": "Sherwin-Williams Wood Basecoat",
-        "description": "Shtresë bazë për dru me mbulim të njëtrajtshëm, që bllokon taninet dhe rërohet shpejt.",
+        "description": "Bazë druri me trashësi të lartë, që ofron mbulim të njëtrajtshëm dhe bllokim të shkëlqyer të njollave për punime mobiliesh.",
         "features": [
           "Mbulim i njëtrajtshëm",
-          "Bllokon taninet",
-          "Rërohet shpejt"
+          "Mbulon njollat",
+          "Zmerilohet lehtë"
         ]
       },
       "shw-wood-topcoat": {
         "name": "Sherwin-Williams Wood Topcoat",
-        "description": "Veshje përfundimtare për dru që sjell ngrohtësi, transparencë dhe rezistencë ndaj gërvishtjeve.",
+        "description": "Shtresë mbrojtëse për dru, që thekson ngrohtësinë, qartësinë dhe rezistencën ndaj gërvishtjeve në mobilje",
         "features": [
-          "Shkëlqim i ngrohtë",
+          "Shkëlqim i natyral",
           "Rezistencë ndaj gërvishtjeve",
           "Mbrojtje e qëndrueshme"
         ]
@@ -1005,22 +1005,22 @@
         "description": "Njësi induksioni me ftohje uji për fuqi të vazhdueshme në drejtimin strukturor dhe riparime.",
         "features": [
           "Sistem me ftohje uji",
-          "Fuqí e vazhdueshme",
-          "E përshtatshme për strukturë"
+          "Fuqí e qendrueshme",
+          "E përshtatshme për punë strukturale"
         ]
       },
       "troton-light-putty": {
         "name": "Troton Light Putty",
-        "description": "Kit poliester i lehtë që aplikohet lehtë, thahet shpejt dhe gërryhet pa bllokuar letër zmerilen.",
+        "description": "Stuko me aplikim te lehtë, thahet shpejt dhe gërryhet pa bllokuar letren zmeriluese.",
         "features": [
           "Dendësi e ulët",
           "Tharje e shpejtë",
-          "Rërim i lehtë"
+          "Zmerilim i lehtë"
         ]
       },
       "troton-bold-putty": {
         "name": "Troton Bold Putty",
-        "description": "Kit i përforcuar për riparime të mëdha me rezistencë të lartë mekanike dhe ngjitje shumë të mirë.",
+        "description": "Stuko e përforcuar për riparime të mëdha me rezistencë të lartë mekanike dhe ngjitje shumë të mirë.",
         "features": [
           "Formulë e përforcuar",
           "Forcë e lartë mekanike",

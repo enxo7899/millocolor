@@ -34,15 +34,6 @@ export async function generateMetadata({
     title: messages.site.title,
     description: messages.site.description,
     metadataBase: new URL('https://millocolor.com'),
-    icons: {
-      icon: [
-        { url: '/favicon.ico?v=3', sizes: 'any' },
-        { url: '/images/favicon.png?v=3', type: 'image/png', sizes: '32x32' },
-        { url: '/images/favicon.png?v=3', type: 'image/png', sizes: '16x16' }
-      ],
-      shortcut: '/favicon.ico?v=3',
-      apple: '/images/favicon.png?v=3',
-    },
     alternates: {
       canonical: '/',
       languages: {
@@ -91,12 +82,6 @@ export default async function RootLayout({
 
   return (
     <>
-      <head>
-        <link rel="icon" href="/favicon.ico?v=3" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=3" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=3" />
-        <link rel="apple-touch-icon" href="/images/favicon.png?v=3" />
-      </head>
       <NextIntlClientProvider locale={locale} messages={messages}>
         <ThemeProvider>
           <Header />
