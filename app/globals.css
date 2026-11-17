@@ -8,7 +8,7 @@
   --millo-gold: #FFD700;
   
   /* Base Variables */
-  --bg: #FFFFFF;
+  --bg: #121316; /* signboard charcoal: what shows on over-scroll and before paint */
   --text: #1A1A1A;
   --neutral: #F5F5F5;
 }
@@ -20,6 +20,16 @@ body {
   font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv03" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background: var(--bg);
+  color-scheme: dark;
+  scrollbar-color: #4a4d55 #121316;
+}
+::selection {
+  background: #c9404b;
+  color: #fff;
 }
 
 /* Smooth scrolling for the whole page but respect user preference */
@@ -93,14 +103,6 @@ body {
 
 .mobile-nav::-webkit-scrollbar-thumb:hover {
   background: rgba(212, 212, 212, 0.8);
-}
-
-/* Premium gradient text effect */
-.gradient-text {
-  background: linear-gradient(135deg, var(--millo-blue) 0%, var(--millo-red) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* Video background optimizations */

@@ -1,6 +1,6 @@
 "use client";
 import { Component, ErrorInfo, ReactNode } from 'react';
-import Image from 'next/image';
+import { HERO_SECTION_CLASS } from './HeroLoader';
 // import * as Sentry from '@sentry/nextjs';
 
 interface Props {
@@ -39,22 +39,12 @@ class ErrorBoundary extends Component<Props, State> {
   }
   render() {
     if (this.state.hasError) {
+      // 3D unavailable: show the finished, painted sign (the real logo artwork) on the same dark stage.
       return (
-        <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
-          <Image
-            src={this.props.posterSrc}
-            alt="Hero fallback poster"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
-            <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg">
-              <span className="text-[#314485]">Millo</span>
-              <span className="text-[#C73834]">Color</span>
-            </h1>
-            <p className="mt-4 text-xl md:text-3xl text-white/80">Premium automotive paint solutions</p>
+        <section className={HERO_SECTION_CLASS}>
+          <div className="absolute left-1/2 top-[41%] w-[94vw] -translate-x-1/2 -translate-y-1/2 sm:w-[90vw]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/models/millocolor-wordmark.svg" alt="Millocolor" className="block w-full h-auto" />
           </div>
         </section>
       );

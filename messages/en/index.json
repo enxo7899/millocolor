@@ -16,12 +16,21 @@
   },
   "hero": {
     "title": "Coloring the Future",
-    "headline": "The Future of Automotive Paint",
+    "headline": "Paints, tools and equipment for the people who finish the job.",
     "tagline": "Experience unmatched quality and brilliance with MilloColor's premium finishes",
     "subtitle": "Premium automotive paint solutions for professionals",
     "cta": "Discover Our Products",
     "ctaSecondary": "Contact Us",
-    "scrollHint": "Scroll to explore"
+    "scrollHint": "Scroll to explore",
+    "factSinceLabel": "Established",
+    "factBrandsLabel": "Brands",
+    "factBrandsValue": "Standox, Cromax, Sata",
+    "factLocationsLabel": "Showrooms",
+    "factLocationsValue": "Tirana · Elbasan · Pristina",
+    "replay": "Replay",
+    "ctaWhatsapp": "Message us on WhatsApp",
+    "ctaCall": "Call the shop",
+    "ctaProducts": "Browse products"
   },
   "about": {
     "hero": {
@@ -442,7 +451,7 @@
         },
         "q3": {
           "question": "What are your business hours?",
-          "answer": "We're open Monday-Friday 8:00-17:00, Saturday 9:00-14:00, and closed on Sundays."
+          "answer": "Monday to Friday 8:00–16:30 and Saturday 8:00–15:00. We're closed on Sundays."
         },
         "q4": {
           "question": "Can I visit your showroom?",
@@ -989,6 +998,232 @@
           "Adheres to multiple substrates"
         ]
       }
+    }
+  },
+  "home": {
+    "brands": {
+      "title": "The makers your work already depends on.",
+      "text": "Authorised dealer and distributor of the brands below, supplied from our own warehouse in Tirana.",
+      "all": "See every brand"
+    },
+    "range": {
+      "title": "Everything a finish needs, from the first coat to the last.",
+      "viewAll": "See the full range",
+      "items": [
+        {
+          "name": "Automotive refinishing",
+          "text": "Basecoats, clearcoats, primers, fillers and abrasives for body shops.",
+          "brands": "Standox · Cromax · Duxone · Roberlo",
+          "image": "/images/products/standox-k9510-easy.jpg"
+        },
+        {
+          "name": "Industrial coatings",
+          "text": "Protective and decorative systems for metal, marine and heavy industry.",
+          "brands": "Hempel · EP Vernici · Master DiChem",
+          "image": "/images/products/hempel-zinc-17360.jpg"
+        },
+        {
+          "name": "Wood and furniture finishing",
+          "text": "Basecoats and topcoats for joinery and furniture makers.",
+          "brands": "Sherwin-Williams",
+          "image": "/images/products/shw-wood-topcoat.jpg"
+        },
+        {
+          "name": "Equipment and tools",
+          "text": "Spray guns, sanders, compressors, induction heaters and workshop storage.",
+          "brands": "SATA · Rupes · Mirka · FIAC · Telwin · JBM",
+          "image": "/images/products/mirka-abranet.jpg"
+        }
+      ]
+    },
+    "shelf": {
+      "title": "Straight from the shelf.",
+      "text": "A few of the products our customers ask for most.",
+      "items": [
+        {
+          "brand": "Cromax",
+          "name": "VR-1120 ValueClear VOC",
+          "tag": "Clearcoat",
+          "image": "/images/products/cromax-vr-1120.jpg"
+        },
+        {
+          "brand": "Master DiChem",
+          "name": "HS 5:1 Acrylic Filler",
+          "tag": "Primer and filler",
+          "image": "/images/products/masterdichem-acrilprimer-gold.jpg"
+        },
+        {
+          "brand": "Mirka",
+          "name": "Abranet 150 mm",
+          "tag": "Abrasives",
+          "image": "/images/products/mirka-abranet.jpg"
+        },
+        {
+          "brand": "Hempel",
+          "name": "Hempadur Zinc 17360",
+          "tag": "Industrial primer",
+          "image": "/images/products/hempel-zinc-17360.jpg"
+        },
+        {
+          "brand": "Sherwin-Williams",
+          "name": "Sher-Wood Polyester Topcoat",
+          "tag": "Wood finishing",
+          "image": "/images/products/shw-wood-topcoat.jpg"
+        },
+        {
+          "brand": "JBM",
+          "name": "7-drawer workshop trolley",
+          "tag": "Equipment",
+          "image": "/images/products/jbm-7-drawer-trolley.jpg"
+        }
+      ]
+    },
+    "services": {
+      "title": "We do more than sell the tin.",
+      "items": [
+        {
+          "name": "Colour matching and mixing",
+          "text": "OEM-grade colour matching and on-demand mixing for automotive, industrial and furniture finishes."
+        },
+        {
+          "name": "Technical training",
+          "text": "Hands-on training and certification for painters and body shop teams."
+        },
+        {
+          "name": "Equipment and support",
+          "text": "Help choosing, setting up and keeping spray equipment, compressors and sanders running."
+        }
+      ],
+      "cta": "See all services"
+    },
+    "places": {
+      "title": "Four places to find us.",
+      "hours": "Mon–Fri 8:00–16:30 · Sat 8:00–15:00",
+      "directions": "Directions",
+      "items": [
+        {
+          "city": "Tirana",
+          "name": "Headquarters",
+          "address": "Tiranë–Durrës km 8",
+          "image": "/images/buildings/tirana_hq.jpg"
+        },
+        {
+          "city": "Tirana",
+          "name": "City branch",
+          "address": "Rruga Teodor Keko, Unaza e Re",
+          "image": "/images/buildings/tirana.jpg"
+        },
+        {
+          "city": "Elbasan",
+          "name": "Elbasan branch",
+          "address": "Elbasan–Korçë national road, 800 m from the Cërrik junction",
+          "image": "/images/buildings/elbasan.jpg"
+        },
+        {
+          "city": "Pristina",
+          "name": "Pristina branch",
+          "address": "Pristina–Ferizaj highway, km 5",
+          "image": "/images/buildings/pristina.jpg"
+        }
+      ],
+      "label": "Locations"
+    },
+    "contact": {
+      "title": "Tell us the job. We'll find the product.",
+      "text": "Send a photo of what you're painting or a colour code. We'll reply with what you need and when you can collect it.",
+      "whatsapp": "Message on WhatsApp",
+      "call": "Call",
+      "email": "Email"
+    },
+    "mapUrl": "https://www.google.com/maps/search/"
+  },
+  "pages": {
+    "common": {
+      "whatsapp": "Message us on WhatsApp",
+      "call": "Call the shop",
+      "email": "Email us",
+      "directions": "Directions",
+      "visitWebsite": "Visit website",
+      "ask": "Ask about this",
+      "askMessage": "Hello Millocolor, I'm interested in {name}.",
+      "faq": "Questions people ask us"
+    },
+    "about": {
+      "title": "Supplying the trade since 1993.",
+      "lead": "Millocolor sh.p.k. is an authorised dealer and distributor of paints, coatings, materials and equipment for automotive refinishing, industrial painting and furniture finishing, with four locations in Albania and Kosovo.",
+      "storyTitle": "A distributor that knows the work.",
+      "supplyTitle": "What we supply.",
+      "beyondTitle": "More than the product.",
+      "beyond": [
+        {
+          "name": "Training",
+          "text": "Theoretical and hands-on programmes for refinishing technicians: surface preparation, application and product systems."
+        },
+        {
+          "name": "Consulting",
+          "text": "Advice on product systems, workshop layout and workflow for bodyshops and finishing lines."
+        },
+        {
+          "name": "Technical support",
+          "text": "Help on the job when a system misbehaves, from mixing ratios to spray settings."
+        },
+        {
+          "name": "Colour matching",
+          "text": "Formulation and on-demand mixing in our own lab for automotive, industrial and furniture finishes."
+        }
+      ],
+      "reachTitle": "Where it comes from.",
+      "countries": [
+        "Belgium",
+        "Germany",
+        "Spain"
+      ]
+    },
+    "products": {
+      "title": "On the shelf.",
+      "lead": "A selection from the brands we distribute. If you need something that isn't listed, ask us and we'll tell you whether we can supply it.",
+      "filterLabel": "Filter products",
+      "count": "{count, plural, one {# product} other {# products}}",
+      "groups": {
+        "all": "Everything",
+        "finish": "Clearcoats & topcoats",
+        "prep": "Primers, fillers & sealers",
+        "industrial": "Industrial & wood",
+        "sanding": "Sanding",
+        "equipment": "Equipment & workshop"
+      }
+    },
+    "brands": {
+      "title": "The brands we carry.",
+      "lead": "Authorised dealer and distributor for the manufacturers below, across refinishing paint, industrial coatings, abrasives and workshop equipment.",
+      "filterLabel": "Filter brands",
+      "countries": {
+        "Global": "Global",
+        "USA": "USA",
+        "Italy": "Italy",
+        "Germany": "Germany",
+        "Spain": "Spain",
+        "Finland": "Finland",
+        "Denmark": "Denmark",
+        "Poland": "Poland"
+      }
+    },
+    "services": {
+      "title": "Help that comes with the paint.",
+      "listTitle": "What we do for workshops.",
+      "relatedBrands": "Brands involved"
+    },
+    "contact": {
+      "title": "Call, write, or come by.",
+      "lead": "Talk to the people who stock and mix the paint. We answer on the phone, on WhatsApp and by email, and you're welcome at any of our four locations.",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "hoursLabel": "Opening hours",
+      "hours": [
+        "Monday – Friday  8:00 – 16:30",
+        "Saturday  8:00 – 15:00",
+        "Sunday  closed"
+      ]
     }
   }
 }

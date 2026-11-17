@@ -1,0 +1,530 @@
+/* Home: the storefront sign, section by section.
+   Charcoal enamel and bone primer alternate; blue and red arrive as full fields. */
+
+.home {
+  --ink: #121316;
+  --panel: #1a1c20;
+  --bone: #ecebe6;
+  --paper: #f6f5f1;
+  --blue: #2f50bd;
+  --blue-lift: #7d97ee;
+  --red: #c9404b;
+  --on-dark: rgba(236, 235, 230, 0.72);
+  --on-bone: rgba(18, 19, 22, 0.66);
+  --hair-dark: rgba(236, 235, 230, 0.16);
+  --hair-bone: rgba(18, 19, 22, 0.16);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+
+.home ::selection {
+  background: var(--red);
+  color: #fff;
+}
+.home :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+:where(.home) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- section scaffolding ---------- */
+.sect {
+  position: relative;
+  padding: clamp(72px, 10vw, 148px) 0;
+}
+.dark {
+  background: var(--ink);
+  color: var(--bone);
+}
+.bone {
+  background: var(--bone);
+  color: var(--ink);
+}
+.blue {
+  background: var(--blue);
+  color: #fff;
+}
+.red {
+  background: var(--red);
+  color: #fff;
+}
+.wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 80px);
+}
+
+.h2 {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+  font-weight: 900;
+  font-stretch: 115%;
+  font-size: clamp(1.9rem, 3.7vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.lead {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.dark .lead,
+.blue .lead,
+.red .lead {
+  color: var(--on-dark);
+}
+.bone .lead {
+  color: var(--on-bone);
+}
+.blue .lead {
+  color: rgba(255, 255, 255, 0.86);
+}
+/* the brand red only clears 4.5:1 against pure white */
+.red .lead {
+  color: #fff;
+}
+
+/* Registration (kento) marks at the four corners of a section. */
+.marks > i {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.marks > i:nth-child(1) { top: 24px; left: clamp(12px, 2vw, 28px); border-top: 1px solid; border-left: 1px solid; }
+.marks > i:nth-child(2) { top: 24px; right: clamp(12px, 2vw, 28px); border-top: 1px solid; border-right: 1px solid; }
+.marks > i:nth-child(3) { bottom: 24px; left: clamp(12px, 2vw, 28px); border-bottom: 1px solid; border-left: 1px solid; }
+.marks > i:nth-child(4) { bottom: 24px; right: clamp(12px, 2vw, 28px); border-bottom: 1px solid; border-right: 1px solid; }
+
+.arrowLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.005em;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  transition: gap 0.35s var(--ease);
+}
+.arrowLink:hover {
+  gap: 18px;
+}
+
+/* ---------- brands ---------- */
+.brandGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+.brandIntro {
+  display: grid;
+  gap: 28px;
+  position: sticky;
+  top: 120px;
+}
+.logos {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--hair-bone);
+  border-left: 1px solid var(--hair-bone);
+}
+.logo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 5 / 3;
+  padding: 9% 10%;
+  background: #fff;
+  border-right: 1px solid var(--hair-bone);
+  border-bottom: 1px solid var(--hair-bone);
+  transition: background-color 0.3s ease;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.92;
+  transition: transform 0.5s var(--ease), opacity 0.4s ease;
+}
+.logo:hover img {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+/* ---------- range ---------- */
+.rangeHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 32px;
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+.rows {
+  border-bottom: 1px solid var(--hair-dark);
+}
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 4fr) 132px;
+  gap: clamp(20px, 3vw, 56px);
+  align-items: center;
+  padding: clamp(24px, 3vw, 40px) 0;
+  border-top: 1px solid var(--hair-dark);
+  transition: padding 0.5s var(--ease);
+}
+.row:hover {
+  padding-left: clamp(8px, 1.4vw, 20px);
+}
+.rowName {
+  margin: 0;
+  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: clamp(1.5rem, 3.2vw, 2.85rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  transition: color 0.35s ease;
+}
+.row:nth-child(odd):hover .rowName { color: var(--blue-lift); }
+.row:nth-child(even):hover .rowName { color: #e9747c; }
+.rowText {
+  display: grid;
+  gap: 10px;
+}
+.rowText p {
+  margin: 0;
+  max-width: 40ch;
+  color: var(--on-dark);
+  line-height: 1.5;
+}
+.rowText small {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: rgba(236, 235, 230, 0.5);
+}
+.thumb {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  background: #fff;
+  overflow: hidden;
+  justify-self: end;
+}
+.thumb img {
+  object-fit: contain;
+  padding: 2px;
+  transition: transform 0.6s var(--ease);
+}
+.row:hover .thumb img {
+  transform: scale(1.08);
+}
+
+/* ---------- shelf ---------- */
+.shelfHead {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(24px, 5vw, 80px);
+  align-items: end;
+  margin-bottom: clamp(40px, 5vw, 72px);
+}
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 3vw, 48px) clamp(16px, 2vw, 32px);
+}
+.tile {
+  display: grid;
+  gap: 16px;
+}
+.tileImg {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  overflow: hidden;
+}
+.tileImg img {
+  object-fit: contain;
+  padding: 2%;
+  transition: transform 0.7s var(--ease);
+}
+.tile:hover .tileImg img {
+  transform: scale(1.05);
+}
+.tileMeta {
+  display: grid;
+  gap: 4px;
+}
+.tileBrand {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-bone);
+}
+.tileName {
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.tileTag {
+  font-size: 0.9rem;
+  color: var(--on-bone);
+}
+.shelfFoot {
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+/* ---------- services ---------- */
+.svcHead {
+  margin-bottom: clamp(48px, 7vw, 104px);
+}
+.svcGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+.svc {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: clamp(24px, 3vw, 40px) clamp(16px, 2.4vw, 40px) 0 0;
+}
+.svc + .svc {
+  padding-left: clamp(16px, 2.4vw, 40px);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+.svcName {
+  margin: 0;
+  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: clamp(1.3rem, 2.2vw, 1.95rem);
+  line-height: 1.08;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.svc p {
+  margin: 0;
+  max-width: 36ch;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+}
+.svcFoot {
+  margin-top: clamp(40px, 5vw, 72px);
+}
+
+/* ---------- places ---------- */
+.placesHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 32px;
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+.hours {
+  margin: 0;
+  color: var(--on-dark);
+  font-size: 0.95rem;
+}
+.places {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 36px);
+}
+.place {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+.placeImg {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--panel);
+}
+.placeImg img {
+  object-fit: cover;
+  transition: transform 0.9s var(--ease);
+}
+.place:hover .placeImg img {
+  transform: scale(1.04);
+}
+.placeCity {
+  margin: 0;
+  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.placeName {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: var(--on-dark);
+}
+.placeAddr {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 30ch;
+  color: var(--on-dark);
+}
+
+/* ---------- contact ---------- */
+.contactGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: end;
+}
+.contactTitle {
+  font-size: clamp(2.2rem, 5.6vw, 5.2rem);
+  max-width: 14ch;
+}
+.contactSide {
+  display: grid;
+  gap: 28px;
+}
+.phone {
+  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.55);
+  padding-bottom: 12px;
+  transition: border-color 0.3s ease;
+}
+.phone:hover {
+  border-color: #fff;
+}
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 28px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.btnPrimary {
+  background: var(--bone);
+  color: var(--ink);
+  border-color: var(--bone);
+}
+.btnPrimary:hover {
+  background: #fff;
+}
+.btn:not(.btnPrimary):hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .places {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .row {
+    grid-template-columns: minmax(0, 1fr) 110px;
+  }
+  .rowText {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .thumb {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 899px) {
+  .brandGrid,
+  .shelfHead,
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+  .brandIntro {
+    position: static;
+  }
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .svcGrid {
+    grid-template-columns: 1fr;
+  }
+  .svc,
+  .svc + .svc {
+    padding: 28px 0;
+    border-left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .rangeHead,
+  .placesHead {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+@media (max-width: 559px) {
+  .logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .places {
+    gap: 28px 14px;
+  }
+  .placeAddr {
+    font-size: 0.86rem;
+  }
+  .tiles {
+    gap: 24px 12px;
+  }
+  .tileName {
+    font-size: 1rem;
+  }
+  .btn {
+    width: 100%;
+  }
+  .thumb {
+    width: 88px;
+    height: 88px;
+  }
+  .row {
+    grid-template-columns: minmax(0, 1fr) 88px;
+  }
+}
