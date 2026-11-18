@@ -61,9 +61,16 @@ export default function BrandsPage() {
               const logo = logoFor(b.logoSrc);
               return (
                 <li key={b.id} className={p.brand}>
-                  <div className={p.brandLogo}>
-                    {logo && <Image src={logo} alt={`${b.name} logo`} fill sizes="(max-width: 599px) 112px, 220px" />}
-                  </div>
+                  {b.website ? (
+                    // the text link below is the accessible one; the logo is a larger mouse/touch target for the same URL
+                    <a className={p.brandLogo} href={b.website} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
+                      {logo && <Image src={logo} alt="" fill sizes="(max-width: 599px) 112px, 220px" />}
+                    </a>
+                  ) : (
+                    <div className={p.brandLogo}>
+                      {logo && <Image src={logo} alt={`${b.name} logo`} fill sizes="(max-width: 599px) 112px, 220px" />}
+                    </div>
+                  )}
                   <Rise>
                     <h2 className={p.brandName}>{b.name}</h2>
                     <p className={p.brandCountry}>{country(b.country)}</p>

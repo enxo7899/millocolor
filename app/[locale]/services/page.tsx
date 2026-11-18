@@ -1,9 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { services } from '../../../data/services';
 import { ContactBand } from '../components/home/HomeSections';
-import { Rise } from '../components/home/Reveal';
+import { Rise, Wipe } from '../components/home/Reveal';
 import { Faq, PageHero, PageShell, h, p } from '../components/pages/PageParts';
 
 const STEPS = ['assess', 'recommend', 'implement', 'support'] as const;
@@ -16,7 +17,18 @@ export default function ServicesPage() {
 
   return (
     <PageShell>
-      <PageHero field="blue" title={t('title')} lead={s('hero.subtitle')} />
+      <PageHero
+        field="blue"
+        title={t('title')}
+        lead={s('hero.subtitle')}
+        aside={
+          <Wipe>
+            <div className={p.heroPhoto}>
+              <Image src="/images/process/mixing.webp" alt={t('photoAlt')} fill priority sizes="(max-width: 899px) 92vw, 40vw" style={{ objectPosition: '42% 50%' }} />
+            </div>
+          </Wipe>
+        }
+      />
 
       {/* the services */}
       <section className={`${h.sect} ${h.dark}`}>

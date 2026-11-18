@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { generateContactLinks } from '../../../data/contact';
 import { ContactBand } from '../components/home/HomeSections';
-import { Rise } from '../components/home/Reveal';
+import { Rise, Wipe } from '../components/home/Reveal';
 import { Arrow, PageHero, PageShell, Tabs, h, p } from '../components/pages/PageParts';
 
 type Group = 'finish' | 'prep' | 'industrial' | 'sanding' | 'equipment';
@@ -70,6 +70,13 @@ export default function ProductsPage() {
         title={t('title')}
         lead={t('lead')}
         foot={<span className={p.count}>{t('count', { count: PRODUCTS.length })}</span>}
+        aside={
+          <Wipe>
+            <div className={p.heroPhoto}>
+              <Image src="/images/process/warehouse.webp" alt={t('photoAlt')} fill priority sizes="(max-width: 899px) 92vw, 40vw" />
+            </div>
+          </Wipe>
+        }
       />
 
       <section className={`${h.sect} ${h.bone}`} style={{ paddingTop: 'clamp(40px, 5vw, 72px)' }}>

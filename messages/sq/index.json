@@ -1047,7 +1047,8 @@
     "brands": {
       "title": "Prodhuesit mbi të cilët mbështetet puna juaj.",
       "text": "Shitës dhe distributor i autorizuar i markave më poshtë, me magazinë tonën në Tiranë.",
-      "all": "Të gjitha markat"
+      "all": "Të gjitha markat",
+      "opensSite": "hap faqen e tyre në një skedë të re"
     },
     "range": {
       "title": "Gjithçka që i duhet një finiture, nga shtresa e parë te e fundit.",
@@ -1057,25 +1058,25 @@
           "name": "Rinovim automjetesh",
           "text": "Bazë, llak, primer, stuko dhe abrazivë për servisët e karrocerisë.",
           "brands": "Standox · Cromax · Duxone · Roberlo",
-          "image": "/images/products/standox-k9510-easy.jpg"
+          "image": "/images/process/automotive.webp"
         },
         {
           "name": "Veshje industriale",
           "text": "Sisteme mbrojtëse dhe dekorative për metal, detari dhe industri të rëndë.",
           "brands": "Hempel · EP Vernici · Master DiChem",
-          "image": "/images/products/hempel-zinc-17360.jpg"
+          "image": "/images/process/industrial.webp"
         },
         {
           "name": "Përfundim druri dhe mobiljesh",
           "text": "Baza dhe llak për zdrukthtarë dhe prodhues mobiljesh.",
           "brands": "Sherwin-Williams",
-          "image": "/images/products/shw-wood-topcoat.jpg"
+          "image": "/images/process/wood.webp"
         },
         {
           "name": "Pajisje dhe vegla",
           "text": "Pistoleta, smerilë, kompresorë, ngrohës me induksion dhe magazinim për punishte.",
           "brands": "SATA · Rupes · Mirka · FIAC · Telwin · JBM",
-          "image": "/images/products/mirka-abranet.jpg"
+          "image": "/images/process/equipment.webp"
         }
       ]
     },
@@ -1234,7 +1235,8 @@
         "industrial": "Industri dhe dru",
         "sanding": "Lëmim",
         "equipment": "Pajisje dhe punëtori"
-      }
+      },
+      "photoAlt": "Kanaçe boje dhe materiale të vendosura në raftet e magazinës"
     },
     "brands": {
       "title": "Markat që shpërndajmë.",
@@ -1254,7 +1256,8 @@
     "services": {
       "title": "Ndihmë që vjen bashkë me bojën.",
       "listTitle": "Çfarë bëjmë për punëtoritë.",
-      "relatedBrands": "Markat e përfshira"
+      "relatedBrands": "Markat e përfshira",
+      "photoAlt": "Një teknik peshon pigment në një gotë përzierjeje mbi peshore"
     },
     "contact": {
       "title": "Telefononi, shkruani ose ejani.",

@@ -146,15 +146,41 @@
   border-top: 1px solid var(--hair-bone);
   border-left: 1px solid var(--hair-bone);
 }
+.logoCell {
+  border-right: 1px solid var(--hair-bone);
+  border-bottom: 1px solid var(--hair-bone);
+}
 .logo {
+  position: relative;
   display: grid;
   place-items: center;
   aspect-ratio: 5 / 3;
   padding: 9% 10%;
   background: #fff;
-  border-right: 1px solid var(--hair-bone);
-  border-bottom: 1px solid var(--hair-bone);
   transition: background-color 0.3s ease;
+}
+a.logo:focus-visible {
+  outline: 2px solid var(--blue, #2f50bd);
+  outline-offset: -2px;
+}
+/* a small out-arrow appears on hover so the link is discoverable */
+a.logo::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 9px;
+  height: 9px;
+  border-top: 1.5px solid #121316;
+  border-right: 1.5px solid #121316;
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition: opacity 0.3s ease, transform 0.4s var(--ease);
+}
+a.logo:hover::after,
+a.logo:focus-visible::after {
+  opacity: 0.7;
+  transform: none;
 }
 .logo img {
   width: 100%;
@@ -182,7 +208,7 @@
 .row {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 4fr) 132px;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 4fr) clamp(170px, 17vw, 248px);
   gap: clamp(20px, 3vw, 56px);
   align-items: center;
   padding: clamp(24px, 3vw, 40px) 0;
@@ -203,8 +229,9 @@
   text-transform: uppercase;
   transition: color 0.35s ease;
 }
-.row:nth-child(odd):hover .rowName { color: var(--blue-lift); }
-.row:nth-child(even):hover .rowName { color: #e9747c; }
+/* rows alternate blue and red on hover, like the two halves of the sign */
+.row:hover .rowName { color: var(--blue-lift); }
+.rowAlt:hover .rowName { color: #e9747c; }
 .rowText {
   display: grid;
   gap: 10px;
@@ -222,19 +249,22 @@
 }
 .thumb {
   position: relative;
-  width: 132px;
-  height: 132px;
-  background: #fff;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--panel, #1b1d21);
   overflow: hidden;
   justify-self: end;
 }
+/* process photos sit slightly muted in the dark list and come up to full colour on hover */
 .thumb img {
-  object-fit: contain;
-  padding: 2px;
-  transition: transform 0.6s var(--ease);
+  object-fit: cover;
+  filter: saturate(0.82) brightness(0.9);
+  transition: transform 0.8s var(--ease), filter 0.5s ease;
 }
-.row:hover .thumb img {
-  transform: scale(1.08);
+.row:hover .thumb img,
+.row:focus-visible .thumb img {
+  transform: scale(1.06);
+  filter: none;
 }
 
 /* ---------- shelf ---------- */
@@ -459,7 +489,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .row {
-    grid-template-columns: minmax(0, 1fr) 110px;
+    grid-template-columns: minmax(0, 1fr) 168px;
   }
   .rowText {
     grid-column: 1;
@@ -468,8 +498,7 @@
   .thumb {
     grid-column: 2;
     grid-row: 1 / span 2;
-    width: 110px;
-    height: 110px;
+    width: 168px;
   }
 }
 
@@ -521,10 +550,9 @@
     width: 100%;
   }
   .thumb {
-    width: 88px;
-    height: 88px;
+    width: 112px;
   }
   .row {
-    grid-template-columns: minmax(0, 1fr) 88px;
+    grid-template-columns: minmax(0, 1fr) 112px;
   }
 }

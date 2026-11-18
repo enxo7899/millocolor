@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import { brands } from '../../../../data/brands';
 import { contactInfo, generateContactLinks } from '../../../../data/contact';
 import { Rise, Wipe } from './Reveal';
 import s from './home.module.css';
@@ -17,6 +18,14 @@ const LOGO_NAMES: Record<string, string> = {
   mirka: 'Mirka', RUPES: 'Rupes', fiac: 'FIAC', Telwin: 'Telwin', hempel: 'Hempel',
   epvernici: 'EP Vernici', masterdichem: 'Master DiChem', SHW: 'Sherwin-Williams', troton: 'Troton', jbm: 'JBM',
 };
+
+/** Each logo links to the maker's own site, looked up from the brand list by logo file name. */
+const SITES: Record<string, string> = Object.fromEntries(
+  brands.flatMap((b) => {
+    const key = b.logoSrc?.split('/').pop()?.replace(/\.[a-z]+$/i, '').toLowerCase();
+    return key && b.website ? [[key, b.website]] : [];
+  }),
+);
 
 const Arrow = () => (
   <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -55,8 +64,18 @@ export function BrandWall() {
           <Wipe>
             <ul className={s.logos} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
               {LOGOS.map((id) => (
-                <li key={id} className={s.logo}>
-                  <Image src={`/images/partners/fit/${id.toLowerCase()}.webp`} alt={LOGO_NAMES[id]} width={720} height={320} sizes="(max-width: 900px) 30vw, 14vw" />
+                <li key={id} className={s.logoCell}>
+                  {(() => {
+                    const img = <Image src={`/images/partners/fit/${id.toLowerCase()}.webp`} alt={LOGO_NAMES[id]} width={720} height={320} sizes="(max-width: 900px) 30vw, 14vw" />;
+                    const site = SITES[id.toLowerCase()];
+                    return site ? (
+                      <a className={s.logo} href={site} target="_blank" rel="noopener noreferrer" aria-label={`${LOGO_NAMES[id]} (${t('opensSite')})`}>
+                        {img}
+                      </a>
+                    ) : (
+                      <span className={s.logo}>{img}</span>
+                    );
+                  })()}
                 </li>
               ))}
             </ul>
@@ -83,14 +102,14 @@ export function Range() {
         <div className={s.rows}>
           {items.map((it, i) => (
             <Rise key={it.name} delay={i * 0.06}>
-              <Link href={`/${locale}/products`} className={s.row}>
+              <Link href={`/${locale}/products`} className={`${s.row} ${i % 2 ? s.rowAlt : ''}`}>
                 <h3 className={s.rowName}>{it.name}</h3>
                 <div className={s.rowText}>
                   <p>{it.text}</p>
                   <small>{it.brands}</small>
                 </div>
                 <div className={s.thumb}>
-                  <Image src={fit(it.image)} alt="" fill sizes="132px" />
+                  <Image src={it.image} alt="" fill sizes="(max-width: 599px) 112px, (max-width: 1100px) 168px, 248px" />
                 </div>
               </Link>
             </Rise>

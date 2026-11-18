@@ -207,6 +207,7 @@
 }
 .brandLogo {
   position: relative;
+  display: block;
   height: 112px;
   background: #fff;
   overflow: hidden;

@@ -1004,7 +1004,8 @@
     "brands": {
       "title": "The makers your work already depends on.",
       "text": "Authorised dealer and distributor of the brands below, supplied from our own warehouse in Tirana.",
-      "all": "See every brand"
+      "all": "See every brand",
+      "opensSite": "opens their website in a new tab"
     },
     "range": {
       "title": "Everything a finish needs, from the first coat to the last.",
@@ -1014,25 +1015,25 @@
           "name": "Automotive refinishing",
           "text": "Basecoats, clearcoats, primers, fillers and abrasives for body shops.",
           "brands": "Standox · Cromax · Duxone · Roberlo",
-          "image": "/images/products/standox-k9510-easy.jpg"
+          "image": "/images/process/automotive.webp"
         },
         {
           "name": "Industrial coatings",
           "text": "Protective and decorative systems for metal, marine and heavy industry.",
           "brands": "Hempel · EP Vernici · Master DiChem",
-          "image": "/images/products/hempel-zinc-17360.jpg"
+          "image": "/images/process/industrial.webp"
         },
         {
           "name": "Wood and furniture finishing",
           "text": "Basecoats and topcoats for joinery and furniture makers.",
           "brands": "Sherwin-Williams",
-          "image": "/images/products/shw-wood-topcoat.jpg"
+          "image": "/images/process/wood.webp"
         },
         {
           "name": "Equipment and tools",
           "text": "Spray guns, sanders, compressors, induction heaters and workshop storage.",
           "brands": "SATA · Rupes · Mirka · FIAC · Telwin · JBM",
-          "image": "/images/products/mirka-abranet.jpg"
+          "image": "/images/process/equipment.webp"
         }
       ]
     },
@@ -1191,7 +1192,8 @@
         "industrial": "Industrial & wood",
         "sanding": "Sanding",
         "equipment": "Equipment & workshop"
-      }
+      },
+      "photoAlt": "Paint tins and supplies stacked on warehouse racking"
     },
     "brands": {
       "title": "The brands we carry.",
@@ -1211,7 +1213,8 @@
     "services": {
       "title": "Help that comes with the paint.",
       "listTitle": "What we do for workshops.",
-      "relatedBrands": "Brands involved"
+      "relatedBrands": "Brands involved",
+      "photoAlt": "A technician weighing tinter into a mixing cup on a scale"
     },
     "contact": {
       "title": "Call, write, or come by.",
