@@ -1,21 +1,27 @@
 "use client";
 import dynamic from 'next/dynamic';
+import { preload } from 'react-dom';
 import ErrorBoundary from './ErrorBoundary';
+import HeroLoader, { HERO_SECTION_CLASS } from './HeroLoader';
 
-const Hero3DNoSSR = dynamic(() => import('./Hero3D'), {
+// The loader renders with the page; the 3D scene streams in behind it.
+const HeroScene = dynamic(() => import('./HeroScene'), {
   ssr: false,
-  loading: () => null,
+  loading: () => (
+    <section className={HERO_SECTION_CLASS}>
+      <HeroLoader />
+    </section>
+  ),
 });
 
 export default function HeroDynamicWrapper() {
-  // Remove auto-reload logic as it's causing issues for new users
-  // The improved Hero3D component now has better loading reliability
+  // Start downloading the scene's assets in parallel with its code, instead of after it.
+  preload('/models/spray_gun.opt.glb', { as: 'fetch', crossOrigin: 'anonymous' });
+  preload('/models/millocolor-wordmark.svg', { as: 'fetch', crossOrigin: 'anonymous' });
 
   return (
-    <ErrorBoundary posterSrc="/hero-background.jpg">
-      <div data-hero-section>
-        <Hero3DNoSSR />
-      </div>
+    <ErrorBoundary posterSrc="">
+      <HeroScene />
     </ErrorBoundary>
   );
 }

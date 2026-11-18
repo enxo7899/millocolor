@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/site/SiteHeader';
+import Footer from './components/site/SiteFooter';
 import { ThemeProvider } from './components/ThemeProvider';
 import Script from 'next/script';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -82,6 +82,9 @@ export default async function RootLayout({
 
   return (
     <>
+      {/* the root <html> is shared by both locales; set its language as soon as the page is parsed
+          (locale is validated against the supported list above) */}
+      <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(locale)}` }} />
       <NextIntlClientProvider locale={locale} messages={messages}>
         <ThemeProvider>
           <Header />
