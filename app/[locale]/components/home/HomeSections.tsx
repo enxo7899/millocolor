@@ -45,7 +45,7 @@ const Marks = () => (
 interface RangeItem { name: string; text: string; brands: string; image: string }
 interface ShelfItem { brand: string; name: string; tag: string; image: string }
 interface ServiceItem { name: string; text: string }
-interface PlaceItem { city: string; name: string; address: string; image: string }
+interface PlaceItem { city: string; name: string; address: string; image: string; focus?: string }
 
 export function BrandWall() {
   const t = useTranslations('home.brands');
@@ -198,7 +198,7 @@ export function Places() {
             <div key={it.name} className={s.place}>
               <Wipe delay={i * 0.12}>
                 <div className={s.placeImg}>
-                  <Image src={it.image} alt={`${it.name}, ${it.city}`} fill sizes="(max-width: 1100px) 46vw, 22vw" />
+                  <Image src={it.image} alt={`${it.name}, ${it.city}`} fill sizes="(max-width: 1100px) 46vw, 22vw" style={{ objectPosition: it.focus }} />
                 </div>
               </Wipe>
               <Rise delay={0.1 + i * 0.12}>

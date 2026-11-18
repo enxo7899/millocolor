@@ -1149,25 +1149,29 @@
           "city": "Tiranë",
           "name": "Selia kryesore",
           "address": "Tiranë–Durrës km 8",
-          "image": "/images/buildings/tirana_hq.jpg"
+          "image": "/images/buildings/enhanced/tirana_hq.webp",
+          "focus": "60% 50%"
         },
         {
           "city": "Tiranë",
           "name": "Njësia Tiranë",
           "address": "Rruga Teodor Keko, Unaza e Re",
-          "image": "/images/buildings/tirana.jpg"
+          "image": "/images/buildings/enhanced/tirana.webp",
+          "focus": "62% 50%"
         },
         {
           "city": "Elbasan",
           "name": "Njësia Elbasan",
           "address": "Rruga Kombëtare Elbasan–Korçë, 800 m nga kryqëzimi i Cërrikut",
-          "image": "/images/buildings/elbasan.jpg"
+          "image": "/images/buildings/enhanced/elbasan.webp",
+          "focus": "78% 50%"
         },
         {
           "city": "Prishtinë",
           "name": "Njësia Prishtinë",
           "address": "Magjistralja Prishtinë–Ferizaj, km 5",
-          "image": "/images/buildings/pristina.jpg"
+          "image": "/images/buildings/enhanced/pristina.webp",
+          "focus": "50% 50%"
         }
       ],
       "label": "Vendndodhjet"

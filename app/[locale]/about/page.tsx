@@ -30,7 +30,7 @@ export default function AboutPage() {
           <Wipe>
             <div className={p.heroPhoto}>
               <Image
-                src="/images/buildings/tirana_hq.jpg"
+                src="/images/buildings/enhanced/tirana_hq.webp"
                 alt="Millocolor headquarters, Tiranë–Durrës km 8"
                 fill
                 priority

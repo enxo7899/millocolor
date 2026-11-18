@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { displayFont } from '../home/font';
 import { Rise } from '../home/Reveal';
 import h from '../home/home.module.css';
@@ -27,6 +27,16 @@ export function PageShell({ children }: { children: ReactNode }) {
 
 type Field = 'dark' | 'bone' | 'blue' | 'red';
 
+/**
+ * Caps in the display face run up to ~0.9em per letter, so the title's longest word must fit
+ * in 112/n % of its column (cqi). Short-worded titles keep the full size; a long word
+ * such as Albanian PROFESIONISTËVE scales the whole title down instead of running under the photo.
+ */
+const fitTitle = (title: string) => {
+  const longest = Math.max(...title.split(/\s+/).map((w) => w.length));
+  return { '--fit': `${Math.min(12.6, 112 / longest).toFixed(2)}cqi` } as CSSProperties;
+};
+
 /** The opening panel of an inner page: its own colour field, the title, and one supporting element. */
 export function PageHero({
   field = 'dark',
@@ -47,7 +57,7 @@ export function PageHero({
       <div className={h.wrap}>
         <div className={`${p.heroGrid} ${aside ? '' : p.heroSolo}`}>
           <div className={p.heroText}>
-            <Rise><h1 className={p.h1}>{title}</h1></Rise>
+            <Rise><h1 className={p.h1} style={fitTitle(title)}>{title}</h1></Rise>
             {lead && <Rise delay={0.08}><p className={h.lead}>{lead}</p></Rise>}
             {foot && <Rise delay={0.14}>{foot}</Rise>}
           </div>
